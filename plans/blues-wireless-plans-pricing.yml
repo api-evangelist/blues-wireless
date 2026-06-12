@@ -1,0 +1,143 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+provider: Blues
+providerId: blues-wireless
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+url: https://blues.com/pricing/
+plans:
+  - name: Essentials
+    description: >-
+      Consumption-based plan for prototyping and deployments under 500 devices.
+      Each Notecard hardware purchase includes a bundled free monthly event
+      allowance. Designed for individual developers, startups, and small-scale
+      deployments.
+    type: freemium
+    url: https://blues.com/pricing/
+    quotas:
+      - name: Free Monthly Events
+        description: >-
+          5,000 events per month included free with each Blues billing account.
+          Platform events (geolocation, sessions, logs) are always free and do
+          not count against this quota.
+        type: quota
+        metric: events_per_month
+        limit: 5000
+        timeFrame: monthly
+        price: 0.00
+        currency: USD
+      - name: Additional Events
+        description: >-
+          Pay-as-you-go rate for events beyond the free monthly allowance.
+          Additional events can be purchased via the Notehub dashboard or
+          configured for auto-recharge.
+        type: metered
+        metric: events_ingressed
+        limit: unlimited
+        timeFrame: per_event
+        price: 0.000750
+        currency: USD
+      - name: API Rate Limit
+        description: >-
+          7 Notehub API requests per minute (up to 10,200 per day) per billing
+          account, free of charge.
+        type: quota
+        metric: api_requests_per_minute
+        limit: 7
+        timeFrame: per_minute
+        price: 0.00
+        currency: USD
+      - name: Daily API Requests
+        description: Up to 10,200 Notehub API requests per day per billing account.
+        type: quota
+        metric: api_requests_per_day
+        limit: 10200
+        timeFrame: daily
+        price: 0.00
+        currency: USD
+    features:
+      - name: Notehub Access
+        description: Access to Notehub cloud platform for device and fleet management
+        type: boolean
+        value: true
+      - name: Egress Routing
+        description: Egress to multiple downstream destinations included
+        type: boolean
+        value: true
+      - name: Geolocation Tagging
+        description: Geolocation tagging on all events
+        type: boolean
+        value: true
+      - name: Platform Events
+        description: Platform events (geolocation, sessions, logs) always free
+        type: boolean
+        value: true
+      - name: Support
+        description: Forum, email, and dedicated portal with 3 business day response
+        type: boolean
+        value: true
+  - name: Enterprise
+    description: >-
+      Volume plan for deployments of 500+ devices requiring higher throughput,
+      dedicated support, and custom pricing commitments. Requires multi-year
+      agreements with upfront event capacity commitments for price protection.
+    type: enterprise
+    url: https://blues.com/pricing/
+    quotas:
+      - name: Minimum Monthly Commitment
+        description: >-
+          Enterprise plans start at $1,000/month minimum with 50% or more
+          savings off the Essentials per-event rate.
+        type: quota
+        metric: monthly_minimum
+        limit: null
+        timeFrame: monthly
+        price: 1000.00
+        currency: USD
+      - name: API Rate Limits
+        description: Higher API rate limits available on Enterprise plans beyond the standard 7 req/min.
+        type: quota
+        metric: api_requests_per_minute
+        limit: custom
+        timeFrame: per_minute
+        price: null
+        currency: USD
+    features:
+      - name: Volume Discounts
+        description: 50% or more off Essentials per-event rate
+        type: boolean
+        value: true
+      - name: Dedicated Support
+        description: 4-hour response time with dedicated technical account manager
+        type: boolean
+        value: true
+      - name: Solution Architecture
+        description: Solution architecture consultation and fleet configuration support
+        type: boolean
+        value: true
+      - name: Price Protection
+        description: Price protection throughout multi-year agreement term
+        type: boolean
+        value: true
+      - name: Custom API Rate Limits
+        description: Higher API rate limits available beyond standard Essentials limits
+        type: boolean
+        value: true
+additionalCosts:
+  - name: Connectivity Assurance (North America)
+    description: >-
+      When a Notecard reaches 100MB remaining data, Connectivity Assurance adds
+      500MB of data valid for up to 10 years from date added.
+    price: 10.00
+    currency: USD
+    unit: per 500MB block
+    region: North America
+  - name: Connectivity Assurance (International)
+    description: >-
+      When a Notecard reaches 100MB remaining data, Connectivity Assurance adds
+      500MB of data for international Notecards.
+    price: 15.00
+    currency: USD
+    unit: per 500MB block
+    region: International

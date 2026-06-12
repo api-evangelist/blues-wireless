@@ -1,0 +1,71 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+provider: Blues
+providerId: blues-wireless
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+url: https://dev.blues.io/api-reference/notehub-api/api-introduction/
+headers:
+  retryAfter: true
+  retryAfterHeader: Retry-After
+  rateLimitRemaining: false
+  rateLimitReset: false
+responseCodes:
+  throttled: 429
+  success: 200
+  unauthorized: 401
+limits:
+  - name: Per-Minute API Request Limit (Essentials)
+    description: >-
+      7 Notehub API requests per minute per billing account on the Essentials
+      (free) plan. Applies globally across all API endpoints for a billing
+      account.
+    scope: billing_account
+    metric: api_requests
+    limit: 7
+    timeFrame: per_minute
+    plan: Essentials
+  - name: Daily API Request Limit (Essentials)
+    description: >-
+      Up to 10,200 Notehub API requests per day per billing account, free of
+      charge, on the Essentials plan. Combines with per-minute limit.
+    scope: billing_account
+    metric: api_requests
+    limit: 10200
+    timeFrame: daily
+    plan: Essentials
+  - name: Per-Minute API Request Limit (Enterprise)
+    description: >-
+      Higher API request rate limits available for Enterprise plan customers.
+      Specific limits are negotiated as part of the Enterprise agreement.
+    scope: billing_account
+    metric: api_requests
+    limit: custom
+    timeFrame: per_minute
+    plan: Enterprise
+authentication:
+  - type: PersonalAccessToken
+    description: >-
+      User-level Personal Access Tokens (PATs) created in the Notehub UI.
+      Sent via Authorization Bearer header. Configurable expiration, can be
+      suspended or revoked individually. Recommended for new integrations.
+    header: Authorization
+    scheme: Bearer
+    recommended: true
+  - type: OAuth2ClientCredentials
+    description: >-
+      Project-level OAuth 2.0 client credentials flow. Tokens obtained via
+      POST /oauth2/token endpoint with client_id and client_secret. Tokens
+      expire after 30 minutes (1800 seconds).
+    endpoint: https://api.notefile.net/oauth2/token
+    tokenExpiry: 1800
+    grantType: client_credentials
+    recommended: false
+  - type: SessionToken
+    description: >-
+      Legacy username/password authentication via POST /auth/login returning
+      a session_token. Not recommended for new integrations.
+    endpoint: https://api.notefile.net/auth/login
+    recommended: false
+baseURL: https://api.notefile.net

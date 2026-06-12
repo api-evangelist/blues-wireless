@@ -1,0 +1,127 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+provider: Blues
+providerId: blues-wireless
+created: '2026-06-12'
+modified: '2026-06-12'
+reconciled: true
+url: https://blues.com/pricing/
+billingModel:
+  type: consumption
+  description: >-
+    Blues uses a consumption-based pricing model with no monthly subscription
+    fees. Costs are driven by the number of events ingressed into Notehub
+    beyond the free monthly allowance. Each Notecard hardware purchase includes
+    bundled connectivity; ongoing cloud usage is metered per event.
+  currency: USD
+  billingCycle: monthly
+  freeAllowance:
+    metric: events_per_month
+    amount: 5000
+    notes: >-
+      5,000 events/month included per billing account. Platform events
+      (geolocation, sessions, logs) are always free and do not consume quota.
+focusColumns:
+  - name: ChargeCategory
+    description: Direct cost for event ingression beyond free allowance
+    values:
+      - Usage
+      - Purchase
+  - name: ServiceName
+    value: Notehub
+  - name: ServiceCategory
+    value: IoT Platform
+  - name: ResourceType
+    values:
+      - Event
+      - ConnectivityAssurance
+  - name: PricingUnit
+    values:
+      - Event
+      - 500MB Data Block
+  - name: BillingAccountId
+    description: Blues billing account identifier used for rate limit and quota scoping
+  - name: Region
+    values:
+      - North America
+      - International
+meters:
+  - name: Events Ingressed
+    description: >-
+      Count of data events ingressed into Notehub from Notecard devices,
+      excluding platform events which are always free.
+    unit: event
+    freeAllowance: 5000
+    freeAllowancePeriod: monthly
+    rates:
+      - plan: Essentials
+        pricePerUnit: 0.000750
+        currency: USD
+        unitDescription: per event beyond free allowance
+      - plan: Enterprise
+        pricePerUnit: custom
+        currency: USD
+        unitDescription: negotiated per-event rate, 50%+ discount off Essentials
+  - name: Connectivity Assurance Data Top-Up
+    description: >-
+      Additional cellular data added automatically when a Notecard's bundled
+      data reaches 100MB remaining. Added in 500MB blocks valid for up to
+      10 years.
+    unit: 500MB block
+    rates:
+      - region: North America
+        pricePerUnit: 10.00
+        currency: USD
+      - region: International
+        pricePerUnit: 15.00
+        currency: USD
+  - name: API Requests
+    description: >-
+      Notehub REST API requests per billing account. Up to 10,200/day
+      (7/minute) included free. Enterprise plans include higher limits.
+    unit: request
+    freeAllowance: 10200
+    freeAllowancePeriod: daily
+    rates:
+      - plan: Essentials
+        pricePerUnit: 0.00
+        currency: USD
+        notes: Free up to 10,200/day (7/min)
+      - plan: Enterprise
+        pricePerUnit: custom
+        currency: USD
+principles:
+  - name: Visibility
+    description: >-
+      Blues provides a Notehub Usage API and dashboard for monitoring event
+      consumption and API usage per billing account. Developers can track
+      ingressed events, view billing history, and set up auto-recharge
+      thresholds to maintain visibility into spend.
+    capabilities:
+      - UsageAPI
+      - NotehubDashboard
+      - BillingAccountDashboard
+      - AutoRechargeAlerts
+  - name: Optimization
+    description: >-
+      Blues pricing incentivizes efficient IoT data design. Developers can
+      reduce costs by batching notes before transmission, leveraging platform
+      events (always free), and right-sizing event frequency for their use
+      case. Enterprise customers receive 50%+ volume discounts for large fleets.
+    strategies:
+      - BatchEventTransmission
+      - UsePlatformEventsForMetadata
+      - RightSizeTransmissionFrequency
+      - EnterpriseVolumeDiscounts
+      - AutoRechargeThresholdManagement
+  - name: Accountability
+    description: >-
+      Costs are scoped to billing accounts, enabling teams to track and
+      attribute IoT connectivity costs to specific projects or product lines.
+      The Notehub Billing Account API provides programmatic access to usage
+      and billing data for FinOps reporting and chargeback workflows.
+    capabilities:
+      - BillingAccountAPI
+      - PerProjectEventTracking
+      - UsageExportJSON
+      - UsageExportCSV

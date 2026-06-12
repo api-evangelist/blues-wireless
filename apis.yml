@@ -1,0 +1,107 @@
+aid: blues-wireless
+name: Blues
+description: >-
+  Blues (formerly Blues Wireless) is an IoT connectivity platform that provides
+  hardware modules called Notecards and a cloud service called Notehub for
+  routing device data from edge devices to cloud applications. The Notehub REST
+  API enables developers to manage fleets of cellular, satellite, LoRa, and
+  Wi-Fi connected devices across 130+ countries. Developers can use the API to
+  retrieve device events, manage projects and fleets, configure routes to
+  downstream cloud services, and monitor device health. Blues follows a
+  consumption-based pricing model with no subscription fees, charging per
+  ingressed event beyond a free monthly allowance bundled with each Notecard
+  hardware purchase.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - IoT
+  - Cellular
+  - Connectivity
+  - Device Management
+  - Fleet Management
+  - Satellite
+  - LoRa
+  - WiFi
+  - Notecard
+  - Notehub
+url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/apis.yml
+created: '2026-06-12'
+modified: '2026-06-12'
+specificationVersion: '0.19'
+apis:
+  - aid: blues-wireless-notehub-api
+    name: Notehub API
+    description: >-
+      The Notehub REST API provides programmatic access to Blues Notehub
+      for managing IoT device fleets, routing events, configuring projects,
+      monitoring device health, and handling billing. It covers authorization,
+      billing accounts, devices, events, jobs, monitoring, organizations,
+      projects, routes, and usage reporting.
+    humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
+    baseURL: https://api.notefile.net
+    tags:
+      - IoT
+      - Device Management
+      - Fleet Management
+      - Event Routing
+    properties:
+      - type: Documentation
+        url: https://dev.blues.io/api-reference/notehub-api/api-introduction/
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/blues/notehub-js/main/openapi.yaml
+      - type: PostmanCollection
+        url: https://www.postman.com/blues-wireless
+    contact:
+      - FN: Blues Engineering
+        email: engineering@blues.io
+        url: https://dev.blues.io/support/
+  - aid: blues-wireless-notecard-api
+    name: Notecard API
+    description: >-
+      The Notecard API is the firmware-level JSON API for interacting with Blues
+      Notecard hardware modules directly over serial or I2C. It supports card,
+      dfu, env, file, hub, note, ntn, var, and web request categories for
+      configuring and communicating with Notecard devices from host
+      microcontrollers.
+    humanURL: https://dev.blues.io/api-reference/notecard-api/introduction/
+    baseURL: https://api.notefile.net
+    tags:
+      - IoT
+      - Embedded
+      - Firmware
+      - Notecard
+    properties:
+      - type: Documentation
+        url: https://dev.blues.io/api-reference/notecard-api/introduction/
+common:
+  - type: Website
+    url: https://blues.com
+  - type: DeveloperPortal
+    url: https://dev.blues.io
+  - type: Documentation
+    url: https://dev.blues.io/api-reference/
+  - type: GitHubOrganization
+    url: https://github.com/blues
+  - type: Blog
+    url: https://dev.blues.io/blog/
+  - type: Changelog
+    url: https://dev.blues.io/blog/whats-new-in-notehub/
+  - type: Pricing
+    url: https://blues.com/pricing/
+  - type: StatusPage
+    url: https://status.notehub.io
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/buildwithblues
+  - type: X
+    url: https://twitter.com/buildwithblues
+  - type: SDKs
+    url: https://blues.github.io/opensource/
+  - type: Plans
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/plans/blues-wireless-plans-pricing.yml
+  - type: RateLimits
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/rate-limits/blues-wireless-rate-limits.yml
+  - type: FinOps
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/finops/blues-wireless-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
