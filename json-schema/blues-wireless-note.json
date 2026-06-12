@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "body": {
+      "description": "Arbitrary user-defined JSON for the note.",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "edge": {
+      "description": "True if originated from an edge source.",
+      "type": "boolean"
+    },
+    "id": {
+      "description": "Note name/identifier (e.g., \"1:435\", \"my_note\").",
+      "type": "string"
+    },
+    "payload": {
+      "description": "Optional base64-encoded payload.",
+      "type": "string",
+      "format": "byte"
+    },
+    "pending": {
+      "description": "True if the note is pending delivery or processing.",
+      "type": "boolean"
+    },
+    "time": {
+      "description": "Unix epoch seconds.",
+      "type": "integer",
+      "format": "int64"
+    },
+    "where": {
+      "description": "Optional location/metadata string.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "body",
+    "time"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Note"
+}

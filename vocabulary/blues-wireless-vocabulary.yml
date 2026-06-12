@@ -1,0 +1,146 @@
+vocabulary:
+  - term: Notecard
+    definition: >-
+      A Blues hardware module that provides cellular, satellite, LoRa, or Wi-Fi
+      connectivity for IoT edge devices. Communicates with host microcontrollers
+      over serial or I2C using a JSON request/response API.
+    tags:
+      - hardware
+      - IoT
+      - connectivity
+
+  - term: Notehub
+    definition: >-
+      Blues' cloud service for routing data from Notecards to cloud applications.
+      Provides the Notehub REST API for managing projects, fleets, devices,
+      events, and routes.
+    tags:
+      - cloud
+      - IoT
+      - platform
+
+  - term: Note
+    definition: >-
+      A JSON data payload sent from a Notecard to Notehub or vice versa. Notes
+      are stored in Notefiles and can contain arbitrary application data plus
+      optional metadata such as GPS location and cell tower info.
+    tags:
+      - data
+      - event
+      - payload
+
+  - term: Notefile
+    definition: >-
+      A named file on a Notecard or in Notehub that holds a collection of Notes.
+      Notefiles are identified by a name and optional direction suffix (e.g.,
+      data.qo for outbound sensor data).
+    tags:
+      - storage
+      - data
+
+  - term: Fleet
+    definition: >-
+      A logical grouping of devices within a Notehub project. Fleets allow
+      operators to apply shared environment variables, route configurations,
+      and firmware updates to sets of devices.
+    tags:
+      - device-management
+      - fleet
+
+  - term: Project
+    definition: >-
+      The top-level organizational unit in Notehub. A project contains devices,
+      fleets, routes, firmware, environment variables, and billing configuration.
+    tags:
+      - organization
+      - management
+
+  - term: Route
+    definition: >-
+      A Notehub configuration that forwards incoming events or notes to an
+      external service such as HTTP endpoints, AWS, Azure, Google Cloud, MQTT
+      brokers, Slack, or Snowflake.
+    tags:
+      - routing
+      - integration
+      - event
+
+  - term: Event
+    definition: >-
+      A data record ingested by Notehub from a Notecard. Events carry the Note
+      payload, device metadata, timestamps, and optional routing logs.
+    tags:
+      - data
+      - telemetry
+      - ingestion
+
+  - term: Environment Variable
+    definition: >-
+      A key-value configuration value that can be set at the project, fleet,
+      or device level in Notehub and delivered to Notecards and host applications
+      over-the-air.
+    tags:
+      - configuration
+      - OTA
+
+  - term: DFU
+    definition: >-
+      Device Firmware Update. Blues' mechanism for pushing firmware updates
+      over the air to Notecard devices and host microcontrollers connected to
+      Notecards, managed via the Notehub API.
+    tags:
+      - firmware
+      - OTA
+      - update
+
+  - term: Monitor
+    definition: >-
+      A Notehub alerting rule that triggers notifications (email, Slack) when
+      device health metrics or event data match defined threshold conditions.
+    tags:
+      - alerting
+      - monitoring
+      - operations
+
+  - term: Job
+    definition: >-
+      A background batch operation in Notehub that can be scheduled or triggered
+      on demand to perform actions across multiple devices or fleet members.
+    tags:
+      - automation
+      - batch
+
+  - term: ProductUID
+    definition: >-
+      A unique identifier assigned to a Blues product (a grouping of devices
+      sharing firmware and configuration). Used in API paths to scope operations.
+    tags:
+      - identifier
+      - product
+
+  - term: DeviceUID
+    definition: >-
+      A globally unique identifier assigned to each Notecard hardware module
+      at manufacture. Used in API paths to target individual devices.
+    tags:
+      - identifier
+      - device
+
+  - term: Session Token
+    definition: >-
+      A short-lived bearer token returned by the /auth/login endpoint, used to
+      authenticate subsequent Notehub REST API requests via the Authorization
+      header.
+    tags:
+      - authentication
+      - security
+
+  - term: OAuth2
+    definition: >-
+      Blues' preferred authentication flow for server-to-server integrations.
+      The /oauth2/token endpoint issues access tokens using the client_credentials
+      grant type.
+    tags:
+      - authentication
+      - security
+      - OAuth2

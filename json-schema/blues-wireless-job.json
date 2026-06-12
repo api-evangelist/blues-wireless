@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "created": {
+      "description": "Unix timestamp when job was created",
+      "type": "integer",
+      "format": "int64"
+    },
+    "created_by": {
+      "description": "User who created the job",
+      "type": "string"
+    },
+    "job_uid": {
+      "description": "Unique identifier for the job",
+      "type": "string"
+    },
+    "last_run_completed": {
+      "description": "Unix timestamp when the most recent run completed (0 if still in progress)",
+      "type": "integer",
+      "format": "int64",
+      "example": 1775252922
+    },
+    "last_run_status": {
+      "description": "Status of the most recent job run. Terminal values are: \"submitted\", \"completed successfully\", \"dry run completed successfully\", \"completed with errors\", \"cancelled\". While a job is running, intermediate per-device progress updates may appear (e.g. \"dev:000000000000000 completed\", \"dev:000000000000000 updated: ...\").",
+      "type": "string",
+      "example": "dry run completed successfully"
+    },
+    "last_run_submitted": {
+      "description": "Unix timestamp when the most recent run was submitted",
+      "type": "integer",
+      "format": "int64",
+      "example": 1775252900
+    },
+    "name": {
+      "description": "Human-readable job name",
+      "type": "string"
+    }
+  },
+  "required": [
+    "job_uid",
+    "name",
+    "created",
+    "created_by"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Job"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "$ref": "#/components/schemas/BillingAccountRole"
+    },
+    "uid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "uid",
+    "name",
+    "role"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BillingAccount"
+}

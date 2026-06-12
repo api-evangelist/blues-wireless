@@ -1,0 +1,257 @@
+{
+  "type": "object",
+  "properties": {
+    "app": {
+      "description": "App UID (globally unique)",
+      "type": "string"
+    },
+    "bars": {
+      "description": "Bars. Only available on _session.qo events.",
+      "type": "number"
+    },
+    "best_country": {
+      "description": "Country",
+      "type": "string"
+    },
+    "best_id": {
+      "description": "The device serial number, or the DeviceUID if the serial number is not set",
+      "type": "string"
+    },
+    "best_lat": {
+      "description": "Latitude",
+      "type": "number",
+      "format": "double"
+    },
+    "best_location": {
+      "description": "Location",
+      "type": "string"
+    },
+    "best_location_type": {
+      "description": "One of \"gps\", \"triangulated\", or \"tower\"",
+      "type": "string"
+    },
+    "best_location_when": {
+      "description": "Unix timestamp",
+      "type": "number"
+    },
+    "best_lon": {
+      "description": "Longitude",
+      "type": "number",
+      "format": "double"
+    },
+    "best_timezone": {
+      "description": "Timezone",
+      "type": "string"
+    },
+    "body": {
+      "description": "A JSON object containing event details",
+      "type": "object"
+    },
+    "bssid": {
+      "description": "BSSID. Only available on _session.qo events.",
+      "type": "string"
+    },
+    "device": {
+      "description": "Device UID (globally unique)",
+      "type": "string"
+    },
+    "environment": {
+      "description": "Routed environment variables beginning with \"$\". Only available on _session.qo events.",
+      "type": "object"
+    },
+    "event": {
+      "description": "Event UID (globally unique)",
+      "type": "string"
+    },
+    "file": {
+      "description": "The notefile associated with this event",
+      "type": "string"
+    },
+    "moved": {
+      "description": "The number of times the device was sensed to have moved between the last session and this session. Only available on _session.qo events.",
+      "type": "number"
+    },
+    "note": {
+      "description": "The note ID in the notefile",
+      "type": "string"
+    },
+    "ordering_code": {
+      "description": "Ordering code. Only available on _session.qo events.",
+      "type": "string"
+    },
+    "orientation": {
+      "description": "The orientation of the device. Only available on _session.qo events.",
+      "type": "string"
+    },
+    "payload": {
+      "description": "A base64-encoded binary payload",
+      "type": "string"
+    },
+    "product": {
+      "description": "Product UID (globally unique)",
+      "type": "string"
+    },
+    "rat": {
+      "description": "Rat. Only available on _session.qo events.",
+      "type": "string"
+    },
+    "received": {
+      "description": "The unix timestamp when the event was received",
+      "type": "number",
+      "format": "double"
+    },
+    "req": {
+      "description": "The notecard request",
+      "type": "string"
+    },
+    "rsrp": {
+      "description": "RSRP. Only available on _session.qo events.",
+      "type": "number"
+    },
+    "rsrq": {
+      "description": "RSRQ. Only available on _session.qo events.",
+      "type": "number"
+    },
+    "rssi": {
+      "description": "Received Signal Strength Indicator (RSSI) is an estimated measurement of how well a device can receive signals. Only available on _session.qo events.",
+      "type": "number"
+    },
+    "session": {
+      "description": "Session UID (globally unique)",
+      "type": "string"
+    },
+    "sinr": {
+      "description": "SINR. Only available on _session.qo events.",
+      "type": "number"
+    },
+    "sku": {
+      "description": "SKU. Only available on _session.qo events.",
+      "type": "string"
+    },
+    "sn": {
+      "description": "The device serial number",
+      "type": "string"
+    },
+    "ssid": {
+      "description": "SSID. Only available on _session.qo events.",
+      "type": "string"
+    },
+    "temp": {
+      "description": "Device temperature. Only available on _session.qo events.",
+      "type": "number",
+      "format": "double"
+    },
+    "tls": {
+      "description": "Whether TLS was used on the connection between the device and notehub. Only available on _session.qo events.",
+      "type": "boolean"
+    },
+    "tower_country": {
+      "description": "Country",
+      "type": "string"
+    },
+    "tower_id": {
+      "description": "Tower ID",
+      "type": "string"
+    },
+    "tower_lat": {
+      "description": "Latitude",
+      "type": "number",
+      "format": "double"
+    },
+    "tower_location": {
+      "description": "Location",
+      "type": "string"
+    },
+    "tower_lon": {
+      "description": "Longitude",
+      "type": "number",
+      "format": "double"
+    },
+    "tower_timezone": {
+      "description": "Timezone",
+      "type": "string"
+    },
+    "tower_when": {
+      "description": "Unix timestamp",
+      "type": "number"
+    },
+    "transport": {
+      "description": "The transport used for this event, e.g., \"cellular\", \"wifi\", \", etc.",
+      "type": "string"
+    },
+    "tri_country": {
+      "description": "Country",
+      "type": "string"
+    },
+    "tri_lat": {
+      "description": "Latitude",
+      "type": "number",
+      "format": "double"
+    },
+    "tri_location": {
+      "description": "Location",
+      "type": "string"
+    },
+    "tri_lon": {
+      "description": "Longitude",
+      "type": "number",
+      "format": "double"
+    },
+    "tri_points": {
+      "description": "Triangulation points",
+      "type": "number"
+    },
+    "tri_timezone": {
+      "description": "Timezone",
+      "type": "string"
+    },
+    "tri_when": {
+      "description": "Unix timestamp",
+      "type": "number"
+    },
+    "updates": {
+      "type": "number"
+    },
+    "voltage": {
+      "description": "Device voltage. Only available on _session.qo events.",
+      "type": "number",
+      "format": "double"
+    },
+    "when": {
+      "description": "When the event was captured on the device",
+      "type": "number"
+    },
+    "where_country": {
+      "description": "Country",
+      "type": "string"
+    },
+    "where_lat": {
+      "description": "Latitude",
+      "type": "number",
+      "format": "double"
+    },
+    "where_location": {
+      "description": "Location",
+      "type": "string"
+    },
+    "where_lon": {
+      "description": "Longitude",
+      "type": "number",
+      "format": "double"
+    },
+    "where_olc": {
+      "description": "Open Location Code",
+      "type": "string"
+    },
+    "where_timezone": {
+      "description": "Timezone",
+      "type": "string"
+    },
+    "where_when": {
+      "description": "Unix timestamp",
+      "type": "number"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Event"
+}

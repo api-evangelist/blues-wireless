@@ -1,0 +1,98 @@
+{
+  "type": "object",
+  "properties": {
+    "best_location": {
+      "$ref": "#/components/schemas/Location"
+    },
+    "cellular_usage": {
+      "$ref": "#/components/schemas/CellularUsage"
+    },
+    "contact": {
+      "$ref": "#/components/schemas/Contact"
+    },
+    "dfu": {
+      "$ref": "#/components/schemas/DFUEnv"
+    },
+    "disabled": {
+      "type": "boolean"
+    },
+    "firmware_host": {
+      "type": "string"
+    },
+    "firmware_notecard": {
+      "type": "string"
+    },
+    "fleet_uids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "gps_location": {
+      "$ref": "#/components/schemas/Location"
+    },
+    "last_activity": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "product_uid": {
+      "type": "string"
+    },
+    "provisioned": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "sku": {
+      "type": "string"
+    },
+    "temperature": {
+      "type": "number",
+      "format": "double"
+    },
+    "tower_info": {
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "cell_id": {
+          "type": "integer"
+        },
+        "lac": {
+          "type": "integer"
+        },
+        "mcc": {
+          "type": "integer"
+        },
+        "mnc": {
+          "type": "integer"
+        }
+      }
+    },
+    "tower_location": {
+      "$ref": "#/components/schemas/Location"
+    },
+    "triangulated_location": {
+      "$ref": "#/components/schemas/Location"
+    },
+    "uid": {
+      "type": "string"
+    },
+    "voltage": {
+      "type": "number",
+      "format": "double"
+    }
+  },
+  "required": [
+    "uid",
+    "provisioned",
+    "product_uid",
+    "fleet_uids",
+    "voltage",
+    "temperature"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Device"
+}

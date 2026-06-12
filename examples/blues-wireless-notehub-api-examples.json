@@ -1,0 +1,242 @@
+{
+  "Login_request": {
+    "operationId": "Login",
+    "path": "/auth/login",
+    "method": "post",
+    "type": "request",
+    "contentType": "application/json",
+    "example": {
+      "password": "test-password",
+      "username": "name@example.com"
+    }
+  },
+  "OAuth2ClientCredentials_200_response": {
+    "operationId": "OAuth2ClientCredentials",
+    "path": "/oauth2/token",
+    "method": "post",
+    "status": "200",
+    "type": "response",
+    "contentType": "application/json",
+    "example": {
+      "access_token": "7VEVIiNVr_Q_eqjWpddz18qmYVWVgKHtlYsuoYzS7v0.3BUMglZCKBF1Swz0WLQQ9-DgSBtkroKbpXmF1sJ-NE0",
+      "expires_in": 1800,
+      "scope": "openid",
+      "token_type": "bearer"
+    }
+  },
+  "OAuth2ClientCredentials_400_response": {
+    "operationId": "OAuth2ClientCredentials",
+    "path": "/oauth2/token",
+    "method": "post",
+    "status": "400",
+    "type": "response",
+    "contentType": "application/json",
+    "example": {
+      "error": "invalid_request",
+      "error_description": "Missing parameter: client_id"
+    }
+  },
+  "OAuth2ClientCredentials_401_response": {
+    "operationId": "OAuth2ClientCredentials",
+    "path": "/oauth2/token",
+    "method": "post",
+    "status": "401",
+    "type": "response",
+    "contentType": "application/json",
+    "example": {
+      "error": "invalid_client",
+      "error_description": "Client authentication failed"
+    }
+  },
+  "OAuth2ClientCredentials_403_response": {
+    "operationId": "OAuth2ClientCredentials",
+    "path": "/oauth2/token",
+    "method": "post",
+    "status": "403",
+    "type": "response",
+    "contentType": "application/json",
+    "example": {
+      "error": "invalid_scope",
+      "error_description": "Requested scope is invalid"
+    }
+  },
+  "CreateLegacyWebhookEvent_request": {
+    "operationId": "CreateLegacyWebhookEvent",
+    "path": "/v1/products/{productUID}/devices/{deviceUID}/webhook-event",
+    "method": "post",
+    "type": "request",
+    "contentType": "application/json",
+    "example": {
+      "body": {
+        "key": "value"
+      },
+      "file": "data.qo",
+      "payload": "SGVsbG8sIFdvcmxkIQ=="
+    }
+  },
+  "UpdateWebhookSettingsByProduct_request": {
+    "operationId": "UpdateWebhookSettingsByProduct",
+    "path": "/v1/products/{productUID}/webhooks/{webhookUID}/settings",
+    "method": "put",
+    "type": "request",
+    "contentType": "application/json",
+    "example": {
+      "disabled": false,
+      "transform": "{\"device\":body.end_device_ids.dev_eui,\"sn\":body.end_device_ids.device_id,\"body\":body.uplink_message.decoded_payload,\"details\":body}"
+    }
+  },
+  "GetRoutes_200_response": {
+    "operationId": "GetRoutes",
+    "path": "/v1/projects/{projectOrProductUID}/routes",
+    "method": "get",
+    "status": "200",
+    "type": "response",
+    "contentType": "application/json",
+    "example": [
+      {
+        "disabled": false,
+        "label": "success route",
+        "modified": "2020-03-09T17:58:37Z",
+        "type": "http",
+        "uid": "route:8d65a087d5d290ce5bdf03aeff2becc0"
+      },
+      {
+        "disabled": false,
+        "label": "failing route",
+        "modified": "2020-03-09T17:59:15Z",
+        "type": "http",
+        "uid": "route:a9eaad31d5cee8d01a42762f71fb777a"
+      },
+      {
+        "disabled": true,
+        "label": "disabled route",
+        "modified": "2020-03-09T17:59:44Z",
+        "type": "http",
+        "uid": "route:02ddc0e6e236c2a7e482da62047229ad"
+      },
+      {
+        "disabled": false,
+        "label": "Proxy Route",
+        "modified": "2020-03-09T17:58:36Z",
+        "type": "proxy",
+        "uid": "route:0ac565deb7b478a250bb82348b9cfdd4"
+      },
+      {
+        "disabled": false,
+        "label": "Myjsonlive Webtest",
+        "modified": "2020-03-09T17:58:35Z",
+        "type": "proxy",
+        "uid": "route:fb1b9e0aba1bf030311ba2c3c1e3efd7"
+      },
+      {
+        "disabled": false,
+        "label": "Myjsonlive Echo",
+        "modified": "2020-03-09T17:58:34Z",
+        "type": "proxy",
+        "uid": "route:7804818f84a3be6193e14d804fe7fca7"
+      }
+    ]
+  },
+  "CreateRoute_201_response": {
+    "operationId": "CreateRoute",
+    "path": "/v1/projects/{projectOrProductUID}/routes",
+    "method": "post",
+    "status": "201",
+    "type": "response",
+    "contentType": "application/json",
+    "example": {
+      "disabled": "false",
+      "http": {
+        "disable_http_headers": false,
+        "filter": {
+          "system_notefiles": false,
+          "type": ""
+        },
+        "fleets": [
+          "fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d"
+        ],
+        "http_headers": null,
+        "throttle_ms": 100,
+        "timeout": 0,
+        "transform": {},
+        "url": "http://route.url"
+      },
+      "label": "Route Label",
+      "modified": "2020-03-09T17:59:44Z",
+      "type": "http",
+      "uid": "route:8d65a087d5d290ce5bdf03aeff2becc0"
+    }
+  },
+  "GetRoute_200_response": {
+    "operationId": "GetRoute",
+    "path": "/v1/projects/{projectOrProductUID}/routes/{routeUID}",
+    "method": "get",
+    "status": "200",
+    "type": "response",
+    "contentType": "application/json",
+    "example": {
+      "disabled": "false",
+      "http": {
+        "disable_http_headers": false,
+        "filter": {
+          "system_notefiles": false,
+          "type": ""
+        },
+        "fleets": [
+          "fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d"
+        ],
+        "http_headers": null,
+        "throttle_ms": 100,
+        "timeout": 0,
+        "transform": {},
+        "url": "http://route.url"
+      },
+      "label": "Route Label",
+      "modified": "2020-03-09T17:59:44Z",
+      "type": "http",
+      "uid": "route:8d65a087d5d290ce5bdf03aeff2becc0"
+    }
+  },
+  "UpdateRoute_request": {
+    "operationId": "UpdateRoute",
+    "path": "/v1/projects/{projectOrProductUID}/routes/{routeUID}",
+    "method": "put",
+    "type": "request",
+    "contentType": "application/json",
+    "example": "{\n  \"http\" {\n    \"filter\": {\n      \"type\": \"include\",\n      \"system_notefiles\": true,\n      \"files\": [\"somefile.qo\"],\n    },\n    \"throttle_ms\": 50,\n    \"url\": \"http://new-route.url\",\n  },\n}\n"
+  },
+  "UpdateRoute_200_response": {
+    "operationId": "UpdateRoute",
+    "path": "/v1/projects/{projectOrProductUID}/routes/{routeUID}",
+    "method": "put",
+    "status": "200",
+    "type": "response",
+    "contentType": "application/json",
+    "example": "{\n  \"uid\": \"route:8d65a087d5d290ce5bdf03aeff2becc0\",\n  \"label\": \"Route Label\",\n  \"type\": \"http\",\n  \"modified\": \"2020-03-09T17:59:44Z\",\n  \"disabled\": \"false\",\n  \"http\":\n    {\n    \"fleets\": [\"fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d\"],\n    \"filter\": {\n      \"type\": \"include\",\n      \"system_notefiles\": true,\n      \"files\": [\"somefile.qo\"],\n    },\n  \"transform\": {},\n  \"throttle_ms\": 50,\n  \"url\": \"http://new-route.url\",\n  \"http_headers\": null,\n  \"disable_http_headers\": false,\n  \"timeout\": 0\n}\n"
+  },
+  "CreateWebhook_request": {
+    "operationId": "CreateWebhook",
+    "path": "/v1/projects/{projectOrProductUID}/webhooks/{webhookUID}",
+    "method": "post",
+    "type": "request",
+    "contentType": "application/json",
+    "example": {
+      "settings": {
+        "disabled": false,
+        "id": "Abc_123-2646f411-dc56-44a0-9743-4130f47a74h8",
+        "transform": "{\"device\":body.end_device_ids.dev_eui,\"sn\":body.end_device_ids.device_id,\"body\":body.uplink_message.decoded_payload,\"details\":body}"
+      }
+    }
+  },
+  "UpdateWebhook_request": {
+    "operationId": "UpdateWebhook",
+    "path": "/v1/projects/{projectOrProductUID}/webhooks/{webhookUID}",
+    "method": "put",
+    "type": "request",
+    "contentType": "application/json",
+    "example": {
+      "disabled": false,
+      "transform": "{\"device\":body.end_device_ids.dev_eui,\"sn\":body.end_device_ids.device_id,\"body\":body.uplink_message.decoded_payload,\"details\":body}"
+    }
+  }
+}

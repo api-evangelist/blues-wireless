@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Notefile id (e.g., \"test.qi\", \"config.db\").",
+      "type": "string"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Note"
+      },
+      "minItems": 0
+    },
+    "template": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "notes"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Notefile"
+}

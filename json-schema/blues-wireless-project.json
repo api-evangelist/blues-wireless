@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "properties": {
+    "administrative_contact": {
+      "$ref": "#/components/schemas/Contact"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "label": {
+      "type": "string"
+    },
+    "role": {
+      "$ref": "#/components/schemas/Role"
+    },
+    "technical_contact": {
+      "$ref": "#/components/schemas/Contact"
+    },
+    "uid": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "uid",
+    "label",
+    "created"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Project"
+}

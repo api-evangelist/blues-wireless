@@ -1,0 +1,46 @@
+{
+  "type": "object",
+  "properties": {
+    "connectivity_assurance": {
+      "$ref": "#/components/schemas/FleetConnectivityAssurance"
+    },
+    "created": {
+      "description": "RFC3339 timestamp in UTC",
+      "type": "string",
+      "format": "date-time"
+    },
+    "environment_variables": {
+      "description": "The environment variables for this device that have been set using the Notehub API or UI.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "label": {
+      "description": "Fleet label",
+      "type": "string"
+    },
+    "smart_rule": {
+      "$ref": "#/components/schemas/FleetRule"
+    },
+    "smart_rule_enabled": {
+      "type": "boolean"
+    },
+    "uid": {
+      "description": "Fleet UID",
+      "type": "string"
+    },
+    "watchdog_mins": {
+      "description": "A watchdog timer is used to generate an event every N minutes of inactivity. 0 means no watchdog",
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "required": [
+    "uid",
+    "label",
+    "created"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fleet"
+}

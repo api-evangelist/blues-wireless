@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "disable_http_headers": {
+      "type": "boolean"
+    },
+    "filter": {
+      "$ref": "#/components/schemas/Filter"
+    },
+    "fleets": {
+      "description": "If non-empty, applies only to the listed fleets.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "http_headers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "throttle_ms": {
+      "type": "integer"
+    },
+    "timeout": {
+      "type": "integer"
+    },
+    "transform": {
+      "$ref": "#/components/schemas/RouteTransformSettings"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HttpRoute"
+}

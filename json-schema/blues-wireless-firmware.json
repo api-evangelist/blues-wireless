@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "builder": {
+      "type": "string"
+    },
+    "built": {
+      "type": "string"
+    },
+    "firmware": {
+      "type": "string"
+    },
+    "org": {
+      "type": "string"
+    },
+    "product": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "ver_build": {
+      "type": "integer"
+    },
+    "ver_major": {
+      "type": "integer"
+    },
+    "ver_minor": {
+      "type": "integer"
+    },
+    "ver_patch": {
+      "type": "integer"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "nullable": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Firmware"
+}
