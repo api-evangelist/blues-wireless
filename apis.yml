@@ -110,7 +110,7 @@ common:
     url: https://github.com/blues
   - type: Blog
     url: https://dev.blues.io/blog/
-  - type: Changelog
+  - type: ChangeLog
     url: https://dev.blues.io/blog/whats-new-in-notehub/
   - type: Pricing
     url: https://blues.com/pricing/

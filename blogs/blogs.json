@@ -2,6 +2,13 @@
   "repo": "blues-wireless",
   "feeds": [
     {
+      "source": "https://dev.blues.io/blog/feed.xml",
+      "feed_url": "https://dev.blues.io/blog/feed.xml",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "https://github.com/blues",
       "feed_url": "https://github.com/blues",
       "title": "",
@@ -10,5 +17,5 @@
     }
   ],
   "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T12:03:07Z"
 }
