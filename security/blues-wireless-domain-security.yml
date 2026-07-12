@@ -1,0 +1,32 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: blues.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 19 14:56:10 2026 GMT
+  hsts: false
+- host: dev.blues.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 10 23:59:59 2026 GMT
+  hsts: false
+- host: api.notefile.net
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 11 23:59:59 2026 GMT
+  hsts: null
+domains:
+- domain: blues.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: blues.io
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

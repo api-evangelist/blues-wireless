@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/blues-wireless-notehub-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: personalAccessToken
+  type: http
+  scheme: bearer
+  description: Use a personal access token from notehub.io/api-access
+  sources:
+  - openapi/blues-wireless-notehub-api-openapi.yml
