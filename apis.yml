@@ -100,6 +100,8 @@ apis:
       - type: Documentation
         url: https://dev.blues.io/api-reference/notecard-api/introduction/
 common:
+  - type: AgenticAccess
+    url: agentic-access/blues-wireless-agentic-access.yml
   - type: DomainSecurity
     url: security/blues-wireless-domain-security.yml
   - type: Authentication
