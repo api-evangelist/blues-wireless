@@ -1,0 +1,598 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: engineering@blues.io
+    name: Blues Engineering
+    url: https://dev.blues.io/support/
+  description: 'The OpenAPI definition for the Notehub.io API.
+
+    '
+  title: Notehub alert external devices API
+  version: 1.2.0
+servers:
+- description: Production server
+  url: https://api.notefile.net
+tags:
+- description: APIs for events and sessions for external devices
+  name: external devices
+paths:
+  /v1/products/{productUID}/ext-devices/{deviceUID}/event:
+    post:
+      operationId: CreateEventExtDevice
+      description: Creates an event using specified webhook
+      parameters:
+      - $ref: '#/components/parameters/productUIDParam'
+      - $ref: '#/components/parameters/deviceUIDParam'
+      requestBody:
+        description: Event Object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '200':
+          description: Event Created Successfully
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - external devices
+      x-custom-attributes:
+        permission: create
+        resource: blues:resources:app:APPSERIAL:notes
+  /v1/products/{productUID}/ext-devices/{deviceUID}/session/close:
+    post:
+      operationId: ExtDeviceSessionClose
+      description: Closes the session for the specified device if open
+      parameters:
+      - $ref: '#/components/parameters/productUIDParam'
+      - $ref: '#/components/parameters/deviceUIDParam'
+      requestBody:
+        description: Session Object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceSession'
+      responses:
+        '200':
+          description: Session closed
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - external devices
+      x-custom-attributes:
+        permission: create
+        resource: blues:resources:app:APPSERIAL:notes
+  /v1/products/{productUID}/ext-devices/{deviceUID}/session/open:
+    post:
+      operationId: ExtDeviceSessionOpen
+      description: Create a Session for the specified device.  | If a session is currently open it will be closed and a new one opened.
+      parameters:
+      - $ref: '#/components/parameters/productUIDParam'
+      - $ref: '#/components/parameters/deviceUIDParam'
+      requestBody:
+        description: Session Object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeviceSession'
+      responses:
+        '200':
+          description: Session Created Successfully
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - external devices
+      x-custom-attributes:
+        permission: create
+        resource: blues:resources:app:APPSERIAL:notes
+components:
+  schemas:
+    TowerLocation:
+      type: object
+      properties:
+        c:
+          description: Country code
+          type: string
+        cid:
+          description: Cell ID
+          type: integer
+        l:
+          description: Open Location Code
+          type: string
+        lac:
+          description: Location Area Code
+          type: integer
+        lat:
+          description: Latitude
+          type: number
+          format: double
+        lon:
+          description: Longitude
+          type: number
+          format: double
+        mcc:
+          description: Mobile Country Code
+          type: integer
+        mnc:
+          description: Mobile Network Code
+          type: integer
+        n:
+          description: Name of the location
+          type: string
+        source:
+          description: The source of this location
+          type: string
+        time:
+          description: Unix timestamp when this location was ascertained
+          type: integer
+          format: int64
+        towers:
+          description: Number of triangulation points
+          type: integer
+        z:
+          description: Timezone ID
+          type: integer
+        zone:
+          description: Timezone name
+          type: string
+    Event:
+      type: object
+      properties:
+        app:
+          description: App UID (globally unique)
+          type: string
+        bars:
+          description: Bars. Only available on _session.qo events.
+          type: number
+        best_country:
+          description: Country
+          type: string
+        best_id:
+          description: The device serial number, or the DeviceUID if the serial number is not set
+          type: string
+        best_lat:
+          description: Latitude
+          type: number
+          format: double
+        best_location:
+          description: Location
+          type: string
+        best_location_type:
+          description: One of "gps", "triangulated", or "tower"
+          type: string
+        best_location_when:
+          description: Unix timestamp
+          type: number
+        best_lon:
+          description: Longitude
+          type: number
+          format: double
+        best_timezone:
+          description: Timezone
+          type: string
+        body:
+          description: A JSON object containing event details
+          type: object
+        bssid:
+          description: BSSID. Only available on _session.qo events.
+          type: string
+        device:
+          description: Device UID (globally unique)
+          type: string
+        environment:
+          description: Routed environment variables beginning with "$". Only available on _session.qo events.
+          type: object
+        event:
+          description: Event UID (globally unique)
+          type: string
+        file:
+          description: The notefile associated with this event
+          type: string
+        moved:
+          description: The number of times the device was sensed to have moved between the last session and this session. Only available on _session.qo events.
+          type: number
+        note:
+          description: The note ID in the notefile
+          type: string
+        ordering_code:
+          description: Ordering code. Only available on _session.qo events.
+          type: string
+        orientation:
+          description: The orientation of the device. Only available on _session.qo events.
+          type: string
+        payload:
+          description: A base64-encoded binary payload
+          type: string
+        product:
+          description: Product UID (globally unique)
+          type: string
+        rat:
+          description: Rat. Only available on _session.qo events.
+          type: string
+        received:
+          description: The unix timestamp when the event was received
+          type: number
+          format: double
+        req:
+          description: The notecard request
+          type: string
+        rsrp:
+          description: RSRP. Only available on _session.qo events.
+          type: number
+        rsrq:
+          description: RSRQ. Only available on _session.qo events.
+          type: number
+        rssi:
+          description: Received Signal Strength Indicator (RSSI) is an estimated measurement of how well a device can receive signals. Only available on _session.qo events.
+          type: number
+        session:
+          description: Session UID (globally unique)
+          type: string
+        sinr:
+          description: SINR. Only available on _session.qo events.
+          type: number
+        sku:
+          description: SKU. Only available on _session.qo events.
+          type: string
+        sn:
+          description: The device serial number
+          type: string
+        ssid:
+          description: SSID. Only available on _session.qo events.
+          type: string
+        temp:
+          description: Device temperature. Only available on _session.qo events.
+          type: number
+          format: double
+        tls:
+          description: Whether TLS was used on the connection between the device and notehub. Only available on _session.qo events.
+          type: boolean
+        tower_country:
+          description: Country
+          type: string
+        tower_id:
+          description: Tower ID
+          type: string
+        tower_lat:
+          description: Latitude
+          type: number
+          format: double
+        tower_location:
+          description: Location
+          type: string
+        tower_lon:
+          description: Longitude
+          type: number
+          format: double
+        tower_timezone:
+          description: Timezone
+          type: string
+        tower_when:
+          description: Unix timestamp
+          type: number
+        transport:
+          description: The transport used for this event, e.g., "cellular", "wifi", ", etc.
+          type: string
+        tri_country:
+          description: Country
+          type: string
+        tri_lat:
+          description: Latitude
+          type: number
+          format: double
+        tri_location:
+          description: Location
+          type: string
+        tri_lon:
+          description: Longitude
+          type: number
+          format: double
+        tri_points:
+          description: Triangulation points
+          type: number
+        tri_timezone:
+          description: Timezone
+          type: string
+        tri_when:
+          description: Unix timestamp
+          type: number
+        updates:
+          type: number
+        voltage:
+          description: Device voltage. Only available on _session.qo events.
+          type: number
+          format: double
+        when:
+          description: When the event was captured on the device
+          type: number
+        where_country:
+          description: Country
+          type: string
+        where_lat:
+          description: Latitude
+          type: number
+          format: double
+        where_location:
+          description: Location
+          type: string
+        where_lon:
+          description: Longitude
+          type: number
+          format: double
+        where_olc:
+          description: Open Location Code
+          type: string
+        where_timezone:
+          description: Timezone
+          type: string
+        where_when:
+          description: Unix timestamp
+          type: number
+    DeviceSession:
+      type: object
+      properties:
+        apn:
+          type: string
+        bars:
+          type: integer
+          format: int
+        bearer:
+          type: string
+        bssid:
+          type: string
+        cell:
+          description: Cell ID where the session originated and quality ("mcc,mnc,lac,cellid")
+          type: string
+        continuous:
+          description: Was this a continuous connection?
+          type: boolean
+        device:
+          description: Device UID
+          type: string
+        events:
+          description: Number of events routed
+          type: integer
+          format: int64
+        failed_connects:
+          description: Number of failed connection attempts in the prior session
+          type: integer
+          format: int64
+        fleets:
+          description: Array of Fleet UIDs
+          type: array
+          items:
+            type: string
+        hp_cycles_data:
+          type: integer
+          format: int64
+        hp_cycles_gps:
+          type: integer
+          format: int64
+        hp_cycles_total:
+          type: integer
+          format: int64
+        hp_secs_data:
+          type: integer
+          format: int64
+        hp_secs_gps:
+          type: integer
+          format: int64
+        hp_secs_total:
+          description: Total number of seconds in high power mode
+          type: integer
+          format: int64
+        iccid:
+          type: string
+        ip:
+          type: string
+        moved:
+          type: integer
+          format: int64
+        orientation:
+          type: string
+        penalty_secs:
+          description: Number of seconds in penalty in the prior session
+          type: integer
+          format: int64
+        period:
+          $ref: '#/components/schemas/DeviceUsage'
+        power_charging:
+          type: boolean
+        power_mah:
+          type: number
+          format: double
+        power_primary:
+          type: boolean
+        power_usb:
+          type: boolean
+        product:
+          description: Product UID
+          type: string
+        rat:
+          type: string
+        rsrp:
+          type: integer
+          format: int
+        rsrq:
+          type: integer
+          format: int
+        rssi:
+          type: integer
+          format: int
+        scan:
+          type: string
+          format: byte
+        session:
+          description: Session UID
+          type: string
+        session_began:
+          description: UNIX timestamp of session start
+          type: integer
+          format: int64
+        session_ended:
+          description: UNIX timestamp of session end
+          type: integer
+          format: int64
+        sinr:
+          type: integer
+          format: int
+        sn:
+          description: Device Serial Number
+          type: string
+        ssid:
+          type: string
+        temp:
+          type: number
+          format: double
+        tls:
+          description: Was TLS used?
+          type: boolean
+        tower:
+          $ref: '#/components/schemas/TowerLocation'
+        transport:
+          description: Type of network transport
+          type: string
+        tri:
+          $ref: '#/components/schemas/TowerLocation'
+        triangulate:
+          type: object
+        usage_actual:
+          type: boolean
+        voltage:
+          type: number
+          format: double
+        when:
+          description: Last known capture time of a note routed through this session in Unix timestamp
+          type: integer
+          format: int64
+        where:
+          description: Open Location Code from last GPS location
+          type: string
+        where_country:
+          type: string
+        where_lat:
+          type: number
+          format: double
+        where_location:
+          type: string
+        where_lon:
+          type: number
+          format: double
+        where_timezone:
+          type: string
+        where_when:
+          description: Unix timestamp of last GPS location
+          type: integer
+          format: int64
+        why_session_closed:
+          description: Reason for session closing
+          type: string
+        why_session_opened:
+          description: Reason for session opening
+          type: string
+        work:
+          description: Unix timestamp of the last time work was done for this session
+          type: integer
+          format: int64
+    DeviceUsage:
+      type: object
+      properties:
+        bytes_rcvd:
+          type: integer
+          format: int64
+        bytes_rcvd_secondary:
+          type: integer
+          format: int64
+        bytes_sent:
+          type: integer
+          format: int64
+        bytes_sent_secondary:
+          type: integer
+          format: int64
+        duration:
+          description: Duration in seconds
+          type: integer
+          format: int64
+        notes_rcvd:
+          type: integer
+          format: int64
+        notes_sent:
+          type: integer
+          format: int64
+        sessions_tcp:
+          type: integer
+          format: int64
+        sessions_tls:
+          type: integer
+          format: int64
+        since:
+          description: Unix timestamp
+          type: integer
+          format: int64
+    Error:
+      type: object
+      properties:
+        code:
+          description: The HTTP error code associated with the error.
+          type: integer
+          maximum: 599
+          minimum: 300
+        debug:
+          type: string
+        details:
+          type: object
+        err:
+          description: Human readable error message.
+          type: string
+        request:
+          type: string
+        status:
+          description: Machine readable representation of the HTTP error code.
+          type: string
+      required:
+      - err
+      - code
+      - status
+  responses:
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
+  parameters:
+    productUIDParam:
+      example: com.blues.bridge:sensors
+      in: path
+      name: productUID
+      required: true
+      schema:
+        type: string
+    deviceUIDParam:
+      example: dev:000000000000000
+      in: path
+      name: deviceUID
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    personalAccessToken:
+      description: 'Use a personal access token from notehub.io/api-access
+
+        '
+      scheme: bearer
+      type: http
+externalDocs:
+  description: Find out more about Blues
+  url: https://blues.io

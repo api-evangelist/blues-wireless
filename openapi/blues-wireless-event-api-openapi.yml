@@ -1,0 +1,797 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: engineering@blues.io
+    name: Blues Engineering
+    url: https://dev.blues.io/support/
+  description: 'The OpenAPI definition for the Notehub.io API.
+
+    '
+  title: Notehub alert event API
+  version: 1.2.0
+servers:
+- description: Production server
+  url: https://api.notefile.net
+tags:
+- description: Event retrieval operations
+  name: event
+paths:
+  /v1/projects/{projectOrProductUID}/events:
+    get:
+      operationId: GetEvents
+      description: Get Events of a Project
+      parameters:
+      - $ref: '#/components/parameters/projectOrProductUIDParam'
+      - $ref: '#/components/parameters/pageSizeParam'
+      - $ref: '#/components/parameters/pageNumParam'
+      - $ref: '#/components/parameters/deviceUIDParamQuery'
+      - $ref: '#/components/parameters/sortByParam'
+      - $ref: '#/components/parameters/sortOrderParam'
+      - $ref: '#/components/parameters/startDateParam'
+      - $ref: '#/components/parameters/endDateParam'
+      - $ref: '#/components/parameters/dateTypeParam'
+      - $ref: '#/components/parameters/systemFilesOnlyParam'
+      - $ref: '#/components/parameters/filesQueryParam'
+      - $ref: '#/components/parameters/formatParam'
+      - $ref: '#/components/parameters/serialNumberFilterParam'
+      - $ref: '#/components/parameters/fleetUIDFilterQueryParam'
+      - $ref: '#/components/parameters/sessionUIDFilterParam'
+      - $ref: '#/components/parameters/eventUIDFilterQueryParam'
+      - $ref: '#/components/parameters/selectFieldsParam'
+      - name: deviceUIDs
+        in: query
+        description: Deprecated.
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+        deprecated: true
+      - name: since
+        in: query
+        description: Deprecated.
+        required: false
+        schema:
+          type: string
+        deprecated: true
+      responses:
+        '200':
+          $ref: '#/components/responses/EventsResponse'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - event
+      x-custom-attributes:
+        permission: read
+        resource: blues:resources:app:APPSERIAL:events
+  /v1/projects/{projectOrProductUID}/events-cursor:
+    get:
+      operationId: GetEventsByCursor
+      description: Get Events of a Project by cursor
+      parameters:
+      - $ref: '#/components/parameters/projectOrProductUIDParam'
+      - $ref: '#/components/parameters/limitParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - $ref: '#/components/parameters/sortOrderParam'
+      - $ref: '#/components/parameters/systemFilesOnlyParam'
+      - $ref: '#/components/parameters/filesQueryParam'
+      - $ref: '#/components/parameters/fleetUIDQueryParam'
+      - $ref: '#/components/parameters/deviceUIDParamQuery'
+      responses:
+        '200':
+          $ref: '#/components/responses/EventsByCursorResponse'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - event
+      x-custom-attributes:
+        permission: read
+        resource: blues:resources:app:APPSERIAL:events
+  /v1/projects/{projectOrProductUID}/events/{eventUID}/route-logs:
+    get:
+      operationId: GetRouteLogsByEvent
+      description: Get Route Logs by Event UID
+      parameters:
+      - $ref: '#/components/parameters/projectOrProductUIDParam'
+      - $ref: '#/components/parameters/eventUIDParam'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RouteLog'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - event
+      x-custom-attributes:
+        permission: read
+        resource: blues:resources:app:APPSERIAL:events
+  /v1/projects/{projectOrProductUID}/fleets/{fleetUID}/events:
+    get:
+      operationId: GetFleetEvents
+      description: Get Events of a Fleet
+      parameters:
+      - $ref: '#/components/parameters/projectOrProductUIDParam'
+      - $ref: '#/components/parameters/fleetUIDParam'
+      - $ref: '#/components/parameters/pageSizeParam'
+      - $ref: '#/components/parameters/pageNumParam'
+      - $ref: '#/components/parameters/deviceUIDParamQuery'
+      - $ref: '#/components/parameters/sortByParam'
+      - $ref: '#/components/parameters/sortOrderParam'
+      - $ref: '#/components/parameters/startDateParam'
+      - $ref: '#/components/parameters/endDateParam'
+      - $ref: '#/components/parameters/dateTypeParam'
+      - $ref: '#/components/parameters/systemFilesOnlyParam'
+      - $ref: '#/components/parameters/filesQueryParam'
+      - $ref: '#/components/parameters/formatParam'
+      - $ref: '#/components/parameters/serialNumberFilterParam'
+      - $ref: '#/components/parameters/sessionUIDFilterParam'
+      - $ref: '#/components/parameters/eventUIDFilterQueryParam'
+      - $ref: '#/components/parameters/selectFieldsParam'
+      - name: deviceUIDs
+        in: query
+        description: Deprecated.
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+        deprecated: true
+      - name: since
+        in: query
+        description: Deprecated.
+        required: false
+        schema:
+          type: string
+        deprecated: true
+      responses:
+        '200':
+          $ref: '#/components/responses/EventsResponse'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - event
+      x-custom-attributes:
+        permission: read
+        resource: blues:resources:app:APPSERIAL:events
+  /v1/projects/{projectOrProductUID}/fleets/{fleetUID}/events-cursor:
+    get:
+      operationId: GetFleetEventsByCursor
+      description: Get Events of a Fleet by cursor
+      parameters:
+      - $ref: '#/components/parameters/projectOrProductUIDParam'
+      - $ref: '#/components/parameters/fleetUIDParam'
+      - $ref: '#/components/parameters/limitParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - $ref: '#/components/parameters/sortOrderParam'
+      - $ref: '#/components/parameters/systemFilesOnlyParam'
+      - $ref: '#/components/parameters/filesQueryParam'
+      - $ref: '#/components/parameters/deviceUIDParamQuery'
+      - $ref: '#/components/parameters/startDateParam'
+      - $ref: '#/components/parameters/endDateParam'
+      responses:
+        '200':
+          $ref: '#/components/responses/EventsByCursorResponse'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - event
+      x-custom-attributes:
+        permission: read
+        resource: blues:resources:app:APPSERIAL:events
+components:
+  parameters:
+    serialNumberFilterParam:
+      description: Filter by Serial Number
+      explode: true
+      in: query
+      name: serialNumber
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    selectFieldsParam:
+      description: Comma-separated list of fields to select from JSON payload (e.g., "field1,field2.subfield,field3"), this will reflect the columns in the CSV output.
+      in: query
+      name: selectFields
+      required: false
+      schema:
+        type: string
+    fleetUIDQueryParam:
+      in: query
+      name: fleetUID
+      required: false
+      schema:
+        type: string
+    sessionUIDFilterParam:
+      description: Filter by Session UID
+      explode: true
+      in: query
+      name: sessionUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    startDateParam:
+      description: Start date for filtering results, specified as a Unix timestamp
+      example: 1628631763
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    eventUIDParam:
+      example: 4506f411-dea6-44a0-9743-1130f57d7747
+      in: path
+      name: eventUID
+      required: true
+      schema:
+        type: string
+    dateTypeParam:
+      description: Which date to filter on, either 'captured' or 'uploaded'.  This will apply to the startDate and endDate parameters
+      example: uploaded
+      in: query
+      name: dateType
+      required: false
+      schema:
+        type: string
+        default: captured
+        enum:
+        - captured
+        - uploaded
+    sortOrderParam:
+      in: query
+      name: sortOrder
+      required: false
+      schema:
+        type: string
+        default: asc
+        enum:
+        - asc
+        - desc
+    limitParam:
+      in: query
+      name: limit
+      required: false
+      schema:
+        type: integer
+        default: 50
+        minimum: 1
+    fleetUIDFilterQueryParam:
+      description: Filter by Fleet UID
+      explode: true
+      in: query
+      name: fleetUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    pageNumParam:
+      in: query
+      name: pageNum
+      required: false
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
+    eventUIDFilterQueryParam:
+      description: Filter by Event UID
+      explode: true
+      in: query
+      name: eventUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    filesQueryParam:
+      example: _health.qo, data.qo
+      in: query
+      name: files
+      required: false
+      schema:
+        type: string
+    cursorParam:
+      description: 'A cursor, which can be obtained from the `next_cursor` value from a previous call to this endpoint. The results set returned will include this event as its first result if the given identifier is actually the UID of an event. If this event UID is not found, the parameter is ignored and the results set is the same as if the parameter was not included.
+
+        '
+      in: query
+      name: cursor
+      required: false
+      schema:
+        type: string
+    fleetUIDParam:
+      in: path
+      name: fleetUID
+      required: true
+      schema:
+        type: string
+    formatParam:
+      description: Response format (JSON or CSV)
+      in: query
+      name: format
+      required: false
+      schema:
+        type: string
+        default: json
+        enum:
+        - json
+        - csv
+    deviceUIDParamQuery:
+      description: A Device UID.
+      explode: true
+      in: query
+      name: deviceUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    endDateParam:
+      description: End date for filtering results, specified as a Unix timestamp
+      example: 1657894210
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    pageSizeParam:
+      in: query
+      name: pageSize
+      required: false
+      schema:
+        type: integer
+        default: 50
+        maximum: 10000
+        minimum: 1
+    systemFilesOnlyParam:
+      in: query
+      name: systemFilesOnly
+      required: false
+      schema:
+        type: boolean
+    projectOrProductUIDParam:
+      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
+      in: path
+      name: projectOrProductUID
+      required: true
+      schema:
+        type: string
+    sortByParam:
+      in: query
+      name: sortBy
+      required: false
+      schema:
+        type: string
+        default: captured
+        enum:
+        - best_id
+        - device_serial
+        - device_uid
+        - captured
+        - modified
+        - device_location
+        - tower_location
+        - triangulated_location
+        - best_location
+  responses:
+    EventsByCursorResponse:
+      description: The response body from a GET events by cursor request.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              events:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+              has_more:
+                description: True if there are more events
+                type: boolean
+              next_cursor:
+                description: 'The cursor value of the next result, which is intended to be used as the "cursor" parameter value of the next call to this method. An empty string is returned if there are no more results after this results set.
+
+                  '
+                type: string
+            required:
+            - events
+            - next_cursor
+            - has_more
+          example:
+            events:
+            - app: app:218f6217-9f78-432e-9fe0-02ca8b5a216c
+              best_country: US
+              best_id: My Device
+              best_lat: 34.82476372
+              best_location: Atlanta GA
+              best_location_type: triangulated
+              best_location_when: 1652709545
+              best_lon: -83.32261614
+              best_timezone: America/New_York
+              body:
+                humidity: 40.375
+                pressure: 97705.66
+                temperature: 24.0625
+                voltage: 2.598
+              device: dev:5c0272311928
+              event: dfa3747d-688b-4250-935b-5dd60354313c
+              file: air.qo
+              product: product:com.blues.project.demo
+              received: 1656011227.006928
+              req: note.add
+              session: b623132c-6afb-4740-bc39-e3634e38f064
+              sn: My Device
+              tower_id: 0,0,0,0
+              tri_country: US
+              tri_lat: 34.82475372
+              tri_location: Atlanta GA
+              tri_lon: -83.32261614
+              tri_points: 6
+              tri_timezone: America/New_York
+              tri_when: 1652709545
+              updates: 1
+              when: 1656010061
+            has_more: false
+            next_cursor: ''
+    EventsResponse:
+      description: The response body from a GET events request.
+      headers:
+        X-Has-More:
+          description: True if there are more events
+          schema:
+            type: boolean
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              events:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Event'
+              has_more:
+                description: True if there are more events
+                type: boolean
+              through:
+                description: The UID of the last event returned
+                type: string
+            required:
+            - events
+            - has_more
+          example:
+            events:
+            - app: app:218f6217-9f78-432e-9fe0-02ca8b5a216c
+              best_country: US
+              best_id: My Device
+              best_lat: 34.82476372
+              best_location: Atlanta GA
+              best_location_type: triangulated
+              best_location_when: 1652709545
+              best_lon: -83.32261614
+              best_timezone: America/New_York
+              body:
+                humidity: 40.375
+                pressure: 97705.66
+                temperature: 24.0625
+                voltage: 2.598
+              device: dev:5c0272311928
+              event: dfa3747d-688b-4250-935b-5dd60354313c
+              file: air.qo
+              product: product:com.blues.project.demo
+              received: 1656011227.006928
+              req: note.add
+              session: b623132c-6afb-4740-bc39-e3634e38f064
+              sn: My Device
+              tower_id: 0,0,0,0
+              tri_country: US
+              tri_lat: 34.82475372
+              tri_location: Atlanta GA
+              tri_lon: -83.32261614
+              tri_points: 6
+              tri_timezone: America/New_York
+              tri_when: 1652709545
+              updates: 1
+              when: 1656010061
+            has_more: true
+        text/csv:
+          schema:
+            type: string
+            properties: {}
+            format: binary
+          example: 'eventUID,deviceUID,when,best_location_type,best_lat,best_lon,body.temperature,body.humidity
+
+            e123456-7890-abcd-ef01-234567890abc,dev:000000000000001,1625097600,gps,37.7749,-122.4194,22.5,45.2
+
+            f234567-8901-bcde-fg12-345678901bcd,dev:000000000000002,1625097660,triangulated,40.7128,-74.0060,24.3,48.7
+
+            g345678-9012-cdef-gh23-456789012cde,dev:000000000000003,1625097720,tower,51.5074,-0.1278,20.1,52.9
+
+            '
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          description: The HTTP error code associated with the error.
+          type: integer
+          maximum: 599
+          minimum: 300
+        debug:
+          type: string
+        details:
+          type: object
+        err:
+          description: Human readable error message.
+          type: string
+        request:
+          type: string
+        status:
+          description: Machine readable representation of the HTTP error code.
+          type: string
+      required:
+      - err
+      - code
+      - status
+    Event:
+      type: object
+      properties:
+        app:
+          description: App UID (globally unique)
+          type: string
+        bars:
+          description: Bars. Only available on _session.qo events.
+          type: number
+        best_country:
+          description: Country
+          type: string
+        best_id:
+          description: The device serial number, or the DeviceUID if the serial number is not set
+          type: string
+        best_lat:
+          description: Latitude
+          type: number
+          format: double
+        best_location:
+          description: Location
+          type: string
+        best_location_type:
+          description: One of "gps", "triangulated", or "tower"
+          type: string
+        best_location_when:
+          description: Unix timestamp
+          type: number
+        best_lon:
+          description: Longitude
+          type: number
+          format: double
+        best_timezone:
+          description: Timezone
+          type: string
+        body:
+          description: A JSON object containing event details
+          type: object
+        bssid:
+          description: BSSID. Only available on _session.qo events.
+          type: string
+        device:
+          description: Device UID (globally unique)
+          type: string
+        environment:
+          description: Routed environment variables beginning with "$". Only available on _session.qo events.
+          type: object
+        event:
+          description: Event UID (globally unique)
+          type: string
+        file:
+          description: The notefile associated with this event
+          type: string
+        moved:
+          description: The number of times the device was sensed to have moved between the last session and this session. Only available on _session.qo events.
+          type: number
+        note:
+          description: The note ID in the notefile
+          type: string
+        ordering_code:
+          description: Ordering code. Only available on _session.qo events.
+          type: string
+        orientation:
+          description: The orientation of the device. Only available on _session.qo events.
+          type: string
+        payload:
+          description: A base64-encoded binary payload
+          type: string
+        product:
+          description: Product UID (globally unique)
+          type: string
+        rat:
+          description: Rat. Only available on _session.qo events.
+          type: string
+        received:
+          description: The unix timestamp when the event was received
+          type: number
+          format: double
+        req:
+          description: The notecard request
+          type: string
+        rsrp:
+          description: RSRP. Only available on _session.qo events.
+          type: number
+        rsrq:
+          description: RSRQ. Only available on _session.qo events.
+          type: number
+        rssi:
+          description: Received Signal Strength Indicator (RSSI) is an estimated measurement of how well a device can receive signals. Only available on _session.qo events.
+          type: number
+        session:
+          description: Session UID (globally unique)
+          type: string
+        sinr:
+          description: SINR. Only available on _session.qo events.
+          type: number
+        sku:
+          description: SKU. Only available on _session.qo events.
+          type: string
+        sn:
+          description: The device serial number
+          type: string
+        ssid:
+          description: SSID. Only available on _session.qo events.
+          type: string
+        temp:
+          description: Device temperature. Only available on _session.qo events.
+          type: number
+          format: double
+        tls:
+          description: Whether TLS was used on the connection between the device and notehub. Only available on _session.qo events.
+          type: boolean
+        tower_country:
+          description: Country
+          type: string
+        tower_id:
+          description: Tower ID
+          type: string
+        tower_lat:
+          description: Latitude
+          type: number
+          format: double
+        tower_location:
+          description: Location
+          type: string
+        tower_lon:
+          description: Longitude
+          type: number
+          format: double
+        tower_timezone:
+          description: Timezone
+          type: string
+        tower_when:
+          description: Unix timestamp
+          type: number
+        transport:
+          description: The transport used for this event, e.g., "cellular", "wifi", ", etc.
+          type: string
+        tri_country:
+          description: Country
+          type: string
+        tri_lat:
+          description: Latitude
+          type: number
+          format: double
+        tri_location:
+          description: Location
+          type: string
+        tri_lon:
+          description: Longitude
+          type: number
+          format: double
+        tri_points:
+          description: Triangulation points
+          type: number
+        tri_timezone:
+          description: Timezone
+          type: string
+        tri_when:
+          description: Unix timestamp
+          type: number
+        updates:
+          type: number
+        voltage:
+          description: Device voltage. Only available on _session.qo events.
+          type: number
+          format: double
+        when:
+          description: When the event was captured on the device
+          type: number
+        where_country:
+          description: Country
+          type: string
+        where_lat:
+          description: Latitude
+          type: number
+          format: double
+        where_location:
+          description: Location
+          type: string
+        where_lon:
+          description: Longitude
+          type: number
+          format: double
+        where_olc:
+          description: Open Location Code
+          type: string
+        where_timezone:
+          description: Timezone
+          type: string
+        where_when:
+          description: Unix timestamp
+          type: number
+    RouteLog:
+      type: object
+      properties:
+        attn:
+          description: If true, an error was returned when routing
+          type: boolean
+        date:
+          description: The date of the logs.
+          type: string
+        duration:
+          description: The duration of the route in milliseconds
+          type: integer
+        event_uid:
+          description: The event UID.
+          type: string
+        route_uid:
+          description: The route UID.
+          type: string
+        status:
+          description: The status of the event.
+          type: string
+        text:
+          description: The response body of the route.
+          type: string
+        url:
+          description: The URL of the route.
+          type: string
+  securitySchemes:
+    personalAccessToken:
+      description: 'Use a personal access token from notehub.io/api-access
+
+        '
+      scheme: bearer
+      type: http
+externalDocs:
+  description: Find out more about Blues
+  url: https://blues.io

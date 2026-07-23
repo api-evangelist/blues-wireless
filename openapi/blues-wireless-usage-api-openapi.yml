@@ -1,0 +1,637 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: engineering@blues.io
+    name: Blues Engineering
+    url: https://dev.blues.io/support/
+  description: 'The OpenAPI definition for the Notehub.io API.
+
+    '
+  title: Notehub alert usage API
+  version: 1.2.0
+servers:
+- description: Production server
+  url: https://api.notefile.net
+tags:
+- description: Project Usage information related to events, route logs, sessions, and data usage
+  name: usage
+paths:
+  /v1/projects/{projectOrProductUID}/usage/data:
+    get:
+      operationId: GetDataUsage
+      description: Get data usage in bytes for a project with time range and period aggregation
+      parameters:
+      - $ref: '#/components/parameters/projectOrProductUIDParam'
+      - $ref: '#/components/parameters/startDateParam'
+      - $ref: '#/components/parameters/endDateParam'
+      - $ref: '#/components/parameters/deviceUIDParamQuery'
+      - $ref: '#/components/parameters/fleetUIDFilterQueryParam'
+      - $ref: '#/components/parameters/usageLimitQueryParam'
+      - name: period
+        in: query
+        description: Period type for aggregation
+        required: true
+        schema:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+      - name: aggregate
+        in: query
+        description: Aggregation level for results
+        required: false
+        schema:
+          type: string
+          default: device
+          enum:
+          - device
+          - fleet
+          - project
+      responses:
+        '200':
+          $ref: '#/components/responses/UsageDataResponse'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - usage
+      x-custom-attributes:
+        permission: read
+        resource: blues:resources:app:APPSERIAL:events
+  /v1/projects/{projectOrProductUID}/usage/events:
+    get:
+      operationId: GetEventsUsage
+      description: Get events usage for a project with time range and period aggregation, when endDate is 0 or unspecified the current time is implied
+      parameters:
+      - $ref: '#/components/parameters/projectOrProductUIDParam'
+      - $ref: '#/components/parameters/startDateParam'
+      - $ref: '#/components/parameters/endDateParam'
+      - $ref: '#/components/parameters/deviceUIDParamQuery'
+      - $ref: '#/components/parameters/fleetUIDFilterQueryParam'
+      - $ref: '#/components/parameters/usageLimitQueryParam'
+      - name: period
+        in: query
+        description: Period type for aggregation
+        required: true
+        schema:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+      - name: aggregate
+        in: query
+        description: Aggregation level for results
+        required: false
+        schema:
+          type: string
+          default: device
+          enum:
+          - device
+          - fleet
+          - project
+      - name: notefile
+        in: query
+        description: Filter to specific notefiles
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+        explode: true
+        style: form
+      - name: skipRecentData
+        in: query
+        description: When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: includeNotefiles
+        in: query
+        description: Include per-notefile event counts in the response
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsageEventsResponse'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - usage
+      x-custom-attributes:
+        permission: read
+        resource: blues:resources:app:APPSERIAL:events
+  /v1/projects/{projectOrProductUID}/usage/route-logs:
+    get:
+      operationId: GetRouteLogsUsage
+      description: Get route logs usage for a project with time range and period aggregation, when endDate is 0 or unspecified the current time is implied
+      parameters:
+      - $ref: '#/components/parameters/projectOrProductUIDParam'
+      - $ref: '#/components/parameters/startDateParam'
+      - $ref: '#/components/parameters/endDateParam'
+      - $ref: '#/components/parameters/routeUIDParamQuery'
+      - $ref: '#/components/parameters/usageLimitQueryParam'
+      - name: period
+        in: query
+        description: Period type for aggregation
+        required: true
+        schema:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+      - name: aggregate
+        in: query
+        description: Aggregation level for results
+        required: false
+        schema:
+          type: string
+          default: route
+          enum:
+          - route
+          - project
+      - name: skipRecentData
+        in: query
+        description: When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          $ref: '#/components/responses/UsageRouteLogsResponse'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - usage
+      x-custom-attributes:
+        permission: read
+        resource: blues:resources:app:APPSERIAL:events
+  /v1/projects/{projectOrProductUID}/usage/sessions:
+    get:
+      operationId: GetSessionsUsage
+      description: Get sessions usage for a project with time range and period aggregation, when endDate is 0 or unspecified the current time is implied
+      parameters:
+      - $ref: '#/components/parameters/projectOrProductUIDParam'
+      - $ref: '#/components/parameters/startDateParam'
+      - $ref: '#/components/parameters/endDateParam'
+      - $ref: '#/components/parameters/deviceUIDParamQuery'
+      - $ref: '#/components/parameters/fleetUIDFilterQueryParam'
+      - $ref: '#/components/parameters/usageLimitQueryParam'
+      - name: period
+        in: query
+        description: Period type for aggregation
+        required: true
+        schema:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+      - name: aggregate
+        in: query
+        description: Aggregation level for results
+        required: false
+        schema:
+          type: string
+          default: device
+          enum:
+          - device
+          - fleet
+          - project
+      - name: skipRecentData
+        in: query
+        description: When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          $ref: '#/components/responses/UsageSessionsResponse'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - usage
+      x-custom-attributes:
+        permission: read
+        resource: blues:resources:app:APPSERIAL:events
+components:
+  parameters:
+    deviceUIDParamQuery:
+      description: A Device UID.
+      explode: true
+      in: query
+      name: deviceUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    endDateParam:
+      description: End date for filtering results, specified as a Unix timestamp
+      example: 1657894210
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    fleetUIDFilterQueryParam:
+      description: Filter by Fleet UID
+      explode: true
+      in: query
+      name: fleetUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    projectOrProductUIDParam:
+      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
+      in: path
+      name: projectOrProductUID
+      required: true
+      schema:
+        type: string
+    startDateParam:
+      description: Start date for filtering results, specified as a Unix timestamp
+      example: 1628631763
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    routeUIDParamQuery:
+      description: A Route UID.
+      explode: true
+      in: query
+      name: routeUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    usageLimitQueryParam:
+      description: Limit the number of data points returned
+      in: query
+      name: limit
+      required: false
+      schema:
+        type: integer
+        default: 200000
+        maximum: 400000
+        minimum: 1
+  responses:
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
+    UsageSessionsResponse:
+      description: Response body for Session Usage
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              sessions:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UsageSessionsData'
+              truncated:
+                $ref: '#/components/schemas/UsageTruncatedField'
+            required:
+            - sessions
+            - truncated
+    UsageDataResponse:
+      description: Response body for Data Usage
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  properties:
+                    data:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/UsageData'
+                    device:
+                      description: The device UID this usage data belongs to (only present when aggregate is 'device')
+                      type: string
+                      example: dev:123456789012345
+                    device_count:
+                      description: the number of devices represented by this data point
+                      type: integer
+                    fleet:
+                      description: The fleet UID this usage data belongs to (only present when aggregate is 'fleet')
+                      type: string
+                      example: fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d
+                    iccid:
+                      description: The ICCID of the cellular SIM card (only present when type is 'cellular')
+                      type: string
+                      example: '12345678901234567890'
+                    psid:
+                      description: The PSID (Packet Service ID) of the satellite (or other packet-based device)
+                      type: string
+                      example: skylo:5746354465786
+                    type:
+                      description: The type of connectivity
+                      type: string
+                      enum:
+                      - cellular
+                      - satellite
+                  required:
+                  - type
+                  - data
+                  type: object
+              truncated:
+                $ref: '#/components/schemas/UsageTruncatedField'
+    UsageRouteLogsResponse:
+      description: Response body for Route Log Usage
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              route_logs:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UsageRouteLogsData'
+              truncated:
+                $ref: '#/components/schemas/UsageTruncatedField'
+            required:
+            - route_logs
+  schemas:
+    UsageTruncatedField:
+      description: If the data is truncated that means that the parameters selected resulted in a response of over | the requested limit of data points, in order to ensure
+      type: boolean
+      properties: {}
+    UsageSessionsData:
+      type: object
+      properties:
+        device:
+          type: string
+          example: dev:123456789012345
+        first_sync_sessions:
+          description: Number of first sync sessions in this period
+          type: integer
+          format: int64
+          example: 2
+        fleet:
+          type: string
+          example: fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d
+        period:
+          type: string
+          format: date-time
+          example: '2025-07-23T00:00:00Z'
+        sessions:
+          type: integer
+          format: int64
+          example: 12
+        sessions_by_transport:
+          description: Count of sessions grouped by transport type prefix (e.g. cell, wifi, ntn, lorawan)
+          type: object
+          example:
+            cell: 8
+            ntn: 1
+            wifi: 3
+          additionalProperties:
+            format: int64
+            type: integer
+        tls_sessions:
+          description: Number of TLS sessions in this period
+          type: integer
+          format: int64
+          example: 3
+          nullable: true
+        total_bytes:
+          type: integer
+          format: int64
+          example: 1048576
+        total_devices:
+          type: integer
+          format: int64
+          example: 1
+      required:
+      - period
+      - sessions
+      - first_sync_sessions
+      - total_bytes
+      - total_devices
+    UsageEventsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UsageEventsData'
+        truncated:
+          $ref: '#/components/schemas/UsageTruncatedField'
+      required:
+      - data
+    UsageData:
+      type: object
+      properties:
+        billable_bytes_total:
+          description: Total billable bytes (only for packet-based protocols)
+          type: integer
+          format: int64
+        downlink_bytes:
+          type: integer
+          format: int64
+          example: 524288
+        downlink_bytes_billable:
+          description: Billable downlink bytes (only for packet-based protocols)
+          type: integer
+          format: int64
+        downlink_packets:
+          description: Downlink packets (only for packet-based protocols)
+          type: integer
+          format: int64
+        period:
+          type: string
+          format: date-time
+          example: '2025-07-23T00:00:00Z'
+        total_bytes:
+          type: integer
+          format: int64
+          example: 1048576
+        uplink_bytes:
+          type: integer
+          format: int64
+          example: 524288
+        uplink_bytes_billable:
+          description: Billable uplink bytes (only for packet-based protocols)
+          type: integer
+          format: int64
+        uplink_packets:
+          description: Uplink packets (only for packet-based protocols)
+          type: integer
+          format: int64
+      required:
+      - period
+      - total_bytes
+    Error:
+      type: object
+      properties:
+        code:
+          description: The HTTP error code associated with the error.
+          type: integer
+          maximum: 599
+          minimum: 300
+        debug:
+          type: string
+        details:
+          type: object
+        err:
+          description: Human readable error message.
+          type: string
+        request:
+          type: string
+        status:
+          description: Machine readable representation of the HTTP error code.
+          type: string
+      required:
+      - err
+      - code
+      - status
+    UsageRouteLogsData:
+      type: object
+      properties:
+        avg_latency_ms:
+          description: Average routing latency in milliseconds for route logs with recorded duration
+          type: number
+          format: double
+          example: 342.5
+          nullable: true
+        failed_routes:
+          type: integer
+          format: int64
+          example: 4
+        period:
+          type: string
+          format: date-time
+          example: '2025-07-23T00:00:00Z'
+        route:
+          description: The route UID (only present when aggregate is 'route')
+          type: string
+          example: route:cbd20093cba58392c9f9bbdd0cdeb1a0
+        successful_routes:
+          type: integer
+          format: int64
+          example: 38
+        total_routes:
+          type: integer
+          format: int64
+          example: 42
+      required:
+      - period
+      - successful_routes
+      - failed_routes
+      - total_routes
+    UsageEventsData:
+      type: object
+      properties:
+        billable_events:
+          description: Events that are billable, this include all events except platform events
+          type: integer
+          format: int64
+          example: 10
+        device:
+          type: string
+          example: dev:123456789012345
+        fleet:
+          type: string
+          example: fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d
+        notefiles:
+          description: Count of events per notefile. Only present when includeNotefiles=true is specified.
+          type: object
+          example:
+            _log.qo: 20
+            customer1.qo: 1
+            session.qo: 50
+          additionalProperties:
+            format: int64
+            type: integer
+        period:
+          type: string
+          format: date-time
+          example: '2025-07-23T00:00:00Z'
+        platform_events:
+          description: Total platform events. Platform events are _log, _session, _health, and _geolocate events some of which are send from the device, some generated by notehub. These events are not billed.
+          type: integer
+          format: int64
+          example: 15
+        total_days_in_period:
+          description: The total number of days in this period. Useful for calculating daily averages for month period. Note that the current period will be the total number of days in the current period, including days in the future.
+          type: integer
+          format: int32
+        total_devices:
+          description: Total devices represented in this count
+          type: integer
+          format: int64
+        total_events:
+          description: Total events the device sent to notehub, including associated notehub generated events
+          type: integer
+          format: int64
+          example: 42
+        total_fw_updates:
+          description: Number of firmware updates in this period (from _health.qo DFU events)
+          type: integer
+          format: int64
+          example: 1
+          nullable: true
+        total_reboots:
+          description: Number of device reboots in this period (from _health.qo boot events)
+          type: integer
+          format: int64
+          example: 2
+          nullable: true
+        watchdog_events:
+          description: Watchdog events are events generated by notehub when a watchdog timer is configured for a device to indicate is has not been online for a period of time. These events are billed but should not be used to indicate a device is active, or connected, at this time.
+          type: integer
+          format: int64
+          example: 10
+      required:
+      - period
+      - total_events
+      - platform_events
+      - watchdog_events
+      - total_devices
+  securitySchemes:
+    personalAccessToken:
+      description: 'Use a personal access token from notehub.io/api-access
+
+        '
+      scheme: bearer
+      type: http
+externalDocs:
+  description: Find out more about Blues
+  url: https://blues.io

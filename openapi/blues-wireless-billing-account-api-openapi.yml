@@ -1,0 +1,233 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: engineering@blues.io
+    name: Blues Engineering
+    url: https://dev.blues.io/support/
+  description: 'The OpenAPI definition for the Notehub.io API.
+
+    '
+  title: Notehub alert billing_account API
+  version: 1.2.0
+servers:
+- description: Production server
+  url: https://api.notefile.net
+tags:
+- description: Billing Account operations
+  name: billing_account
+paths:
+  /v1/billing-accounts:
+    get:
+      operationId: GetBillingAccounts
+      description: Get Billing Accounts accessible by the api_key
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  billing_accounts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BillingAccount'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      deprecated: true
+      security:
+      - personalAccessToken: []
+      tags:
+      - billing_account
+      x-custom-attributes:
+        permission: read
+  /v1/billing-accounts/{billingAccountUID}:
+    get:
+      operationId: GetBillingAccount
+      description: Get Billing Account Information
+      parameters:
+      - $ref: '#/components/parameters/billingAccountUIDParam'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  contact_uid:
+                    type: string
+                  email:
+                    type: string
+                  name:
+                    type: string
+                  owner:
+                    type: string
+                  plan:
+                    type: object
+                    properties:
+                      current_balance:
+                        type: integer
+                        format: int64
+                      end_date:
+                        type: string
+                        format: date-time
+                      event_capacity:
+                        type: integer
+                        format: int64
+                      start_date:
+                        type: string
+                        format: date-time
+                      type:
+                        type: string
+                        enum:
+                        - Enterprise
+                        - Essentials
+                  suspended:
+                    type: boolean
+                  uid:
+                    type: string
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      deprecated: true
+      security:
+      - personalAccessToken: []
+      tags:
+      - billing_account
+      x-custom-attributes:
+        permission: read
+  /v1/billing-accounts/{billingAccountUID}/balance-history:
+    get:
+      operationId: GetBillingAccountBalanceHistory
+      description: Get Billing Account Balance history
+      parameters:
+      - $ref: '#/components/parameters/billingAccountUIDParam'
+      - $ref: '#/components/parameters/startDateParam'
+      - $ref: '#/components/parameters/endDateParam'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      properties:
+                        period:
+                          type: string
+                          format: date-time
+                        remaining_event_capacity:
+                          type: integer
+                          format: int64
+                        total_event_capacity_used:
+                          type: integer
+                          format: int64
+                      required:
+                      - remaining_event_capacity
+                      - total_event_capacity_used
+                      - period
+                      type: object
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      deprecated: true
+      security:
+      - personalAccessToken: []
+      tags:
+      - billing_account
+      x-custom-attributes:
+        permission: read
+components:
+  parameters:
+    endDateParam:
+      description: End date for filtering results, specified as a Unix timestamp
+      example: 1657894210
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    billingAccountUIDParam:
+      example: 00000000-0000-0000-000000000001
+      in: path
+      name: billingAccountUID
+      required: true
+      schema:
+        type: string
+    startDateParam:
+      description: Start date for filtering results, specified as a Unix timestamp
+      example: 1628631763
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+  responses:
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
+  schemas:
+    BillingAccountRole:
+      type: string
+      properties: {}
+      enum:
+      - billing_admin
+      - billing_manager
+      - project_creator
+      - billing_member
+    BillingAccount:
+      type: object
+      properties:
+        name:
+          type: string
+        role:
+          $ref: '#/components/schemas/BillingAccountRole'
+        uid:
+          type: string
+      required:
+      - uid
+      - name
+      - role
+    Error:
+      type: object
+      properties:
+        code:
+          description: The HTTP error code associated with the error.
+          type: integer
+          maximum: 599
+          minimum: 300
+        debug:
+          type: string
+        details:
+          type: object
+        err:
+          description: Human readable error message.
+          type: string
+        request:
+          type: string
+        status:
+          description: Machine readable representation of the HTTP error code.
+          type: string
+      required:
+      - err
+      - code
+      - status
+  securitySchemes:
+    personalAccessToken:
+      description: 'Use a personal access token from notehub.io/api-access
+
+        '
+      scheme: bearer
+      type: http
+externalDocs:
+  description: Find out more about Blues
+  url: https://blues.io

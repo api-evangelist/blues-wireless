@@ -1,0 +1,995 @@
+openapi: 3.0.3
+info:
+  contact:
+    email: engineering@blues.io
+    name: Blues Engineering
+    url: https://dev.blues.io/support/
+  description: 'The OpenAPI definition for the Notehub.io API.
+
+    '
+  title: Notehub alert route API
+  version: 1.2.0
+servers:
+- description: Production server
+  url: https://api.notefile.net
+tags:
+- description: Route operations
+  name: route
+paths:
+  /v1/projects/{projectOrProductUID}/routes:
+    get:
+      operationId: GetRoutes
+      description: Get all Routes within a Project
+      parameters:
+      - $ref: '#/components/parameters/projectOrProductUIDParam'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              example:
+              - disabled: false
+                label: success route
+                modified: '2020-03-09T17:58:37Z'
+                type: http
+                uid: route:8d65a087d5d290ce5bdf03aeff2becc0
+              - disabled: false
+                label: failing route
+                modified: '2020-03-09T17:59:15Z'
+                type: http
+                uid: route:a9eaad31d5cee8d01a42762f71fb777a
+              - disabled: true
+                label: disabled route
+                modified: '2020-03-09T17:59:44Z'
+                type: http
+                uid: route:02ddc0e6e236c2a7e482da62047229ad
+              - disabled: false
+                label: Proxy Route
+                modified: '2020-03-09T17:58:36Z'
+                type: proxy
+                uid: route:0ac565deb7b478a250bb82348b9cfdd4
+              - disabled: false
+                label: Myjsonlive Webtest
+                modified: '2020-03-09T17:58:35Z'
+                type: proxy
+                uid: route:fb1b9e0aba1bf030311ba2c3c1e3efd7
+              - disabled: false
+                label: Myjsonlive Echo
+                modified: '2020-03-09T17:58:34Z'
+                type: proxy
+                uid: route:7804818f84a3be6193e14d804fe7fca7
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NotehubRouteSummary'
+                minItems: 0
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - route
+      x-custom-attributes:
+        permission: read
+        resource: blues:resources:app:APPSERIAL:routes
+    post:
+      operationId: CreateRoute
+      description: Create Route within a Project
+      parameters:
+      - $ref: '#/components/parameters/projectOrProductUIDParam'
+      requestBody:
+        description: Route to be created
+        required: true
+        content:
+          application/json:
+            examples:
+              http:
+                summary: HTTP route
+                value:
+                  http:
+                    disable_http_headers: false
+                    filter: {}
+                    fleets:
+                    - fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d
+                    http_headers:
+                      X-My-Header: value
+                    throttle_ms: 100
+                    timeout: 5000
+                    transform: {}
+                    url: https://example.com/ingest
+                  label: Route Label
+            schema:
+              $ref: '#/components/schemas/NotehubRoute'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              example:
+                disabled: 'false'
+                http:
+                  disable_http_headers: false
+                  filter:
+                    system_notefiles: false
+                    type: ''
+                  fleets:
+                  - fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d
+                  http_headers: null
+                  throttle_ms: 100
+                  timeout: 0
+                  transform: {}
+                  url: http://route.url
+                label: Route Label
+                modified: '2020-03-09T17:59:44Z'
+                type: http
+                uid: route:8d65a087d5d290ce5bdf03aeff2becc0
+              schema:
+                $ref: '#/components/schemas/NotehubRoute'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - route
+      x-custom-attributes:
+        permission: create
+        resource: blues:resources:app:APPSERIAL:routes
+  /v1/projects/{projectOrProductUID}/routes/{routeUID}:
+    delete:
+      operationId: DeleteRoute
+      description: Delete single route within a project
+      parameters:
+      - $ref: '#/components/parameters/projectOrProductUIDParam'
+      - $ref: '#/components/parameters/routeUIDParam'
+      responses:
+        '204':
+          description: Successful operation
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - route
+      x-custom-attributes:
+        permission: delete
+        resource: blues:resources:app:APPSERIAL:routes
+    get:
+      operationId: GetRoute
+      description: Get single route within a project
+      parameters:
+      - $ref: '#/components/parameters/projectOrProductUIDParam'
+      - $ref: '#/components/parameters/routeUIDParam'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              example:
+                disabled: 'false'
+                http:
+                  disable_http_headers: false
+                  filter:
+                    system_notefiles: false
+                    type: ''
+                  fleets:
+                  - fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d
+                  http_headers: null
+                  throttle_ms: 100
+                  timeout: 0
+                  transform: {}
+                  url: http://route.url
+                label: Route Label
+                modified: '2020-03-09T17:59:44Z'
+                type: http
+                uid: route:8d65a087d5d290ce5bdf03aeff2becc0
+              schema:
+                $ref: '#/components/schemas/NotehubRoute'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - route
+      x-custom-attributes:
+        permission: update
+        resource: blues:resources:app:APPSERIAL:routes
+    put:
+      operationId: UpdateRoute
+      description: Update route by UID
+      parameters:
+      - $ref: '#/components/parameters/projectOrProductUIDParam'
+      - $ref: '#/components/parameters/routeUIDParam'
+      requestBody:
+        description: Route settings to be updated
+        required: true
+        content:
+          application/json:
+            example: "{\n  \"http\" {\n    \"filter\": {\n      \"type\": \"include\",\n      \"system_notefiles\": true,\n      \"files\": [\"somefile.qo\"],\n    },\n    \"throttle_ms\": 50,\n    \"url\": \"http://new-route.url\",\n  },\n}\n"
+            schema:
+              $ref: '#/components/schemas/NotehubRoute'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              example: "{\n  \"uid\": \"route:8d65a087d5d290ce5bdf03aeff2becc0\",\n  \"label\": \"Route Label\",\n  \"type\": \"http\",\n  \"modified\": \"2020-03-09T17:59:44Z\",\n  \"disabled\": \"false\",\n  \"http\":\n    {\n    \"fleets\": [\"fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d\"],\n    \"filter\": {\n      \"type\": \"include\",\n      \"system_notefiles\": true,\n      \"files\": [\"somefile.qo\"],\n    },\n  \"transform\": {},\n  \"throttle_ms\": 50,\n  \"url\": \"http://new-route.url\",\n  \"http_headers\": null,\n  \"disable_http_headers\": false,\n  \"timeout\": 0\n}\n"
+              schema:
+                $ref: '#/components/schemas/NotehubRoute'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - route
+      x-custom-attributes:
+        permission: update
+        resource: blues:resources:app:APPSERIAL:routes
+  /v1/projects/{projectOrProductUID}/routes/{routeUID}/route-logs:
+    get:
+      operationId: GetRouteLogsByRoute
+      description: Get Route Logs by Route UID
+      parameters:
+      - $ref: '#/components/parameters/projectOrProductUIDParam'
+      - $ref: '#/components/parameters/routeUIDParam'
+      - $ref: '#/components/parameters/pageSizeParam'
+      - $ref: '#/components/parameters/pageNumParam'
+      - $ref: '#/components/parameters/deviceUIDParamQuery'
+      - $ref: '#/components/parameters/routeLogsSortByParam'
+      - $ref: '#/components/parameters/routeLogsSortOrderParam'
+      - $ref: '#/components/parameters/startDateParam'
+      - $ref: '#/components/parameters/endDateParam'
+      - $ref: '#/components/parameters/systemFilesOnlyParam'
+      - $ref: '#/components/parameters/mostRecentOnlyParam'
+      - $ref: '#/components/parameters/filesQueryParam'
+      - $ref: '#/components/parameters/routingStatusParam'
+      - $ref: '#/components/parameters/responseStatusParam'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RouteLog'
+        default:
+          $ref: '#/components/responses/ErrorResponse'
+      security:
+      - personalAccessToken: []
+      tags:
+      - route
+      x-custom-attributes:
+        permission: read
+        resource: blues:resources:app:APPSERIAL:routes
+components:
+  parameters:
+    routeUIDParam:
+      example: route:cbd20093cba58392c9f9bbdd0cdeb1a0
+      in: path
+      name: routeUID
+      required: true
+      schema:
+        type: string
+    routingStatusParam:
+      example: failure
+      in: query
+      name: routingStatus
+      required: false
+      schema:
+        type: array
+        items:
+          enum:
+          - success
+          - failure
+          type: string
+    routeLogsSortByParam:
+      in: query
+      name: sortBy
+      required: false
+      schema:
+        type: string
+        default: date
+        enum:
+        - date
+        - event
+    responseStatusParam:
+      example: 500
+      in: query
+      name: responseStatus
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+    startDateParam:
+      description: Start date for filtering results, specified as a Unix timestamp
+      example: 1628631763
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    routeLogsSortOrderParam:
+      in: query
+      name: sortOrder
+      required: false
+      schema:
+        type: string
+        default: desc
+        enum:
+        - asc
+        - desc
+    pageNumParam:
+      in: query
+      name: pageNum
+      required: false
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
+    filesQueryParam:
+      example: _health.qo, data.qo
+      in: query
+      name: files
+      required: false
+      schema:
+        type: string
+    deviceUIDParamQuery:
+      description: A Device UID.
+      explode: true
+      in: query
+      name: deviceUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    endDateParam:
+      description: End date for filtering results, specified as a Unix timestamp
+      example: 1657894210
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    pageSizeParam:
+      in: query
+      name: pageSize
+      required: false
+      schema:
+        type: integer
+        default: 50
+        maximum: 10000
+        minimum: 1
+    mostRecentOnlyParam:
+      in: query
+      name: mostRecentOnly
+      required: false
+      schema:
+        type: boolean
+    systemFilesOnlyParam:
+      in: query
+      name: systemFilesOnly
+      required: false
+      schema:
+        type: boolean
+    projectOrProductUIDParam:
+      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
+      in: path
+      name: projectOrProductUID
+      required: true
+      schema:
+        type: string
+  schemas:
+    SnowpipeStreamingRoute:
+      type: object
+      properties:
+        account_name:
+          type: string
+        database_name:
+          type: string
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        organization_name:
+          type: string
+        pem:
+          type: string
+        pipe_name:
+          type: string
+        private_key_name:
+          type: string
+        schema_name:
+          type: string
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        user_name:
+          type: string
+      additionalProperties: false
+    AzureRoute:
+      type: object
+      properties:
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        functions_key_secret:
+          type: string
+        sas_policy_key:
+          type: string
+        sas_policy_name:
+          type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        url:
+          type: string
+          format: uri
+      additionalProperties: false
+    GoogleRoute:
+      type: object
+      properties:
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        token:
+          type: string
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        url:
+          type: string
+          format: uri
+      additionalProperties: false
+    Error:
+      type: object
+      properties:
+        code:
+          description: The HTTP error code associated with the error.
+          type: integer
+          maximum: 599
+          minimum: 300
+        debug:
+          type: string
+        details:
+          type: object
+        err:
+          description: Human readable error message.
+          type: string
+        request:
+          type: string
+        status:
+          description: Machine readable representation of the HTTP error code.
+          type: string
+      required:
+      - err
+      - code
+      - status
+    ProxyRoute:
+      type: object
+      properties:
+        alias:
+          type: string
+        fleets:
+          type: array
+          items:
+            type: string
+        http_headers:
+          type: object
+          additionalProperties:
+            type: string
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        url:
+          type: string
+          format: uri
+      additionalProperties: false
+    SlackRoute:
+      type: object
+      properties:
+        bearer:
+          type: string
+        blocks:
+          type: string
+        channel:
+          type: string
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        text:
+          type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        webhook_url:
+          type: string
+          format: uri
+      additionalProperties: false
+    RouteTransformSettings:
+      description: 'Settings for transforming route payloads before delivery. Supports format
+
+        selection and JSONata-based transformations.
+
+        '
+      type: object
+      properties:
+        format:
+          description: Output format for transformed data (e.g., "json", "xml", "text").
+          type: string
+          example: json
+        jsonata:
+          description: JSONata expression used to transform the data payload (outgoing).
+          type: string
+          example: $.body.data
+        jsonata_in:
+          description: JSONata expression used to transform the data payload (incoming).
+          type: string
+          example: $.body.data
+    RadRoute:
+      type: object
+      properties:
+        client_id:
+          type: string
+        client_secret:
+          type: string
+          format: password
+        data_feed_key:
+          type: string
+        event_id:
+          type: integer
+        fleets:
+          type: array
+          items:
+            type: string
+        test_api:
+          type: boolean
+        throttle_ms:
+          type: integer
+      additionalProperties: false
+    Filter:
+      description: 'Filter applied to route data. Controls which notefiles are sent through the route.
+
+        '
+      type: object
+      properties:
+        files:
+          description: List of notefile names or patterns to filter on.
+          type: array
+          items:
+            type: string
+          example:
+          - env.qo
+          - motion.qo
+        system_notefiles:
+          description: Whether system notefiles should be included.
+          type: boolean
+          example: false
+        type:
+          description: Type of filter to apply (corresponds to `hublib.NotefileFilterType`).
+          type: string
+          example: inclusion
+    SnowflakeRoute:
+      type: object
+      properties:
+        account_name:
+          type: string
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        organization_name:
+          type: string
+        pem:
+          type: string
+        private_key_name:
+          type: string
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        user_name:
+          type: string
+      additionalProperties: false
+    MqttRoute:
+      type: object
+      properties:
+        broker:
+          type: string
+        certificate:
+          type: string
+        certificate_name:
+          type: string
+        client_id:
+          type: string
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        key:
+          type: string
+        password:
+          type: string
+          format: password
+        port:
+          type: string
+        private_key_name:
+          type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        topic:
+          type: string
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        username:
+          type: string
+      additionalProperties: false
+    BlynkRoute:
+      type: object
+      properties:
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        region:
+          type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+      additionalProperties: false
+    TwilioRoute:
+      type: object
+      properties:
+        account_sid:
+          type: string
+        auth_token:
+          type: string
+          format: password
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        from:
+          type: string
+        message:
+          type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        to:
+          type: string
+      additionalProperties: false
+    S3ArchiveRoute:
+      type: object
+      properties:
+        archive_count_exceeds:
+          type: integer
+        archive_every_mins:
+          type: integer
+        archive_id:
+          type: string
+        bucket_endpoint:
+          type: string
+        bucket_name:
+          type: string
+        bucket_region:
+          type: string
+        file_access:
+          type: string
+        file_folder:
+          type: string
+        file_format:
+          type: string
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        key_id:
+          type: string
+        key_secret:
+          type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        url:
+          type: string
+          format: uri
+      additionalProperties: false
+    QubitroRoute:
+      type: object
+      properties:
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        project_id:
+          type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        webhook_signing_key:
+          type: string
+      additionalProperties: false
+    RouteLog:
+      type: object
+      properties:
+        attn:
+          description: If true, an error was returned when routing
+          type: boolean
+        date:
+          description: The date of the logs.
+          type: string
+        duration:
+          description: The duration of the route in milliseconds
+          type: integer
+        event_uid:
+          description: The event UID.
+          type: string
+        route_uid:
+          description: The route UID.
+          type: string
+        status:
+          description: The status of the event.
+          type: string
+        text:
+          description: The response body of the route.
+          type: string
+        url:
+          description: The URL of the route.
+          type: string
+    NotehubRoute:
+      description: Route resource as stored/returned by the server.
+      type: object
+      properties:
+        aws:
+          $ref: '#/components/schemas/AwsRoute'
+        azure:
+          $ref: '#/components/schemas/AzureRoute'
+        blynk:
+          $ref: '#/components/schemas/BlynkRoute'
+        datacake:
+          $ref: '#/components/schemas/DatacakeRoute'
+        disabled:
+          type: boolean
+          default: false
+        google:
+          $ref: '#/components/schemas/GoogleRoute'
+        http:
+          $ref: '#/components/schemas/HttpRoute'
+        label:
+          type: string
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        mqtt:
+          $ref: '#/components/schemas/MqttRoute'
+        notes:
+          description: Optional free-form text for annotating the route.
+          type: string
+          maxLength: 1024
+        proxy:
+          $ref: '#/components/schemas/ProxyRoute'
+        qubitro:
+          $ref: '#/components/schemas/QubitroRoute'
+        radnote:
+          $ref: '#/components/schemas/RadRoute'
+        s3archive:
+          $ref: '#/components/schemas/S3ArchiveRoute'
+        slack:
+          $ref: '#/components/schemas/SlackRoute'
+        snowflake:
+          $ref: '#/components/schemas/SnowflakeRoute'
+        snowpipe_streaming:
+          $ref: '#/components/schemas/SnowpipeStreamingRoute'
+        thingworx:
+          $ref: '#/components/schemas/ThingworxRoute'
+        twilio:
+          $ref: '#/components/schemas/TwilioRoute'
+        type:
+          description: Mirrors hublib.RouteType.
+          type: string
+        uid:
+          type: string
+          readOnly: true
+      additionalProperties: false
+    DatacakeRoute:
+      type: object
+      properties:
+        disable_http_headers:
+          type: boolean
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        http_headers:
+          type: object
+          additionalProperties:
+            type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        url:
+          type: string
+          format: uri
+      additionalProperties: false
+    AwsRoute:
+      type: object
+      properties:
+        access_key_id:
+          type: string
+        access_key_secret:
+          type: string
+        channel:
+          type: string
+        disable_http_headers:
+          type: boolean
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        http_headers:
+          type: object
+          additionalProperties:
+            type: string
+        message_deduplication_id:
+          type: string
+        message_group_id:
+          type: string
+        region:
+          type: string
+        role_arn:
+          description: IAM Role ARN for role-based authentication via STS AssumeRole
+          type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        url:
+          type: string
+          format: uri
+      additionalProperties: false
+    HttpRoute:
+      type: object
+      properties:
+        disable_http_headers:
+          type: boolean
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          description: If non-empty, applies only to the listed fleets.
+          type: array
+          items:
+            type: string
+        http_headers:
+          type: object
+          additionalProperties:
+            type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        url:
+          type: string
+          format: uri
+      additionalProperties: false
+    NotehubRouteSummary:
+      type: object
+      properties:
+        disabled:
+          type: boolean
+          default: false
+        label:
+          type: string
+          default: success route
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        type:
+          type: string
+          default: http
+        uid:
+          type: string
+          default: route:8d65a087d5d290ce5bdf03aeff2becc0
+    ThingworxRoute:
+      type: object
+      properties:
+        app_key:
+          type: string
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        url:
+          type: string
+          format: uri
+      additionalProperties: false
+  responses:
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    personalAccessToken:
+      description: 'Use a personal access token from notehub.io/api-access
+
+        '
+      scheme: bearer
+      type: http
+externalDocs:
+  description: Find out more about Blues
+  url: https://blues.io
