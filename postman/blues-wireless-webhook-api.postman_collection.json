@@ -1,0 +1,2262 @@
+{
+  "info": {
+    "_postman_id": "e1a19d8c-51a6-4cdb-91be-4f2d1a407d92",
+    "name": "Notehub alert webhook API",
+    "description": "The OpenAPI definition for the Notehub.io API.\n\n\nContact Support:\n Name: Blues Engineering\n Email: engineering@blues.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:15:39.000Z",
+    "updatedAt": "2026-07-28T01:15:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e1a19d8c-51a6-4cdb-91be-4f2d1a407d92"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "products",
+          "item": [
+            {
+              "name": "{productUID}",
+              "item": [
+                {
+                  "name": "devices",
+                  "item": [
+                    {
+                      "name": "{deviceUID}",
+                      "item": [
+                        {
+                          "name": "webhook-event",
+                          "item": [
+                            {
+                              "name": "Create Legacy Webhook Event",
+                              "id": "a618a844-ddff-4d7b-a828-e2371c9fa11e",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "bearer",
+                                  "bearer": [
+                                    {
+                                      "key": "token",
+                                      "value": "{{bearerToken}}",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"culpa_721\": true\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/products/:productUID/devices/:deviceUID/webhook-event",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "products",
+                                    ":productUID",
+                                    "devices",
+                                    ":deviceUID",
+                                    "webhook-event"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "d00f147c-2ce2-4110-93fc-24792058bb8b",
+                                      "key": "productUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "1cd7b96b-bff9-4e24-a410-8fe27f8f1dba",
+                                      "key": "deviceUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Legacy endpoint for sending an event from a webhook, associated with the given device (provisioning it if necessary). The request body is a Note-shaped object containing the notefile name, body, and optional payload."
+                              },
+                              "response": [
+                                {
+                                  "id": "67a59c6b-83d0-42ee-bd4f-710eebca42b4",
+                                  "name": "Event created successfully",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"culpa_721\": true\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/products/:productUID/devices/:deviceUID/webhook-event",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "products",
+                                        ":productUID",
+                                        "devices",
+                                        ":deviceUID",
+                                        "webhook-event"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "productUID"
+                                        },
+                                        {
+                                          "key": "deviceUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:15:40.000Z",
+                                  "updatedAt": "2026-07-28T01:15:40.000Z",
+                                  "uid": "35240-67a59c6b-83d0-42ee-bd4f-710eebca42b4"
+                                },
+                                {
+                                  "id": "4e957e14-a69f-4946-ac66-aa084f690407",
+                                  "name": "The response body in case of an API error.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"culpa_721\": true\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/products/:productUID/devices/:deviceUID/webhook-event",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "products",
+                                        ":productUID",
+                                        "devices",
+                                        ":deviceUID",
+                                        "webhook-event"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "productUID"
+                                        },
+                                        {
+                                          "key": "deviceUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:40.000Z",
+                                  "updatedAt": "2026-07-28T01:15:40.000Z",
+                                  "uid": "35240-4e957e14-a69f-4946-ac66-aa084f690407"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:15:40.000Z",
+                              "updatedAt": "2026-07-28T01:15:40.000Z",
+                              "uid": "35240-a618a844-ddff-4d7b-a828-e2371c9fa11e"
+                            }
+                          ],
+                          "id": "aff65818-3f86-4d3c-9f19-702cd5db53f1",
+                          "createdAt": "2026-07-28T01:15:40.000Z",
+                          "updatedAt": "2026-07-28T01:15:40.000Z",
+                          "uid": "35240-aff65818-3f86-4d3c-9f19-702cd5db53f1"
+                        },
+                        {
+                          "name": "webhook-session",
+                          "item": [
+                            {
+                              "name": "Update Legacy Webhook Session",
+                              "id": "4b4c1748-ece5-4960-832a-1c57b79df1f5",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "bearer",
+                                  "bearer": [
+                                    {
+                                      "key": "token",
+                                      "value": "{{bearerToken}}",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"culpa_721\": true\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/products/:productUID/devices/:deviceUID/webhook-session",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "products",
+                                    ":productUID",
+                                    "devices",
+                                    ":deviceUID",
+                                    "webhook-session"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "bc6ae591-f80f-4f67-ae0a-7d09dbf1c879",
+                                      "key": "productUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "840773e1-7daf-4232-a5b6-f85845a5d218",
+                                      "key": "deviceUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Legacy endpoint for opening or updating a webhook session for the given device (provisioning the device if necessary). Used by external services that need to maintain a callable session against a device behind a webhook."
+                              },
+                              "response": [
+                                {
+                                  "id": "2c54335b-2298-435e-89b6-86a924637054",
+                                  "name": "Webhook session updated successfully",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"culpa_721\": true\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/products/:productUID/devices/:deviceUID/webhook-session",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "products",
+                                        ":productUID",
+                                        "devices",
+                                        ":deviceUID",
+                                        "webhook-session"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "productUID"
+                                        },
+                                        {
+                                          "key": "deviceUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:15:40.000Z",
+                                  "updatedAt": "2026-07-28T01:15:40.000Z",
+                                  "uid": "35240-2c54335b-2298-435e-89b6-86a924637054"
+                                },
+                                {
+                                  "id": "28cabaf4-840f-4a8d-9f29-b0e51da81a19",
+                                  "name": "The response body in case of an API error.",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"culpa_721\": true\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/products/:productUID/devices/:deviceUID/webhook-session",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "products",
+                                        ":productUID",
+                                        "devices",
+                                        ":deviceUID",
+                                        "webhook-session"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "productUID"
+                                        },
+                                        {
+                                          "key": "deviceUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:40.000Z",
+                                  "updatedAt": "2026-07-28T01:15:40.000Z",
+                                  "uid": "35240-28cabaf4-840f-4a8d-9f29-b0e51da81a19"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:15:40.000Z",
+                              "updatedAt": "2026-07-28T01:15:40.000Z",
+                              "uid": "35240-4b4c1748-ece5-4960-832a-1c57b79df1f5"
+                            }
+                          ],
+                          "id": "a7d273da-2b24-42d4-9fe6-1f1e522d1763",
+                          "createdAt": "2026-07-28T01:15:40.000Z",
+                          "updatedAt": "2026-07-28T01:15:40.000Z",
+                          "uid": "35240-a7d273da-2b24-42d4-9fe6-1f1e522d1763"
+                        }
+                      ],
+                      "id": "eed18ed1-d797-4615-85fc-d59c6c9f50ba",
+                      "createdAt": "2026-07-28T01:15:40.000Z",
+                      "updatedAt": "2026-07-28T01:15:40.000Z",
+                      "uid": "35240-eed18ed1-d797-4615-85fc-d59c6c9f50ba"
+                    }
+                  ],
+                  "id": "1df252e1-e19a-4a66-b282-713ebfe3e993",
+                  "createdAt": "2026-07-28T01:15:40.000Z",
+                  "updatedAt": "2026-07-28T01:15:40.000Z",
+                  "uid": "35240-1df252e1-e19a-4a66-b282-713ebfe3e993"
+                },
+                {
+                  "name": "webhooks",
+                  "item": [
+                    {
+                      "name": "{webhookUID}",
+                      "item": [
+                        {
+                          "name": "devices",
+                          "item": [
+                            {
+                              "name": "{deviceUID}",
+                              "item": [
+                                {
+                                  "name": "event",
+                                  "item": [
+                                    {
+                                      "name": "Create Webhook Device Event By Product",
+                                      "id": "013596a9-32a0-4375-aedf-c72c83b394d1",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "auth": {
+                                          "type": "bearer",
+                                          "bearer": [
+                                            {
+                                              "key": "token",
+                                              "value": "{{bearerToken}}",
+                                              "type": "string"
+                                            }
+                                          ]
+                                        },
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"culpa_721\": true\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/products/:productUID/webhooks/:webhookUID/devices/:deviceUID/event",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "products",
+                                            ":productUID",
+                                            "webhooks",
+                                            ":webhookUID",
+                                            "devices",
+                                            ":deviceUID",
+                                            "event"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "1093462b-e398-49f5-8652-79fe35527523",
+                                              "key": "productUID",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "67fd9e63-5f94-42ac-b415-184fa0c1120d",
+                                              "key": "webhookUID",
+                                              "value": "<string>",
+                                              "description": "(Required) Webhook UID"
+                                            },
+                                            {
+                                              "id": "ff58cdef-9b56-47c6-9aae-6e8254739f36",
+                                              "key": "deviceUID",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            }
+                                          ]
+                                        },
+                                        "description": "Sends an event to be processed by the specified webhook, addressed by productUID, associated with the given device (provisioning it if necessary). The entire request body becomes the event body. The webhook's configured JSONata transform, if any, is applied before routing."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "92ed2fe1-001f-4050-a4f9-a8d0fdc65375",
+                                          "name": "Event created successfully",
+                                          "originalRequest": {
+                                            "method": "POST",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: bearer",
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"culpa_721\": true\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/v1/products/:productUID/webhooks/:webhookUID/devices/:deviceUID/event",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "v1",
+                                                "products",
+                                                ":productUID",
+                                                "webhooks",
+                                                ":webhookUID",
+                                                "devices",
+                                                ":deviceUID",
+                                                "event"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "productUID"
+                                                },
+                                                {
+                                                  "key": "webhookUID"
+                                                },
+                                                {
+                                                  "key": "deviceUID"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:15:40.000Z",
+                                          "updatedAt": "2026-07-28T01:15:40.000Z",
+                                          "uid": "35240-92ed2fe1-001f-4050-a4f9-a8d0fdc65375"
+                                        },
+                                        {
+                                          "id": "483b4fe3-7041-4db3-96d6-aa81352cba9e",
+                                          "name": "The response body in case of an API error.",
+                                          "originalRequest": {
+                                            "method": "POST",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: bearer",
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"culpa_721\": true\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/v1/products/:productUID/webhooks/:webhookUID/devices/:deviceUID/event",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "v1",
+                                                "products",
+                                                ":productUID",
+                                                "webhooks",
+                                                ":webhookUID",
+                                                "devices",
+                                                ":deviceUID",
+                                                "event"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "productUID"
+                                                },
+                                                {
+                                                  "key": "webhookUID"
+                                                },
+                                                {
+                                                  "key": "deviceUID"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                                          "createdAt": "2026-07-28T01:15:40.000Z",
+                                          "updatedAt": "2026-07-28T01:15:40.000Z",
+                                          "uid": "35240-483b4fe3-7041-4db3-96d6-aa81352cba9e"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:15:40.000Z",
+                                      "updatedAt": "2026-07-28T01:15:40.000Z",
+                                      "uid": "35240-013596a9-32a0-4375-aedf-c72c83b394d1"
+                                    }
+                                  ],
+                                  "id": "3bde2eab-ad7d-4a7b-a57f-b4baa948751a",
+                                  "createdAt": "2026-07-28T01:15:40.000Z",
+                                  "updatedAt": "2026-07-28T01:15:40.000Z",
+                                  "uid": "35240-3bde2eab-ad7d-4a7b-a57f-b4baa948751a"
+                                }
+                              ],
+                              "id": "bd59a472-a8fa-4697-99f3-82e9b8f5f3ca",
+                              "createdAt": "2026-07-28T01:15:40.000Z",
+                              "updatedAt": "2026-07-28T01:15:40.000Z",
+                              "uid": "35240-bd59a472-a8fa-4697-99f3-82e9b8f5f3ca"
+                            }
+                          ],
+                          "id": "d3ddf157-b563-41de-9ce5-ae39f1c78892",
+                          "createdAt": "2026-07-28T01:15:40.000Z",
+                          "updatedAt": "2026-07-28T01:15:40.000Z",
+                          "uid": "35240-d3ddf157-b563-41de-9ce5-ae39f1c78892"
+                        },
+                        {
+                          "name": "event",
+                          "item": [
+                            {
+                              "name": "Create Webhook Event By Product",
+                              "id": "da451c9c-b280-4fd2-9841-824e4a6ff2d9",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "bearer",
+                                  "bearer": [
+                                    {
+                                      "key": "token",
+                                      "value": "{{bearerToken}}",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"culpa_721\": true\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/products/:productUID/webhooks/:webhookUID/event",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "products",
+                                    ":productUID",
+                                    "webhooks",
+                                    ":webhookUID",
+                                    "event"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "dbde81de-cdd8-4e83-8453-95d23eac0e45",
+                                      "key": "productUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "b754a85f-8407-4f66-a2a4-e94d62ec2c99",
+                                      "key": "webhookUID",
+                                      "value": "<string>",
+                                      "description": "(Required) Webhook UID"
+                                    }
+                                  ]
+                                },
+                                "description": "Sends an event to be processed by the specified webhook, addressed by productUID. The entire request body becomes the event body. The webhook's configured JSONata transform, if any, is applied before routing. The event is not associated with a specific device."
+                              },
+                              "response": [
+                                {
+                                  "id": "a8afd95c-1b78-42ad-925f-202c6eed7a3d",
+                                  "name": "Event created successfully",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"culpa_721\": true\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/products/:productUID/webhooks/:webhookUID/event",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "products",
+                                        ":productUID",
+                                        "webhooks",
+                                        ":webhookUID",
+                                        "event"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "productUID"
+                                        },
+                                        {
+                                          "key": "webhookUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:15:40.000Z",
+                                  "updatedAt": "2026-07-28T01:15:40.000Z",
+                                  "uid": "35240-a8afd95c-1b78-42ad-925f-202c6eed7a3d"
+                                },
+                                {
+                                  "id": "b91f7ab8-30c0-467b-82ad-9fce01c13aaf",
+                                  "name": "The response body in case of an API error.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"culpa_721\": true\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/products/:productUID/webhooks/:webhookUID/event",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "products",
+                                        ":productUID",
+                                        "webhooks",
+                                        ":webhookUID",
+                                        "event"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "productUID"
+                                        },
+                                        {
+                                          "key": "webhookUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:40.000Z",
+                                  "updatedAt": "2026-07-28T01:15:40.000Z",
+                                  "uid": "35240-b91f7ab8-30c0-467b-82ad-9fce01c13aaf"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:15:40.000Z",
+                              "updatedAt": "2026-07-28T01:15:40.000Z",
+                              "uid": "35240-da451c9c-b280-4fd2-9841-824e4a6ff2d9"
+                            }
+                          ],
+                          "id": "a3ade280-9425-4d40-9ead-43b4dda26182",
+                          "createdAt": "2026-07-28T01:15:40.000Z",
+                          "updatedAt": "2026-07-28T01:15:40.000Z",
+                          "uid": "35240-a3ade280-9425-4d40-9ead-43b4dda26182"
+                        },
+                        {
+                          "name": "settings",
+                          "item": [
+                            {
+                              "name": "Get Webhook Settings By Product",
+                              "id": "c509c19c-c306-41ca-82ae-447a45cddf10",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "bearer",
+                                  "bearer": [
+                                    {
+                                      "key": "token",
+                                      "value": "{{bearerToken}}",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/products/:productUID/webhooks/:webhookUID/settings",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "products",
+                                    ":productUID",
+                                    "webhooks",
+                                    ":webhookUID",
+                                    "settings"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "66e27bfd-e1af-4fa4-8f55-41e04310cd64",
+                                      "key": "productUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "2d8fb361-2904-4804-91d5-28c291a1042a",
+                                      "key": "webhookUID",
+                                      "value": "<string>",
+                                      "description": "(Required) Webhook UID"
+                                    }
+                                  ]
+                                },
+                                "description": "Retrieves the configuration settings for the specified webhook, addressed by productUID."
+                              },
+                              "response": [
+                                {
+                                  "id": "7b995f6e-abcf-4132-9b73-fe98bd1bbac7",
+                                  "name": "Webhook settings retrieved successfully",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/products/:productUID/webhooks/:webhookUID/settings",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "products",
+                                        ":productUID",
+                                        "webhooks",
+                                        ":webhookUID",
+                                        "settings"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "productUID"
+                                        },
+                                        {
+                                          "key": "webhookUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"disabled\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"transform\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:40.000Z",
+                                  "updatedAt": "2026-07-28T01:15:40.000Z",
+                                  "uid": "35240-7b995f6e-abcf-4132-9b73-fe98bd1bbac7"
+                                },
+                                {
+                                  "id": "8e2c345f-5647-44ab-a3f5-e27b6fb25e5e",
+                                  "name": "The response body in case of an API error.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/products/:productUID/webhooks/:webhookUID/settings",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "products",
+                                        ":productUID",
+                                        "webhooks",
+                                        ":webhookUID",
+                                        "settings"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "productUID"
+                                        },
+                                        {
+                                          "key": "webhookUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:40.000Z",
+                                  "updatedAt": "2026-07-28T01:15:40.000Z",
+                                  "uid": "35240-8e2c345f-5647-44ab-a3f5-e27b6fb25e5e"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:15:40.000Z",
+                              "updatedAt": "2026-07-28T01:15:40.000Z",
+                              "uid": "35240-c509c19c-c306-41ca-82ae-447a45cddf10"
+                            },
+                            {
+                              "name": "Update Webhook Settings By Product",
+                              "id": "b05285ce-c92a-4f57-9404-61bd482f05d1",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "bearer",
+                                  "bearer": [
+                                    {
+                                      "key": "token",
+                                      "value": "{{bearerToken}}",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"disabled\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"transform\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/products/:productUID/webhooks/:webhookUID/settings",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "products",
+                                    ":productUID",
+                                    "webhooks",
+                                    ":webhookUID",
+                                    "settings"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "ffa69bba-d97e-41af-840a-08a0e6cc6c3a",
+                                      "key": "productUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "295323a1-d072-40f0-903d-679208eebc18",
+                                      "key": "webhookUID",
+                                      "value": "<string>",
+                                      "description": "(Required) Webhook UID"
+                                    }
+                                  ]
+                                },
+                                "description": "Updates the configuration settings for the specified webhook, addressed by productUID. Update body will completely replace the existing settings."
+                              },
+                              "response": [
+                                {
+                                  "id": "9712d5b3-0bb5-474f-a747-9f8420960614",
+                                  "name": "Webhook settings updated successfully",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"disabled\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"transform\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/products/:productUID/webhooks/:webhookUID/settings",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "products",
+                                        ":productUID",
+                                        "webhooks",
+                                        ":webhookUID",
+                                        "settings"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "productUID"
+                                        },
+                                        {
+                                          "key": "webhookUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:15:40.000Z",
+                                  "updatedAt": "2026-07-28T01:15:40.000Z",
+                                  "uid": "35240-9712d5b3-0bb5-474f-a747-9f8420960614"
+                                },
+                                {
+                                  "id": "7ba5afb5-a29e-497a-8706-6e7b80d2acbc",
+                                  "name": "The response body in case of an API error.",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"disabled\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"transform\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/products/:productUID/webhooks/:webhookUID/settings",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "products",
+                                        ":productUID",
+                                        "webhooks",
+                                        ":webhookUID",
+                                        "settings"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "productUID"
+                                        },
+                                        {
+                                          "key": "webhookUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:40.000Z",
+                                  "updatedAt": "2026-07-28T01:15:40.000Z",
+                                  "uid": "35240-7ba5afb5-a29e-497a-8706-6e7b80d2acbc"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:15:40.000Z",
+                              "updatedAt": "2026-07-28T01:15:40.000Z",
+                              "uid": "35240-b05285ce-c92a-4f57-9404-61bd482f05d1"
+                            }
+                          ],
+                          "id": "40f560e2-9db2-43a2-8acc-c0e28d1a8032",
+                          "createdAt": "2026-07-28T01:15:40.000Z",
+                          "updatedAt": "2026-07-28T01:15:40.000Z",
+                          "uid": "35240-40f560e2-9db2-43a2-8acc-c0e28d1a8032"
+                        }
+                      ],
+                      "id": "7a1be027-57f5-454f-aa31-35b2d1f36407",
+                      "createdAt": "2026-07-28T01:15:40.000Z",
+                      "updatedAt": "2026-07-28T01:15:40.000Z",
+                      "uid": "35240-7a1be027-57f5-454f-aa31-35b2d1f36407"
+                    }
+                  ],
+                  "id": "bd9d51dd-dc67-4368-a8fc-bb299532e564",
+                  "createdAt": "2026-07-28T01:15:40.000Z",
+                  "updatedAt": "2026-07-28T01:15:40.000Z",
+                  "uid": "35240-bd9d51dd-dc67-4368-a8fc-bb299532e564"
+                }
+              ],
+              "id": "c8580db3-81ab-46c2-b83c-4e9acd77aea8",
+              "createdAt": "2026-07-28T01:15:40.000Z",
+              "updatedAt": "2026-07-28T01:15:40.000Z",
+              "uid": "35240-c8580db3-81ab-46c2-b83c-4e9acd77aea8"
+            }
+          ],
+          "id": "5294ae76-cd12-41d4-b39c-e0a772561fb6",
+          "createdAt": "2026-07-28T01:15:40.000Z",
+          "updatedAt": "2026-07-28T01:15:40.000Z",
+          "uid": "35240-5294ae76-cd12-41d4-b39c-e0a772561fb6"
+        },
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{projectOrProductUID}",
+              "item": [
+                {
+                  "name": "webhooks",
+                  "item": [
+                    {
+                      "name": "{webhookUID}",
+                      "item": [
+                        {
+                          "name": "Delete Webhook",
+                          "id": "26115504-e968-4450-bf47-5db1ce6d0e84",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "webhooks",
+                                ":webhookUID"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "af952634-c139-458a-8454-dd231c07ac2b",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "b8e0b6b2-ac23-4abc-b881-1e56c3b9c960",
+                                  "key": "webhookUID",
+                                  "value": "<string>",
+                                  "description": "(Required) Webhook UID"
+                                }
+                              ]
+                            },
+                            "description": "Deletes the specified webhook"
+                          },
+                          "response": [
+                            {
+                              "id": "bc2cd46e-ec0e-4e13-bf42-f2dd061e42a8",
+                              "name": "Webhook deleted successfully",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "webhooks",
+                                    ":webhookUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "webhookUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:15:40.000Z",
+                              "updatedAt": "2026-07-28T01:15:40.000Z",
+                              "uid": "35240-bc2cd46e-ec0e-4e13-bf42-f2dd061e42a8"
+                            },
+                            {
+                              "id": "9a8dcbca-5dbf-4f73-a3d9-677934349b5e",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "webhooks",
+                                    ":webhookUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "webhookUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:40.000Z",
+                              "updatedAt": "2026-07-28T01:15:40.000Z",
+                              "uid": "35240-9a8dcbca-5dbf-4f73-a3d9-677934349b5e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:40.000Z",
+                          "updatedAt": "2026-07-28T01:15:40.000Z",
+                          "uid": "35240-26115504-e968-4450-bf47-5db1ce6d0e84"
+                        },
+                        {
+                          "name": "Get Webhook",
+                          "id": "206e5000-98cc-4f1e-b6b0-81bf4dd29547",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "webhooks",
+                                ":webhookUID"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "068e5743-ba7a-4360-95d1-57768733d43f",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "cfd6d95d-db96-4d76-aacd-da4f24411133",
+                                  "key": "webhookUID",
+                                  "value": "<string>",
+                                  "description": "(Required) Webhook UID"
+                                }
+                              ]
+                            },
+                            "description": "Retrieves the configuration settings for the specified webhook"
+                          },
+                          "response": [
+                            {
+                              "id": "92d9006d-ba48-4c8b-9120-068ee34aadb0",
+                              "name": "Webhook settings retrieved successfully",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "webhooks",
+                                    ":webhookUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "webhookUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"disabled\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"transform\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:40.000Z",
+                              "updatedAt": "2026-07-28T01:15:40.000Z",
+                              "uid": "35240-92d9006d-ba48-4c8b-9120-068ee34aadb0"
+                            },
+                            {
+                              "id": "ce00129c-48c9-4a46-b11d-dc4b0fd91465",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "webhooks",
+                                    ":webhookUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "webhookUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:40.000Z",
+                              "updatedAt": "2026-07-28T01:15:40.000Z",
+                              "uid": "35240-ce00129c-48c9-4a46-b11d-dc4b0fd91465"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:40.000Z",
+                          "updatedAt": "2026-07-28T01:15:40.000Z",
+                          "uid": "35240-206e5000-98cc-4f1e-b6b0-81bf4dd29547"
+                        },
+                        {
+                          "name": "Create Webhook",
+                          "id": "4c1067a1-0620-4954-866a-e19a98768423",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"disabled\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"transform\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "webhooks",
+                                ":webhookUID"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a972ca09-0768-4476-a905-bece373d8e6b",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "a415bf36-a010-4f7b-8d14-27d5565796da",
+                                  "key": "webhookUID",
+                                  "value": "<string>",
+                                  "description": "(Required) Webhook UID"
+                                }
+                              ]
+                            },
+                            "description": "Creates a webhook for the specified product with the given name. The name | must be unique within the project."
+                          },
+                          "response": [
+                            {
+                              "id": "87fd266a-4cd0-4d12-a9fc-6f6a0cf6e594",
+                              "name": "Webhook created successfully",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"disabled\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"transform\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "webhooks",
+                                    ":webhookUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "webhookUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:15:40.000Z",
+                              "updatedAt": "2026-07-28T01:15:40.000Z",
+                              "uid": "35240-87fd266a-4cd0-4d12-a9fc-6f6a0cf6e594"
+                            },
+                            {
+                              "id": "ce970f32-b9ea-4e3d-92e2-5176c36d2702",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"disabled\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"transform\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "webhooks",
+                                    ":webhookUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "webhookUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:40.000Z",
+                              "updatedAt": "2026-07-28T01:15:40.000Z",
+                              "uid": "35240-ce970f32-b9ea-4e3d-92e2-5176c36d2702"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:40.000Z",
+                          "updatedAt": "2026-07-28T01:15:40.000Z",
+                          "uid": "35240-4c1067a1-0620-4954-866a-e19a98768423"
+                        },
+                        {
+                          "name": "Update Webhook",
+                          "id": "97663410-0b85-4f2c-9455-0f6f7dba6849",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"disabled\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"transform\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "webhooks",
+                                ":webhookUID"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ad856e07-cc19-4d61-a65d-3dbcfa21b34e",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "b49ff8eb-00fb-4923-822b-0abf8f1c20b9",
+                                  "key": "webhookUID",
+                                  "value": "<string>",
+                                  "description": "(Required) Webhook UID"
+                                }
+                              ]
+                            },
+                            "description": "Updates the configuration settings for the specified webhook. | Webhook will be created if it does not exist. Update body will completely replace the existing settings."
+                          },
+                          "response": [
+                            {
+                              "id": "36861039-ae9b-4589-b06f-d1169b8e0afb",
+                              "name": "Webhook updated successfully",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"disabled\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"transform\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "webhooks",
+                                    ":webhookUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "webhookUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:15:40.000Z",
+                              "updatedAt": "2026-07-28T01:15:40.000Z",
+                              "uid": "35240-36861039-ae9b-4589-b06f-d1169b8e0afb"
+                            },
+                            {
+                              "id": "1af0c915-1956-481d-b511-954a52812ed0",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"disabled\": \"<boolean>\",\n  \"id\": \"<string>\",\n  \"transform\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "webhooks",
+                                    ":webhookUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "webhookUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:40.000Z",
+                              "updatedAt": "2026-07-28T01:15:40.000Z",
+                              "uid": "35240-1af0c915-1956-481d-b511-954a52812ed0"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:40.000Z",
+                          "updatedAt": "2026-07-28T01:15:40.000Z",
+                          "uid": "35240-97663410-0b85-4f2c-9455-0f6f7dba6849"
+                        }
+                      ],
+                      "id": "f0fa8d9c-3069-4b96-812e-ee8d90351e6f",
+                      "createdAt": "2026-07-28T01:15:40.000Z",
+                      "updatedAt": "2026-07-28T01:15:40.000Z",
+                      "uid": "35240-f0fa8d9c-3069-4b96-812e-ee8d90351e6f"
+                    },
+                    {
+                      "name": "Get Webhooks",
+                      "id": "069b4181-0249-4f23-8a6e-1b016f405480",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/webhooks",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":projectOrProductUID",
+                            "webhooks"
+                          ],
+                          "variable": [
+                            {
+                              "id": "18876e92-70f4-41ef-a414-f2c5a054454c",
+                              "key": "projectOrProductUID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieves all webhooks for the specified project"
+                      },
+                      "response": [
+                        {
+                          "id": "9f806ab5-b918-448f-91dc-d01522ae0dd9",
+                          "name": "Webhooks retrieved successfully",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/webhooks",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "webhooks"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"webhooks\": [\n    {\n      \"disabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"transform\": \"<string>\"\n    },\n    {\n      \"disabled\": \"<boolean>\",\n      \"id\": \"<string>\",\n      \"transform\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:15:40.000Z",
+                          "updatedAt": "2026-07-28T01:15:40.000Z",
+                          "uid": "35240-9f806ab5-b918-448f-91dc-d01522ae0dd9"
+                        },
+                        {
+                          "id": "bcbb5313-a26a-4ac0-8b32-4ecf81862ec0",
+                          "name": "The response body in case of an API error.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/webhooks",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "webhooks"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:15:40.000Z",
+                          "updatedAt": "2026-07-28T01:15:40.000Z",
+                          "uid": "35240-bcbb5313-a26a-4ac0-8b32-4ecf81862ec0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:15:40.000Z",
+                      "updatedAt": "2026-07-28T01:15:40.000Z",
+                      "uid": "35240-069b4181-0249-4f23-8a6e-1b016f405480"
+                    }
+                  ],
+                  "id": "964fe11a-0e89-4575-8a08-29d649d63f26",
+                  "createdAt": "2026-07-28T01:15:40.000Z",
+                  "updatedAt": "2026-07-28T01:15:40.000Z",
+                  "uid": "35240-964fe11a-0e89-4575-8a08-29d649d63f26"
+                }
+              ],
+              "id": "eca04be9-0336-4196-8f1e-39a7b7d7df1b",
+              "createdAt": "2026-07-28T01:15:40.000Z",
+              "updatedAt": "2026-07-28T01:15:40.000Z",
+              "uid": "35240-eca04be9-0336-4196-8f1e-39a7b7d7df1b"
+            }
+          ],
+          "id": "a87a7a1d-2a52-4d47-ad63-79939b17495a",
+          "createdAt": "2026-07-28T01:15:40.000Z",
+          "updatedAt": "2026-07-28T01:15:40.000Z",
+          "uid": "35240-a87a7a1d-2a52-4d47-ad63-79939b17495a"
+        }
+      ],
+      "id": "54bcacd1-dbb9-4266-8c1a-13350b7cb445",
+      "createdAt": "2026-07-28T01:15:40.000Z",
+      "updatedAt": "2026-07-28T01:15:40.000Z",
+      "uid": "35240-54bcacd1-dbb9-4266-8c1a-13350b7cb445"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.notefile.net"
+    }
+  ]
+}

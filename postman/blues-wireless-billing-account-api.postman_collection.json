@@ -1,0 +1,521 @@
+{
+  "info": {
+    "_postman_id": "588c7a56-7fae-4787-8fc9-b8e1ed122592",
+    "name": "Notehub alert billing_account API",
+    "description": "The OpenAPI definition for the Notehub.io API.\n\n\nContact Support:\n Name: Blues Engineering\n Email: engineering@blues.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:15:01.000Z",
+    "updatedAt": "2026-07-28T01:15:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-588c7a56-7fae-4787-8fc9-b8e1ed122592"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "billing-accounts",
+          "item": [
+            {
+              "name": "{billingAccountUID}",
+              "item": [
+                {
+                  "name": "balance-history",
+                  "item": [
+                    {
+                      "name": "Get Billing Account Balance History",
+                      "id": "d52769e2-c217-44d0-b130-acea2873e511",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/billing-accounts/:billingAccountUID/balance-history?startDate=<integer>&endDate=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "billing-accounts",
+                            ":billingAccountUID",
+                            "balance-history"
+                          ],
+                          "query": [
+                            {
+                              "description": "Start date for filtering results, specified as a Unix timestamp",
+                              "key": "startDate",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "End date for filtering results, specified as a Unix timestamp",
+                              "key": "endDate",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "4b96ea36-e1e8-455c-8623-7870f480bec3",
+                              "key": "billingAccountUID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Get Billing Account Balance history"
+                      },
+                      "response": [
+                        {
+                          "id": "b4ad1bf8-9e62-4023-b65c-5b3160288bc3",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/billing-accounts/:billingAccountUID/balance-history?startDate=<integer>&endDate=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "billing-accounts",
+                                ":billingAccountUID",
+                                "balance-history"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Start date for filtering results, specified as a Unix timestamp",
+                                  "key": "startDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "End date for filtering results, specified as a Unix timestamp",
+                                  "key": "endDate",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "billingAccountUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"remaining_event_capacity\": \"<long>\",\n      \"total_event_capacity_used\": \"<long>\",\n      \"period\": \"<dateTime>\"\n    },\n    {\n      \"remaining_event_capacity\": \"<long>\",\n      \"total_event_capacity_used\": \"<long>\",\n      \"period\": \"<dateTime>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:15:01.000Z",
+                          "updatedAt": "2026-07-28T01:15:01.000Z",
+                          "uid": "35240-b4ad1bf8-9e62-4023-b65c-5b3160288bc3"
+                        },
+                        {
+                          "id": "5ae7f258-d427-42e3-a3e2-c39ec9366210",
+                          "name": "The response body in case of an API error.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/billing-accounts/:billingAccountUID/balance-history?startDate=<integer>&endDate=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "billing-accounts",
+                                ":billingAccountUID",
+                                "balance-history"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Start date for filtering results, specified as a Unix timestamp",
+                                  "key": "startDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "End date for filtering results, specified as a Unix timestamp",
+                                  "key": "endDate",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "billingAccountUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:15:01.000Z",
+                          "updatedAt": "2026-07-28T01:15:01.000Z",
+                          "uid": "35240-5ae7f258-d427-42e3-a3e2-c39ec9366210"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:15:01.000Z",
+                      "updatedAt": "2026-07-28T01:15:01.000Z",
+                      "uid": "35240-d52769e2-c217-44d0-b130-acea2873e511"
+                    }
+                  ],
+                  "id": "3ef587e2-74ca-4d4f-a260-77bfbe667d01",
+                  "createdAt": "2026-07-28T01:15:01.000Z",
+                  "updatedAt": "2026-07-28T01:15:01.000Z",
+                  "uid": "35240-3ef587e2-74ca-4d4f-a260-77bfbe667d01"
+                },
+                {
+                  "name": "Get Billing Account",
+                  "id": "759f11db-e9d6-46e9-88c5-a374c21e8c59",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/billing-accounts/:billingAccountUID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "billing-accounts",
+                        ":billingAccountUID"
+                      ],
+                      "variable": [
+                        {
+                          "id": "05cbfd00-9cc0-48b1-98cc-70eebb9e6f7c",
+                          "key": "billingAccountUID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Get Billing Account Information"
+                  },
+                  "response": [
+                    {
+                      "id": "f429ddb5-87db-49b9-9bc3-b01c4f386d2f",
+                      "name": "Successful operation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/billing-accounts/:billingAccountUID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "billing-accounts",
+                            ":billingAccountUID"
+                          ],
+                          "variable": [
+                            {
+                              "key": "billingAccountUID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"contact_uid\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner\": \"<string>\",\n  \"plan\": {\n    \"current_balance\": \"<long>\",\n    \"end_date\": \"<dateTime>\",\n    \"event_capacity\": \"<long>\",\n    \"start_date\": \"<dateTime>\",\n    \"type\": \"Enterprise\"\n  },\n  \"suspended\": \"<boolean>\",\n  \"uid\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:15:01.000Z",
+                      "updatedAt": "2026-07-28T01:15:01.000Z",
+                      "uid": "35240-f429ddb5-87db-49b9-9bc3-b01c4f386d2f"
+                    },
+                    {
+                      "id": "5e236c59-9904-46fc-9263-ff552d5db49e",
+                      "name": "The response body in case of an API error.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/billing-accounts/:billingAccountUID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "billing-accounts",
+                            ":billingAccountUID"
+                          ],
+                          "variable": [
+                            {
+                              "key": "billingAccountUID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:15:01.000Z",
+                      "updatedAt": "2026-07-28T01:15:01.000Z",
+                      "uid": "35240-5e236c59-9904-46fc-9263-ff552d5db49e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:15:01.000Z",
+                  "updatedAt": "2026-07-28T01:15:01.000Z",
+                  "uid": "35240-759f11db-e9d6-46e9-88c5-a374c21e8c59"
+                }
+              ],
+              "id": "c570e751-abdd-4ce9-8a3e-b2add10fc8c0",
+              "createdAt": "2026-07-28T01:15:01.000Z",
+              "updatedAt": "2026-07-28T01:15:01.000Z",
+              "uid": "35240-c570e751-abdd-4ce9-8a3e-b2add10fc8c0"
+            },
+            {
+              "name": "Get Billing Accounts",
+              "id": "5f696e61-8e8a-46b9-a585-9b8dfbefcf92",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/billing-accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "billing-accounts"
+                  ]
+                },
+                "description": "Get Billing Accounts accessible by the api_key"
+              },
+              "response": [
+                {
+                  "id": "caa9b5ae-0b58-4226-807e-9b36836d4496",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/billing-accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "billing-accounts"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"billing_accounts\": [\n    {\n      \"uid\": \"<string>\",\n      \"name\": \"<string>\",\n      \"role\": \"project_creator\"\n    },\n    {\n      \"uid\": \"<string>\",\n      \"name\": \"<string>\",\n      \"role\": \"billing_admin\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:15:01.000Z",
+                  "updatedAt": "2026-07-28T01:15:01.000Z",
+                  "uid": "35240-caa9b5ae-0b58-4226-807e-9b36836d4496"
+                },
+                {
+                  "id": "c5fb65d2-df40-4a56-a95d-04565cb45c83",
+                  "name": "The response body in case of an API error.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/billing-accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "billing-accounts"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:15:01.000Z",
+                  "updatedAt": "2026-07-28T01:15:01.000Z",
+                  "uid": "35240-c5fb65d2-df40-4a56-a95d-04565cb45c83"
+                }
+              ],
+              "createdAt": "2026-07-28T01:15:01.000Z",
+              "updatedAt": "2026-07-28T01:15:01.000Z",
+              "uid": "35240-5f696e61-8e8a-46b9-a585-9b8dfbefcf92"
+            }
+          ],
+          "id": "157842d3-6a08-4ecc-812c-0dfe09fdc0e4",
+          "createdAt": "2026-07-28T01:15:01.000Z",
+          "updatedAt": "2026-07-28T01:15:01.000Z",
+          "uid": "35240-157842d3-6a08-4ecc-812c-0dfe09fdc0e4"
+        }
+      ],
+      "id": "78a64707-e67a-4615-abd7-8cae4e911ff2",
+      "createdAt": "2026-07-28T01:15:01.000Z",
+      "updatedAt": "2026-07-28T01:15:01.000Z",
+      "uid": "35240-78a64707-e67a-4615-abd7-8cae4e911ff2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.notefile.net"
+    }
+  ]
+}

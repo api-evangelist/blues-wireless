@@ -1,0 +1,569 @@
+{
+  "info": {
+    "_postman_id": "9b4b9900-bb3f-49b3-90e8-8c245ce0fd11",
+    "name": "Notehub alert authorization API",
+    "description": "The OpenAPI definition for the Notehub.io API.\n\n\nContact Support:\n Name: Blues Engineering\n Email: engineering@blues.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:15:00.000Z",
+    "updatedAt": "2026-07-28T01:15:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9b4b9900-bb3f-49b3-90e8-8c245ce0fd11"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "login",
+          "item": [
+            {
+              "name": "Login",
+              "id": "c430b40e-2f44-450b-952e-c85be16e742d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"password\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                },
+                "description": "Gets an API key from username and password"
+              },
+              "response": [
+                {
+                  "id": "f7111ec6-a5d8-43f9-9429-baeb9bfb0f4a",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"password\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "login"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"session_token\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:15:00.000Z",
+                  "updatedAt": "2026-07-28T01:15:00.000Z",
+                  "uid": "35240-f7111ec6-a5d8-43f9-9429-baeb9bfb0f4a"
+                },
+                {
+                  "id": "3e36bbf8-83c3-4520-adc8-9c57b125e5bf",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"password\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "login"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:15:00.000Z",
+                  "updatedAt": "2026-07-28T01:15:00.000Z",
+                  "uid": "35240-3e36bbf8-83c3-4520-adc8-9c57b125e5bf"
+                },
+                {
+                  "id": "f2c59aca-7327-44e0-ac47-6a3e0421bf4e",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"password\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "login"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:15:00.000Z",
+                  "updatedAt": "2026-07-28T01:15:00.000Z",
+                  "uid": "35240-f2c59aca-7327-44e0-ac47-6a3e0421bf4e"
+                }
+              ],
+              "createdAt": "2026-07-28T01:15:00.000Z",
+              "updatedAt": "2026-07-28T01:15:00.000Z",
+              "uid": "35240-c430b40e-2f44-450b-952e-c85be16e742d"
+            }
+          ],
+          "id": "fe349c05-c22a-4668-bd8f-445c1d4d9e87",
+          "createdAt": "2026-07-28T01:15:00.000Z",
+          "updatedAt": "2026-07-28T01:15:00.000Z",
+          "uid": "35240-fe349c05-c22a-4668-bd8f-445c1d4d9e87"
+        }
+      ],
+      "id": "962aa2c4-7adc-4f84-b0ef-eb130f6ca6fe",
+      "createdAt": "2026-07-28T01:15:00.000Z",
+      "updatedAt": "2026-07-28T01:15:00.000Z",
+      "uid": "35240-962aa2c4-7adc-4f84-b0ef-eb130f6ca6fe"
+    },
+    {
+      "name": "oauth2",
+      "item": [
+        {
+          "name": "token",
+          "item": [
+            {
+              "name": "Issue an OAuth 2.0 access token (Client Credentials)",
+              "id": "f5372b13-1fab-4fb5-82f4-b948863556c1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) ",
+                      "key": "grant_type",
+                      "value": "client_credentials"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "client_id",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Space-delimited scopes.",
+                      "key": "scope",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/oauth2/token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth2",
+                    "token"
+                  ]
+                },
+                "description": "Exchanges client credentials for an access token. Parameters must be sent as application/x-www-form-urlencoded.\n"
+              },
+              "response": [
+                {
+                  "id": "4a458d78-9113-4834-a72d-54626b8741e0",
+                  "name": "Successful token response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "grant_type",
+                          "value": "client_credentials"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_id",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_secret",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Space-delimited scopes.",
+                          "key": "scope",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth2/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth2",
+                        "token"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"access_token\": \"<string>\",\n  \"token_type\": \"<string>\",\n  \"expires_in\": \"<integer>\",\n  \"scope\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:15:00.000Z",
+                  "updatedAt": "2026-07-28T01:15:00.000Z",
+                  "uid": "35240-4a458d78-9113-4834-a72d-54626b8741e0"
+                },
+                {
+                  "id": "6de29875-66d2-4759-b203-b1c64b575e41",
+                  "name": "Invalid request (missing or malformed parameters)",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "grant_type",
+                          "value": "client_credentials"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_id",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_secret",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Space-delimited scopes.",
+                          "key": "scope",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth2/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth2",
+                        "token"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"invalid_client\",\n  \"error_description\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:15:00.000Z",
+                  "updatedAt": "2026-07-28T01:15:00.000Z",
+                  "uid": "35240-6de29875-66d2-4759-b203-b1c64b575e41"
+                },
+                {
+                  "id": "ac1fe4f5-69bf-4fa7-af9b-dba5812aeb1b",
+                  "name": "Invalid client authentication",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "grant_type",
+                          "value": "client_credentials"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_id",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_secret",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Space-delimited scopes.",
+                          "key": "scope",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth2/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth2",
+                        "token"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"invalid_client\",\n  \"error_description\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:15:00.000Z",
+                  "updatedAt": "2026-07-28T01:15:00.000Z",
+                  "uid": "35240-ac1fe4f5-69bf-4fa7-af9b-dba5812aeb1b"
+                },
+                {
+                  "id": "9afa6c79-8a1c-4b07-ba37-59245d558bae",
+                  "name": "Unauthorized scope",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "grant_type",
+                          "value": "client_credentials"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_id",
+                          "value": "<uuid>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_secret",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Space-delimited scopes.",
+                          "key": "scope",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth2/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth2",
+                        "token"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"invalid_client\",\n  \"error_description\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:15:00.000Z",
+                  "updatedAt": "2026-07-28T01:15:00.000Z",
+                  "uid": "35240-9afa6c79-8a1c-4b07-ba37-59245d558bae"
+                }
+              ],
+              "createdAt": "2026-07-28T01:15:00.000Z",
+              "updatedAt": "2026-07-28T01:15:00.000Z",
+              "uid": "35240-f5372b13-1fab-4fb5-82f4-b948863556c1"
+            }
+          ],
+          "id": "070c8a3f-11d6-4860-90ec-d42b88420042",
+          "createdAt": "2026-07-28T01:15:00.000Z",
+          "updatedAt": "2026-07-28T01:15:00.000Z",
+          "uid": "35240-070c8a3f-11d6-4860-90ec-d42b88420042"
+        }
+      ],
+      "id": "aa133364-d81f-4916-a768-de484692c9e3",
+      "createdAt": "2026-07-28T01:15:00.000Z",
+      "updatedAt": "2026-07-28T01:15:00.000Z",
+      "uid": "35240-aa133364-d81f-4916-a768-de484692c9e3"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.notefile.net"
+    }
+  ]
+}

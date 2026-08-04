@@ -1,0 +1,2142 @@
+{
+  "info": {
+    "_postman_id": "638bf0c6-24ad-49b3-8f8d-ae70bd47f914",
+    "name": "Notehub alert jobs API",
+    "description": "The OpenAPI definition for the Notehub.io API.\n\n\nContact Support:\n Name: Blues Engineering\n Email: engineering@blues.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:15:21.000Z",
+    "updatedAt": "2026-07-28T01:15:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-638bf0c6-24ad-49b3-8f8d-ae70bd47f914"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{projectOrProductUID}",
+              "item": [
+                {
+                  "name": "jobs",
+                  "item": [
+                    {
+                      "name": "{jobUID}",
+                      "item": [
+                        {
+                          "name": "run",
+                          "item": [
+                            {
+                              "name": "Run Job",
+                              "id": "b4f590a5-97df-47dd-957f-0f91e8ca71ba",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "bearer",
+                                  "bearer": [
+                                    {
+                                      "key": "token",
+                                      "value": "{{bearerToken}}",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID/run?dry_run=false",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "jobs",
+                                    ":jobUID",
+                                    "run"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Run job in dry-run mode without making actual changes",
+                                      "key": "dry_run",
+                                      "value": "false"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "ed8f30fe-5319-4623-8aa4-0122710519f8",
+                                      "key": "projectOrProductUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "c0586fc7-8329-472c-ad07-8292918683c6",
+                                      "key": "jobUID",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier for a batch job"
+                                    }
+                                  ]
+                                },
+                                "description": "Execute a batch job"
+                              },
+                              "response": [
+                                {
+                                  "id": "0abe4859-cc0f-4ffd-8f9f-2525f2dd3d5b",
+                                  "name": "Job execution started",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID/run?dry_run=false",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "jobs",
+                                        ":jobUID",
+                                        "run"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Run job in dry-run mode without making actual changes",
+                                          "key": "dry_run",
+                                          "value": "false"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "jobUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"report_uid\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:22.000Z",
+                                  "updatedAt": "2026-07-28T01:15:22.000Z",
+                                  "uid": "35240-0abe4859-cc0f-4ffd-8f9f-2525f2dd3d5b"
+                                },
+                                {
+                                  "id": "0848a775-7981-424b-a130-d1f25b7d5e96",
+                                  "name": "Job not found",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID/run?dry_run=false",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "jobs",
+                                        ":jobUID",
+                                        "run"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Run job in dry-run mode without making actual changes",
+                                          "key": "dry_run",
+                                          "value": "false"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "jobUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:15:22.000Z",
+                                  "updatedAt": "2026-07-28T01:15:22.000Z",
+                                  "uid": "35240-0848a775-7981-424b-a130-d1f25b7d5e96"
+                                },
+                                {
+                                  "id": "04186f71-7f18-4313-8517-bb10e1edc44e",
+                                  "name": "The response body in case of an API error.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID/run?dry_run=false",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "jobs",
+                                        ":jobUID",
+                                        "run"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Run job in dry-run mode without making actual changes",
+                                          "key": "dry_run",
+                                          "value": "false"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "jobUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:22.000Z",
+                                  "updatedAt": "2026-07-28T01:15:22.000Z",
+                                  "uid": "35240-04186f71-7f18-4313-8517-bb10e1edc44e"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:15:22.000Z",
+                              "updatedAt": "2026-07-28T01:15:22.000Z",
+                              "uid": "35240-b4f590a5-97df-47dd-957f-0f91e8ca71ba"
+                            }
+                          ],
+                          "id": "50ef48aa-afc6-43dd-90b4-485ec86957f6",
+                          "createdAt": "2026-07-28T01:15:22.000Z",
+                          "updatedAt": "2026-07-28T01:15:22.000Z",
+                          "uid": "35240-50ef48aa-afc6-43dd-90b4-485ec86957f6"
+                        },
+                        {
+                          "name": "runs",
+                          "item": [
+                            {
+                              "name": "Get Job Runs",
+                              "id": "17016ca5-34e4-40e2-bcf7-8dd585b16b4a",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "bearer",
+                                  "bearer": [
+                                    {
+                                      "key": "token",
+                                      "value": "{{bearerToken}}",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID/runs?status=<string>&dry_run=<boolean>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "jobs",
+                                    ":jobUID",
+                                    "runs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Filter runs by status",
+                                      "key": "status",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Filter runs by dry run flag",
+                                      "key": "dry_run",
+                                      "value": "<boolean>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "e1cd151e-4d96-49c1-9eab-76012b9c3778",
+                                      "key": "projectOrProductUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "038fc872-1935-40e8-86c7-96af47de9fc6",
+                                      "key": "jobUID",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier for a batch job"
+                                    }
+                                  ]
+                                },
+                                "description": "List all runs for a specific job"
+                              },
+                              "response": [
+                                {
+                                  "id": "c406468b-12ae-421a-a8b1-c7d83d48d749",
+                                  "name": "List of job runs",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID/runs?status=<string>&dry_run=<boolean>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "jobs",
+                                        ":jobUID",
+                                        "runs"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Filter runs by status",
+                                          "key": "status",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Filter runs by dry run flag",
+                                          "key": "dry_run",
+                                          "value": "<boolean>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "jobUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"runs\": [\n    {\n      \"report_uid\": \"<string>\",\n      \"job_uid\": \"<string>\",\n      \"job_name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"dry_run\": \"<boolean>\",\n      \"submitted_by\": \"<string>\",\n      \"submitted\": \"<long>\",\n      \"updated\": \"<long>\",\n      \"cancel\": \"<boolean>\",\n      \"completed\": \"<long>\",\n      \"results\": {\n        \"dolor_7\": 52471225\n      },\n      \"started\": \"<long>\"\n    },\n    {\n      \"report_uid\": \"<string>\",\n      \"job_uid\": \"<string>\",\n      \"job_name\": \"<string>\",\n      \"status\": \"<string>\",\n      \"dry_run\": \"<boolean>\",\n      \"submitted_by\": \"<string>\",\n      \"submitted\": \"<long>\",\n      \"updated\": \"<long>\",\n      \"cancel\": \"<boolean>\",\n      \"completed\": \"<long>\",\n      \"results\": {\n        \"est_0\": -97729848.53879692\n      },\n      \"started\": \"<long>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:15:22.000Z",
+                                  "updatedAt": "2026-07-28T01:15:22.000Z",
+                                  "uid": "35240-c406468b-12ae-421a-a8b1-c7d83d48d749"
+                                },
+                                {
+                                  "id": "3caf8e5c-90f0-4f81-8194-84b66e41bc54",
+                                  "name": "Job not found",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID/runs?status=<string>&dry_run=<boolean>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "jobs",
+                                        ":jobUID",
+                                        "runs"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Filter runs by status",
+                                          "key": "status",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Filter runs by dry run flag",
+                                          "key": "dry_run",
+                                          "value": "<boolean>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "jobUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:15:22.000Z",
+                                  "updatedAt": "2026-07-28T01:15:22.000Z",
+                                  "uid": "35240-3caf8e5c-90f0-4f81-8194-84b66e41bc54"
+                                },
+                                {
+                                  "id": "6a068a44-3fd9-49d6-bba2-c724e932d57a",
+                                  "name": "The response body in case of an API error.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID/runs?status=<string>&dry_run=<boolean>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "jobs",
+                                        ":jobUID",
+                                        "runs"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Filter runs by status",
+                                          "key": "status",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Filter runs by dry run flag",
+                                          "key": "dry_run",
+                                          "value": "<boolean>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "jobUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:22.000Z",
+                                  "updatedAt": "2026-07-28T01:15:22.000Z",
+                                  "uid": "35240-6a068a44-3fd9-49d6-bba2-c724e932d57a"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:15:22.000Z",
+                              "updatedAt": "2026-07-28T01:15:22.000Z",
+                              "uid": "35240-17016ca5-34e4-40e2-bcf7-8dd585b16b4a"
+                            }
+                          ],
+                          "id": "bc3306fe-61f1-4dcb-9164-c47b0438eee7",
+                          "createdAt": "2026-07-28T01:15:22.000Z",
+                          "updatedAt": "2026-07-28T01:15:22.000Z",
+                          "uid": "35240-bc3306fe-61f1-4dcb-9164-c47b0438eee7"
+                        },
+                        {
+                          "name": "Delete Job",
+                          "id": "b0a68728-59e2-40fd-a178-132b1470e9cf",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "jobs",
+                                ":jobUID"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "dd14aa74-80b0-4af6-bb03-613201a1e43c",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "3e1894b9-9587-45b3-a87b-a02b7f8b5de3",
+                                  "key": "jobUID",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier for a batch job"
+                                }
+                              ]
+                            },
+                            "description": "Delete a batch job"
+                          },
+                          "response": [
+                            {
+                              "id": "0556dafa-cd44-4eba-aac8-290c429e95c3",
+                              "name": "Job deleted successfully",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "jobs",
+                                    ":jobUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "jobUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"success\": \"<boolean>\"\n}",
+                              "createdAt": "2026-07-28T01:15:22.000Z",
+                              "updatedAt": "2026-07-28T01:15:22.000Z",
+                              "uid": "35240-0556dafa-cd44-4eba-aac8-290c429e95c3"
+                            },
+                            {
+                              "id": "08f36e62-1df0-45a1-9051-35b764544f76",
+                              "name": "Job not found",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "jobs",
+                                    ":jobUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "jobUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:15:22.000Z",
+                              "updatedAt": "2026-07-28T01:15:22.000Z",
+                              "uid": "35240-08f36e62-1df0-45a1-9051-35b764544f76"
+                            },
+                            {
+                              "id": "03eae925-45d0-4b86-ad38-4cae9e5c3d2d",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "jobs",
+                                    ":jobUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "jobUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:22.000Z",
+                              "updatedAt": "2026-07-28T01:15:22.000Z",
+                              "uid": "35240-03eae925-45d0-4b86-ad38-4cae9e5c3d2d"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:22.000Z",
+                          "updatedAt": "2026-07-28T01:15:22.000Z",
+                          "uid": "35240-b0a68728-59e2-40fd-a178-132b1470e9cf"
+                        },
+                        {
+                          "name": "Get Job",
+                          "id": "8eb98c1d-959f-43c9-badd-58af4942dbd0",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "jobs",
+                                ":jobUID"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "3d94f977-8f92-46ac-9a28-ddb690168ae8",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "31653184-d4f1-4290-9b0f-cc7f0b622d97",
+                                  "key": "jobUID",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier for a batch job"
+                                }
+                              ]
+                            },
+                            "description": "Get a specific batch job definition"
+                          },
+                          "response": [
+                            {
+                              "id": "60ee2ef8-7e67-4635-9c7c-62d337ca8c6d",
+                              "name": "Batch job details",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "jobs",
+                                    ":jobUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "jobUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+                              "createdAt": "2026-07-28T01:15:22.000Z",
+                              "updatedAt": "2026-07-28T01:15:22.000Z",
+                              "uid": "35240-60ee2ef8-7e67-4635-9c7c-62d337ca8c6d"
+                            },
+                            {
+                              "id": "46916162-e89c-4a0c-979e-0a955cdf4426",
+                              "name": "Job not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "jobs",
+                                    ":jobUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "jobUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:15:22.000Z",
+                              "updatedAt": "2026-07-28T01:15:22.000Z",
+                              "uid": "35240-46916162-e89c-4a0c-979e-0a955cdf4426"
+                            },
+                            {
+                              "id": "f8585c48-3196-4313-a72c-9990bd52da2a",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/:jobUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "jobs",
+                                    ":jobUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "jobUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:22.000Z",
+                              "updatedAt": "2026-07-28T01:15:22.000Z",
+                              "uid": "35240-f8585c48-3196-4313-a72c-9990bd52da2a"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:22.000Z",
+                          "updatedAt": "2026-07-28T01:15:22.000Z",
+                          "uid": "35240-8eb98c1d-959f-43c9-badd-58af4942dbd0"
+                        }
+                      ],
+                      "id": "c8c6521b-67a1-4f02-b6d7-f5d05d7fc107",
+                      "createdAt": "2026-07-28T01:15:22.000Z",
+                      "updatedAt": "2026-07-28T01:15:22.000Z",
+                      "uid": "35240-c8c6521b-67a1-4f02-b6d7-f5d05d7fc107"
+                    },
+                    {
+                      "name": "runs",
+                      "item": [
+                        {
+                          "name": "{reportUID}",
+                          "item": [
+                            {
+                              "name": "cancel",
+                              "item": [
+                                {
+                                  "name": "Cancel Job Run",
+                                  "id": "860bf656-272b-49f6-8c8f-4f4be358c15b",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "auth": {
+                                      "type": "bearer",
+                                      "bearer": [
+                                        {
+                                          "key": "token",
+                                          "value": "{{bearerToken}}",
+                                          "type": "string"
+                                        }
+                                      ]
+                                    },
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/runs/:reportUID/cancel",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "jobs",
+                                        "runs",
+                                        ":reportUID",
+                                        "cancel"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "7dbd1a65-2128-451f-a7d2-10d4b9904a30",
+                                          "key": "projectOrProductUID",
+                                          "value": "<string>",
+                                          "description": "(Required) "
+                                        },
+                                        {
+                                          "id": "b7104dd1-f9c1-4705-a168-7d0f518a67aa",
+                                          "key": "reportUID",
+                                          "value": "<string>",
+                                          "description": "(Required) Unique identifier for a job run report"
+                                        }
+                                      ]
+                                    },
+                                    "description": "Cancel a running job execution"
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "644a52e4-a7a7-412e-8809-821ec8a914ac",
+                                      "name": "Cancel operation completed",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/runs/:reportUID/cancel",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":projectOrProductUID",
+                                            "jobs",
+                                            "runs",
+                                            ":reportUID",
+                                            "cancel"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectOrProductUID"
+                                            },
+                                            {
+                                              "key": "reportUID"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"successful\": \"<boolean>\"\n}",
+                                      "createdAt": "2026-07-28T01:15:22.000Z",
+                                      "updatedAt": "2026-07-28T01:15:22.000Z",
+                                      "uid": "35240-644a52e4-a7a7-412e-8809-821ec8a914ac"
+                                    },
+                                    {
+                                      "id": "2c48626b-19d8-4514-a22e-6e1ea91c6712",
+                                      "name": "Run not found",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/runs/:reportUID/cancel",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":projectOrProductUID",
+                                            "jobs",
+                                            "runs",
+                                            ":reportUID",
+                                            "cancel"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectOrProductUID"
+                                            },
+                                            {
+                                              "key": "reportUID"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:15:22.000Z",
+                                      "updatedAt": "2026-07-28T01:15:22.000Z",
+                                      "uid": "35240-2c48626b-19d8-4514-a22e-6e1ea91c6712"
+                                    },
+                                    {
+                                      "id": "763fcac4-68c0-4249-a5a2-2ad1aae47425",
+                                      "name": "The response body in case of an API error.",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/runs/:reportUID/cancel",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":projectOrProductUID",
+                                            "jobs",
+                                            "runs",
+                                            ":reportUID",
+                                            "cancel"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "projectOrProductUID"
+                                            },
+                                            {
+                                              "key": "reportUID"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:15:22.000Z",
+                                      "updatedAt": "2026-07-28T01:15:22.000Z",
+                                      "uid": "35240-763fcac4-68c0-4249-a5a2-2ad1aae47425"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:15:22.000Z",
+                                  "updatedAt": "2026-07-28T01:15:22.000Z",
+                                  "uid": "35240-860bf656-272b-49f6-8c8f-4f4be358c15b"
+                                }
+                              ],
+                              "id": "b692a86e-6325-482c-8167-c91c721c05dc",
+                              "createdAt": "2026-07-28T01:15:22.000Z",
+                              "updatedAt": "2026-07-28T01:15:22.000Z",
+                              "uid": "35240-b692a86e-6325-482c-8167-c91c721c05dc"
+                            },
+                            {
+                              "name": "Delete Job Run",
+                              "id": "5be07d69-64b2-486c-8561-a11ab85e35bc",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "bearer",
+                                  "bearer": [
+                                    {
+                                      "key": "token",
+                                      "value": "{{bearerToken}}",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/runs/:reportUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "jobs",
+                                    "runs",
+                                    ":reportUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "dea6f083-3d4f-410a-b2a3-556a3f681638",
+                                      "key": "projectOrProductUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "9c4cc118-5620-465e-8ab2-8787b8fbb2a3",
+                                      "key": "reportUID",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier for a job run report"
+                                    }
+                                  ]
+                                },
+                                "description": "Delete the results of a job run"
+                              },
+                              "response": [
+                                {
+                                  "id": "05dd3bf9-769c-4839-a35d-bb53e60ccedd",
+                                  "name": "Job run deleted successfully",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/runs/:reportUID",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "jobs",
+                                        "runs",
+                                        ":reportUID"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "reportUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:15:22.000Z",
+                                  "updatedAt": "2026-07-28T01:15:22.000Z",
+                                  "uid": "35240-05dd3bf9-769c-4839-a35d-bb53e60ccedd"
+                                },
+                                {
+                                  "id": "e072d152-58e3-4a15-977d-9b1b1a87cb99",
+                                  "name": "Run not found",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/runs/:reportUID",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "jobs",
+                                        "runs",
+                                        ":reportUID"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "reportUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:15:22.000Z",
+                                  "updatedAt": "2026-07-28T01:15:22.000Z",
+                                  "uid": "35240-e072d152-58e3-4a15-977d-9b1b1a87cb99"
+                                },
+                                {
+                                  "id": "2842b9f8-ae86-405b-8bcd-b6cb2a76402e",
+                                  "name": "The response body in case of an API error.",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/runs/:reportUID",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "jobs",
+                                        "runs",
+                                        ":reportUID"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "reportUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:22.000Z",
+                                  "updatedAt": "2026-07-28T01:15:22.000Z",
+                                  "uid": "35240-2842b9f8-ae86-405b-8bcd-b6cb2a76402e"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:15:22.000Z",
+                              "updatedAt": "2026-07-28T01:15:22.000Z",
+                              "uid": "35240-5be07d69-64b2-486c-8561-a11ab85e35bc"
+                            },
+                            {
+                              "name": "Get Job Run",
+                              "id": "88cd00d3-0cdd-44b0-bbdb-83530299970d",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "bearer",
+                                  "bearer": [
+                                    {
+                                      "key": "token",
+                                      "value": "{{bearerToken}}",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/runs/:reportUID?view=summary",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "jobs",
+                                    "runs",
+                                    ":reportUID"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Controls the level of detail returned: 'summary' returns metadata only, 'detail' returns the full result payload",
+                                      "key": "view",
+                                      "value": "summary"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "ca673324-3207-4d2f-bac6-588d4028c460",
+                                      "key": "projectOrProductUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "dbf1d60e-4672-48ae-977c-3b22eaf93fd8",
+                                      "key": "reportUID",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier for a job run report"
+                                    }
+                                  ]
+                                },
+                                "description": "Get the result of a job execution"
+                              },
+                              "response": [
+                                {
+                                  "id": "f421ceee-2240-4bbf-b873-d23cb4d4065f",
+                                  "name": "Job run details",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/runs/:reportUID?view=summary",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "jobs",
+                                        "runs",
+                                        ":reportUID"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Controls the level of detail returned: 'summary' returns metadata only, 'detail' returns the full result payload",
+                                          "key": "view",
+                                          "value": "summary"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "reportUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"report_uid\": \"<string>\",\n  \"job_uid\": \"<string>\",\n  \"job_name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"dry_run\": \"<boolean>\",\n  \"submitted_by\": \"<string>\",\n  \"submitted\": \"<long>\",\n  \"updated\": \"<long>\",\n  \"cancel\": \"<boolean>\",\n  \"completed\": \"<long>\",\n  \"results\": {\n    \"exercitation_1\": false,\n    \"laboris_ab\": \"pariatur\"\n  },\n  \"started\": \"<long>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:22.000Z",
+                                  "updatedAt": "2026-07-28T01:15:22.000Z",
+                                  "uid": "35240-f421ceee-2240-4bbf-b873-d23cb4d4065f"
+                                },
+                                {
+                                  "id": "65d60351-3f57-42c2-be59-298faa95b61b",
+                                  "name": "Run not found",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/runs/:reportUID?view=summary",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "jobs",
+                                        "runs",
+                                        ":reportUID"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Controls the level of detail returned: 'summary' returns metadata only, 'detail' returns the full result payload",
+                                          "key": "view",
+                                          "value": "summary"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "reportUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:15:22.000Z",
+                                  "updatedAt": "2026-07-28T01:15:22.000Z",
+                                  "uid": "35240-65d60351-3f57-42c2-be59-298faa95b61b"
+                                },
+                                {
+                                  "id": "6fdb295c-8628-4a0d-a85f-6f1d54df2d59",
+                                  "name": "The response body in case of an API error.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs/runs/:reportUID?view=summary",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "jobs",
+                                        "runs",
+                                        ":reportUID"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Controls the level of detail returned: 'summary' returns metadata only, 'detail' returns the full result payload",
+                                          "key": "view",
+                                          "value": "summary"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "reportUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:22.000Z",
+                                  "updatedAt": "2026-07-28T01:15:22.000Z",
+                                  "uid": "35240-6fdb295c-8628-4a0d-a85f-6f1d54df2d59"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:15:22.000Z",
+                              "updatedAt": "2026-07-28T01:15:22.000Z",
+                              "uid": "35240-88cd00d3-0cdd-44b0-bbdb-83530299970d"
+                            }
+                          ],
+                          "id": "a8ac254e-18fa-47a2-941b-f51dfbb3e4f6",
+                          "createdAt": "2026-07-28T01:15:22.000Z",
+                          "updatedAt": "2026-07-28T01:15:22.000Z",
+                          "uid": "35240-a8ac254e-18fa-47a2-941b-f51dfbb3e4f6"
+                        }
+                      ],
+                      "id": "d741a6c7-456c-4c37-af6e-8ae8613eeab9",
+                      "createdAt": "2026-07-28T01:15:22.000Z",
+                      "updatedAt": "2026-07-28T01:15:22.000Z",
+                      "uid": "35240-d741a6c7-456c-4c37-af6e-8ae8613eeab9"
+                    },
+                    {
+                      "name": "Get Jobs",
+                      "id": "52ab45a6-1c32-4829-9125-f1049e449fe0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":projectOrProductUID",
+                            "jobs"
+                          ],
+                          "variable": [
+                            {
+                              "id": "301be586-a212-4d31-b687-72c1d003143c",
+                              "key": "projectOrProductUID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "List all batch jobs for a project"
+                      },
+                      "response": [
+                        {
+                          "id": "5db7eec0-8224-430e-bf21-2f57d46a610e",
+                          "name": "List of batch jobs",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "jobs"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"jobs\": [\n    {\n      \"job_uid\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created\": \"<long>\",\n      \"created_by\": \"<string>\",\n      \"last_run_completed\": \"<long>\",\n      \"last_run_status\": \"<string>\",\n      \"last_run_submitted\": \"<long>\"\n    },\n    {\n      \"job_uid\": \"<string>\",\n      \"name\": \"<string>\",\n      \"created\": \"<long>\",\n      \"created_by\": \"<string>\",\n      \"last_run_completed\": \"<long>\",\n      \"last_run_status\": \"<string>\",\n      \"last_run_submitted\": \"<long>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:15:22.000Z",
+                          "updatedAt": "2026-07-28T01:15:22.000Z",
+                          "uid": "35240-5db7eec0-8224-430e-bf21-2f57d46a610e"
+                        },
+                        {
+                          "id": "f172d9c1-755d-4ac9-bc3e-ba7776e9299b",
+                          "name": "The response body in case of an API error.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "jobs"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:15:22.000Z",
+                          "updatedAt": "2026-07-28T01:15:22.000Z",
+                          "uid": "35240-f172d9c1-755d-4ac9-bc3e-ba7776e9299b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:15:22.000Z",
+                      "updatedAt": "2026-07-28T01:15:22.000Z",
+                      "uid": "35240-52ab45a6-1c32-4829-9125-f1049e449fe0"
+                    },
+                    {
+                      "name": "Create Job",
+                      "id": "a14841e3-7f0c-4fa5-8783-e12e313bd8bd",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"comment\": \"<string>\",\n  \"default_requests\": {\n    \"comment\": \"<string>\",\n    \"connectivity_assurance_disable\": \"<boolean>\",\n    \"connectivity_assurance_enable\": \"<boolean>\",\n    \"disable\": \"<boolean>\",\n    \"enable\": \"<boolean>\",\n    \"fleets_to_default\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_join\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_leave\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"provision_product\": \"<string>\",\n    \"sn_to_default\": \"<string>\",\n    \"sn_to_set\": \"<string>\",\n    \"vars_to_default\": {\n      \"Ut_9\": \"<string>\",\n      \"commodobe\": \"<string>\"\n    },\n    \"vars_to_set\": {\n      \"fugiat_e0_\": \"<string>\",\n      \"proident_c81\": \"<string>\"\n    }\n  },\n  \"device_requests\": {\n    \"cupidatat_90\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"enim_ce\": \"<string>\",\n        \"in2\": \"<string>\",\n        \"ipsum_96_\": \"<string>\",\n        \"in_395\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"Utf\": \"<string>\",\n        \"aliqua35\": \"<string>\"\n      }\n    },\n    \"Lorem_e7\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"officia_d31\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"tempor_9a3\": \"<string>\",\n        \"eiusmod__\": \"<string>\"\n      }\n    }\n  },\n  \"report_options\": {\n    \"app_fleets\": \"<boolean>\",\n    \"app_info\": \"<boolean>\",\n    \"app_vars\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"device_activity\": \"<boolean>\",\n    \"device_health\": \"<boolean>\",\n    \"device_info\": \"<boolean>\",\n    \"device_vars\": \"<boolean>\"\n  },\n  \"select\": {\n    \"all_devices\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"devices\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_by_sn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_in_fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs?name=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":projectOrProductUID",
+                            "jobs"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Name for the job",
+                              "key": "name",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "b2364bf2-3018-46bd-a436-3ced17490f9a",
+                              "key": "projectOrProductUID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Create a new batch job with an optional name"
+                      },
+                      "response": [
+                        {
+                          "id": "e766ec76-01d6-4e96-8a9d-99b7ea885218",
+                          "name": "Job created successfully",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"comment\": \"<string>\",\n  \"default_requests\": {\n    \"comment\": \"<string>\",\n    \"connectivity_assurance_disable\": \"<boolean>\",\n    \"connectivity_assurance_enable\": \"<boolean>\",\n    \"disable\": \"<boolean>\",\n    \"enable\": \"<boolean>\",\n    \"fleets_to_default\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_join\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_leave\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"provision_product\": \"<string>\",\n    \"sn_to_default\": \"<string>\",\n    \"sn_to_set\": \"<string>\",\n    \"vars_to_default\": {\n      \"Ut_9\": \"<string>\",\n      \"commodobe\": \"<string>\"\n    },\n    \"vars_to_set\": {\n      \"fugiat_e0_\": \"<string>\",\n      \"proident_c81\": \"<string>\"\n    }\n  },\n  \"device_requests\": {\n    \"cupidatat_90\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"enim_ce\": \"<string>\",\n        \"in2\": \"<string>\",\n        \"ipsum_96_\": \"<string>\",\n        \"in_395\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"Utf\": \"<string>\",\n        \"aliqua35\": \"<string>\"\n      }\n    },\n    \"Lorem_e7\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"officia_d31\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"tempor_9a3\": \"<string>\",\n        \"eiusmod__\": \"<string>\"\n      }\n    }\n  },\n  \"report_options\": {\n    \"app_fleets\": \"<boolean>\",\n    \"app_info\": \"<boolean>\",\n    \"app_vars\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"device_activity\": \"<boolean>\",\n    \"device_health\": \"<boolean>\",\n    \"device_info\": \"<boolean>\",\n    \"device_vars\": \"<boolean>\"\n  },\n  \"select\": {\n    \"all_devices\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"devices\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_by_sn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_in_fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs?name=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "jobs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name for the job",
+                                  "key": "name",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"job_uid\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:15:22.000Z",
+                          "updatedAt": "2026-07-28T01:15:22.000Z",
+                          "uid": "35240-e766ec76-01d6-4e96-8a9d-99b7ea885218"
+                        },
+                        {
+                          "id": "14b59194-92cf-4792-8166-e067d2925113",
+                          "name": "Missing required name parameter or invalid job definition",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"comment\": \"<string>\",\n  \"default_requests\": {\n    \"comment\": \"<string>\",\n    \"connectivity_assurance_disable\": \"<boolean>\",\n    \"connectivity_assurance_enable\": \"<boolean>\",\n    \"disable\": \"<boolean>\",\n    \"enable\": \"<boolean>\",\n    \"fleets_to_default\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_join\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_leave\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"provision_product\": \"<string>\",\n    \"sn_to_default\": \"<string>\",\n    \"sn_to_set\": \"<string>\",\n    \"vars_to_default\": {\n      \"Ut_9\": \"<string>\",\n      \"commodobe\": \"<string>\"\n    },\n    \"vars_to_set\": {\n      \"fugiat_e0_\": \"<string>\",\n      \"proident_c81\": \"<string>\"\n    }\n  },\n  \"device_requests\": {\n    \"cupidatat_90\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"enim_ce\": \"<string>\",\n        \"in2\": \"<string>\",\n        \"ipsum_96_\": \"<string>\",\n        \"in_395\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"Utf\": \"<string>\",\n        \"aliqua35\": \"<string>\"\n      }\n    },\n    \"Lorem_e7\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"officia_d31\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"tempor_9a3\": \"<string>\",\n        \"eiusmod__\": \"<string>\"\n      }\n    }\n  },\n  \"report_options\": {\n    \"app_fleets\": \"<boolean>\",\n    \"app_info\": \"<boolean>\",\n    \"app_vars\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"device_activity\": \"<boolean>\",\n    \"device_health\": \"<boolean>\",\n    \"device_info\": \"<boolean>\",\n    \"device_vars\": \"<boolean>\"\n  },\n  \"select\": {\n    \"all_devices\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"devices\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_by_sn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_in_fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs?name=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "jobs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name for the job",
+                                  "key": "name",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:15:22.000Z",
+                          "updatedAt": "2026-07-28T01:15:22.000Z",
+                          "uid": "35240-14b59194-92cf-4792-8166-e067d2925113"
+                        },
+                        {
+                          "id": "371cf01e-5677-4e14-a984-0319f2c543d9",
+                          "name": "The response body in case of an API error.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"comment\": \"<string>\",\n  \"default_requests\": {\n    \"comment\": \"<string>\",\n    \"connectivity_assurance_disable\": \"<boolean>\",\n    \"connectivity_assurance_enable\": \"<boolean>\",\n    \"disable\": \"<boolean>\",\n    \"enable\": \"<boolean>\",\n    \"fleets_to_default\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_join\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_leave\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"provision_product\": \"<string>\",\n    \"sn_to_default\": \"<string>\",\n    \"sn_to_set\": \"<string>\",\n    \"vars_to_default\": {\n      \"Ut_9\": \"<string>\",\n      \"commodobe\": \"<string>\"\n    },\n    \"vars_to_set\": {\n      \"fugiat_e0_\": \"<string>\",\n      \"proident_c81\": \"<string>\"\n    }\n  },\n  \"device_requests\": {\n    \"cupidatat_90\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"enim_ce\": \"<string>\",\n        \"in2\": \"<string>\",\n        \"ipsum_96_\": \"<string>\",\n        \"in_395\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"Utf\": \"<string>\",\n        \"aliqua35\": \"<string>\"\n      }\n    },\n    \"Lorem_e7\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"officia_d31\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"tempor_9a3\": \"<string>\",\n        \"eiusmod__\": \"<string>\"\n      }\n    }\n  },\n  \"report_options\": {\n    \"app_fleets\": \"<boolean>\",\n    \"app_info\": \"<boolean>\",\n    \"app_vars\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"device_activity\": \"<boolean>\",\n    \"device_health\": \"<boolean>\",\n    \"device_info\": \"<boolean>\",\n    \"device_vars\": \"<boolean>\"\n  },\n  \"select\": {\n    \"all_devices\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"devices\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_by_sn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_in_fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/jobs?name=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "jobs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Name for the job",
+                                  "key": "name",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:15:22.000Z",
+                          "updatedAt": "2026-07-28T01:15:22.000Z",
+                          "uid": "35240-371cf01e-5677-4e14-a984-0319f2c543d9"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:15:22.000Z",
+                      "updatedAt": "2026-07-28T01:15:22.000Z",
+                      "uid": "35240-a14841e3-7f0c-4fa5-8783-e12e313bd8bd"
+                    }
+                  ],
+                  "id": "70d6e7b0-5c77-4fe7-a9d9-7a7dac57ea0f",
+                  "createdAt": "2026-07-28T01:15:22.000Z",
+                  "updatedAt": "2026-07-28T01:15:22.000Z",
+                  "uid": "35240-70d6e7b0-5c77-4fe7-a9d9-7a7dac57ea0f"
+                }
+              ],
+              "id": "804338ef-783a-445f-9249-0f0c57ef5bc3",
+              "createdAt": "2026-07-28T01:15:22.000Z",
+              "updatedAt": "2026-07-28T01:15:22.000Z",
+              "uid": "35240-804338ef-783a-445f-9249-0f0c57ef5bc3"
+            }
+          ],
+          "id": "269e2497-b076-4de6-a06e-26edc244e4d3",
+          "createdAt": "2026-07-28T01:15:22.000Z",
+          "updatedAt": "2026-07-28T01:15:22.000Z",
+          "uid": "35240-269e2497-b076-4de6-a06e-26edc244e4d3"
+        }
+      ],
+      "id": "a4fccaa5-7f67-4087-89c3-19ca93521911",
+      "createdAt": "2026-07-28T01:15:22.000Z",
+      "updatedAt": "2026-07-28T01:15:22.000Z",
+      "uid": "35240-a4fccaa5-7f67-4087-89c3-19ca93521911"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.notefile.net"
+    }
+  ]
+}

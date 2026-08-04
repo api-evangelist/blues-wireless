@@ -1,0 +1,38 @@
+{
+  "provider": "blues-wireless",
+  "sources": [
+    "blues-wireless-alert-api-openapi.yml",
+    "blues-wireless-authorization-api-openapi.yml",
+    "blues-wireless-billing-account-api-openapi.yml",
+    "blues-wireless-device-api-openapi.yml",
+    "blues-wireless-event-api-openapi.yml",
+    "blues-wireless-external-devices-api-openapi.yml",
+    "blues-wireless-jobs-api-openapi.yml",
+    "blues-wireless-monitor-api-openapi.yml",
+    "blues-wireless-organization-api-openapi.yml",
+    "blues-wireless-project-api-openapi.yml",
+    "blues-wireless-route-api-openapi.yml",
+    "blues-wireless-usage-api-openapi.yml",
+    "blues-wireless-webhook-api-openapi.yml"
+  ],
+  "outputs": [
+    "blues-wireless-alert-api-openapi.yml",
+    "blues-wireless-authorization-api-openapi.yml",
+    "blues-wireless-billing-account-api-openapi.yml",
+    "blues-wireless-device-api-openapi.yml",
+    "blues-wireless-event-api-openapi.yml",
+    "blues-wireless-external-devices-api-openapi.yml",
+    "blues-wireless-jobs-api-openapi.yml",
+    "blues-wireless-monitor-api-openapi.yml",
+    "blues-wireless-organization-api-openapi.yml",
+    "blues-wireless-project-api-openapi.yml",
+    "blues-wireless-route-api-openapi.yml",
+    "blues-wireless-usage-api-openapi.yml",
+    "blues-wireless-webhook-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

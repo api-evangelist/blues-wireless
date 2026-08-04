@@ -1,0 +1,1256 @@
+{
+  "info": {
+    "_postman_id": "18b9622a-43f6-4308-9916-b09e5606d504",
+    "name": "Notehub alert usage API",
+    "description": "The OpenAPI definition for the Notehub.io API.\n\n\nContact Support:\n Name: Blues Engineering\n Email: engineering@blues.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:15:38.000Z",
+    "updatedAt": "2026-07-28T01:15:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-18b9622a-43f6-4308-9916-b09e5606d504"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{projectOrProductUID}",
+              "item": [
+                {
+                  "name": "usage",
+                  "item": [
+                    {
+                      "name": "data",
+                      "item": [
+                        {
+                          "name": "Get Data Usage",
+                          "id": "dff06b19-c151-4ec5-9029-19494ff50f77",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/usage/data?startDate=<integer>&endDate=<integer>&deviceUID=<string>&deviceUID=<string>&fleetUID=<string>&fleetUID=<string>&limit=200000&period=day&aggregate=device",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "usage",
+                                "data"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Start date for filtering results, specified as a Unix timestamp",
+                                  "key": "startDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "End date for filtering results, specified as a Unix timestamp",
+                                  "key": "endDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "A Device UID.",
+                                  "key": "deviceUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "A Device UID.",
+                                  "key": "deviceUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by Fleet UID",
+                                  "key": "fleetUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by Fleet UID",
+                                  "key": "fleetUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Limit the number of data points returned",
+                                  "key": "limit",
+                                  "value": "200000"
+                                },
+                                {
+                                  "description": "(Required) Period type for aggregation",
+                                  "key": "period",
+                                  "value": "day"
+                                },
+                                {
+                                  "description": "Aggregation level for results",
+                                  "key": "aggregate",
+                                  "value": "device"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "532c2dfd-aa25-4334-b82f-632e6705d01b",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Get data usage in bytes for a project with time range and period aggregation"
+                          },
+                          "response": [
+                            {
+                              "id": "33e350c3-6b41-4b3e-b133-8772cf9409cd",
+                              "name": "Response body for Data Usage",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/usage/data?startDate=<integer>&endDate=<integer>&deviceUID=<string>&fleetUID=<string>&limit=200000&period=day&aggregate=device",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "usage",
+                                    "data"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Start date for filtering results, specified as a Unix timestamp",
+                                      "key": "startDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "End date for filtering results, specified as a Unix timestamp",
+                                      "key": "endDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "A Device UID.",
+                                      "key": "deviceUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Filter by Fleet UID",
+                                      "key": "fleetUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Limit the number of data points returned",
+                                      "key": "limit",
+                                      "value": "200000"
+                                    },
+                                    {
+                                      "description": "(Required) Period type for aggregation",
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "Aggregation level for results",
+                                      "key": "aggregate",
+                                      "value": "device"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": [\n    {\n      \"type\": \"cellular\",\n      \"data\": [\n        {\n          \"period\": \"<dateTime>\",\n          \"total_bytes\": \"<long>\",\n          \"billable_bytes_total\": \"<long>\",\n          \"downlink_bytes\": \"<long>\",\n          \"downlink_bytes_billable\": \"<long>\",\n          \"downlink_packets\": \"<long>\",\n          \"uplink_bytes\": \"<long>\",\n          \"uplink_bytes_billable\": \"<long>\",\n          \"uplink_packets\": \"<long>\"\n        },\n        {\n          \"period\": \"<dateTime>\",\n          \"total_bytes\": \"<long>\",\n          \"billable_bytes_total\": \"<long>\",\n          \"downlink_bytes\": \"<long>\",\n          \"downlink_bytes_billable\": \"<long>\",\n          \"downlink_packets\": \"<long>\",\n          \"uplink_bytes\": \"<long>\",\n          \"uplink_bytes_billable\": \"<long>\",\n          \"uplink_packets\": \"<long>\"\n        }\n      ],\n      \"device\": \"<string>\",\n      \"device_count\": \"<integer>\",\n      \"fleet\": \"<string>\",\n      \"iccid\": \"<string>\",\n      \"psid\": \"<string>\"\n    },\n    {\n      \"type\": \"cellular\",\n      \"data\": [\n        {\n          \"period\": \"<dateTime>\",\n          \"total_bytes\": \"<long>\",\n          \"billable_bytes_total\": \"<long>\",\n          \"downlink_bytes\": \"<long>\",\n          \"downlink_bytes_billable\": \"<long>\",\n          \"downlink_packets\": \"<long>\",\n          \"uplink_bytes\": \"<long>\",\n          \"uplink_bytes_billable\": \"<long>\",\n          \"uplink_packets\": \"<long>\"\n        },\n        {\n          \"period\": \"<dateTime>\",\n          \"total_bytes\": \"<long>\",\n          \"billable_bytes_total\": \"<long>\",\n          \"downlink_bytes\": \"<long>\",\n          \"downlink_bytes_billable\": \"<long>\",\n          \"downlink_packets\": \"<long>\",\n          \"uplink_bytes\": \"<long>\",\n          \"uplink_bytes_billable\": \"<long>\",\n          \"uplink_packets\": \"<long>\"\n        }\n      ],\n      \"device\": \"<string>\",\n      \"device_count\": \"<integer>\",\n      \"fleet\": \"<string>\",\n      \"iccid\": \"<string>\",\n      \"psid\": \"<string>\"\n    }\n  ],\n  \"truncated\": true\n}",
+                              "createdAt": "2026-07-28T01:15:39.000Z",
+                              "updatedAt": "2026-07-28T01:15:39.000Z",
+                              "uid": "35240-33e350c3-6b41-4b3e-b133-8772cf9409cd"
+                            },
+                            {
+                              "id": "67d8894d-e77e-420f-b52b-2a726c7502d4",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/usage/data?startDate=<integer>&endDate=<integer>&deviceUID=<string>&fleetUID=<string>&limit=200000&period=day&aggregate=device",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "usage",
+                                    "data"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Start date for filtering results, specified as a Unix timestamp",
+                                      "key": "startDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "End date for filtering results, specified as a Unix timestamp",
+                                      "key": "endDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "A Device UID.",
+                                      "key": "deviceUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Filter by Fleet UID",
+                                      "key": "fleetUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Limit the number of data points returned",
+                                      "key": "limit",
+                                      "value": "200000"
+                                    },
+                                    {
+                                      "description": "(Required) Period type for aggregation",
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "Aggregation level for results",
+                                      "key": "aggregate",
+                                      "value": "device"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:39.000Z",
+                              "updatedAt": "2026-07-28T01:15:39.000Z",
+                              "uid": "35240-67d8894d-e77e-420f-b52b-2a726c7502d4"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:39.000Z",
+                          "updatedAt": "2026-07-28T01:15:39.000Z",
+                          "uid": "35240-dff06b19-c151-4ec5-9029-19494ff50f77"
+                        }
+                      ],
+                      "id": "94e6b7e4-5d8e-4732-b351-c44e84cfa353",
+                      "createdAt": "2026-07-28T01:15:39.000Z",
+                      "updatedAt": "2026-07-28T01:15:39.000Z",
+                      "uid": "35240-94e6b7e4-5d8e-4732-b351-c44e84cfa353"
+                    },
+                    {
+                      "name": "events",
+                      "item": [
+                        {
+                          "name": "Get Events Usage",
+                          "id": "564f1550-07ea-490d-9657-4380db24a4e3",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/usage/events?startDate=<integer>&endDate=<integer>&deviceUID=<string>&deviceUID=<string>&fleetUID=<string>&fleetUID=<string>&limit=200000&period=day&aggregate=device&notefile=<string>&notefile=<string>&skipRecentData=false&includeNotefiles=false",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "usage",
+                                "events"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Start date for filtering results, specified as a Unix timestamp",
+                                  "key": "startDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "End date for filtering results, specified as a Unix timestamp",
+                                  "key": "endDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "A Device UID.",
+                                  "key": "deviceUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "A Device UID.",
+                                  "key": "deviceUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by Fleet UID",
+                                  "key": "fleetUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by Fleet UID",
+                                  "key": "fleetUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Limit the number of data points returned",
+                                  "key": "limit",
+                                  "value": "200000"
+                                },
+                                {
+                                  "description": "(Required) Period type for aggregation",
+                                  "key": "period",
+                                  "value": "day"
+                                },
+                                {
+                                  "description": "Aggregation level for results",
+                                  "key": "aggregate",
+                                  "value": "device"
+                                },
+                                {
+                                  "description": "Filter to specific notefiles",
+                                  "key": "notefile",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter to specific notefiles",
+                                  "key": "notefile",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects.",
+                                  "key": "skipRecentData",
+                                  "value": "false"
+                                },
+                                {
+                                  "description": "Include per-notefile event counts in the response",
+                                  "key": "includeNotefiles",
+                                  "value": "false"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7e2a9347-15af-4432-ab43-f29879068707",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Get events usage for a project with time range and period aggregation, when endDate is 0 or unspecified the current time is implied"
+                          },
+                          "response": [
+                            {
+                              "id": "ecc86119-1371-456c-b7a1-030c8c5bb64b",
+                              "name": "Successful operation",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/usage/events?startDate=<integer>&endDate=<integer>&deviceUID=<string>&fleetUID=<string>&limit=200000&period=day&aggregate=device&notefile=<string>&skipRecentData=false&includeNotefiles=false",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "usage",
+                                    "events"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Start date for filtering results, specified as a Unix timestamp",
+                                      "key": "startDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "End date for filtering results, specified as a Unix timestamp",
+                                      "key": "endDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "A Device UID.",
+                                      "key": "deviceUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Filter by Fleet UID",
+                                      "key": "fleetUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Limit the number of data points returned",
+                                      "key": "limit",
+                                      "value": "200000"
+                                    },
+                                    {
+                                      "description": "(Required) Period type for aggregation",
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "Aggregation level for results",
+                                      "key": "aggregate",
+                                      "value": "device"
+                                    },
+                                    {
+                                      "description": "Filter to specific notefiles",
+                                      "key": "notefile",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects.",
+                                      "key": "skipRecentData",
+                                      "value": "false"
+                                    },
+                                    {
+                                      "description": "Include per-notefile event counts in the response",
+                                      "key": "includeNotefiles",
+                                      "value": "false"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": [\n    {\n      \"period\": \"<dateTime>\",\n      \"total_events\": \"<long>\",\n      \"platform_events\": \"<long>\",\n      \"watchdog_events\": \"<long>\",\n      \"total_devices\": \"<long>\",\n      \"billable_events\": \"<long>\",\n      \"device\": \"<string>\",\n      \"fleet\": \"<string>\",\n      \"notefiles\": {\n        \"etd_\": \"<long>\"\n      },\n      \"total_days_in_period\": \"<integer>\",\n      \"total_fw_updates\": \"<long>\",\n      \"total_reboots\": \"<long>\"\n    },\n    {\n      \"period\": \"<dateTime>\",\n      \"total_events\": \"<long>\",\n      \"platform_events\": \"<long>\",\n      \"watchdog_events\": \"<long>\",\n      \"total_devices\": \"<long>\",\n      \"billable_events\": \"<long>\",\n      \"device\": \"<string>\",\n      \"fleet\": \"<string>\",\n      \"notefiles\": {\n        \"nisi9\": \"<long>\",\n        \"laboris_b\": \"<long>\"\n      },\n      \"total_days_in_period\": \"<integer>\",\n      \"total_fw_updates\": \"<long>\",\n      \"total_reboots\": \"<long>\"\n    }\n  ],\n  \"truncated\": true\n}",
+                              "createdAt": "2026-07-28T01:15:39.000Z",
+                              "updatedAt": "2026-07-28T01:15:39.000Z",
+                              "uid": "35240-ecc86119-1371-456c-b7a1-030c8c5bb64b"
+                            },
+                            {
+                              "id": "8776dbe4-669b-482e-ba11-68fb9aaee1e4",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/usage/events?startDate=<integer>&endDate=<integer>&deviceUID=<string>&fleetUID=<string>&limit=200000&period=day&aggregate=device&notefile=<string>&skipRecentData=false&includeNotefiles=false",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "usage",
+                                    "events"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Start date for filtering results, specified as a Unix timestamp",
+                                      "key": "startDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "End date for filtering results, specified as a Unix timestamp",
+                                      "key": "endDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "A Device UID.",
+                                      "key": "deviceUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Filter by Fleet UID",
+                                      "key": "fleetUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Limit the number of data points returned",
+                                      "key": "limit",
+                                      "value": "200000"
+                                    },
+                                    {
+                                      "description": "(Required) Period type for aggregation",
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "Aggregation level for results",
+                                      "key": "aggregate",
+                                      "value": "device"
+                                    },
+                                    {
+                                      "description": "Filter to specific notefiles",
+                                      "key": "notefile",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects.",
+                                      "key": "skipRecentData",
+                                      "value": "false"
+                                    },
+                                    {
+                                      "description": "Include per-notefile event counts in the response",
+                                      "key": "includeNotefiles",
+                                      "value": "false"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:39.000Z",
+                              "updatedAt": "2026-07-28T01:15:39.000Z",
+                              "uid": "35240-8776dbe4-669b-482e-ba11-68fb9aaee1e4"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:39.000Z",
+                          "updatedAt": "2026-07-28T01:15:39.000Z",
+                          "uid": "35240-564f1550-07ea-490d-9657-4380db24a4e3"
+                        }
+                      ],
+                      "id": "e3aadb31-4bbf-45ba-b951-0dd79187d38f",
+                      "createdAt": "2026-07-28T01:15:39.000Z",
+                      "updatedAt": "2026-07-28T01:15:39.000Z",
+                      "uid": "35240-e3aadb31-4bbf-45ba-b951-0dd79187d38f"
+                    },
+                    {
+                      "name": "route-logs",
+                      "item": [
+                        {
+                          "name": "Get Route Logs Usage",
+                          "id": "db9efc99-568b-405b-a278-3b7b3639108a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/usage/route-logs?startDate=<integer>&endDate=<integer>&routeUID=<string>&routeUID=<string>&limit=200000&period=day&aggregate=route&skipRecentData=false",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "usage",
+                                "route-logs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Start date for filtering results, specified as a Unix timestamp",
+                                  "key": "startDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "End date for filtering results, specified as a Unix timestamp",
+                                  "key": "endDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "A Route UID.",
+                                  "key": "routeUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "A Route UID.",
+                                  "key": "routeUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Limit the number of data points returned",
+                                  "key": "limit",
+                                  "value": "200000"
+                                },
+                                {
+                                  "description": "(Required) Period type for aggregation",
+                                  "key": "period",
+                                  "value": "day"
+                                },
+                                {
+                                  "description": "Aggregation level for results",
+                                  "key": "aggregate",
+                                  "value": "route"
+                                },
+                                {
+                                  "description": "When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects.",
+                                  "key": "skipRecentData",
+                                  "value": "false"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "aeeddc91-90e0-42f0-80f3-ca735557b1b0",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Get route logs usage for a project with time range and period aggregation, when endDate is 0 or unspecified the current time is implied"
+                          },
+                          "response": [
+                            {
+                              "id": "001e0038-b5ac-409a-9467-d5b549b5d195",
+                              "name": "Response body for Route Log Usage",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/usage/route-logs?startDate=<integer>&endDate=<integer>&routeUID=<string>&limit=200000&period=day&aggregate=route&skipRecentData=false",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "usage",
+                                    "route-logs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Start date for filtering results, specified as a Unix timestamp",
+                                      "key": "startDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "End date for filtering results, specified as a Unix timestamp",
+                                      "key": "endDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "A Route UID.",
+                                      "key": "routeUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Limit the number of data points returned",
+                                      "key": "limit",
+                                      "value": "200000"
+                                    },
+                                    {
+                                      "description": "(Required) Period type for aggregation",
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "Aggregation level for results",
+                                      "key": "aggregate",
+                                      "value": "route"
+                                    },
+                                    {
+                                      "description": "When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects.",
+                                      "key": "skipRecentData",
+                                      "value": "false"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"route_logs\": [\n    {\n      \"period\": \"<dateTime>\",\n      \"successful_routes\": \"<long>\",\n      \"failed_routes\": \"<long>\",\n      \"total_routes\": \"<long>\",\n      \"avg_latency_ms\": \"<double>\",\n      \"route\": \"<string>\"\n    },\n    {\n      \"period\": \"<dateTime>\",\n      \"successful_routes\": \"<long>\",\n      \"failed_routes\": \"<long>\",\n      \"total_routes\": \"<long>\",\n      \"avg_latency_ms\": \"<double>\",\n      \"route\": \"<string>\"\n    }\n  ],\n  \"truncated\": false\n}",
+                              "createdAt": "2026-07-28T01:15:39.000Z",
+                              "updatedAt": "2026-07-28T01:15:39.000Z",
+                              "uid": "35240-001e0038-b5ac-409a-9467-d5b549b5d195"
+                            },
+                            {
+                              "id": "96b25a15-996e-428a-b22d-b705f99e3b22",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/usage/route-logs?startDate=<integer>&endDate=<integer>&routeUID=<string>&limit=200000&period=day&aggregate=route&skipRecentData=false",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "usage",
+                                    "route-logs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Start date for filtering results, specified as a Unix timestamp",
+                                      "key": "startDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "End date for filtering results, specified as a Unix timestamp",
+                                      "key": "endDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "A Route UID.",
+                                      "key": "routeUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Limit the number of data points returned",
+                                      "key": "limit",
+                                      "value": "200000"
+                                    },
+                                    {
+                                      "description": "(Required) Period type for aggregation",
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "Aggregation level for results",
+                                      "key": "aggregate",
+                                      "value": "route"
+                                    },
+                                    {
+                                      "description": "When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects.",
+                                      "key": "skipRecentData",
+                                      "value": "false"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:39.000Z",
+                              "updatedAt": "2026-07-28T01:15:39.000Z",
+                              "uid": "35240-96b25a15-996e-428a-b22d-b705f99e3b22"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:39.000Z",
+                          "updatedAt": "2026-07-28T01:15:39.000Z",
+                          "uid": "35240-db9efc99-568b-405b-a278-3b7b3639108a"
+                        }
+                      ],
+                      "id": "9ebcc45b-8ca8-404b-96a0-ff1dac5b14ae",
+                      "createdAt": "2026-07-28T01:15:39.000Z",
+                      "updatedAt": "2026-07-28T01:15:39.000Z",
+                      "uid": "35240-9ebcc45b-8ca8-404b-96a0-ff1dac5b14ae"
+                    },
+                    {
+                      "name": "sessions",
+                      "item": [
+                        {
+                          "name": "Get Sessions Usage",
+                          "id": "3dbcf11d-620c-41e0-8fa9-17f7b7445a66",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/usage/sessions?startDate=<integer>&endDate=<integer>&deviceUID=<string>&deviceUID=<string>&fleetUID=<string>&fleetUID=<string>&limit=200000&period=day&aggregate=device&skipRecentData=false",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "usage",
+                                "sessions"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Start date for filtering results, specified as a Unix timestamp",
+                                  "key": "startDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "End date for filtering results, specified as a Unix timestamp",
+                                  "key": "endDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "A Device UID.",
+                                  "key": "deviceUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "A Device UID.",
+                                  "key": "deviceUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by Fleet UID",
+                                  "key": "fleetUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by Fleet UID",
+                                  "key": "fleetUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Limit the number of data points returned",
+                                  "key": "limit",
+                                  "value": "200000"
+                                },
+                                {
+                                  "description": "(Required) Period type for aggregation",
+                                  "key": "period",
+                                  "value": "day"
+                                },
+                                {
+                                  "description": "Aggregation level for results",
+                                  "key": "aggregate",
+                                  "value": "device"
+                                },
+                                {
+                                  "description": "When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects.",
+                                  "key": "skipRecentData",
+                                  "value": "false"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "76aa52c0-830a-4bcb-bdcb-ebdbc2e9b0c8",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Get sessions usage for a project with time range and period aggregation, when endDate is 0 or unspecified the current time is implied"
+                          },
+                          "response": [
+                            {
+                              "id": "ca70b6cd-e1a4-4a5a-8678-793c2d12ab56",
+                              "name": "Response body for Session Usage",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/usage/sessions?startDate=<integer>&endDate=<integer>&deviceUID=<string>&fleetUID=<string>&limit=200000&period=day&aggregate=device&skipRecentData=false",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "usage",
+                                    "sessions"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Start date for filtering results, specified as a Unix timestamp",
+                                      "key": "startDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "End date for filtering results, specified as a Unix timestamp",
+                                      "key": "endDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "A Device UID.",
+                                      "key": "deviceUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Filter by Fleet UID",
+                                      "key": "fleetUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Limit the number of data points returned",
+                                      "key": "limit",
+                                      "value": "200000"
+                                    },
+                                    {
+                                      "description": "(Required) Period type for aggregation",
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "Aggregation level for results",
+                                      "key": "aggregate",
+                                      "value": "device"
+                                    },
+                                    {
+                                      "description": "When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects.",
+                                      "key": "skipRecentData",
+                                      "value": "false"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"sessions\": [\n    {\n      \"period\": \"<dateTime>\",\n      \"sessions\": \"<long>\",\n      \"first_sync_sessions\": \"<long>\",\n      \"total_bytes\": \"<long>\",\n      \"total_devices\": \"<long>\",\n      \"device\": \"<string>\",\n      \"fleet\": \"<string>\",\n      \"sessions_by_transport\": {\n        \"consectetur_78\": \"<long>\",\n        \"pariatur_76\": \"<long>\",\n        \"in_c\": \"<long>\",\n        \"reprehenderit0c\": \"<long>\"\n      },\n      \"tls_sessions\": \"<long>\"\n    },\n    {\n      \"period\": \"<dateTime>\",\n      \"sessions\": \"<long>\",\n      \"first_sync_sessions\": \"<long>\",\n      \"total_bytes\": \"<long>\",\n      \"total_devices\": \"<long>\",\n      \"device\": \"<string>\",\n      \"fleet\": \"<string>\",\n      \"sessions_by_transport\": {\n        \"pariatur_7d\": \"<long>\"\n      },\n      \"tls_sessions\": \"<long>\"\n    }\n  ],\n  \"truncated\": false\n}",
+                              "createdAt": "2026-07-28T01:15:39.000Z",
+                              "updatedAt": "2026-07-28T01:15:39.000Z",
+                              "uid": "35240-ca70b6cd-e1a4-4a5a-8678-793c2d12ab56"
+                            },
+                            {
+                              "id": "5213d936-7e3e-4f87-8014-6a26b80a5210",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/usage/sessions?startDate=<integer>&endDate=<integer>&deviceUID=<string>&fleetUID=<string>&limit=200000&period=day&aggregate=device&skipRecentData=false",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "usage",
+                                    "sessions"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Start date for filtering results, specified as a Unix timestamp",
+                                      "key": "startDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "End date for filtering results, specified as a Unix timestamp",
+                                      "key": "endDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "A Device UID.",
+                                      "key": "deviceUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Filter by Fleet UID",
+                                      "key": "fleetUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Limit the number of data points returned",
+                                      "key": "limit",
+                                      "value": "200000"
+                                    },
+                                    {
+                                      "description": "(Required) Period type for aggregation",
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "Aggregation level for results",
+                                      "key": "aggregate",
+                                      "value": "device"
+                                    },
+                                    {
+                                      "description": "When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects.",
+                                      "key": "skipRecentData",
+                                      "value": "false"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:39.000Z",
+                              "updatedAt": "2026-07-28T01:15:39.000Z",
+                              "uid": "35240-5213d936-7e3e-4f87-8014-6a26b80a5210"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:39.000Z",
+                          "updatedAt": "2026-07-28T01:15:39.000Z",
+                          "uid": "35240-3dbcf11d-620c-41e0-8fa9-17f7b7445a66"
+                        }
+                      ],
+                      "id": "0ee20521-bf3d-476f-ae78-d0f5cb913df7",
+                      "createdAt": "2026-07-28T01:15:39.000Z",
+                      "updatedAt": "2026-07-28T01:15:39.000Z",
+                      "uid": "35240-0ee20521-bf3d-476f-ae78-d0f5cb913df7"
+                    }
+                  ],
+                  "id": "4528f45d-e7a8-4bb3-8b04-98c0adab11a7",
+                  "createdAt": "2026-07-28T01:15:39.000Z",
+                  "updatedAt": "2026-07-28T01:15:39.000Z",
+                  "uid": "35240-4528f45d-e7a8-4bb3-8b04-98c0adab11a7"
+                }
+              ],
+              "id": "f3283898-5123-449d-92ac-b08bee4eca02",
+              "createdAt": "2026-07-28T01:15:39.000Z",
+              "updatedAt": "2026-07-28T01:15:39.000Z",
+              "uid": "35240-f3283898-5123-449d-92ac-b08bee4eca02"
+            }
+          ],
+          "id": "21559a91-b0ba-4438-97ab-571e915714a4",
+          "createdAt": "2026-07-28T01:15:39.000Z",
+          "updatedAt": "2026-07-28T01:15:39.000Z",
+          "uid": "35240-21559a91-b0ba-4438-97ab-571e915714a4"
+        }
+      ],
+      "id": "e1403eed-7f8a-498b-b28d-fef381129280",
+      "createdAt": "2026-07-28T01:15:39.000Z",
+      "updatedAt": "2026-07-28T01:15:39.000Z",
+      "uid": "35240-e1403eed-7f8a-498b-b28d-fef381129280"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.notefile.net"
+    }
+  ]
+}

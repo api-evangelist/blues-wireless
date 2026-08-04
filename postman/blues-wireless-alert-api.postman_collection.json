@@ -1,0 +1,250 @@
+{
+  "info": {
+    "_postman_id": "94cbd4cd-8006-47a2-8570-46c2a7e5150d",
+    "name": "Notehub alert API",
+    "description": "The OpenAPI definition for the Notehub.io API.\n\n\nContact Support:\n Name: Blues Engineering\n Email: engineering@blues.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:14:59.000Z",
+    "updatedAt": "2026-07-28T01:14:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-94cbd4cd-8006-47a2-8570-46c2a7e5150d"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{projectOrProductUID}",
+              "item": [
+                {
+                  "name": "alerts",
+                  "item": [
+                    {
+                      "name": "Get Alerts",
+                      "id": "9a5eee44-305a-43c4-9062-8e8550753486",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/alerts?pageSize=50&pageNum=1&monitorUID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":projectOrProductUID",
+                            "alerts"
+                          ],
+                          "query": [
+                            {
+                              "key": "pageSize",
+                              "value": "50"
+                            },
+                            {
+                              "key": "pageNum",
+                              "value": "1"
+                            },
+                            {
+                              "key": "monitorUID",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "c6e728a4-68ac-47e5-bb24-4d4545eddc79",
+                              "key": "projectOrProductUID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Get list of defined Alerts"
+                      },
+                      "response": [
+                        {
+                          "id": "9011d3ea-34d7-41ff-a1d0-382c7a49e3f4",
+                          "name": "The response body from GET /alerts",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/alerts?pageSize=50&pageNum=1&monitorUID=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "alerts"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageSize",
+                                  "value": "50"
+                                },
+                                {
+                                  "key": "pageNum",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "monitorUID",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"alerts\": [\n    {\n      \"alert_source\": \"app\",\n      \"created_at\": \"<integer>\",\n      \"data\": [\n        {\n          \"alert_source\": \"app\",\n          \"source\": \"<string>\",\n          \"source_type\": \"device\",\n          \"source_uid\": \"<string>\",\n          \"value\": \"<number>\",\n          \"when\": \"<string>\"\n        },\n        {\n          \"alert_source\": \"device\",\n          \"source\": \"<string>\",\n          \"source_type\": \"device\",\n          \"source_uid\": \"<string>\",\n          \"value\": \"<number>\",\n          \"when\": \"<string>\"\n        }\n      ],\n      \"device_uid\": \"<string>\",\n      \"field_name\": \"<string>\",\n      \"monitor_name\": \"<string>\",\n      \"monitor_type\": \"device\",\n      \"monitor_uid\": \"<string>\",\n      \"notifications\": [\n        {\n          \"notification_type\": \"email\",\n          \"recipients\": \"<string>\",\n          \"status\": \"<number>\"\n        },\n        {\n          \"notification_type\": \"email\",\n          \"recipients\": \"<string>\",\n          \"status\": \"<number>\"\n        }\n      ],\n      \"resolved\": \"<boolean>\",\n      \"source\": \"<string>\",\n      \"uid\": \"<string>\",\n      \"value\": \"<number>\",\n      \"version\": \"<integer>\"\n    },\n    {\n      \"alert_source\": \"device\",\n      \"created_at\": \"<integer>\",\n      \"data\": [\n        {\n          \"alert_source\": \"device\",\n          \"source\": \"<string>\",\n          \"source_type\": \"event\",\n          \"source_uid\": \"<string>\",\n          \"value\": \"<number>\",\n          \"when\": \"<string>\"\n        },\n        {\n          \"alert_source\": \"app\",\n          \"source\": \"<string>\",\n          \"source_type\": \"device\",\n          \"source_uid\": \"<string>\",\n          \"value\": \"<number>\",\n          \"when\": \"<string>\"\n        }\n      ],\n      \"device_uid\": \"<string>\",\n      \"field_name\": \"<string>\",\n      \"monitor_name\": \"<string>\",\n      \"monitor_type\": \"device\",\n      \"monitor_uid\": \"<string>\",\n      \"notifications\": [\n        {\n          \"notification_type\": \"email\",\n          \"recipients\": \"<string>\",\n          \"status\": \"<number>\"\n        },\n        {\n          \"notification_type\": \"email\",\n          \"recipients\": \"<string>\",\n          \"status\": \"<number>\"\n        }\n      ],\n      \"resolved\": \"<boolean>\",\n      \"source\": \"<string>\",\n      \"uid\": \"<string>\",\n      \"value\": \"<number>\",\n      \"version\": \"<integer>\"\n    }\n  ],\n  \"has_more\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T01:14:59.000Z",
+                          "updatedAt": "2026-07-28T01:14:59.000Z",
+                          "uid": "35240-9011d3ea-34d7-41ff-a1d0-382c7a49e3f4"
+                        },
+                        {
+                          "id": "905e1757-e5d6-4749-aece-ae02e29b5aa0",
+                          "name": "The response body in case of an API error.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/alerts?pageSize=50&pageNum=1&monitorUID=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "alerts"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageSize",
+                                  "value": "50"
+                                },
+                                {
+                                  "key": "pageNum",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "monitorUID",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:14:59.000Z",
+                          "updatedAt": "2026-07-28T01:14:59.000Z",
+                          "uid": "35240-905e1757-e5d6-4749-aece-ae02e29b5aa0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:14:59.000Z",
+                      "updatedAt": "2026-07-28T01:14:59.000Z",
+                      "uid": "35240-9a5eee44-305a-43c4-9062-8e8550753486"
+                    }
+                  ],
+                  "id": "df28119d-6fca-4bf7-bfd4-7ee99b9a68b1",
+                  "createdAt": "2026-07-28T01:14:59.000Z",
+                  "updatedAt": "2026-07-28T01:14:59.000Z",
+                  "uid": "35240-df28119d-6fca-4bf7-bfd4-7ee99b9a68b1"
+                }
+              ],
+              "id": "bf37e2d2-64b9-4831-ac82-3bbfc0bea739",
+              "createdAt": "2026-07-28T01:14:59.000Z",
+              "updatedAt": "2026-07-28T01:14:59.000Z",
+              "uid": "35240-bf37e2d2-64b9-4831-ac82-3bbfc0bea739"
+            }
+          ],
+          "id": "ff9b8507-75b1-4b68-8212-98a9191122bc",
+          "createdAt": "2026-07-28T01:14:59.000Z",
+          "updatedAt": "2026-07-28T01:14:59.000Z",
+          "uid": "35240-ff9b8507-75b1-4b68-8212-98a9191122bc"
+        }
+      ],
+      "id": "9ae1e259-6f35-4291-9f57-9247abaf4eeb",
+      "createdAt": "2026-07-28T01:14:59.000Z",
+      "updatedAt": "2026-07-28T01:14:59.000Z",
+      "uid": "35240-9ae1e259-6f35-4291-9f57-9247abaf4eeb"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.notefile.net"
+    }
+  ]
+}

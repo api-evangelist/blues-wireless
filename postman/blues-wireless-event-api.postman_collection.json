@@ -1,0 +1,1727 @@
+{
+  "info": {
+    "_postman_id": "8543cc70-ab39-43c6-aa91-b4ff8a3748d4",
+    "name": "Notehub alert event API",
+    "description": "The OpenAPI definition for the Notehub.io API.\n\n\nContact Support:\n Name: Blues Engineering\n Email: engineering@blues.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:15:04.000Z",
+    "updatedAt": "2026-07-28T01:15:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8543cc70-ab39-43c6-aa91-b4ff8a3748d4"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{projectOrProductUID}",
+              "item": [
+                {
+                  "name": "events",
+                  "item": [
+                    {
+                      "name": "{eventUID}",
+                      "item": [
+                        {
+                          "name": "route-logs",
+                          "item": [
+                            {
+                              "name": "Get Route Logs By Event",
+                              "id": "a0b27ba6-1cb6-4264-8a04-23c50a1de8ad",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "bearer",
+                                  "bearer": [
+                                    {
+                                      "key": "token",
+                                      "value": "{{bearerToken}}",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/events/:eventUID/route-logs",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "events",
+                                    ":eventUID",
+                                    "route-logs"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "904867ae-55cb-4130-b997-c25eb418587a",
+                                      "key": "projectOrProductUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "2ade0219-c94d-4bca-9779-4f5ffdcaa8a7",
+                                      "key": "eventUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Get Route Logs by Event UID"
+                              },
+                              "response": [
+                                {
+                                  "id": "0bec5669-41b0-480e-b8d0-5f553ffb9b1f",
+                                  "name": "Successful operation",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/events/:eventUID/route-logs",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "events",
+                                        ":eventUID",
+                                        "route-logs"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "eventUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "[\n  {\n    \"attn\": \"<boolean>\",\n    \"date\": \"<string>\",\n    \"duration\": \"<integer>\",\n    \"event_uid\": \"<string>\",\n    \"route_uid\": \"<string>\",\n    \"status\": \"<string>\",\n    \"text\": \"<string>\",\n    \"url\": \"<string>\"\n  },\n  {\n    \"attn\": \"<boolean>\",\n    \"date\": \"<string>\",\n    \"duration\": \"<integer>\",\n    \"event_uid\": \"<string>\",\n    \"route_uid\": \"<string>\",\n    \"status\": \"<string>\",\n    \"text\": \"<string>\",\n    \"url\": \"<string>\"\n  }\n]",
+                                  "createdAt": "2026-07-28T01:15:05.000Z",
+                                  "updatedAt": "2026-07-28T01:15:05.000Z",
+                                  "uid": "35240-0bec5669-41b0-480e-b8d0-5f553ffb9b1f"
+                                },
+                                {
+                                  "id": "57d29fcb-7f41-43b0-b085-eaf8991ab867",
+                                  "name": "The response body in case of an API error.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/events/:eventUID/route-logs",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "events",
+                                        ":eventUID",
+                                        "route-logs"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "eventUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:05.000Z",
+                                  "updatedAt": "2026-07-28T01:15:05.000Z",
+                                  "uid": "35240-57d29fcb-7f41-43b0-b085-eaf8991ab867"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:15:05.000Z",
+                              "updatedAt": "2026-07-28T01:15:05.000Z",
+                              "uid": "35240-a0b27ba6-1cb6-4264-8a04-23c50a1de8ad"
+                            }
+                          ],
+                          "id": "e746c30c-00f9-4b66-9d64-28151fbc229b",
+                          "createdAt": "2026-07-28T01:15:04.000Z",
+                          "updatedAt": "2026-07-28T01:15:04.000Z",
+                          "uid": "35240-e746c30c-00f9-4b66-9d64-28151fbc229b"
+                        }
+                      ],
+                      "id": "cae1e0b4-c5ad-4127-8be8-161b887b9dfc",
+                      "createdAt": "2026-07-28T01:15:04.000Z",
+                      "updatedAt": "2026-07-28T01:15:04.000Z",
+                      "uid": "35240-cae1e0b4-c5ad-4127-8be8-161b887b9dfc"
+                    },
+                    {
+                      "name": "Get Events",
+                      "id": "62d51f1c-7112-4afd-86b6-73853e6b3cb7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/events?pageSize=50&pageNum=1&deviceUID=<string>&deviceUID=<string>&sortBy=captured&sortOrder=asc&startDate=<integer>&endDate=<integer>&dateType=captured&systemFilesOnly=<boolean>&files=<string>&format=json&serialNumber=<string>&serialNumber=<string>&fleetUID=<string>&fleetUID=<string>&sessionUID=<string>&sessionUID=<string>&eventUID=<string>&eventUID=<string>&selectFields=<string>&deviceUIDs=<string>&deviceUIDs=<string>&since=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":projectOrProductUID",
+                            "events"
+                          ],
+                          "query": [
+                            {
+                              "key": "pageSize",
+                              "value": "50"
+                            },
+                            {
+                              "key": "pageNum",
+                              "value": "1"
+                            },
+                            {
+                              "description": "A Device UID.",
+                              "key": "deviceUID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A Device UID.",
+                              "key": "deviceUID",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "sortBy",
+                              "value": "captured"
+                            },
+                            {
+                              "key": "sortOrder",
+                              "value": "asc"
+                            },
+                            {
+                              "description": "Start date for filtering results, specified as a Unix timestamp",
+                              "key": "startDate",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "End date for filtering results, specified as a Unix timestamp",
+                              "key": "endDate",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Which date to filter on, either 'captured' or 'uploaded'.  This will apply to the startDate and endDate parameters",
+                              "key": "dateType",
+                              "value": "captured"
+                            },
+                            {
+                              "key": "systemFilesOnly",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "files",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Response format (JSON or CSV)",
+                              "key": "format",
+                              "value": "json"
+                            },
+                            {
+                              "description": "Filter by Serial Number",
+                              "key": "serialNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by Serial Number",
+                              "key": "serialNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by Fleet UID",
+                              "key": "fleetUID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by Fleet UID",
+                              "key": "fleetUID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by Session UID",
+                              "key": "sessionUID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by Session UID",
+                              "key": "sessionUID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by Event UID",
+                              "key": "eventUID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by Event UID",
+                              "key": "eventUID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Comma-separated list of fields to select from JSON payload (e.g., \"field1,field2.subfield,field3\"), this will reflect the columns in the CSV output.",
+                              "key": "selectFields",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Deprecated.",
+                              "key": "deviceUIDs",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Deprecated.",
+                              "key": "deviceUIDs",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Deprecated.",
+                              "key": "since",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "79a0b5d8-5619-469b-ae77-835081730884",
+                              "key": "projectOrProductUID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Get Events of a Project"
+                      },
+                      "response": [
+                        {
+                          "id": "3bc7e5f9-c3fe-4bfb-bc49-c3143481a0c4",
+                          "name": "The response body from a GET events request.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/events?pageSize=50&pageNum=1&deviceUID=<string>&sortBy=captured&sortOrder=asc&startDate=<integer>&endDate=<integer>&dateType=captured&systemFilesOnly=<boolean>&files=<string>&format=json&serialNumber=<string>&fleetUID=<string>&sessionUID=<string>&eventUID=<string>&selectFields=<string>&deviceUIDs=<string>&since=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "events"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageSize",
+                                  "value": "50"
+                                },
+                                {
+                                  "key": "pageNum",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "A Device UID.",
+                                  "key": "deviceUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "captured"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "asc"
+                                },
+                                {
+                                  "description": "Start date for filtering results, specified as a Unix timestamp",
+                                  "key": "startDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "End date for filtering results, specified as a Unix timestamp",
+                                  "key": "endDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Which date to filter on, either 'captured' or 'uploaded'.  This will apply to the startDate and endDate parameters",
+                                  "key": "dateType",
+                                  "value": "captured"
+                                },
+                                {
+                                  "key": "systemFilesOnly",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "files",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Response format (JSON or CSV)",
+                                  "key": "format",
+                                  "value": "json"
+                                },
+                                {
+                                  "description": "Filter by Serial Number",
+                                  "key": "serialNumber",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by Fleet UID",
+                                  "key": "fleetUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by Session UID",
+                                  "key": "sessionUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by Event UID",
+                                  "key": "eventUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Comma-separated list of fields to select from JSON payload (e.g., \"field1,field2.subfield,field3\"), this will reflect the columns in the CSV output.",
+                                  "key": "selectFields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Deprecated.",
+                                  "key": "deviceUIDs",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Deprecated.",
+                                  "key": "since",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "True if there are more events",
+                                "type": "text/plain"
+                              },
+                              "key": "X-Has-More",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"events\": [\n    {\n      \"app\": \"<string>\",\n      \"bars\": \"<number>\",\n      \"best_country\": \"<string>\",\n      \"best_id\": \"<string>\",\n      \"best_lat\": \"<double>\",\n      \"best_location\": \"<string>\",\n      \"best_location_type\": \"<string>\",\n      \"best_location_when\": \"<number>\",\n      \"best_lon\": \"<double>\",\n      \"best_timezone\": \"<string>\",\n      \"body\": {},\n      \"bssid\": \"<string>\",\n      \"device\": \"<string>\",\n      \"environment\": {},\n      \"event\": \"<string>\",\n      \"file\": \"<string>\",\n      \"moved\": \"<number>\",\n      \"note\": \"<string>\",\n      \"ordering_code\": \"<string>\",\n      \"orientation\": \"<string>\",\n      \"payload\": \"<string>\",\n      \"product\": \"<string>\",\n      \"rat\": \"<string>\",\n      \"received\": \"<double>\",\n      \"req\": \"<string>\",\n      \"rsrp\": \"<number>\",\n      \"rsrq\": \"<number>\",\n      \"rssi\": \"<number>\",\n      \"session\": \"<string>\",\n      \"sinr\": \"<number>\",\n      \"sku\": \"<string>\",\n      \"sn\": \"<string>\",\n      \"ssid\": \"<string>\",\n      \"temp\": \"<double>\",\n      \"tls\": \"<boolean>\",\n      \"tower_country\": \"<string>\",\n      \"tower_id\": \"<string>\",\n      \"tower_lat\": \"<double>\",\n      \"tower_location\": \"<string>\",\n      \"tower_lon\": \"<double>\",\n      \"tower_timezone\": \"<string>\",\n      \"tower_when\": \"<number>\",\n      \"transport\": \"<string>\",\n      \"tri_country\": \"<string>\",\n      \"tri_lat\": \"<double>\",\n      \"tri_location\": \"<string>\",\n      \"tri_lon\": \"<double>\",\n      \"tri_points\": \"<number>\",\n      \"tri_timezone\": \"<string>\",\n      \"tri_when\": \"<number>\",\n      \"updates\": \"<number>\",\n      \"voltage\": \"<double>\",\n      \"when\": \"<number>\",\n      \"where_country\": \"<string>\",\n      \"where_lat\": \"<double>\",\n      \"where_location\": \"<string>\",\n      \"where_lon\": \"<double>\",\n      \"where_olc\": \"<string>\",\n      \"where_timezone\": \"<string>\",\n      \"where_when\": \"<number>\"\n    },\n    {\n      \"app\": \"<string>\",\n      \"bars\": \"<number>\",\n      \"best_country\": \"<string>\",\n      \"best_id\": \"<string>\",\n      \"best_lat\": \"<double>\",\n      \"best_location\": \"<string>\",\n      \"best_location_type\": \"<string>\",\n      \"best_location_when\": \"<number>\",\n      \"best_lon\": \"<double>\",\n      \"best_timezone\": \"<string>\",\n      \"body\": {},\n      \"bssid\": \"<string>\",\n      \"device\": \"<string>\",\n      \"environment\": {},\n      \"event\": \"<string>\",\n      \"file\": \"<string>\",\n      \"moved\": \"<number>\",\n      \"note\": \"<string>\",\n      \"ordering_code\": \"<string>\",\n      \"orientation\": \"<string>\",\n      \"payload\": \"<string>\",\n      \"product\": \"<string>\",\n      \"rat\": \"<string>\",\n      \"received\": \"<double>\",\n      \"req\": \"<string>\",\n      \"rsrp\": \"<number>\",\n      \"rsrq\": \"<number>\",\n      \"rssi\": \"<number>\",\n      \"session\": \"<string>\",\n      \"sinr\": \"<number>\",\n      \"sku\": \"<string>\",\n      \"sn\": \"<string>\",\n      \"ssid\": \"<string>\",\n      \"temp\": \"<double>\",\n      \"tls\": \"<boolean>\",\n      \"tower_country\": \"<string>\",\n      \"tower_id\": \"<string>\",\n      \"tower_lat\": \"<double>\",\n      \"tower_location\": \"<string>\",\n      \"tower_lon\": \"<double>\",\n      \"tower_timezone\": \"<string>\",\n      \"tower_when\": \"<number>\",\n      \"transport\": \"<string>\",\n      \"tri_country\": \"<string>\",\n      \"tri_lat\": \"<double>\",\n      \"tri_location\": \"<string>\",\n      \"tri_lon\": \"<double>\",\n      \"tri_points\": \"<number>\",\n      \"tri_timezone\": \"<string>\",\n      \"tri_when\": \"<number>\",\n      \"updates\": \"<number>\",\n      \"voltage\": \"<double>\",\n      \"when\": \"<number>\",\n      \"where_country\": \"<string>\",\n      \"where_lat\": \"<double>\",\n      \"where_location\": \"<string>\",\n      \"where_lon\": \"<double>\",\n      \"where_olc\": \"<string>\",\n      \"where_timezone\": \"<string>\",\n      \"where_when\": \"<number>\"\n    }\n  ],\n  \"has_more\": \"<boolean>\",\n  \"through\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:15:05.000Z",
+                          "updatedAt": "2026-07-28T01:15:05.000Z",
+                          "uid": "35240-3bc7e5f9-c3fe-4bfb-bc49-c3143481a0c4"
+                        },
+                        {
+                          "id": "bd623e93-b0bc-4be8-b9aa-afe40c35c03b",
+                          "name": "The response body in case of an API error.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/events?pageSize=50&pageNum=1&deviceUID=<string>&sortBy=captured&sortOrder=asc&startDate=<integer>&endDate=<integer>&dateType=captured&systemFilesOnly=<boolean>&files=<string>&format=json&serialNumber=<string>&fleetUID=<string>&sessionUID=<string>&eventUID=<string>&selectFields=<string>&deviceUIDs=<string>&since=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "events"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageSize",
+                                  "value": "50"
+                                },
+                                {
+                                  "key": "pageNum",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "A Device UID.",
+                                  "key": "deviceUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "captured"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "asc"
+                                },
+                                {
+                                  "description": "Start date for filtering results, specified as a Unix timestamp",
+                                  "key": "startDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "End date for filtering results, specified as a Unix timestamp",
+                                  "key": "endDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "Which date to filter on, either 'captured' or 'uploaded'.  This will apply to the startDate and endDate parameters",
+                                  "key": "dateType",
+                                  "value": "captured"
+                                },
+                                {
+                                  "key": "systemFilesOnly",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "files",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Response format (JSON or CSV)",
+                                  "key": "format",
+                                  "value": "json"
+                                },
+                                {
+                                  "description": "Filter by Serial Number",
+                                  "key": "serialNumber",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by Fleet UID",
+                                  "key": "fleetUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by Session UID",
+                                  "key": "sessionUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by Event UID",
+                                  "key": "eventUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Comma-separated list of fields to select from JSON payload (e.g., \"field1,field2.subfield,field3\"), this will reflect the columns in the CSV output.",
+                                  "key": "selectFields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Deprecated.",
+                                  "key": "deviceUIDs",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Deprecated.",
+                                  "key": "since",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:15:05.000Z",
+                          "updatedAt": "2026-07-28T01:15:05.000Z",
+                          "uid": "35240-bd623e93-b0bc-4be8-b9aa-afe40c35c03b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:15:05.000Z",
+                      "updatedAt": "2026-07-28T01:15:05.000Z",
+                      "uid": "35240-62d51f1c-7112-4afd-86b6-73853e6b3cb7"
+                    }
+                  ],
+                  "id": "2f720aa9-e681-4ec9-9853-988654b39596",
+                  "createdAt": "2026-07-28T01:15:04.000Z",
+                  "updatedAt": "2026-07-28T01:15:04.000Z",
+                  "uid": "35240-2f720aa9-e681-4ec9-9853-988654b39596"
+                },
+                {
+                  "name": "events-cursor",
+                  "item": [
+                    {
+                      "name": "Get Events By Cursor",
+                      "id": "e286f085-f765-4ce5-befd-f16dba72a663",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/events-cursor?limit=50&cursor=<string>&sortOrder=asc&systemFilesOnly=<boolean>&files=<string>&fleetUID=<string>&deviceUID=<string>&deviceUID=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":projectOrProductUID",
+                            "events-cursor"
+                          ],
+                          "query": [
+                            {
+                              "key": "limit",
+                              "value": "50"
+                            },
+                            {
+                              "description": "A cursor, which can be obtained from the `next_cursor` value from a previous call to this endpoint. The results set returned will include this event as its first result if the given identifier is actually the UID of an event. If this event UID is not found, the parameter is ignored and the results set is the same as if the parameter was not included.\n",
+                              "key": "cursor",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "sortOrder",
+                              "value": "asc"
+                            },
+                            {
+                              "key": "systemFilesOnly",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "files",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "fleetUID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A Device UID.",
+                              "key": "deviceUID",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A Device UID.",
+                              "key": "deviceUID",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "3dd6b130-5ac8-420a-92af-b3e587b0fc85",
+                              "key": "projectOrProductUID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Get Events of a Project by cursor"
+                      },
+                      "response": [
+                        {
+                          "id": "32b6002c-1e1a-40a0-9b66-b0ef36068db8",
+                          "name": "The response body from a GET events by cursor request.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/events-cursor?limit=50&cursor=<string>&sortOrder=asc&systemFilesOnly=<boolean>&files=<string>&fleetUID=<string>&deviceUID=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "events-cursor"
+                              ],
+                              "query": [
+                                {
+                                  "key": "limit",
+                                  "value": "50"
+                                },
+                                {
+                                  "description": "A cursor, which can be obtained from the `next_cursor` value from a previous call to this endpoint. The results set returned will include this event as its first result if the given identifier is actually the UID of an event. If this event UID is not found, the parameter is ignored and the results set is the same as if the parameter was not included.\n",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "asc"
+                                },
+                                {
+                                  "key": "systemFilesOnly",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "files",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "fleetUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "A Device UID.",
+                                  "key": "deviceUID",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"events\": [\n    {\n      \"app\": \"<string>\",\n      \"bars\": \"<number>\",\n      \"best_country\": \"<string>\",\n      \"best_id\": \"<string>\",\n      \"best_lat\": \"<double>\",\n      \"best_location\": \"<string>\",\n      \"best_location_type\": \"<string>\",\n      \"best_location_when\": \"<number>\",\n      \"best_lon\": \"<double>\",\n      \"best_timezone\": \"<string>\",\n      \"body\": {},\n      \"bssid\": \"<string>\",\n      \"device\": \"<string>\",\n      \"environment\": {},\n      \"event\": \"<string>\",\n      \"file\": \"<string>\",\n      \"moved\": \"<number>\",\n      \"note\": \"<string>\",\n      \"ordering_code\": \"<string>\",\n      \"orientation\": \"<string>\",\n      \"payload\": \"<string>\",\n      \"product\": \"<string>\",\n      \"rat\": \"<string>\",\n      \"received\": \"<double>\",\n      \"req\": \"<string>\",\n      \"rsrp\": \"<number>\",\n      \"rsrq\": \"<number>\",\n      \"rssi\": \"<number>\",\n      \"session\": \"<string>\",\n      \"sinr\": \"<number>\",\n      \"sku\": \"<string>\",\n      \"sn\": \"<string>\",\n      \"ssid\": \"<string>\",\n      \"temp\": \"<double>\",\n      \"tls\": \"<boolean>\",\n      \"tower_country\": \"<string>\",\n      \"tower_id\": \"<string>\",\n      \"tower_lat\": \"<double>\",\n      \"tower_location\": \"<string>\",\n      \"tower_lon\": \"<double>\",\n      \"tower_timezone\": \"<string>\",\n      \"tower_when\": \"<number>\",\n      \"transport\": \"<string>\",\n      \"tri_country\": \"<string>\",\n      \"tri_lat\": \"<double>\",\n      \"tri_location\": \"<string>\",\n      \"tri_lon\": \"<double>\",\n      \"tri_points\": \"<number>\",\n      \"tri_timezone\": \"<string>\",\n      \"tri_when\": \"<number>\",\n      \"updates\": \"<number>\",\n      \"voltage\": \"<double>\",\n      \"when\": \"<number>\",\n      \"where_country\": \"<string>\",\n      \"where_lat\": \"<double>\",\n      \"where_location\": \"<string>\",\n      \"where_lon\": \"<double>\",\n      \"where_olc\": \"<string>\",\n      \"where_timezone\": \"<string>\",\n      \"where_when\": \"<number>\"\n    },\n    {\n      \"app\": \"<string>\",\n      \"bars\": \"<number>\",\n      \"best_country\": \"<string>\",\n      \"best_id\": \"<string>\",\n      \"best_lat\": \"<double>\",\n      \"best_location\": \"<string>\",\n      \"best_location_type\": \"<string>\",\n      \"best_location_when\": \"<number>\",\n      \"best_lon\": \"<double>\",\n      \"best_timezone\": \"<string>\",\n      \"body\": {},\n      \"bssid\": \"<string>\",\n      \"device\": \"<string>\",\n      \"environment\": {},\n      \"event\": \"<string>\",\n      \"file\": \"<string>\",\n      \"moved\": \"<number>\",\n      \"note\": \"<string>\",\n      \"ordering_code\": \"<string>\",\n      \"orientation\": \"<string>\",\n      \"payload\": \"<string>\",\n      \"product\": \"<string>\",\n      \"rat\": \"<string>\",\n      \"received\": \"<double>\",\n      \"req\": \"<string>\",\n      \"rsrp\": \"<number>\",\n      \"rsrq\": \"<number>\",\n      \"rssi\": \"<number>\",\n      \"session\": \"<string>\",\n      \"sinr\": \"<number>\",\n      \"sku\": \"<string>\",\n      \"sn\": \"<string>\",\n      \"ssid\": \"<string>\",\n      \"temp\": \"<double>\",\n      \"tls\": \"<boolean>\",\n      \"tower_country\": \"<string>\",\n      \"tower_id\": \"<string>\",\n      \"tower_lat\": \"<double>\",\n      \"tower_location\": \"<string>\",\n      \"tower_lon\": \"<double>\",\n      \"tower_timezone\": \"<string>\",\n      \"tower_when\": \"<number>\",\n      \"transport\": \"<string>\",\n      \"tri_country\": \"<string>\",\n      \"tri_lat\": \"<double>\",\n      \"tri_location\": \"<string>\",\n      \"tri_lon\": \"<double>\",\n      \"tri_points\": \"<number>\",\n      \"tri_timezone\": \"<string>\",\n      \"tri_when\": \"<number>\",\n      \"updates\": \"<number>\",\n      \"voltage\": \"<double>\",\n      \"when\": \"<number>\",\n      \"where_country\": \"<string>\",\n      \"where_lat\": \"<double>\",\n      \"where_location\": \"<string>\",\n      \"where_lon\": \"<double>\",\n      \"where_olc\": \"<string>\",\n      \"where_timezone\": \"<string>\",\n      \"where_when\": \"<number>\"\n    }\n  ],\n  \"next_cursor\": \"<string>\",\n  \"has_more\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T01:15:05.000Z",
+                          "updatedAt": "2026-07-28T01:15:05.000Z",
+                          "uid": "35240-32b6002c-1e1a-40a0-9b66-b0ef36068db8"
+                        },
+                        {
+                          "id": "e970f40a-4330-45d2-8f02-8719a0a9f8fa",
+                          "name": "The response body in case of an API error.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/events-cursor?limit=50&cursor=<string>&sortOrder=asc&systemFilesOnly=<boolean>&files=<string>&fleetUID=<string>&deviceUID=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "events-cursor"
+                              ],
+                              "query": [
+                                {
+                                  "key": "limit",
+                                  "value": "50"
+                                },
+                                {
+                                  "description": "A cursor, which can be obtained from the `next_cursor` value from a previous call to this endpoint. The results set returned will include this event as its first result if the given identifier is actually the UID of an event. If this event UID is not found, the parameter is ignored and the results set is the same as if the parameter was not included.\n",
+                                  "key": "cursor",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "asc"
+                                },
+                                {
+                                  "key": "systemFilesOnly",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "key": "files",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "fleetUID",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "A Device UID.",
+                                  "key": "deviceUID",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:15:05.000Z",
+                          "updatedAt": "2026-07-28T01:15:05.000Z",
+                          "uid": "35240-e970f40a-4330-45d2-8f02-8719a0a9f8fa"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:15:05.000Z",
+                      "updatedAt": "2026-07-28T01:15:05.000Z",
+                      "uid": "35240-e286f085-f765-4ce5-befd-f16dba72a663"
+                    }
+                  ],
+                  "id": "7175f56c-2f82-4ded-adb6-2049b9e3f754",
+                  "createdAt": "2026-07-28T01:15:04.000Z",
+                  "updatedAt": "2026-07-28T01:15:04.000Z",
+                  "uid": "35240-7175f56c-2f82-4ded-adb6-2049b9e3f754"
+                },
+                {
+                  "name": "fleets",
+                  "item": [
+                    {
+                      "name": "{fleetUID}",
+                      "item": [
+                        {
+                          "name": "events",
+                          "item": [
+                            {
+                              "name": "Get Fleet Events",
+                              "id": "1e40018c-ac83-499e-9bd8-0a760d2da123",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "bearer",
+                                  "bearer": [
+                                    {
+                                      "key": "token",
+                                      "value": "{{bearerToken}}",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/fleets/:fleetUID/events?pageSize=50&pageNum=1&deviceUID=<string>&deviceUID=<string>&sortBy=captured&sortOrder=asc&startDate=<integer>&endDate=<integer>&dateType=captured&systemFilesOnly=<boolean>&files=<string>&format=json&serialNumber=<string>&serialNumber=<string>&sessionUID=<string>&sessionUID=<string>&eventUID=<string>&eventUID=<string>&selectFields=<string>&deviceUIDs=<string>&deviceUIDs=<string>&since=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "fleets",
+                                    ":fleetUID",
+                                    "events"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "key": "pageNum",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "description": "A Device UID.",
+                                      "key": "deviceUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "A Device UID.",
+                                      "key": "deviceUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "sortBy",
+                                      "value": "captured"
+                                    },
+                                    {
+                                      "key": "sortOrder",
+                                      "value": "asc"
+                                    },
+                                    {
+                                      "description": "Start date for filtering results, specified as a Unix timestamp",
+                                      "key": "startDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "End date for filtering results, specified as a Unix timestamp",
+                                      "key": "endDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "Which date to filter on, either 'captured' or 'uploaded'.  This will apply to the startDate and endDate parameters",
+                                      "key": "dateType",
+                                      "value": "captured"
+                                    },
+                                    {
+                                      "key": "systemFilesOnly",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "key": "files",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Response format (JSON or CSV)",
+                                      "key": "format",
+                                      "value": "json"
+                                    },
+                                    {
+                                      "description": "Filter by Serial Number",
+                                      "key": "serialNumber",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Filter by Serial Number",
+                                      "key": "serialNumber",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Filter by Session UID",
+                                      "key": "sessionUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Filter by Session UID",
+                                      "key": "sessionUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Filter by Event UID",
+                                      "key": "eventUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Filter by Event UID",
+                                      "key": "eventUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Comma-separated list of fields to select from JSON payload (e.g., \"field1,field2.subfield,field3\"), this will reflect the columns in the CSV output.",
+                                      "key": "selectFields",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Deprecated.",
+                                      "key": "deviceUIDs",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Deprecated.",
+                                      "key": "deviceUIDs",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Deprecated.",
+                                      "key": "since",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "3395da83-7907-4eaf-8330-af49fef2f2c1",
+                                      "key": "projectOrProductUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "f14974cb-de8a-4757-ba66-bf092d260430",
+                                      "key": "fleetUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Get Events of a Fleet"
+                              },
+                              "response": [
+                                {
+                                  "id": "745fade8-9f06-4977-a230-ccd89da08980",
+                                  "name": "The response body from a GET events request.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/fleets/:fleetUID/events?pageSize=50&pageNum=1&deviceUID=<string>&sortBy=captured&sortOrder=asc&startDate=<integer>&endDate=<integer>&dateType=captured&systemFilesOnly=<boolean>&files=<string>&format=json&serialNumber=<string>&sessionUID=<string>&eventUID=<string>&selectFields=<string>&deviceUIDs=<string>&since=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "fleets",
+                                        ":fleetUID",
+                                        "events"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "pageSize",
+                                          "value": "50"
+                                        },
+                                        {
+                                          "key": "pageNum",
+                                          "value": "1"
+                                        },
+                                        {
+                                          "description": "A Device UID.",
+                                          "key": "deviceUID",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "sortBy",
+                                          "value": "captured"
+                                        },
+                                        {
+                                          "key": "sortOrder",
+                                          "value": "asc"
+                                        },
+                                        {
+                                          "description": "Start date for filtering results, specified as a Unix timestamp",
+                                          "key": "startDate",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "description": "End date for filtering results, specified as a Unix timestamp",
+                                          "key": "endDate",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "description": "Which date to filter on, either 'captured' or 'uploaded'.  This will apply to the startDate and endDate parameters",
+                                          "key": "dateType",
+                                          "value": "captured"
+                                        },
+                                        {
+                                          "key": "systemFilesOnly",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "key": "files",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Response format (JSON or CSV)",
+                                          "key": "format",
+                                          "value": "json"
+                                        },
+                                        {
+                                          "description": "Filter by Serial Number",
+                                          "key": "serialNumber",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Filter by Session UID",
+                                          "key": "sessionUID",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Filter by Event UID",
+                                          "key": "eventUID",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Comma-separated list of fields to select from JSON payload (e.g., \"field1,field2.subfield,field3\"), this will reflect the columns in the CSV output.",
+                                          "key": "selectFields",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Deprecated.",
+                                          "key": "deviceUIDs",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Deprecated.",
+                                          "key": "since",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "fleetUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "True if there are more events",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "X-Has-More",
+                                      "value": "<boolean>"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"events\": [\n    {\n      \"app\": \"<string>\",\n      \"bars\": \"<number>\",\n      \"best_country\": \"<string>\",\n      \"best_id\": \"<string>\",\n      \"best_lat\": \"<double>\",\n      \"best_location\": \"<string>\",\n      \"best_location_type\": \"<string>\",\n      \"best_location_when\": \"<number>\",\n      \"best_lon\": \"<double>\",\n      \"best_timezone\": \"<string>\",\n      \"body\": {},\n      \"bssid\": \"<string>\",\n      \"device\": \"<string>\",\n      \"environment\": {},\n      \"event\": \"<string>\",\n      \"file\": \"<string>\",\n      \"moved\": \"<number>\",\n      \"note\": \"<string>\",\n      \"ordering_code\": \"<string>\",\n      \"orientation\": \"<string>\",\n      \"payload\": \"<string>\",\n      \"product\": \"<string>\",\n      \"rat\": \"<string>\",\n      \"received\": \"<double>\",\n      \"req\": \"<string>\",\n      \"rsrp\": \"<number>\",\n      \"rsrq\": \"<number>\",\n      \"rssi\": \"<number>\",\n      \"session\": \"<string>\",\n      \"sinr\": \"<number>\",\n      \"sku\": \"<string>\",\n      \"sn\": \"<string>\",\n      \"ssid\": \"<string>\",\n      \"temp\": \"<double>\",\n      \"tls\": \"<boolean>\",\n      \"tower_country\": \"<string>\",\n      \"tower_id\": \"<string>\",\n      \"tower_lat\": \"<double>\",\n      \"tower_location\": \"<string>\",\n      \"tower_lon\": \"<double>\",\n      \"tower_timezone\": \"<string>\",\n      \"tower_when\": \"<number>\",\n      \"transport\": \"<string>\",\n      \"tri_country\": \"<string>\",\n      \"tri_lat\": \"<double>\",\n      \"tri_location\": \"<string>\",\n      \"tri_lon\": \"<double>\",\n      \"tri_points\": \"<number>\",\n      \"tri_timezone\": \"<string>\",\n      \"tri_when\": \"<number>\",\n      \"updates\": \"<number>\",\n      \"voltage\": \"<double>\",\n      \"when\": \"<number>\",\n      \"where_country\": \"<string>\",\n      \"where_lat\": \"<double>\",\n      \"where_location\": \"<string>\",\n      \"where_lon\": \"<double>\",\n      \"where_olc\": \"<string>\",\n      \"where_timezone\": \"<string>\",\n      \"where_when\": \"<number>\"\n    },\n    {\n      \"app\": \"<string>\",\n      \"bars\": \"<number>\",\n      \"best_country\": \"<string>\",\n      \"best_id\": \"<string>\",\n      \"best_lat\": \"<double>\",\n      \"best_location\": \"<string>\",\n      \"best_location_type\": \"<string>\",\n      \"best_location_when\": \"<number>\",\n      \"best_lon\": \"<double>\",\n      \"best_timezone\": \"<string>\",\n      \"body\": {},\n      \"bssid\": \"<string>\",\n      \"device\": \"<string>\",\n      \"environment\": {},\n      \"event\": \"<string>\",\n      \"file\": \"<string>\",\n      \"moved\": \"<number>\",\n      \"note\": \"<string>\",\n      \"ordering_code\": \"<string>\",\n      \"orientation\": \"<string>\",\n      \"payload\": \"<string>\",\n      \"product\": \"<string>\",\n      \"rat\": \"<string>\",\n      \"received\": \"<double>\",\n      \"req\": \"<string>\",\n      \"rsrp\": \"<number>\",\n      \"rsrq\": \"<number>\",\n      \"rssi\": \"<number>\",\n      \"session\": \"<string>\",\n      \"sinr\": \"<number>\",\n      \"sku\": \"<string>\",\n      \"sn\": \"<string>\",\n      \"ssid\": \"<string>\",\n      \"temp\": \"<double>\",\n      \"tls\": \"<boolean>\",\n      \"tower_country\": \"<string>\",\n      \"tower_id\": \"<string>\",\n      \"tower_lat\": \"<double>\",\n      \"tower_location\": \"<string>\",\n      \"tower_lon\": \"<double>\",\n      \"tower_timezone\": \"<string>\",\n      \"tower_when\": \"<number>\",\n      \"transport\": \"<string>\",\n      \"tri_country\": \"<string>\",\n      \"tri_lat\": \"<double>\",\n      \"tri_location\": \"<string>\",\n      \"tri_lon\": \"<double>\",\n      \"tri_points\": \"<number>\",\n      \"tri_timezone\": \"<string>\",\n      \"tri_when\": \"<number>\",\n      \"updates\": \"<number>\",\n      \"voltage\": \"<double>\",\n      \"when\": \"<number>\",\n      \"where_country\": \"<string>\",\n      \"where_lat\": \"<double>\",\n      \"where_location\": \"<string>\",\n      \"where_lon\": \"<double>\",\n      \"where_olc\": \"<string>\",\n      \"where_timezone\": \"<string>\",\n      \"where_when\": \"<number>\"\n    }\n  ],\n  \"has_more\": \"<boolean>\",\n  \"through\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:05.000Z",
+                                  "updatedAt": "2026-07-28T01:15:05.000Z",
+                                  "uid": "35240-745fade8-9f06-4977-a230-ccd89da08980"
+                                },
+                                {
+                                  "id": "483d24c7-469c-4b70-a6a4-20e4b3bedc59",
+                                  "name": "The response body in case of an API error.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/fleets/:fleetUID/events?pageSize=50&pageNum=1&deviceUID=<string>&sortBy=captured&sortOrder=asc&startDate=<integer>&endDate=<integer>&dateType=captured&systemFilesOnly=<boolean>&files=<string>&format=json&serialNumber=<string>&sessionUID=<string>&eventUID=<string>&selectFields=<string>&deviceUIDs=<string>&since=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "fleets",
+                                        ":fleetUID",
+                                        "events"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "pageSize",
+                                          "value": "50"
+                                        },
+                                        {
+                                          "key": "pageNum",
+                                          "value": "1"
+                                        },
+                                        {
+                                          "description": "A Device UID.",
+                                          "key": "deviceUID",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "sortBy",
+                                          "value": "captured"
+                                        },
+                                        {
+                                          "key": "sortOrder",
+                                          "value": "asc"
+                                        },
+                                        {
+                                          "description": "Start date for filtering results, specified as a Unix timestamp",
+                                          "key": "startDate",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "description": "End date for filtering results, specified as a Unix timestamp",
+                                          "key": "endDate",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "description": "Which date to filter on, either 'captured' or 'uploaded'.  This will apply to the startDate and endDate parameters",
+                                          "key": "dateType",
+                                          "value": "captured"
+                                        },
+                                        {
+                                          "key": "systemFilesOnly",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "key": "files",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Response format (JSON or CSV)",
+                                          "key": "format",
+                                          "value": "json"
+                                        },
+                                        {
+                                          "description": "Filter by Serial Number",
+                                          "key": "serialNumber",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Filter by Session UID",
+                                          "key": "sessionUID",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Filter by Event UID",
+                                          "key": "eventUID",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Comma-separated list of fields to select from JSON payload (e.g., \"field1,field2.subfield,field3\"), this will reflect the columns in the CSV output.",
+                                          "key": "selectFields",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Deprecated.",
+                                          "key": "deviceUIDs",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Deprecated.",
+                                          "key": "since",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "fleetUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:05.000Z",
+                                  "updatedAt": "2026-07-28T01:15:05.000Z",
+                                  "uid": "35240-483d24c7-469c-4b70-a6a4-20e4b3bedc59"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:15:05.000Z",
+                              "updatedAt": "2026-07-28T01:15:05.000Z",
+                              "uid": "35240-1e40018c-ac83-499e-9bd8-0a760d2da123"
+                            }
+                          ],
+                          "id": "2ef6c4f4-bb77-46ba-a000-706b7ff7f0e1",
+                          "createdAt": "2026-07-28T01:15:04.000Z",
+                          "updatedAt": "2026-07-28T01:15:04.000Z",
+                          "uid": "35240-2ef6c4f4-bb77-46ba-a000-706b7ff7f0e1"
+                        },
+                        {
+                          "name": "events-cursor",
+                          "item": [
+                            {
+                              "name": "Get Fleet Events By Cursor",
+                              "id": "20b802ea-400f-4df8-8cb3-558aa505efd9",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "bearer",
+                                  "bearer": [
+                                    {
+                                      "key": "token",
+                                      "value": "{{bearerToken}}",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/fleets/:fleetUID/events-cursor?limit=50&cursor=<string>&sortOrder=asc&systemFilesOnly=<boolean>&files=<string>&deviceUID=<string>&deviceUID=<string>&startDate=<integer>&endDate=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "fleets",
+                                    ":fleetUID",
+                                    "events-cursor"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "limit",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "A cursor, which can be obtained from the `next_cursor` value from a previous call to this endpoint. The results set returned will include this event as its first result if the given identifier is actually the UID of an event. If this event UID is not found, the parameter is ignored and the results set is the same as if the parameter was not included.\n",
+                                      "key": "cursor",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "sortOrder",
+                                      "value": "asc"
+                                    },
+                                    {
+                                      "key": "systemFilesOnly",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "key": "files",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "A Device UID.",
+                                      "key": "deviceUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "A Device UID.",
+                                      "key": "deviceUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "Start date for filtering results, specified as a Unix timestamp",
+                                      "key": "startDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "End date for filtering results, specified as a Unix timestamp",
+                                      "key": "endDate",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "05cdf39d-d1e0-458a-a567-c3616dbd574a",
+                                      "key": "projectOrProductUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "2a8490e4-4db5-40f8-907f-ebc1d2a0ac00",
+                                      "key": "fleetUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Get Events of a Fleet by cursor"
+                              },
+                              "response": [
+                                {
+                                  "id": "b82401fd-7363-4d48-9945-33f4d10bc325",
+                                  "name": "The response body from a GET events by cursor request.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/fleets/:fleetUID/events-cursor?limit=50&cursor=<string>&sortOrder=asc&systemFilesOnly=<boolean>&files=<string>&deviceUID=<string>&startDate=<integer>&endDate=<integer>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "fleets",
+                                        ":fleetUID",
+                                        "events-cursor"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "limit",
+                                          "value": "50"
+                                        },
+                                        {
+                                          "description": "A cursor, which can be obtained from the `next_cursor` value from a previous call to this endpoint. The results set returned will include this event as its first result if the given identifier is actually the UID of an event. If this event UID is not found, the parameter is ignored and the results set is the same as if the parameter was not included.\n",
+                                          "key": "cursor",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "sortOrder",
+                                          "value": "asc"
+                                        },
+                                        {
+                                          "key": "systemFilesOnly",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "key": "files",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "A Device UID.",
+                                          "key": "deviceUID",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Start date for filtering results, specified as a Unix timestamp",
+                                          "key": "startDate",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "description": "End date for filtering results, specified as a Unix timestamp",
+                                          "key": "endDate",
+                                          "value": "<integer>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "fleetUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"events\": [\n    {\n      \"app\": \"<string>\",\n      \"bars\": \"<number>\",\n      \"best_country\": \"<string>\",\n      \"best_id\": \"<string>\",\n      \"best_lat\": \"<double>\",\n      \"best_location\": \"<string>\",\n      \"best_location_type\": \"<string>\",\n      \"best_location_when\": \"<number>\",\n      \"best_lon\": \"<double>\",\n      \"best_timezone\": \"<string>\",\n      \"body\": {},\n      \"bssid\": \"<string>\",\n      \"device\": \"<string>\",\n      \"environment\": {},\n      \"event\": \"<string>\",\n      \"file\": \"<string>\",\n      \"moved\": \"<number>\",\n      \"note\": \"<string>\",\n      \"ordering_code\": \"<string>\",\n      \"orientation\": \"<string>\",\n      \"payload\": \"<string>\",\n      \"product\": \"<string>\",\n      \"rat\": \"<string>\",\n      \"received\": \"<double>\",\n      \"req\": \"<string>\",\n      \"rsrp\": \"<number>\",\n      \"rsrq\": \"<number>\",\n      \"rssi\": \"<number>\",\n      \"session\": \"<string>\",\n      \"sinr\": \"<number>\",\n      \"sku\": \"<string>\",\n      \"sn\": \"<string>\",\n      \"ssid\": \"<string>\",\n      \"temp\": \"<double>\",\n      \"tls\": \"<boolean>\",\n      \"tower_country\": \"<string>\",\n      \"tower_id\": \"<string>\",\n      \"tower_lat\": \"<double>\",\n      \"tower_location\": \"<string>\",\n      \"tower_lon\": \"<double>\",\n      \"tower_timezone\": \"<string>\",\n      \"tower_when\": \"<number>\",\n      \"transport\": \"<string>\",\n      \"tri_country\": \"<string>\",\n      \"tri_lat\": \"<double>\",\n      \"tri_location\": \"<string>\",\n      \"tri_lon\": \"<double>\",\n      \"tri_points\": \"<number>\",\n      \"tri_timezone\": \"<string>\",\n      \"tri_when\": \"<number>\",\n      \"updates\": \"<number>\",\n      \"voltage\": \"<double>\",\n      \"when\": \"<number>\",\n      \"where_country\": \"<string>\",\n      \"where_lat\": \"<double>\",\n      \"where_location\": \"<string>\",\n      \"where_lon\": \"<double>\",\n      \"where_olc\": \"<string>\",\n      \"where_timezone\": \"<string>\",\n      \"where_when\": \"<number>\"\n    },\n    {\n      \"app\": \"<string>\",\n      \"bars\": \"<number>\",\n      \"best_country\": \"<string>\",\n      \"best_id\": \"<string>\",\n      \"best_lat\": \"<double>\",\n      \"best_location\": \"<string>\",\n      \"best_location_type\": \"<string>\",\n      \"best_location_when\": \"<number>\",\n      \"best_lon\": \"<double>\",\n      \"best_timezone\": \"<string>\",\n      \"body\": {},\n      \"bssid\": \"<string>\",\n      \"device\": \"<string>\",\n      \"environment\": {},\n      \"event\": \"<string>\",\n      \"file\": \"<string>\",\n      \"moved\": \"<number>\",\n      \"note\": \"<string>\",\n      \"ordering_code\": \"<string>\",\n      \"orientation\": \"<string>\",\n      \"payload\": \"<string>\",\n      \"product\": \"<string>\",\n      \"rat\": \"<string>\",\n      \"received\": \"<double>\",\n      \"req\": \"<string>\",\n      \"rsrp\": \"<number>\",\n      \"rsrq\": \"<number>\",\n      \"rssi\": \"<number>\",\n      \"session\": \"<string>\",\n      \"sinr\": \"<number>\",\n      \"sku\": \"<string>\",\n      \"sn\": \"<string>\",\n      \"ssid\": \"<string>\",\n      \"temp\": \"<double>\",\n      \"tls\": \"<boolean>\",\n      \"tower_country\": \"<string>\",\n      \"tower_id\": \"<string>\",\n      \"tower_lat\": \"<double>\",\n      \"tower_location\": \"<string>\",\n      \"tower_lon\": \"<double>\",\n      \"tower_timezone\": \"<string>\",\n      \"tower_when\": \"<number>\",\n      \"transport\": \"<string>\",\n      \"tri_country\": \"<string>\",\n      \"tri_lat\": \"<double>\",\n      \"tri_location\": \"<string>\",\n      \"tri_lon\": \"<double>\",\n      \"tri_points\": \"<number>\",\n      \"tri_timezone\": \"<string>\",\n      \"tri_when\": \"<number>\",\n      \"updates\": \"<number>\",\n      \"voltage\": \"<double>\",\n      \"when\": \"<number>\",\n      \"where_country\": \"<string>\",\n      \"where_lat\": \"<double>\",\n      \"where_location\": \"<string>\",\n      \"where_lon\": \"<double>\",\n      \"where_olc\": \"<string>\",\n      \"where_timezone\": \"<string>\",\n      \"where_when\": \"<number>\"\n    }\n  ],\n  \"next_cursor\": \"<string>\",\n  \"has_more\": \"<boolean>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:05.000Z",
+                                  "updatedAt": "2026-07-28T01:15:05.000Z",
+                                  "uid": "35240-b82401fd-7363-4d48-9945-33f4d10bc325"
+                                },
+                                {
+                                  "id": "1ba042a6-cd90-4ac2-a937-95248b091632",
+                                  "name": "The response body in case of an API error.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/fleets/:fleetUID/events-cursor?limit=50&cursor=<string>&sortOrder=asc&systemFilesOnly=<boolean>&files=<string>&deviceUID=<string>&startDate=<integer>&endDate=<integer>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "fleets",
+                                        ":fleetUID",
+                                        "events-cursor"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "limit",
+                                          "value": "50"
+                                        },
+                                        {
+                                          "description": "A cursor, which can be obtained from the `next_cursor` value from a previous call to this endpoint. The results set returned will include this event as its first result if the given identifier is actually the UID of an event. If this event UID is not found, the parameter is ignored and the results set is the same as if the parameter was not included.\n",
+                                          "key": "cursor",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "sortOrder",
+                                          "value": "asc"
+                                        },
+                                        {
+                                          "key": "systemFilesOnly",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "key": "files",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "A Device UID.",
+                                          "key": "deviceUID",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "Start date for filtering results, specified as a Unix timestamp",
+                                          "key": "startDate",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "description": "End date for filtering results, specified as a Unix timestamp",
+                                          "key": "endDate",
+                                          "value": "<integer>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "fleetUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:05.000Z",
+                                  "updatedAt": "2026-07-28T01:15:05.000Z",
+                                  "uid": "35240-1ba042a6-cd90-4ac2-a937-95248b091632"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:15:05.000Z",
+                              "updatedAt": "2026-07-28T01:15:05.000Z",
+                              "uid": "35240-20b802ea-400f-4df8-8cb3-558aa505efd9"
+                            }
+                          ],
+                          "id": "c514127e-3823-45d5-98a9-927f29af8fa1",
+                          "createdAt": "2026-07-28T01:15:04.000Z",
+                          "updatedAt": "2026-07-28T01:15:04.000Z",
+                          "uid": "35240-c514127e-3823-45d5-98a9-927f29af8fa1"
+                        }
+                      ],
+                      "id": "e26e15ca-5f7e-46dc-8753-6756ccd2b6f2",
+                      "createdAt": "2026-07-28T01:15:04.000Z",
+                      "updatedAt": "2026-07-28T01:15:04.000Z",
+                      "uid": "35240-e26e15ca-5f7e-46dc-8753-6756ccd2b6f2"
+                    }
+                  ],
+                  "id": "6990c50c-374a-4d3e-a816-af6efe86127f",
+                  "createdAt": "2026-07-28T01:15:04.000Z",
+                  "updatedAt": "2026-07-28T01:15:04.000Z",
+                  "uid": "35240-6990c50c-374a-4d3e-a816-af6efe86127f"
+                }
+              ],
+              "id": "7560c36d-30bb-4bb6-a4be-50c30afb017f",
+              "createdAt": "2026-07-28T01:15:04.000Z",
+              "updatedAt": "2026-07-28T01:15:04.000Z",
+              "uid": "35240-7560c36d-30bb-4bb6-a4be-50c30afb017f"
+            }
+          ],
+          "id": "dbda7cce-88c8-4770-b26b-b126e1445204",
+          "createdAt": "2026-07-28T01:15:04.000Z",
+          "updatedAt": "2026-07-28T01:15:04.000Z",
+          "uid": "35240-dbda7cce-88c8-4770-b26b-b126e1445204"
+        }
+      ],
+      "id": "e643331f-668a-4d7c-beb2-15f3af5d1745",
+      "createdAt": "2026-07-28T01:15:04.000Z",
+      "updatedAt": "2026-07-28T01:15:04.000Z",
+      "uid": "35240-e643331f-668a-4d7c-beb2-15f3af5d1745"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.notefile.net"
+    }
+  ]
+}

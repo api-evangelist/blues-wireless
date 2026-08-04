@@ -1,0 +1,521 @@
+{
+  "info": {
+    "_postman_id": "583afa12-affc-48a6-89f3-2c4b25ddab62",
+    "name": "Notehub alert organization API",
+    "description": "The OpenAPI definition for the Notehub.io API.\n\n\nContact Support:\n Name: Blues Engineering\n Email: engineering@blues.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:15:24.000Z",
+    "updatedAt": "2026-07-28T01:15:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-583afa12-affc-48a6-89f3-2c4b25ddab62"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "organizations",
+          "item": [
+            {
+              "name": "{organizationUID}",
+              "item": [
+                {
+                  "name": "balance-history",
+                  "item": [
+                    {
+                      "name": "Get Organization Balance History",
+                      "id": "c3cabd39-2185-45a3-9620-8dd19f0c4e42",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/organizations/:organizationUID/balance-history?startDate=<integer>&endDate=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "organizations",
+                            ":organizationUID",
+                            "balance-history"
+                          ],
+                          "query": [
+                            {
+                              "description": "Start date for filtering results, specified as a Unix timestamp",
+                              "key": "startDate",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "End date for filtering results, specified as a Unix timestamp",
+                              "key": "endDate",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "bcdee1f5-4889-45c9-8a43-af6efa109c39",
+                              "key": "organizationUID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Get Organization Balance history"
+                      },
+                      "response": [
+                        {
+                          "id": "7dd54229-53c7-406f-a6c2-b8bf9ab7f8e8",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/organizations/:organizationUID/balance-history?startDate=<integer>&endDate=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "organizations",
+                                ":organizationUID",
+                                "balance-history"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Start date for filtering results, specified as a Unix timestamp",
+                                  "key": "startDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "End date for filtering results, specified as a Unix timestamp",
+                                  "key": "endDate",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "organizationUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"remaining_event_capacity\": \"<long>\",\n      \"total_event_capacity_used\": \"<long>\",\n      \"period\": \"<dateTime>\"\n    },\n    {\n      \"remaining_event_capacity\": \"<long>\",\n      \"total_event_capacity_used\": \"<long>\",\n      \"period\": \"<dateTime>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:15:24.000Z",
+                          "updatedAt": "2026-07-28T01:15:24.000Z",
+                          "uid": "35240-7dd54229-53c7-406f-a6c2-b8bf9ab7f8e8"
+                        },
+                        {
+                          "id": "de97a7bd-6280-4062-9108-2a93560b32c3",
+                          "name": "The response body in case of an API error.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/organizations/:organizationUID/balance-history?startDate=<integer>&endDate=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "organizations",
+                                ":organizationUID",
+                                "balance-history"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Start date for filtering results, specified as a Unix timestamp",
+                                  "key": "startDate",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "End date for filtering results, specified as a Unix timestamp",
+                                  "key": "endDate",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "organizationUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:15:24.000Z",
+                          "updatedAt": "2026-07-28T01:15:24.000Z",
+                          "uid": "35240-de97a7bd-6280-4062-9108-2a93560b32c3"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:15:24.000Z",
+                      "updatedAt": "2026-07-28T01:15:24.000Z",
+                      "uid": "35240-c3cabd39-2185-45a3-9620-8dd19f0c4e42"
+                    }
+                  ],
+                  "id": "ad098bbd-5257-47f2-ae6e-e0be805da2d8",
+                  "createdAt": "2026-07-28T01:15:24.000Z",
+                  "updatedAt": "2026-07-28T01:15:24.000Z",
+                  "uid": "35240-ad098bbd-5257-47f2-ae6e-e0be805da2d8"
+                },
+                {
+                  "name": "Get Organization",
+                  "id": "fa8956bd-6e26-49ba-ac92-10416c08d365",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/organizations/:organizationUID",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "organizations",
+                        ":organizationUID"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9fdbc6d7-9e70-42b8-a236-57ad6cfb7194",
+                          "key": "organizationUID",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Get Organization Information"
+                  },
+                  "response": [
+                    {
+                      "id": "9f582fc2-d1ad-4303-8a15-337e3922cdfc",
+                      "name": "Successful operation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/organizations/:organizationUID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "organizations",
+                            ":organizationUID"
+                          ],
+                          "variable": [
+                            {
+                              "key": "organizationUID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"contact_uid\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"owner\": \"<string>\",\n  \"plan\": {\n    \"current_balance\": \"<long>\",\n    \"end_date\": \"<dateTime>\",\n    \"event_capacity\": \"<long>\",\n    \"start_date\": \"<dateTime>\",\n    \"type\": \"Essentials\"\n  },\n  \"suspended\": \"<boolean>\",\n  \"uid\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:15:24.000Z",
+                      "updatedAt": "2026-07-28T01:15:24.000Z",
+                      "uid": "35240-9f582fc2-d1ad-4303-8a15-337e3922cdfc"
+                    },
+                    {
+                      "id": "c4d1561c-4749-45a9-9330-28255949b545",
+                      "name": "The response body in case of an API error.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/organizations/:organizationUID",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "organizations",
+                            ":organizationUID"
+                          ],
+                          "variable": [
+                            {
+                              "key": "organizationUID"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:15:24.000Z",
+                      "updatedAt": "2026-07-28T01:15:24.000Z",
+                      "uid": "35240-c4d1561c-4749-45a9-9330-28255949b545"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:15:24.000Z",
+                  "updatedAt": "2026-07-28T01:15:24.000Z",
+                  "uid": "35240-fa8956bd-6e26-49ba-ac92-10416c08d365"
+                }
+              ],
+              "id": "dbafef72-0336-4e0e-a4ad-7129aa31eec7",
+              "createdAt": "2026-07-28T01:15:24.000Z",
+              "updatedAt": "2026-07-28T01:15:24.000Z",
+              "uid": "35240-dbafef72-0336-4e0e-a4ad-7129aa31eec7"
+            },
+            {
+              "name": "Get Organizations",
+              "id": "80fa6ed5-631c-4697-aeb8-861116dfaec6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/organizations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "organizations"
+                  ]
+                },
+                "description": "Get Organizations accessible by the api_key"
+              },
+              "response": [
+                {
+                  "id": "434c1016-6697-47ce-b157-a84182ebc8b8",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/organizations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "organizations"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"organizations\": [\n    {\n      \"uid\": \"<string>\",\n      \"name\": \"<string>\",\n      \"role\": \"billing_manager\"\n    },\n    {\n      \"uid\": \"<string>\",\n      \"name\": \"<string>\",\n      \"role\": \"project_creator\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:15:24.000Z",
+                  "updatedAt": "2026-07-28T01:15:24.000Z",
+                  "uid": "35240-434c1016-6697-47ce-b157-a84182ebc8b8"
+                },
+                {
+                  "id": "7ff98539-4064-446d-8a46-66ab3bd477aa",
+                  "name": "The response body in case of an API error.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/organizations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "organizations"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:15:24.000Z",
+                  "updatedAt": "2026-07-28T01:15:24.000Z",
+                  "uid": "35240-7ff98539-4064-446d-8a46-66ab3bd477aa"
+                }
+              ],
+              "createdAt": "2026-07-28T01:15:24.000Z",
+              "updatedAt": "2026-07-28T01:15:24.000Z",
+              "uid": "35240-80fa6ed5-631c-4697-aeb8-861116dfaec6"
+            }
+          ],
+          "id": "ba0dcee8-a806-4838-8bdb-47a09dd8912c",
+          "createdAt": "2026-07-28T01:15:24.000Z",
+          "updatedAt": "2026-07-28T01:15:24.000Z",
+          "uid": "35240-ba0dcee8-a806-4838-8bdb-47a09dd8912c"
+        }
+      ],
+      "id": "f8a50555-3b5b-4d1f-bed3-5c74239bfc04",
+      "createdAt": "2026-07-28T01:15:24.000Z",
+      "updatedAt": "2026-07-28T01:15:24.000Z",
+      "uid": "35240-f8a50555-3b5b-4d1f-bed3-5c74239bfc04"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.notefile.net"
+    }
+  ]
+}

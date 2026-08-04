@@ -1,0 +1,1296 @@
+{
+  "info": {
+    "_postman_id": "fa4d80f0-48a7-4f5d-813b-9cc3de024602",
+    "name": "Notehub alert route API",
+    "description": "The OpenAPI definition for the Notehub.io API.\n\n\nContact Support:\n Name: Blues Engineering\n Email: engineering@blues.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:15:35.000Z",
+    "updatedAt": "2026-07-28T01:15:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fa4d80f0-48a7-4f5d-813b-9cc3de024602"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{projectOrProductUID}",
+              "item": [
+                {
+                  "name": "routes",
+                  "item": [
+                    {
+                      "name": "{routeUID}",
+                      "item": [
+                        {
+                          "name": "route-logs",
+                          "item": [
+                            {
+                              "name": "Get Route Logs By Route",
+                              "id": "059218a7-59aa-42dd-b535-d068c399287d",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "auth": {
+                                  "type": "bearer",
+                                  "bearer": [
+                                    {
+                                      "key": "token",
+                                      "value": "{{bearerToken}}",
+                                      "type": "string"
+                                    }
+                                  ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes/:routeUID/route-logs?pageSize=50&pageNum=1&deviceUID=<string>&deviceUID=<string>&sortBy=date&sortOrder=desc&startDate=<integer>&endDate=<integer>&systemFilesOnly=<boolean>&mostRecentOnly=<boolean>&files=<string>&routingStatus=failure&routingStatus=failure&responseStatus=<string>&responseStatus=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "routes",
+                                    ":routeUID",
+                                    "route-logs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "key": "pageNum",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "description": "A Device UID.",
+                                      "key": "deviceUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "A Device UID.",
+                                      "key": "deviceUID",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "sortBy",
+                                      "value": "date"
+                                    },
+                                    {
+                                      "key": "sortOrder",
+                                      "value": "desc"
+                                    },
+                                    {
+                                      "description": "Start date for filtering results, specified as a Unix timestamp",
+                                      "key": "startDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "description": "End date for filtering results, specified as a Unix timestamp",
+                                      "key": "endDate",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "systemFilesOnly",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "key": "mostRecentOnly",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "key": "files",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "routingStatus",
+                                      "value": "failure"
+                                    },
+                                    {
+                                      "key": "routingStatus",
+                                      "value": "failure"
+                                    },
+                                    {
+                                      "key": "responseStatus",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "responseStatus",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "359e43de-492c-408c-af4a-0fb3ee310924",
+                                      "key": "projectOrProductUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "9662fdf7-114e-4897-82b4-54257bd37509",
+                                      "key": "routeUID",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Get Route Logs by Route UID"
+                              },
+                              "response": [
+                                {
+                                  "id": "e3f9f0fe-3fc6-4147-b62c-b0e56206e0a8",
+                                  "name": "Successful operation",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes/:routeUID/route-logs?pageSize=50&pageNum=1&deviceUID=<string>&sortBy=date&sortOrder=desc&startDate=<integer>&endDate=<integer>&systemFilesOnly=<boolean>&mostRecentOnly=<boolean>&files=<string>&routingStatus=failure&responseStatus=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "routes",
+                                        ":routeUID",
+                                        "route-logs"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "pageSize",
+                                          "value": "50"
+                                        },
+                                        {
+                                          "key": "pageNum",
+                                          "value": "1"
+                                        },
+                                        {
+                                          "description": "A Device UID.",
+                                          "key": "deviceUID",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "sortBy",
+                                          "value": "date"
+                                        },
+                                        {
+                                          "key": "sortOrder",
+                                          "value": "desc"
+                                        },
+                                        {
+                                          "description": "Start date for filtering results, specified as a Unix timestamp",
+                                          "key": "startDate",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "description": "End date for filtering results, specified as a Unix timestamp",
+                                          "key": "endDate",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "systemFilesOnly",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "key": "mostRecentOnly",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "key": "files",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "routingStatus",
+                                          "value": "failure"
+                                        },
+                                        {
+                                          "key": "responseStatus",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "routeUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "[\n  {\n    \"attn\": \"<boolean>\",\n    \"date\": \"<string>\",\n    \"duration\": \"<integer>\",\n    \"event_uid\": \"<string>\",\n    \"route_uid\": \"<string>\",\n    \"status\": \"<string>\",\n    \"text\": \"<string>\",\n    \"url\": \"<string>\"\n  },\n  {\n    \"attn\": \"<boolean>\",\n    \"date\": \"<string>\",\n    \"duration\": \"<integer>\",\n    \"event_uid\": \"<string>\",\n    \"route_uid\": \"<string>\",\n    \"status\": \"<string>\",\n    \"text\": \"<string>\",\n    \"url\": \"<string>\"\n  }\n]",
+                                  "createdAt": "2026-07-28T01:15:36.000Z",
+                                  "updatedAt": "2026-07-28T01:15:36.000Z",
+                                  "uid": "35240-e3f9f0fe-3fc6-4147-b62c-b0e56206e0a8"
+                                },
+                                {
+                                  "id": "09fc2fd2-c44a-4504-8fa7-53a79e9ec2c2",
+                                  "name": "The response body in case of an API error.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes/:routeUID/route-logs?pageSize=50&pageNum=1&deviceUID=<string>&sortBy=date&sortOrder=desc&startDate=<integer>&endDate=<integer>&systemFilesOnly=<boolean>&mostRecentOnly=<boolean>&files=<string>&routingStatus=failure&responseStatus=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":projectOrProductUID",
+                                        "routes",
+                                        ":routeUID",
+                                        "route-logs"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "pageSize",
+                                          "value": "50"
+                                        },
+                                        {
+                                          "key": "pageNum",
+                                          "value": "1"
+                                        },
+                                        {
+                                          "description": "A Device UID.",
+                                          "key": "deviceUID",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "sortBy",
+                                          "value": "date"
+                                        },
+                                        {
+                                          "key": "sortOrder",
+                                          "value": "desc"
+                                        },
+                                        {
+                                          "description": "Start date for filtering results, specified as a Unix timestamp",
+                                          "key": "startDate",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "description": "End date for filtering results, specified as a Unix timestamp",
+                                          "key": "endDate",
+                                          "value": "<integer>"
+                                        },
+                                        {
+                                          "key": "systemFilesOnly",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "key": "mostRecentOnly",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "key": "files",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "routingStatus",
+                                          "value": "failure"
+                                        },
+                                        {
+                                          "key": "responseStatus",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectOrProductUID"
+                                        },
+                                        {
+                                          "key": "routeUID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:15:36.000Z",
+                                  "updatedAt": "2026-07-28T01:15:36.000Z",
+                                  "uid": "35240-09fc2fd2-c44a-4504-8fa7-53a79e9ec2c2"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:15:36.000Z",
+                              "updatedAt": "2026-07-28T01:15:36.000Z",
+                              "uid": "35240-059218a7-59aa-42dd-b535-d068c399287d"
+                            }
+                          ],
+                          "id": "deb289e1-d7b5-47e4-88e7-2f9a21a63f8a",
+                          "createdAt": "2026-07-28T01:15:36.000Z",
+                          "updatedAt": "2026-07-28T01:15:36.000Z",
+                          "uid": "35240-deb289e1-d7b5-47e4-88e7-2f9a21a63f8a"
+                        },
+                        {
+                          "name": "Delete Route",
+                          "id": "2dddccbe-8442-48da-8e11-189c343fc794",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes/:routeUID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "routes",
+                                ":routeUID"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a8f8a504-7848-42db-b5cc-ab6493603fbc",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "74095f39-57b9-4eec-80a2-9bd1daa87234",
+                                  "key": "routeUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Delete single route within a project"
+                          },
+                          "response": [
+                            {
+                              "id": "d4bcf118-3d6c-4690-a836-ad7b9f896dd5",
+                              "name": "Successful operation",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes/:routeUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "routes",
+                                    ":routeUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "routeUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:15:36.000Z",
+                              "updatedAt": "2026-07-28T01:15:36.000Z",
+                              "uid": "35240-d4bcf118-3d6c-4690-a836-ad7b9f896dd5"
+                            },
+                            {
+                              "id": "fd8b5827-8156-4d55-843d-ebfe162567a0",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes/:routeUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "routes",
+                                    ":routeUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "routeUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:36.000Z",
+                              "updatedAt": "2026-07-28T01:15:36.000Z",
+                              "uid": "35240-fd8b5827-8156-4d55-843d-ebfe162567a0"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:36.000Z",
+                          "updatedAt": "2026-07-28T01:15:36.000Z",
+                          "uid": "35240-2dddccbe-8442-48da-8e11-189c343fc794"
+                        },
+                        {
+                          "name": "Get Route",
+                          "id": "c438b6c1-c0b8-4d17-9736-ccf858e85d82",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes/:routeUID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "routes",
+                                ":routeUID"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "eca9477c-59ff-42b9-84aa-b3385796d609",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "c2cbffb0-b74a-42ed-8a9e-ba9b2833121e",
+                                  "key": "routeUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Get single route within a project"
+                          },
+                          "response": [
+                            {
+                              "id": "51a72440-49b0-4444-8897-6448ae75bfde",
+                              "name": "Successful operation",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes/:routeUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "routes",
+                                    ":routeUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "routeUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"aws\": {\n    \"access_key_id\": \"<string>\",\n    \"access_key_secret\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"esse_d\": \"<string>\"\n    },\n    \"message_deduplication_id\": \"<string>\",\n    \"message_group_id\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role_arn\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"azure\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"functions_key_secret\": \"<string>\",\n    \"sas_policy_key\": \"<string>\",\n    \"sas_policy_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"blynk\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"region\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    }\n  },\n  \"datacake\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"qui_51\": \"<string>\",\n      \"sunt_97b\": \"<string>\",\n      \"deserunt_c5_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"disabled\": false,\n  \"google\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"token\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"http\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"mollit__7_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"label\": \"<string>\",\n  \"modified\": \"<dateTime>\",\n  \"mqtt\": {\n    \"broker\": \"<string>\",\n    \"certificate\": \"<string>\",\n    \"certificate_name\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key\": \"<string>\",\n    \"password\": \"<string>\",\n    \"port\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"topic\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"username\": \"<string>\"\n  },\n  \"notes\": \"<string>\",\n  \"proxy\": {\n    \"alias\": \"<string>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"veniam4d\": \"<string>\"\n    },\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"qubitro\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"project_id\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_signing_key\": \"<string>\"\n  },\n  \"radnote\": {\n    \"client_id\": \"<string>\",\n    \"client_secret\": \"<string>\",\n    \"data_feed_key\": \"<string>\",\n    \"event_id\": \"<integer>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"test_api\": \"<boolean>\",\n    \"throttle_ms\": \"<integer>\"\n  },\n  \"s3archive\": {\n    \"archive_count_exceeds\": \"<integer>\",\n    \"archive_every_mins\": \"<integer>\",\n    \"archive_id\": \"<string>\",\n    \"bucket_endpoint\": \"<string>\",\n    \"bucket_name\": \"<string>\",\n    \"bucket_region\": \"<string>\",\n    \"file_access\": \"<string>\",\n    \"file_folder\": \"<string>\",\n    \"file_format\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_id\": \"<string>\",\n    \"key_secret\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"slack\": {\n    \"bearer\": \"<string>\",\n    \"blocks\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_url\": \"<uri>\"\n  },\n  \"snowflake\": {\n    \"account_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"snowpipe_streaming\": {\n    \"account_name\": \"<string>\",\n    \"database_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"pipe_name\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"schema_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"thingworx\": {\n    \"app_key\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"twilio\": {\n    \"account_sid\": \"<string>\",\n    \"auth_token\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"from\": \"<string>\",\n    \"message\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"to\": \"<string>\"\n  },\n  \"type\": \"<string>\",\n  \"uid\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:36.000Z",
+                              "updatedAt": "2026-07-28T01:15:36.000Z",
+                              "uid": "35240-51a72440-49b0-4444-8897-6448ae75bfde"
+                            },
+                            {
+                              "id": "1dffbe25-2794-46b4-b022-ba231ecff751",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes/:routeUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "routes",
+                                    ":routeUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "routeUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:36.000Z",
+                              "updatedAt": "2026-07-28T01:15:36.000Z",
+                              "uid": "35240-1dffbe25-2794-46b4-b022-ba231ecff751"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:36.000Z",
+                          "updatedAt": "2026-07-28T01:15:36.000Z",
+                          "uid": "35240-c438b6c1-c0b8-4d17-9736-ccf858e85d82"
+                        },
+                        {
+                          "name": "Update Route",
+                          "id": "0da4e0bc-6e41-4b8a-95f5-3406638b5106",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"aws\": {\n    \"access_key_id\": \"<string>\",\n    \"access_key_secret\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"esse_d\": \"<string>\"\n    },\n    \"message_deduplication_id\": \"<string>\",\n    \"message_group_id\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role_arn\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"azure\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"functions_key_secret\": \"<string>\",\n    \"sas_policy_key\": \"<string>\",\n    \"sas_policy_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"blynk\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"region\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    }\n  },\n  \"datacake\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"qui_51\": \"<string>\",\n      \"sunt_97b\": \"<string>\",\n      \"deserunt_c5_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"disabled\": false,\n  \"google\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"token\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"http\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"mollit__7_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"label\": \"<string>\",\n  \"modified\": \"<dateTime>\",\n  \"mqtt\": {\n    \"broker\": \"<string>\",\n    \"certificate\": \"<string>\",\n    \"certificate_name\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key\": \"<string>\",\n    \"password\": \"<string>\",\n    \"port\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"topic\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"username\": \"<string>\"\n  },\n  \"notes\": \"<string>\",\n  \"proxy\": {\n    \"alias\": \"<string>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"veniam4d\": \"<string>\"\n    },\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"qubitro\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"project_id\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_signing_key\": \"<string>\"\n  },\n  \"radnote\": {\n    \"client_id\": \"<string>\",\n    \"client_secret\": \"<string>\",\n    \"data_feed_key\": \"<string>\",\n    \"event_id\": \"<integer>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"test_api\": \"<boolean>\",\n    \"throttle_ms\": \"<integer>\"\n  },\n  \"s3archive\": {\n    \"archive_count_exceeds\": \"<integer>\",\n    \"archive_every_mins\": \"<integer>\",\n    \"archive_id\": \"<string>\",\n    \"bucket_endpoint\": \"<string>\",\n    \"bucket_name\": \"<string>\",\n    \"bucket_region\": \"<string>\",\n    \"file_access\": \"<string>\",\n    \"file_folder\": \"<string>\",\n    \"file_format\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_id\": \"<string>\",\n    \"key_secret\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"slack\": {\n    \"bearer\": \"<string>\",\n    \"blocks\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_url\": \"<uri>\"\n  },\n  \"snowflake\": {\n    \"account_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"snowpipe_streaming\": {\n    \"account_name\": \"<string>\",\n    \"database_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"pipe_name\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"schema_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"thingworx\": {\n    \"app_key\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"twilio\": {\n    \"account_sid\": \"<string>\",\n    \"auth_token\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"from\": \"<string>\",\n    \"message\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"to\": \"<string>\"\n  },\n  \"type\": \"<string>\",\n  \"uid\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes/:routeUID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "routes",
+                                ":routeUID"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "979780cd-fc3b-4bf3-a67b-b165ee8e0014",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "928c4783-d46c-46d8-ada8-ee4e6ba92f52",
+                                  "key": "routeUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Update route by UID"
+                          },
+                          "response": [
+                            {
+                              "id": "57ca44f5-8d05-4d03-b977-0adf4e23fad9",
+                              "name": "Successful operation",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"aws\": {\n    \"access_key_id\": \"<string>\",\n    \"access_key_secret\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"esse_d\": \"<string>\"\n    },\n    \"message_deduplication_id\": \"<string>\",\n    \"message_group_id\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role_arn\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"azure\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"functions_key_secret\": \"<string>\",\n    \"sas_policy_key\": \"<string>\",\n    \"sas_policy_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"blynk\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"region\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    }\n  },\n  \"datacake\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"qui_51\": \"<string>\",\n      \"sunt_97b\": \"<string>\",\n      \"deserunt_c5_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"disabled\": false,\n  \"google\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"token\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"http\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"mollit__7_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"label\": \"<string>\",\n  \"modified\": \"<dateTime>\",\n  \"mqtt\": {\n    \"broker\": \"<string>\",\n    \"certificate\": \"<string>\",\n    \"certificate_name\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key\": \"<string>\",\n    \"password\": \"<string>\",\n    \"port\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"topic\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"username\": \"<string>\"\n  },\n  \"notes\": \"<string>\",\n  \"proxy\": {\n    \"alias\": \"<string>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"veniam4d\": \"<string>\"\n    },\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"qubitro\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"project_id\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_signing_key\": \"<string>\"\n  },\n  \"radnote\": {\n    \"client_id\": \"<string>\",\n    \"client_secret\": \"<string>\",\n    \"data_feed_key\": \"<string>\",\n    \"event_id\": \"<integer>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"test_api\": \"<boolean>\",\n    \"throttle_ms\": \"<integer>\"\n  },\n  \"s3archive\": {\n    \"archive_count_exceeds\": \"<integer>\",\n    \"archive_every_mins\": \"<integer>\",\n    \"archive_id\": \"<string>\",\n    \"bucket_endpoint\": \"<string>\",\n    \"bucket_name\": \"<string>\",\n    \"bucket_region\": \"<string>\",\n    \"file_access\": \"<string>\",\n    \"file_folder\": \"<string>\",\n    \"file_format\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_id\": \"<string>\",\n    \"key_secret\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"slack\": {\n    \"bearer\": \"<string>\",\n    \"blocks\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_url\": \"<uri>\"\n  },\n  \"snowflake\": {\n    \"account_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"snowpipe_streaming\": {\n    \"account_name\": \"<string>\",\n    \"database_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"pipe_name\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"schema_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"thingworx\": {\n    \"app_key\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"twilio\": {\n    \"account_sid\": \"<string>\",\n    \"auth_token\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"from\": \"<string>\",\n    \"message\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"to\": \"<string>\"\n  },\n  \"type\": \"<string>\",\n  \"uid\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes/:routeUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "routes",
+                                    ":routeUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "routeUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"aws\": {\n    \"access_key_id\": \"<string>\",\n    \"access_key_secret\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"esse_d\": \"<string>\"\n    },\n    \"message_deduplication_id\": \"<string>\",\n    \"message_group_id\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role_arn\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"azure\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"functions_key_secret\": \"<string>\",\n    \"sas_policy_key\": \"<string>\",\n    \"sas_policy_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"blynk\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"region\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    }\n  },\n  \"datacake\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"qui_51\": \"<string>\",\n      \"sunt_97b\": \"<string>\",\n      \"deserunt_c5_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"disabled\": false,\n  \"google\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"token\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"http\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"mollit__7_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"label\": \"<string>\",\n  \"modified\": \"<dateTime>\",\n  \"mqtt\": {\n    \"broker\": \"<string>\",\n    \"certificate\": \"<string>\",\n    \"certificate_name\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key\": \"<string>\",\n    \"password\": \"<string>\",\n    \"port\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"topic\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"username\": \"<string>\"\n  },\n  \"notes\": \"<string>\",\n  \"proxy\": {\n    \"alias\": \"<string>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"veniam4d\": \"<string>\"\n    },\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"qubitro\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"project_id\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_signing_key\": \"<string>\"\n  },\n  \"radnote\": {\n    \"client_id\": \"<string>\",\n    \"client_secret\": \"<string>\",\n    \"data_feed_key\": \"<string>\",\n    \"event_id\": \"<integer>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"test_api\": \"<boolean>\",\n    \"throttle_ms\": \"<integer>\"\n  },\n  \"s3archive\": {\n    \"archive_count_exceeds\": \"<integer>\",\n    \"archive_every_mins\": \"<integer>\",\n    \"archive_id\": \"<string>\",\n    \"bucket_endpoint\": \"<string>\",\n    \"bucket_name\": \"<string>\",\n    \"bucket_region\": \"<string>\",\n    \"file_access\": \"<string>\",\n    \"file_folder\": \"<string>\",\n    \"file_format\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_id\": \"<string>\",\n    \"key_secret\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"slack\": {\n    \"bearer\": \"<string>\",\n    \"blocks\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_url\": \"<uri>\"\n  },\n  \"snowflake\": {\n    \"account_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"snowpipe_streaming\": {\n    \"account_name\": \"<string>\",\n    \"database_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"pipe_name\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"schema_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"thingworx\": {\n    \"app_key\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"twilio\": {\n    \"account_sid\": \"<string>\",\n    \"auth_token\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"from\": \"<string>\",\n    \"message\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"to\": \"<string>\"\n  },\n  \"type\": \"<string>\",\n  \"uid\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:36.000Z",
+                              "updatedAt": "2026-07-28T01:15:36.000Z",
+                              "uid": "35240-57ca44f5-8d05-4d03-b977-0adf4e23fad9"
+                            },
+                            {
+                              "id": "52f29baa-3b49-47be-a125-cc472abf460e",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"aws\": {\n    \"access_key_id\": \"<string>\",\n    \"access_key_secret\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"esse_d\": \"<string>\"\n    },\n    \"message_deduplication_id\": \"<string>\",\n    \"message_group_id\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role_arn\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"azure\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"functions_key_secret\": \"<string>\",\n    \"sas_policy_key\": \"<string>\",\n    \"sas_policy_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"blynk\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"region\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    }\n  },\n  \"datacake\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"qui_51\": \"<string>\",\n      \"sunt_97b\": \"<string>\",\n      \"deserunt_c5_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"disabled\": false,\n  \"google\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"token\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"http\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"mollit__7_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"label\": \"<string>\",\n  \"modified\": \"<dateTime>\",\n  \"mqtt\": {\n    \"broker\": \"<string>\",\n    \"certificate\": \"<string>\",\n    \"certificate_name\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key\": \"<string>\",\n    \"password\": \"<string>\",\n    \"port\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"topic\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"username\": \"<string>\"\n  },\n  \"notes\": \"<string>\",\n  \"proxy\": {\n    \"alias\": \"<string>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"veniam4d\": \"<string>\"\n    },\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"qubitro\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"project_id\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_signing_key\": \"<string>\"\n  },\n  \"radnote\": {\n    \"client_id\": \"<string>\",\n    \"client_secret\": \"<string>\",\n    \"data_feed_key\": \"<string>\",\n    \"event_id\": \"<integer>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"test_api\": \"<boolean>\",\n    \"throttle_ms\": \"<integer>\"\n  },\n  \"s3archive\": {\n    \"archive_count_exceeds\": \"<integer>\",\n    \"archive_every_mins\": \"<integer>\",\n    \"archive_id\": \"<string>\",\n    \"bucket_endpoint\": \"<string>\",\n    \"bucket_name\": \"<string>\",\n    \"bucket_region\": \"<string>\",\n    \"file_access\": \"<string>\",\n    \"file_folder\": \"<string>\",\n    \"file_format\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_id\": \"<string>\",\n    \"key_secret\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"slack\": {\n    \"bearer\": \"<string>\",\n    \"blocks\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_url\": \"<uri>\"\n  },\n  \"snowflake\": {\n    \"account_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"snowpipe_streaming\": {\n    \"account_name\": \"<string>\",\n    \"database_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"pipe_name\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"schema_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"thingworx\": {\n    \"app_key\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"twilio\": {\n    \"account_sid\": \"<string>\",\n    \"auth_token\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"from\": \"<string>\",\n    \"message\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"to\": \"<string>\"\n  },\n  \"type\": \"<string>\",\n  \"uid\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes/:routeUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "routes",
+                                    ":routeUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "routeUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:36.000Z",
+                              "updatedAt": "2026-07-28T01:15:36.000Z",
+                              "uid": "35240-52f29baa-3b49-47be-a125-cc472abf460e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:36.000Z",
+                          "updatedAt": "2026-07-28T01:15:36.000Z",
+                          "uid": "35240-0da4e0bc-6e41-4b8a-95f5-3406638b5106"
+                        }
+                      ],
+                      "id": "3c3e1148-cf79-4df0-a094-b512366f05b3",
+                      "createdAt": "2026-07-28T01:15:36.000Z",
+                      "updatedAt": "2026-07-28T01:15:36.000Z",
+                      "uid": "35240-3c3e1148-cf79-4df0-a094-b512366f05b3"
+                    },
+                    {
+                      "name": "Get Routes",
+                      "id": "e97d6d29-980a-41d3-9d83-ac83735b046e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":projectOrProductUID",
+                            "routes"
+                          ],
+                          "variable": [
+                            {
+                              "id": "2c510ba5-7453-4597-abb1-89c77f6f907c",
+                              "key": "projectOrProductUID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Get all Routes within a Project"
+                      },
+                      "response": [
+                        {
+                          "id": "e226a66e-71a2-419d-971f-03f72ec9d8e8",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "routes"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"disabled\": false,\n    \"label\": \"success route\",\n    \"modified\": \"<dateTime>\",\n    \"type\": \"http\",\n    \"uid\": \"route:8d65a087d5d290ce5bdf03aeff2becc0\"\n  },\n  {\n    \"disabled\": false,\n    \"label\": \"success route\",\n    \"modified\": \"<dateTime>\",\n    \"type\": \"http\",\n    \"uid\": \"route:8d65a087d5d290ce5bdf03aeff2becc0\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:15:36.000Z",
+                          "updatedAt": "2026-07-28T01:15:36.000Z",
+                          "uid": "35240-e226a66e-71a2-419d-971f-03f72ec9d8e8"
+                        },
+                        {
+                          "id": "aca34af9-b4ec-4446-9108-0610bd14af5d",
+                          "name": "The response body in case of an API error.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "routes"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:15:36.000Z",
+                          "updatedAt": "2026-07-28T01:15:36.000Z",
+                          "uid": "35240-aca34af9-b4ec-4446-9108-0610bd14af5d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:15:36.000Z",
+                      "updatedAt": "2026-07-28T01:15:36.000Z",
+                      "uid": "35240-e97d6d29-980a-41d3-9d83-ac83735b046e"
+                    },
+                    {
+                      "name": "Create Route",
+                      "id": "59cedb55-de1a-47e4-ad02-b036af782e5f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"aws\": {\n    \"access_key_id\": \"<string>\",\n    \"access_key_secret\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"esse_d\": \"<string>\"\n    },\n    \"message_deduplication_id\": \"<string>\",\n    \"message_group_id\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role_arn\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"azure\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"functions_key_secret\": \"<string>\",\n    \"sas_policy_key\": \"<string>\",\n    \"sas_policy_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"blynk\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"region\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    }\n  },\n  \"datacake\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"qui_51\": \"<string>\",\n      \"sunt_97b\": \"<string>\",\n      \"deserunt_c5_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"disabled\": false,\n  \"google\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"token\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"http\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"mollit__7_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"label\": \"<string>\",\n  \"modified\": \"<dateTime>\",\n  \"mqtt\": {\n    \"broker\": \"<string>\",\n    \"certificate\": \"<string>\",\n    \"certificate_name\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key\": \"<string>\",\n    \"password\": \"<string>\",\n    \"port\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"topic\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"username\": \"<string>\"\n  },\n  \"notes\": \"<string>\",\n  \"proxy\": {\n    \"alias\": \"<string>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"veniam4d\": \"<string>\"\n    },\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"qubitro\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"project_id\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_signing_key\": \"<string>\"\n  },\n  \"radnote\": {\n    \"client_id\": \"<string>\",\n    \"client_secret\": \"<string>\",\n    \"data_feed_key\": \"<string>\",\n    \"event_id\": \"<integer>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"test_api\": \"<boolean>\",\n    \"throttle_ms\": \"<integer>\"\n  },\n  \"s3archive\": {\n    \"archive_count_exceeds\": \"<integer>\",\n    \"archive_every_mins\": \"<integer>\",\n    \"archive_id\": \"<string>\",\n    \"bucket_endpoint\": \"<string>\",\n    \"bucket_name\": \"<string>\",\n    \"bucket_region\": \"<string>\",\n    \"file_access\": \"<string>\",\n    \"file_folder\": \"<string>\",\n    \"file_format\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_id\": \"<string>\",\n    \"key_secret\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"slack\": {\n    \"bearer\": \"<string>\",\n    \"blocks\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_url\": \"<uri>\"\n  },\n  \"snowflake\": {\n    \"account_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"snowpipe_streaming\": {\n    \"account_name\": \"<string>\",\n    \"database_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"pipe_name\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"schema_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"thingworx\": {\n    \"app_key\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"twilio\": {\n    \"account_sid\": \"<string>\",\n    \"auth_token\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"from\": \"<string>\",\n    \"message\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"to\": \"<string>\"\n  },\n  \"type\": \"<string>\",\n  \"uid\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":projectOrProductUID",
+                            "routes"
+                          ],
+                          "variable": [
+                            {
+                              "id": "168abd53-a840-4508-9ad2-243508ed2666",
+                              "key": "projectOrProductUID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Create Route within a Project"
+                      },
+                      "response": [
+                        {
+                          "id": "a6c64efc-f0ae-43b0-8816-fd7570aef487",
+                          "name": "Created",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"aws\": {\n    \"access_key_id\": \"<string>\",\n    \"access_key_secret\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"esse_d\": \"<string>\"\n    },\n    \"message_deduplication_id\": \"<string>\",\n    \"message_group_id\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role_arn\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"azure\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"functions_key_secret\": \"<string>\",\n    \"sas_policy_key\": \"<string>\",\n    \"sas_policy_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"blynk\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"region\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    }\n  },\n  \"datacake\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"qui_51\": \"<string>\",\n      \"sunt_97b\": \"<string>\",\n      \"deserunt_c5_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"disabled\": false,\n  \"google\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"token\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"http\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"mollit__7_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"label\": \"<string>\",\n  \"modified\": \"<dateTime>\",\n  \"mqtt\": {\n    \"broker\": \"<string>\",\n    \"certificate\": \"<string>\",\n    \"certificate_name\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key\": \"<string>\",\n    \"password\": \"<string>\",\n    \"port\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"topic\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"username\": \"<string>\"\n  },\n  \"notes\": \"<string>\",\n  \"proxy\": {\n    \"alias\": \"<string>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"veniam4d\": \"<string>\"\n    },\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"qubitro\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"project_id\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_signing_key\": \"<string>\"\n  },\n  \"radnote\": {\n    \"client_id\": \"<string>\",\n    \"client_secret\": \"<string>\",\n    \"data_feed_key\": \"<string>\",\n    \"event_id\": \"<integer>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"test_api\": \"<boolean>\",\n    \"throttle_ms\": \"<integer>\"\n  },\n  \"s3archive\": {\n    \"archive_count_exceeds\": \"<integer>\",\n    \"archive_every_mins\": \"<integer>\",\n    \"archive_id\": \"<string>\",\n    \"bucket_endpoint\": \"<string>\",\n    \"bucket_name\": \"<string>\",\n    \"bucket_region\": \"<string>\",\n    \"file_access\": \"<string>\",\n    \"file_folder\": \"<string>\",\n    \"file_format\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_id\": \"<string>\",\n    \"key_secret\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"slack\": {\n    \"bearer\": \"<string>\",\n    \"blocks\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_url\": \"<uri>\"\n  },\n  \"snowflake\": {\n    \"account_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"snowpipe_streaming\": {\n    \"account_name\": \"<string>\",\n    \"database_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"pipe_name\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"schema_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"thingworx\": {\n    \"app_key\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"twilio\": {\n    \"account_sid\": \"<string>\",\n    \"auth_token\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"from\": \"<string>\",\n    \"message\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"to\": \"<string>\"\n  },\n  \"type\": \"<string>\",\n  \"uid\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "routes"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"aws\": {\n    \"access_key_id\": \"<string>\",\n    \"access_key_secret\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"esse_d\": \"<string>\"\n    },\n    \"message_deduplication_id\": \"<string>\",\n    \"message_group_id\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role_arn\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"azure\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"functions_key_secret\": \"<string>\",\n    \"sas_policy_key\": \"<string>\",\n    \"sas_policy_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"blynk\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"region\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    }\n  },\n  \"datacake\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"qui_51\": \"<string>\",\n      \"sunt_97b\": \"<string>\",\n      \"deserunt_c5_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"disabled\": false,\n  \"google\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"token\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"http\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"mollit__7_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"label\": \"<string>\",\n  \"modified\": \"<dateTime>\",\n  \"mqtt\": {\n    \"broker\": \"<string>\",\n    \"certificate\": \"<string>\",\n    \"certificate_name\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key\": \"<string>\",\n    \"password\": \"<string>\",\n    \"port\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"topic\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"username\": \"<string>\"\n  },\n  \"notes\": \"<string>\",\n  \"proxy\": {\n    \"alias\": \"<string>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"veniam4d\": \"<string>\"\n    },\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"qubitro\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"project_id\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_signing_key\": \"<string>\"\n  },\n  \"radnote\": {\n    \"client_id\": \"<string>\",\n    \"client_secret\": \"<string>\",\n    \"data_feed_key\": \"<string>\",\n    \"event_id\": \"<integer>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"test_api\": \"<boolean>\",\n    \"throttle_ms\": \"<integer>\"\n  },\n  \"s3archive\": {\n    \"archive_count_exceeds\": \"<integer>\",\n    \"archive_every_mins\": \"<integer>\",\n    \"archive_id\": \"<string>\",\n    \"bucket_endpoint\": \"<string>\",\n    \"bucket_name\": \"<string>\",\n    \"bucket_region\": \"<string>\",\n    \"file_access\": \"<string>\",\n    \"file_folder\": \"<string>\",\n    \"file_format\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_id\": \"<string>\",\n    \"key_secret\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"slack\": {\n    \"bearer\": \"<string>\",\n    \"blocks\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_url\": \"<uri>\"\n  },\n  \"snowflake\": {\n    \"account_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"snowpipe_streaming\": {\n    \"account_name\": \"<string>\",\n    \"database_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"pipe_name\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"schema_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"thingworx\": {\n    \"app_key\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"twilio\": {\n    \"account_sid\": \"<string>\",\n    \"auth_token\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"from\": \"<string>\",\n    \"message\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"to\": \"<string>\"\n  },\n  \"type\": \"<string>\",\n  \"uid\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:15:36.000Z",
+                          "updatedAt": "2026-07-28T01:15:36.000Z",
+                          "uid": "35240-a6c64efc-f0ae-43b0-8816-fd7570aef487"
+                        },
+                        {
+                          "id": "79a279d5-0733-4b75-9b4b-fc5d56cd5ab7",
+                          "name": "The response body in case of an API error.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"aws\": {\n    \"access_key_id\": \"<string>\",\n    \"access_key_secret\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"esse_d\": \"<string>\"\n    },\n    \"message_deduplication_id\": \"<string>\",\n    \"message_group_id\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role_arn\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"azure\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"functions_key_secret\": \"<string>\",\n    \"sas_policy_key\": \"<string>\",\n    \"sas_policy_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"blynk\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"region\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    }\n  },\n  \"datacake\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"qui_51\": \"<string>\",\n      \"sunt_97b\": \"<string>\",\n      \"deserunt_c5_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"disabled\": false,\n  \"google\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"token\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"http\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"mollit__7_\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"label\": \"<string>\",\n  \"modified\": \"<dateTime>\",\n  \"mqtt\": {\n    \"broker\": \"<string>\",\n    \"certificate\": \"<string>\",\n    \"certificate_name\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key\": \"<string>\",\n    \"password\": \"<string>\",\n    \"port\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"topic\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"username\": \"<string>\"\n  },\n  \"notes\": \"<string>\",\n  \"proxy\": {\n    \"alias\": \"<string>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"veniam4d\": \"<string>\"\n    },\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"qubitro\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"project_id\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_signing_key\": \"<string>\"\n  },\n  \"radnote\": {\n    \"client_id\": \"<string>\",\n    \"client_secret\": \"<string>\",\n    \"data_feed_key\": \"<string>\",\n    \"event_id\": \"<integer>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"test_api\": \"<boolean>\",\n    \"throttle_ms\": \"<integer>\"\n  },\n  \"s3archive\": {\n    \"archive_count_exceeds\": \"<integer>\",\n    \"archive_every_mins\": \"<integer>\",\n    \"archive_id\": \"<string>\",\n    \"bucket_endpoint\": \"<string>\",\n    \"bucket_name\": \"<string>\",\n    \"bucket_region\": \"<string>\",\n    \"file_access\": \"<string>\",\n    \"file_folder\": \"<string>\",\n    \"file_format\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_id\": \"<string>\",\n    \"key_secret\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"slack\": {\n    \"bearer\": \"<string>\",\n    \"blocks\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_url\": \"<uri>\"\n  },\n  \"snowflake\": {\n    \"account_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"snowpipe_streaming\": {\n    \"account_name\": \"<string>\",\n    \"database_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"pipe_name\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"schema_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"thingworx\": {\n    \"app_key\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"twilio\": {\n    \"account_sid\": \"<string>\",\n    \"auth_token\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"from\": \"<string>\",\n    \"message\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"to\": \"<string>\"\n  },\n  \"type\": \"<string>\",\n  \"uid\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/routes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "routes"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:15:36.000Z",
+                          "updatedAt": "2026-07-28T01:15:36.000Z",
+                          "uid": "35240-79a279d5-0733-4b75-9b4b-fc5d56cd5ab7"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:15:36.000Z",
+                      "updatedAt": "2026-07-28T01:15:36.000Z",
+                      "uid": "35240-59cedb55-de1a-47e4-ad02-b036af782e5f"
+                    }
+                  ],
+                  "id": "96929309-d910-4a9b-bceb-9a319d4b2385",
+                  "createdAt": "2026-07-28T01:15:36.000Z",
+                  "updatedAt": "2026-07-28T01:15:36.000Z",
+                  "uid": "35240-96929309-d910-4a9b-bceb-9a319d4b2385"
+                }
+              ],
+              "id": "42bf3a2f-e1fa-47ee-9db5-bfa0d26d2c0a",
+              "createdAt": "2026-07-28T01:15:36.000Z",
+              "updatedAt": "2026-07-28T01:15:36.000Z",
+              "uid": "35240-42bf3a2f-e1fa-47ee-9db5-bfa0d26d2c0a"
+            }
+          ],
+          "id": "2014348b-366a-4834-b142-b267eac3031b",
+          "createdAt": "2026-07-28T01:15:36.000Z",
+          "updatedAt": "2026-07-28T01:15:36.000Z",
+          "uid": "35240-2014348b-366a-4834-b142-b267eac3031b"
+        }
+      ],
+      "id": "9c3f8595-74da-4ac8-a98e-48180a319dbd",
+      "createdAt": "2026-07-28T01:15:36.000Z",
+      "updatedAt": "2026-07-28T01:15:36.000Z",
+      "uid": "35240-9c3f8595-74da-4ac8-a98e-48180a319dbd"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.notefile.net"
+    }
+  ]
+}

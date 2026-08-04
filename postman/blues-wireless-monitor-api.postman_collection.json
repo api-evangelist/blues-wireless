@@ -1,0 +1,954 @@
+{
+  "info": {
+    "_postman_id": "0b667897-f8d4-483e-8002-dc703a05af0f",
+    "name": "Notehub alert monitor API",
+    "description": "The OpenAPI definition for the Notehub.io API.\n\n\nContact Support:\n Name: Blues Engineering\n Email: engineering@blues.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:15:22.000Z",
+    "updatedAt": "2026-07-28T01:15:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0b667897-f8d4-483e-8002-dc703a05af0f"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{projectOrProductUID}",
+              "item": [
+                {
+                  "name": "monitors",
+                  "item": [
+                    {
+                      "name": "{monitorUID}",
+                      "item": [
+                        {
+                          "name": "Delete Monitor",
+                          "id": "c5ea624d-eb1d-479b-b567-6564327f01ba",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/monitors/:monitorUID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "monitors",
+                                ":monitorUID"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c0ca6aaf-d997-4527-89c8-065f601b61d1",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "59ee6467-654b-47eb-8fbf-4570884867ac",
+                                  "key": "monitorUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Delete Monitor"
+                          },
+                          "response": [
+                            {
+                              "id": "b52d5985-7faa-4fae-a34f-f29b069903fd",
+                              "name": "Successful operation",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/monitors/:monitorUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "monitors",
+                                    ":monitorUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "monitorUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"aggregate_function\": \"max\",\n  \"aggregate_window\": \"3886468341s\",\n  \"alert\": \"<boolean>\",\n  \"alert_routes\": [\n    {\n      \"message_type\": \"blocks\",\n      \"text\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"message_type\": \"text\",\n      \"text\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"condition_type\": \"less_than_or_equal_to\",\n  \"description\": \"<string>\",\n  \"disabled\": \"<boolean>\",\n  \"fleet_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"last_routed_at\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notefile_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"per_device\": \"<boolean>\",\n  \"routing_cooldown_period\": \"968h\",\n  \"silenced\": \"<boolean>\",\n  \"source_selector\": \"<string>\",\n  \"source_type\": \"heartbeat\",\n  \"threshold\": \"<integer>\",\n  \"uid\": \"<string>\",\n  \"usage_scope\": \"<string>\",\n  \"usage_type\": \"<string>\",\n  \"usage_window\": \"<integer>\"\n}",
+                              "createdAt": "2026-07-28T01:15:23.000Z",
+                              "updatedAt": "2026-07-28T01:15:23.000Z",
+                              "uid": "35240-b52d5985-7faa-4fae-a34f-f29b069903fd"
+                            },
+                            {
+                              "id": "d136efce-56e4-4883-9cff-3fe7bcfb2de8",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/monitors/:monitorUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "monitors",
+                                    ":monitorUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "monitorUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:23.000Z",
+                              "updatedAt": "2026-07-28T01:15:23.000Z",
+                              "uid": "35240-d136efce-56e4-4883-9cff-3fe7bcfb2de8"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:23.000Z",
+                          "updatedAt": "2026-07-28T01:15:23.000Z",
+                          "uid": "35240-c5ea624d-eb1d-479b-b567-6564327f01ba"
+                        },
+                        {
+                          "name": "Get Monitor",
+                          "id": "a7fee7cd-d9d7-4603-9a72-ba2e769f5ab9",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/monitors/:monitorUID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "monitors",
+                                ":monitorUID"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0311a9ca-93dc-4298-88b6-d41adf32d104",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "0e0dd43d-d434-4e8b-8327-73bd16ac688b",
+                                  "key": "monitorUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Get Monitor"
+                          },
+                          "response": [
+                            {
+                              "id": "9d2f197d-1fde-47dd-adcb-f6301a9884e0",
+                              "name": "Successful operation",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/monitors/:monitorUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "monitors",
+                                    ":monitorUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "monitorUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"aggregate_function\": \"max\",\n  \"aggregate_window\": \"3886468341s\",\n  \"alert\": \"<boolean>\",\n  \"alert_routes\": [\n    {\n      \"message_type\": \"blocks\",\n      \"text\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"message_type\": \"text\",\n      \"text\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"condition_type\": \"less_than_or_equal_to\",\n  \"description\": \"<string>\",\n  \"disabled\": \"<boolean>\",\n  \"fleet_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"last_routed_at\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notefile_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"per_device\": \"<boolean>\",\n  \"routing_cooldown_period\": \"968h\",\n  \"silenced\": \"<boolean>\",\n  \"source_selector\": \"<string>\",\n  \"source_type\": \"heartbeat\",\n  \"threshold\": \"<integer>\",\n  \"uid\": \"<string>\",\n  \"usage_scope\": \"<string>\",\n  \"usage_type\": \"<string>\",\n  \"usage_window\": \"<integer>\"\n}",
+                              "createdAt": "2026-07-28T01:15:23.000Z",
+                              "updatedAt": "2026-07-28T01:15:23.000Z",
+                              "uid": "35240-9d2f197d-1fde-47dd-adcb-f6301a9884e0"
+                            },
+                            {
+                              "id": "66f1944b-7a61-4819-a77d-c5f9d111cfb5",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/monitors/:monitorUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "monitors",
+                                    ":monitorUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "monitorUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:23.000Z",
+                              "updatedAt": "2026-07-28T01:15:23.000Z",
+                              "uid": "35240-66f1944b-7a61-4819-a77d-c5f9d111cfb5"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:23.000Z",
+                          "updatedAt": "2026-07-28T01:15:23.000Z",
+                          "uid": "35240-a7fee7cd-d9d7-4603-9a72-ba2e769f5ab9"
+                        },
+                        {
+                          "name": "Update Monitor",
+                          "id": "7ebdd665-277b-4c30-83ae-0795e0a41c32",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"aggregate_function\": \"max\",\n  \"aggregate_window\": \"3886468341s\",\n  \"alert\": \"<boolean>\",\n  \"alert_routes\": [\n    {\n      \"message_type\": \"blocks\",\n      \"text\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"message_type\": \"text\",\n      \"text\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"condition_type\": \"less_than_or_equal_to\",\n  \"description\": \"<string>\",\n  \"disabled\": \"<boolean>\",\n  \"fleet_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"last_routed_at\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notefile_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"per_device\": \"<boolean>\",\n  \"routing_cooldown_period\": \"968h\",\n  \"silenced\": \"<boolean>\",\n  \"source_selector\": \"<string>\",\n  \"source_type\": \"heartbeat\",\n  \"threshold\": \"<integer>\",\n  \"uid\": \"<string>\",\n  \"usage_scope\": \"<string>\",\n  \"usage_type\": \"<string>\",\n  \"usage_window\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/monitors/:monitorUID",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "monitors",
+                                ":monitorUID"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "6c7e8664-741f-40fa-95fc-190ec1cedaa2",
+                                  "key": "projectOrProductUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "ebc64e10-4b28-4f86-93c7-c6f5a38ad9e6",
+                                  "key": "monitorUID",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Update Monitor"
+                          },
+                          "response": [
+                            {
+                              "id": "9cc11729-2953-4177-b9aa-47b010f39850",
+                              "name": "Successful operation",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"aggregate_function\": \"max\",\n  \"aggregate_window\": \"3886468341s\",\n  \"alert\": \"<boolean>\",\n  \"alert_routes\": [\n    {\n      \"message_type\": \"blocks\",\n      \"text\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"message_type\": \"text\",\n      \"text\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"condition_type\": \"less_than_or_equal_to\",\n  \"description\": \"<string>\",\n  \"disabled\": \"<boolean>\",\n  \"fleet_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"last_routed_at\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notefile_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"per_device\": \"<boolean>\",\n  \"routing_cooldown_period\": \"968h\",\n  \"silenced\": \"<boolean>\",\n  \"source_selector\": \"<string>\",\n  \"source_type\": \"heartbeat\",\n  \"threshold\": \"<integer>\",\n  \"uid\": \"<string>\",\n  \"usage_scope\": \"<string>\",\n  \"usage_type\": \"<string>\",\n  \"usage_window\": \"<integer>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/monitors/:monitorUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "monitors",
+                                    ":monitorUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "monitorUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"aggregate_function\": \"max\",\n  \"aggregate_window\": \"3886468341s\",\n  \"alert\": \"<boolean>\",\n  \"alert_routes\": [\n    {\n      \"message_type\": \"blocks\",\n      \"text\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"message_type\": \"text\",\n      \"text\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"condition_type\": \"less_than_or_equal_to\",\n  \"description\": \"<string>\",\n  \"disabled\": \"<boolean>\",\n  \"fleet_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"last_routed_at\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notefile_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"per_device\": \"<boolean>\",\n  \"routing_cooldown_period\": \"968h\",\n  \"silenced\": \"<boolean>\",\n  \"source_selector\": \"<string>\",\n  \"source_type\": \"heartbeat\",\n  \"threshold\": \"<integer>\",\n  \"uid\": \"<string>\",\n  \"usage_scope\": \"<string>\",\n  \"usage_type\": \"<string>\",\n  \"usage_window\": \"<integer>\"\n}",
+                              "createdAt": "2026-07-28T01:15:23.000Z",
+                              "updatedAt": "2026-07-28T01:15:23.000Z",
+                              "uid": "35240-9cc11729-2953-4177-b9aa-47b010f39850"
+                            },
+                            {
+                              "id": "238a7286-4773-4219-a1c5-e6c7645c50bb",
+                              "name": "The response body in case of an API error.",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"aggregate_function\": \"max\",\n  \"aggregate_window\": \"3886468341s\",\n  \"alert\": \"<boolean>\",\n  \"alert_routes\": [\n    {\n      \"message_type\": \"blocks\",\n      \"text\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"message_type\": \"text\",\n      \"text\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"condition_type\": \"less_than_or_equal_to\",\n  \"description\": \"<string>\",\n  \"disabled\": \"<boolean>\",\n  \"fleet_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"last_routed_at\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notefile_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"per_device\": \"<boolean>\",\n  \"routing_cooldown_period\": \"968h\",\n  \"silenced\": \"<boolean>\",\n  \"source_selector\": \"<string>\",\n  \"source_type\": \"heartbeat\",\n  \"threshold\": \"<integer>\",\n  \"uid\": \"<string>\",\n  \"usage_scope\": \"<string>\",\n  \"usage_type\": \"<string>\",\n  \"usage_window\": \"<integer>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/monitors/:monitorUID",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":projectOrProductUID",
+                                    "monitors",
+                                    ":monitorUID"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectOrProductUID"
+                                    },
+                                    {
+                                      "key": "monitorUID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:15:23.000Z",
+                              "updatedAt": "2026-07-28T01:15:23.000Z",
+                              "uid": "35240-238a7286-4773-4219-a1c5-e6c7645c50bb"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:15:23.000Z",
+                          "updatedAt": "2026-07-28T01:15:23.000Z",
+                          "uid": "35240-7ebdd665-277b-4c30-83ae-0795e0a41c32"
+                        }
+                      ],
+                      "id": "146be380-da2a-476e-87e9-7c954af7d5db",
+                      "createdAt": "2026-07-28T01:15:23.000Z",
+                      "updatedAt": "2026-07-28T01:15:23.000Z",
+                      "uid": "35240-146be380-da2a-476e-87e9-7c954af7d5db"
+                    },
+                    {
+                      "name": "Get Monitors",
+                      "id": "655990f9-99dd-4e26-bf70-609de98909db",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/monitors",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":projectOrProductUID",
+                            "monitors"
+                          ],
+                          "variable": [
+                            {
+                              "id": "689fc98e-6cc3-4eda-9b8f-fc3fbdbf300b",
+                              "key": "projectOrProductUID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Get list of defined Monitors"
+                      },
+                      "response": [
+                        {
+                          "id": "5aa8d5c9-5800-47b8-b5d9-98ff064283ab",
+                          "name": "The response body from GET /monitors",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/monitors",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "monitors"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[]",
+                          "createdAt": "2026-07-28T01:15:23.000Z",
+                          "updatedAt": "2026-07-28T01:15:23.000Z",
+                          "uid": "35240-5aa8d5c9-5800-47b8-b5d9-98ff064283ab"
+                        },
+                        {
+                          "id": "f43f5e3b-2b3b-4927-b0c1-75b217557c51",
+                          "name": "The response body in case of an API error.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/monitors",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "monitors"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:15:23.000Z",
+                          "updatedAt": "2026-07-28T01:15:23.000Z",
+                          "uid": "35240-f43f5e3b-2b3b-4927-b0c1-75b217557c51"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:15:23.000Z",
+                      "updatedAt": "2026-07-28T01:15:23.000Z",
+                      "uid": "35240-655990f9-99dd-4e26-bf70-609de98909db"
+                    },
+                    {
+                      "name": "Create Monitor",
+                      "id": "ca9d0428-1aed-478a-9581-16d88eae48d2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/monitors",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":projectOrProductUID",
+                            "monitors"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f5e244ea-b467-4165-a9b4-6d6793eb043f",
+                              "key": "projectOrProductUID",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Create a new Monitor"
+                      },
+                      "response": [
+                        {
+                          "id": "125178d6-9750-4210-81c0-08ef5bf4ebdf",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/monitors",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "monitors"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"aggregate_function\": \"max\",\n  \"aggregate_window\": \"3886468341s\",\n  \"alert\": \"<boolean>\",\n  \"alert_routes\": [\n    {\n      \"message_type\": \"blocks\",\n      \"text\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"message_type\": \"text\",\n      \"text\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ],\n  \"condition_type\": \"less_than_or_equal_to\",\n  \"description\": \"<string>\",\n  \"disabled\": \"<boolean>\",\n  \"fleet_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"last_routed_at\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notefile_filter\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"per_device\": \"<boolean>\",\n  \"routing_cooldown_period\": \"968h\",\n  \"silenced\": \"<boolean>\",\n  \"source_selector\": \"<string>\",\n  \"source_type\": \"heartbeat\",\n  \"threshold\": \"<integer>\",\n  \"uid\": \"<string>\",\n  \"usage_scope\": \"<string>\",\n  \"usage_type\": \"<string>\",\n  \"usage_window\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T01:15:23.000Z",
+                          "updatedAt": "2026-07-28T01:15:23.000Z",
+                          "uid": "35240-125178d6-9750-4210-81c0-08ef5bf4ebdf"
+                        },
+                        {
+                          "id": "cd74e3eb-e751-49df-8a80-e18e81e81ddc",
+                          "name": "The response body in case of an API error.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:projectOrProductUID/monitors",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":projectOrProductUID",
+                                "monitors"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectOrProductUID"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"err\": \"<string>\",\n  \"code\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"debug\": \"<string>\",\n  \"details\": {},\n  \"request\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:15:23.000Z",
+                          "updatedAt": "2026-07-28T01:15:23.000Z",
+                          "uid": "35240-cd74e3eb-e751-49df-8a80-e18e81e81ddc"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:15:23.000Z",
+                      "updatedAt": "2026-07-28T01:15:23.000Z",
+                      "uid": "35240-ca9d0428-1aed-478a-9581-16d88eae48d2"
+                    }
+                  ],
+                  "id": "83fd9200-e46d-4ae7-8ba0-9eaafd79491f",
+                  "createdAt": "2026-07-28T01:15:23.000Z",
+                  "updatedAt": "2026-07-28T01:15:23.000Z",
+                  "uid": "35240-83fd9200-e46d-4ae7-8ba0-9eaafd79491f"
+                }
+              ],
+              "id": "060ab4f3-6791-4679-8088-849a43bc4530",
+              "createdAt": "2026-07-28T01:15:23.000Z",
+              "updatedAt": "2026-07-28T01:15:23.000Z",
+              "uid": "35240-060ab4f3-6791-4679-8088-849a43bc4530"
+            }
+          ],
+          "id": "ca3e730f-9204-4fb9-a70c-064993e35afa",
+          "createdAt": "2026-07-28T01:15:23.000Z",
+          "updatedAt": "2026-07-28T01:15:23.000Z",
+          "uid": "35240-ca3e730f-9204-4fb9-a70c-064993e35afa"
+        }
+      ],
+      "id": "6348f7a7-e6aa-4a38-833e-5c82f85058ef",
+      "createdAt": "2026-07-28T01:15:23.000Z",
+      "updatedAt": "2026-07-28T01:15:23.000Z",
+      "uid": "35240-6348f7a7-e6aa-4a38-833e-5c82f85058ef"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.notefile.net"
+    }
+  ]
+}
