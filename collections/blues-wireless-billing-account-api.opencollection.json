@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Notehub alert billing_account API",
+    "version": "1.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "billing_account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetBillingAccounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/billing-accounts",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Billing Accounts accessible by the api_key"
+        },
+        {
+          "info": {
+            "name": "GetBillingAccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/billing-accounts/:billingAccountUID",
+            "params": [
+              {
+                "name": "billingAccountUID",
+                "value": "00000000-0000-0000-000000000001",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Billing Account Information"
+        },
+        {
+          "info": {
+            "name": "GetBillingAccountBalanceHistory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/billing-accounts/:billingAccountUID/balance-history",
+            "params": [
+              {
+                "name": "billingAccountUID",
+                "value": "00000000-0000-0000-000000000001",
+                "type": "path"
+              },
+              {
+                "name": "startDate",
+                "value": "1628631763",
+                "type": "query",
+                "description": "Start date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "endDate",
+                "value": "1657894210",
+                "type": "query",
+                "description": "End date for filtering results, specified as a Unix timestamp"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Billing Account Balance history"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

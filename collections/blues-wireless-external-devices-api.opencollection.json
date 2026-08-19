@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Notehub alert external devices API",
+    "version": "1.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "external devices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CreateEventExtDevice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/products/:productUID/ext-devices/:deviceUID/event",
+            "params": [
+              {
+                "name": "productUID",
+                "value": "com.blues.bridge:sensors",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates an event using specified webhook"
+        },
+        {
+          "info": {
+            "name": "ExtDeviceSessionClose",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/products/:productUID/ext-devices/:deviceUID/session/close",
+            "params": [
+              {
+                "name": "productUID",
+                "value": "com.blues.bridge:sensors",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Closes the session for the specified device if open"
+        },
+        {
+          "info": {
+            "name": "ExtDeviceSessionOpen",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/products/:productUID/ext-devices/:deviceUID/session/open",
+            "params": [
+              {
+                "name": "productUID",
+                "value": "com.blues.bridge:sensors",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a Session for the specified device.  | If a session is currently open it will be closed and a new one opened."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1195 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Notehub alert device API",
+    "version": "1.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "device",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetDeviceEnvironmentVariablesByPin",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/products/:productUID/devices/:deviceUID/environment_variables_with_pin",
+            "headers": [
+              {
+                "name": "X-Auth-Token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "productUID",
+                "value": "com.blues.bridge:sensors",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get environment variables of a device with device pin authorization"
+        },
+        {
+          "info": {
+            "name": "SetDeviceEnvironmentVariablesByPin",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.notefile.net/v1/products/:productUID/devices/:deviceUID/environment_variables_with_pin",
+            "headers": [
+              {
+                "name": "X-Auth-Token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "productUID",
+                "value": "com.blues.bridge:sensors",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Set environment variables of a device with device pin authorization"
+        },
+        {
+          "info": {
+            "name": "GetDevices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageNum",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deviceUID",
+                "value": "",
+                "type": "query",
+                "description": "A Device UID."
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query",
+                "description": "Tag filter"
+              },
+              {
+                "name": "serialNumber",
+                "value": "",
+                "type": "query",
+                "description": "Serial number filter"
+              },
+              {
+                "name": "fleetUID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notecardFirmware",
+                "value": "",
+                "type": "query",
+                "description": "Firmware version filter"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "query",
+                "description": "Location filter"
+              },
+              {
+                "name": "hostFirmware",
+                "value": "",
+                "type": "query",
+                "description": "Host firmware filter"
+              },
+              {
+                "name": "productUID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sku",
+                "value": "",
+                "type": "query",
+                "description": "SKU filter"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Devices of a Project"
+        },
+        {
+          "info": {
+            "name": "GetDevice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Device"
+        },
+        {
+          "info": {
+            "name": "DeleteDevice",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete Device"
+        },
+        {
+          "info": {
+            "name": "DisableDevice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/disable",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Disable Device"
+        },
+        {
+          "info": {
+            "name": "EnableDevice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/enable",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Enable Device"
+        },
+        {
+          "info": {
+            "name": "Get environment variable hierarchy for a device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/environment_hierarchy",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get environment variable hierarchy for a device"
+        },
+        {
+          "info": {
+            "name": "GetDeviceEnvironmentVariables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/environment_variables",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get environment variables of a device"
+        },
+        {
+          "info": {
+            "name": "SetDeviceEnvironmentVariables",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/environment_variables",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Set environment variables of a device"
+        },
+        {
+          "info": {
+            "name": "DeleteDeviceEnvironmentVariable",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/environment_variables/:key",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "The environment variable key to delete."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete environment variable of a device"
+        },
+        {
+          "info": {
+            "name": "ListNotefiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/files",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              },
+              {
+                "name": "files",
+                "value": "",
+                "type": "query",
+                "description": "One or more files to obtain change information from."
+              },
+              {
+                "name": "pending",
+                "value": "",
+                "type": "query",
+                "description": "show only files that are pending sync to the Notecard"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Lists .qi and .db files for the device"
+        },
+        {
+          "info": {
+            "name": "DeleteNotefiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/files",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes Notefiles and the Notes they contain."
+        },
+        {
+          "info": {
+            "name": "GetDeviceHealthLog",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/health-log",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              },
+              {
+                "name": "startDate",
+                "value": "1628631763",
+                "type": "query",
+                "description": "Start date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "endDate",
+                "value": "1657894210",
+                "type": "query",
+                "description": "End date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "log_type",
+                "value": "",
+                "type": "query",
+                "description": "Return only specified log types"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Device Health Log"
+        },
+        {
+          "info": {
+            "name": "GetDeviceJourneys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/journeys",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              },
+              {
+                "name": "startDate",
+                "value": "1628631763",
+                "type": "query",
+                "description": "Start date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "endDate",
+                "value": "1657894210",
+                "type": "query",
+                "description": "End date for filtering results, specified as a Unix timestamp"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get the list of journeys for a device, derived from `_track.qo` events. Returns journey metadata only (no event payloads). Capped at 100 most recent journeys; `has_more` is true when the cap is hit.\n"
+        },
+        {
+          "info": {
+            "name": "GetDeviceJourney",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/journeys/:journeyID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              },
+              {
+                "name": "journeyID",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the journey, taken from the `journey` field on `_track.qo` events (a Unix timestamp marking the start of the journey).\n"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageNum",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a single journey for a device along with its `_track.qo` events. The events array is paginated via `pageSize` / `pageNum`; use `journey.has_more` to detect additional pages.\n"
+        },
+        {
+          "info": {
+            "name": "GetDeviceLatestEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/latest",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Device Latest Events"
+        },
+        {
+          "info": {
+            "name": "CreateNotefile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/notefiles/:notefileID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              },
+              {
+                "name": "notefileID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates an empty Notefile on the device."
+        },
+        {
+          "info": {
+            "name": "GetNotefile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/notes/:notefileID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              },
+              {
+                "name": "notefileID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of Notes to return in the request."
+              },
+              {
+                "name": "deleted",
+                "value": "",
+                "type": "query",
+                "description": "true to return deleted notes."
+              },
+              {
+                "name": "delete",
+                "value": "",
+                "type": "query",
+                "description": "true to delete the notes returned by the request."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "For .qi files, returns the queued up notes.  For .db files, returns all notes in the notefile"
+        },
+        {
+          "info": {
+            "name": "AddQiNote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/notes/:notefileID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              },
+              {
+                "name": "notefileID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Adds a Note to a Notefile, creating the Notefile if it doesn't yet exist."
+        },
+        {
+          "info": {
+            "name": "GetDbNote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/notes/:notefileID/:noteID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              },
+              {
+                "name": "notefileID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "noteID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "delete",
+                "value": "",
+                "type": "query",
+                "description": "Whether to delete the note from the DB notefile"
+              },
+              {
+                "name": "deleted",
+                "value": "",
+                "type": "query",
+                "description": "Whether to return deleted notes"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a note from a .db or .qi notefile"
+        },
+        {
+          "info": {
+            "name": "AddDbNote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/notes/:notefileID/:noteID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              },
+              {
+                "name": "notefileID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "noteID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a Note to a .db notefile.  if noteID is '-' then payload is ignored and empty notefile is created"
+        },
+        {
+          "info": {
+            "name": "UpdateDbNote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/notes/:notefileID/:noteID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              },
+              {
+                "name": "notefileID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "noteID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update a note in a .db or .qi notefile"
+        },
+        {
+          "info": {
+            "name": "DeleteNote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/notes/:notefileID/:noteID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              },
+              {
+                "name": "notefileID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "noteID",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a note from a .db or .qi notefile"
+        },
+        {
+          "info": {
+            "name": "GetDevicePlans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/plans",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Data Plans associated with the device, this include the primary sim, any external sim, as well as any satellite connections."
+        },
+        {
+          "info": {
+            "name": "ProvisionDevice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/provision",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Provision Device for a Project"
+        },
+        {
+          "info": {
+            "name": "GetDevicePublicKey",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/public-key",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Device Public Key"
+        },
+        {
+          "info": {
+            "name": "GetDeviceSessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/sessions",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageNum",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startDate",
+                "value": "1628631763",
+                "type": "query",
+                "description": "Start date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "endDate",
+                "value": "1657894210",
+                "type": "query",
+                "description": "End date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "firstSync",
+                "value": "",
+                "type": "query",
+                "description": "When true, filters results to only show first sync sessions"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Device Sessions"
+        },
+        {
+          "info": {
+            "name": "SignalDevice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/:deviceUID/signal",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Send a signal from Notehub to a Notecard."
+        },
+        {
+          "info": {
+            "name": "GetDevicePublicKeys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/devices/public-keys",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageNum",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Device Public Keys of a Project"
+        },
+        {
+          "info": {
+            "name": "GetFleetDevices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/fleets/:fleetUID/devices",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "fleetUID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageNum",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deviceUID",
+                "value": "",
+                "type": "query",
+                "description": "A Device UID."
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query",
+                "description": "Tag filter"
+              },
+              {
+                "name": "serialNumber",
+                "value": "",
+                "type": "query",
+                "description": "Serial number filter"
+              },
+              {
+                "name": "notecardFirmware",
+                "value": "",
+                "type": "query",
+                "description": "Firmware version filter"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "query",
+                "description": "Location filter"
+              },
+              {
+                "name": "hostFirmware",
+                "value": "",
+                "type": "query",
+                "description": "Host firmware filter"
+              },
+              {
+                "name": "productUID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sku",
+                "value": "",
+                "type": "query",
+                "description": "SKU filter"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Devices of a Fleet within a Project"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

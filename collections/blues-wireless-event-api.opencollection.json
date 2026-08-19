@@ -1,0 +1,422 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Notehub alert event API",
+    "version": "1.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "event",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/events",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageNum",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deviceUID",
+                "value": "",
+                "type": "query",
+                "description": "A Device UID."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startDate",
+                "value": "1628631763",
+                "type": "query",
+                "description": "Start date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "endDate",
+                "value": "1657894210",
+                "type": "query",
+                "description": "End date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "dateType",
+                "value": "uploaded",
+                "type": "query",
+                "description": "Which date to filter on, either 'captured' or 'uploaded'.  This will apply to the startDate and endDate parameters"
+              },
+              {
+                "name": "systemFilesOnly",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "files",
+                "value": "_health.qo, data.qo",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format (JSON or CSV)"
+              },
+              {
+                "name": "serialNumber",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Serial Number"
+              },
+              {
+                "name": "fleetUID",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Fleet UID"
+              },
+              {
+                "name": "sessionUID",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Session UID"
+              },
+              {
+                "name": "eventUID",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Event UID"
+              },
+              {
+                "name": "selectFields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to select from JSON payload (e.g., \"field1,field2.subfield,field3\"), this will reflect the columns in the CSV output."
+              },
+              {
+                "name": "deviceUIDs",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated."
+              },
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Events of a Project"
+        },
+        {
+          "info": {
+            "name": "GetEventsByCursor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/events-cursor",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "A cursor, which can be obtained from the `next_cursor` value from a previous call to this endpoint. The results set returned will include this event as its first result if the given identifier is actually the UID of an event. If this event UID is not found, the parameter is ignored and the results set is the same as if the parameter was not included.\n"
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "systemFilesOnly",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "files",
+                "value": "_health.qo, data.qo",
+                "type": "query"
+              },
+              {
+                "name": "fleetUID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deviceUID",
+                "value": "",
+                "type": "query",
+                "description": "A Device UID."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Events of a Project by cursor"
+        },
+        {
+          "info": {
+            "name": "GetRouteLogsByEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/events/:eventUID/route-logs",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "eventUID",
+                "value": "4506f411-dea6-44a0-9743-1130f57d7747",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Route Logs by Event UID"
+        },
+        {
+          "info": {
+            "name": "GetFleetEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/fleets/:fleetUID/events",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "fleetUID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageNum",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deviceUID",
+                "value": "",
+                "type": "query",
+                "description": "A Device UID."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startDate",
+                "value": "1628631763",
+                "type": "query",
+                "description": "Start date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "endDate",
+                "value": "1657894210",
+                "type": "query",
+                "description": "End date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "dateType",
+                "value": "uploaded",
+                "type": "query",
+                "description": "Which date to filter on, either 'captured' or 'uploaded'.  This will apply to the startDate and endDate parameters"
+              },
+              {
+                "name": "systemFilesOnly",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "files",
+                "value": "_health.qo, data.qo",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format (JSON or CSV)"
+              },
+              {
+                "name": "serialNumber",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Serial Number"
+              },
+              {
+                "name": "sessionUID",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Session UID"
+              },
+              {
+                "name": "eventUID",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Event UID"
+              },
+              {
+                "name": "selectFields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of fields to select from JSON payload (e.g., \"field1,field2.subfield,field3\"), this will reflect the columns in the CSV output."
+              },
+              {
+                "name": "deviceUIDs",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated."
+              },
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "Deprecated."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Events of a Fleet"
+        },
+        {
+          "info": {
+            "name": "GetFleetEventsByCursor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/fleets/:fleetUID/events-cursor",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "fleetUID",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "A cursor, which can be obtained from the `next_cursor` value from a previous call to this endpoint. The results set returned will include this event as its first result if the given identifier is actually the UID of an event. If this event UID is not found, the parameter is ignored and the results set is the same as if the parameter was not included.\n"
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "systemFilesOnly",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "files",
+                "value": "_health.qo, data.qo",
+                "type": "query"
+              },
+              {
+                "name": "deviceUID",
+                "value": "",
+                "type": "query",
+                "description": "A Device UID."
+              },
+              {
+                "name": "startDate",
+                "value": "1628631763",
+                "type": "query",
+                "description": "Start date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "endDate",
+                "value": "1657894210",
+                "type": "query",
+                "description": "End date for filtering results, specified as a Unix timestamp"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Events of a Fleet by cursor"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

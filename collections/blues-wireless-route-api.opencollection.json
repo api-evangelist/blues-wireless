@@ -1,0 +1,241 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Notehub alert route API",
+    "version": "1.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "route",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetRoutes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/routes",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get all Routes within a Project"
+        },
+        {
+          "info": {
+            "name": "CreateRoute",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/routes",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create Route within a Project"
+        },
+        {
+          "info": {
+            "name": "GetRoute",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/routes/:routeUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "routeUID",
+                "value": "route:cbd20093cba58392c9f9bbdd0cdeb1a0",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get single route within a project"
+        },
+        {
+          "info": {
+            "name": "UpdateRoute",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/routes/:routeUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "routeUID",
+                "value": "route:cbd20093cba58392c9f9bbdd0cdeb1a0",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update route by UID"
+        },
+        {
+          "info": {
+            "name": "DeleteRoute",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/routes/:routeUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "routeUID",
+                "value": "route:cbd20093cba58392c9f9bbdd0cdeb1a0",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete single route within a project"
+        },
+        {
+          "info": {
+            "name": "GetRouteLogsByRoute",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/routes/:routeUID/route-logs",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "routeUID",
+                "value": "route:cbd20093cba58392c9f9bbdd0cdeb1a0",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageNum",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deviceUID",
+                "value": "",
+                "type": "query",
+                "description": "A Device UID."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startDate",
+                "value": "1628631763",
+                "type": "query",
+                "description": "Start date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "endDate",
+                "value": "1657894210",
+                "type": "query",
+                "description": "End date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "systemFilesOnly",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mostRecentOnly",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "files",
+                "value": "_health.qo, data.qo",
+                "type": "query"
+              },
+              {
+                "name": "routingStatus",
+                "value": "failure",
+                "type": "query"
+              },
+              {
+                "name": "responseStatus",
+                "value": "500",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Route Logs by Route UID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

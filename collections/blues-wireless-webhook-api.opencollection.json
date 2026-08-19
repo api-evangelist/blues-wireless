@@ -1,0 +1,351 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Notehub alert webhook API",
+    "version": "1.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "webhook",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CreateLegacyWebhookEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/products/:productUID/devices/:deviceUID/webhook-event",
+            "params": [
+              {
+                "name": "productUID",
+                "value": "com.blues.bridge:sensors",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Legacy endpoint for sending an event from a webhook, associated with the given device (provisioning it if necessary). The request body is a Note-shaped object containing the notefile name, body, and optional payload."
+        },
+        {
+          "info": {
+            "name": "UpdateLegacyWebhookSession",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.notefile.net/v1/products/:productUID/devices/:deviceUID/webhook-session",
+            "params": [
+              {
+                "name": "productUID",
+                "value": "com.blues.bridge:sensors",
+                "type": "path"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Legacy endpoint for opening or updating a webhook session for the given device (provisioning the device if necessary). Used by external services that need to maintain a callable session against a device behind a webhook."
+        },
+        {
+          "info": {
+            "name": "CreateWebhookDeviceEventByProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/products/:productUID/webhooks/:webhookUID/devices/:deviceUID/event",
+            "params": [
+              {
+                "name": "productUID",
+                "value": "com.blues.bridge:sensors",
+                "type": "path"
+              },
+              {
+                "name": "webhookUID",
+                "value": "",
+                "type": "path",
+                "description": "Webhook UID"
+              },
+              {
+                "name": "deviceUID",
+                "value": "dev:000000000000000",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Sends an event to be processed by the specified webhook, addressed by productUID, associated with the given device (provisioning it if necessary). The entire request body becomes the event body. The webhook's configured JSONata transform, if any, is applied before routing."
+        },
+        {
+          "info": {
+            "name": "CreateWebhookEventByProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/products/:productUID/webhooks/:webhookUID/event",
+            "params": [
+              {
+                "name": "productUID",
+                "value": "com.blues.bridge:sensors",
+                "type": "path"
+              },
+              {
+                "name": "webhookUID",
+                "value": "",
+                "type": "path",
+                "description": "Webhook UID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Sends an event to be processed by the specified webhook, addressed by productUID. The entire request body becomes the event body. The webhook's configured JSONata transform, if any, is applied before routing. The event is not associated with a specific device."
+        },
+        {
+          "info": {
+            "name": "GetWebhookSettingsByProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/products/:productUID/webhooks/:webhookUID/settings",
+            "params": [
+              {
+                "name": "productUID",
+                "value": "com.blues.bridge:sensors",
+                "type": "path"
+              },
+              {
+                "name": "webhookUID",
+                "value": "",
+                "type": "path",
+                "description": "Webhook UID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves the configuration settings for the specified webhook, addressed by productUID."
+        },
+        {
+          "info": {
+            "name": "UpdateWebhookSettingsByProduct",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.notefile.net/v1/products/:productUID/webhooks/:webhookUID/settings",
+            "params": [
+              {
+                "name": "productUID",
+                "value": "com.blues.bridge:sensors",
+                "type": "path"
+              },
+              {
+                "name": "webhookUID",
+                "value": "",
+                "type": "path",
+                "description": "Webhook UID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates the configuration settings for the specified webhook, addressed by productUID. Update body will completely replace the existing settings."
+        },
+        {
+          "info": {
+            "name": "GetWebhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/webhooks",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves all webhooks for the specified project"
+        },
+        {
+          "info": {
+            "name": "GetWebhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "webhookUID",
+                "value": "",
+                "type": "path",
+                "description": "Webhook UID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieves the configuration settings for the specified webhook"
+        },
+        {
+          "info": {
+            "name": "CreateWebhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "webhookUID",
+                "value": "",
+                "type": "path",
+                "description": "Webhook UID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creates a webhook for the specified product with the given name. The name | must be unique within the project."
+        },
+        {
+          "info": {
+            "name": "UpdateWebhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "webhookUID",
+                "value": "",
+                "type": "path",
+                "description": "Webhook UID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Updates the configuration settings for the specified webhook. | Webhook will be created if it does not exist. Update body will completely replace the existing settings."
+        },
+        {
+          "info": {
+            "name": "DeleteWebhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/webhooks/:webhookUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "webhookUID",
+                "value": "",
+                "type": "path",
+                "description": "Webhook UID"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Deletes the specified webhook"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

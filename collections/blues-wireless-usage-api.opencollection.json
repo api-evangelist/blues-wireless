@@ -1,0 +1,298 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Notehub alert usage API",
+    "version": "1.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "usage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetDataUsage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/usage/data",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "startDate",
+                "value": "1628631763",
+                "type": "query",
+                "description": "Start date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "endDate",
+                "value": "1657894210",
+                "type": "query",
+                "description": "End date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "deviceUID",
+                "value": "",
+                "type": "query",
+                "description": "A Device UID."
+              },
+              {
+                "name": "fleetUID",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Fleet UID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of data points returned"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Period type for aggregation"
+              },
+              {
+                "name": "aggregate",
+                "value": "",
+                "type": "query",
+                "description": "Aggregation level for results"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get data usage in bytes for a project with time range and period aggregation"
+        },
+        {
+          "info": {
+            "name": "GetEventsUsage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/usage/events",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "startDate",
+                "value": "1628631763",
+                "type": "query",
+                "description": "Start date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "endDate",
+                "value": "1657894210",
+                "type": "query",
+                "description": "End date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "deviceUID",
+                "value": "",
+                "type": "query",
+                "description": "A Device UID."
+              },
+              {
+                "name": "fleetUID",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Fleet UID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of data points returned"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Period type for aggregation"
+              },
+              {
+                "name": "aggregate",
+                "value": "",
+                "type": "query",
+                "description": "Aggregation level for results"
+              },
+              {
+                "name": "notefile",
+                "value": "",
+                "type": "query",
+                "description": "Filter to specific notefiles"
+              },
+              {
+                "name": "skipRecentData",
+                "value": "",
+                "type": "query",
+                "description": "When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects."
+              },
+              {
+                "name": "includeNotefiles",
+                "value": "",
+                "type": "query",
+                "description": "Include per-notefile event counts in the response"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get events usage for a project with time range and period aggregation, when endDate is 0 or unspecified the current time is implied"
+        },
+        {
+          "info": {
+            "name": "GetRouteLogsUsage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/usage/route-logs",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "startDate",
+                "value": "1628631763",
+                "type": "query",
+                "description": "Start date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "endDate",
+                "value": "1657894210",
+                "type": "query",
+                "description": "End date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "routeUID",
+                "value": "",
+                "type": "query",
+                "description": "A Route UID."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of data points returned"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Period type for aggregation"
+              },
+              {
+                "name": "aggregate",
+                "value": "",
+                "type": "query",
+                "description": "Aggregation level for results"
+              },
+              {
+                "name": "skipRecentData",
+                "value": "",
+                "type": "query",
+                "description": "When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get route logs usage for a project with time range and period aggregation, when endDate is 0 or unspecified the current time is implied"
+        },
+        {
+          "info": {
+            "name": "GetSessionsUsage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/usage/sessions",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "startDate",
+                "value": "1628631763",
+                "type": "query",
+                "description": "Start date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "endDate",
+                "value": "1657894210",
+                "type": "query",
+                "description": "End date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "deviceUID",
+                "value": "",
+                "type": "query",
+                "description": "A Device UID."
+              },
+              {
+                "name": "fleetUID",
+                "value": "",
+                "type": "query",
+                "description": "Filter by Fleet UID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of data points returned"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Period type for aggregation"
+              },
+              {
+                "name": "aggregate",
+                "value": "",
+                "type": "query",
+                "description": "Aggregation level for results"
+              },
+              {
+                "name": "skipRecentData",
+                "value": "",
+                "type": "query",
+                "description": "When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get sessions usage for a project with time range and period aggregation, when endDate is 0 or unspecified the current time is implied"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

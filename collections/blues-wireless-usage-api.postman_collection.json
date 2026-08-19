@@ -1,0 +1,1264 @@
+{
+  "item": [
+    {
+      "id": "34fd8c6b-47fd-4e77-b8d8-42c499f85415",
+      "name": "usage",
+      "description": {
+        "content": "Project Usage information related to events, route logs, sessions, and data usage",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ca6a3ad0-b07b-43f1-91e2-ffb14857711d",
+          "name": "Get Data Usage",
+          "request": {
+            "name": "Get Data Usage",
+            "description": {
+              "content": "Get data usage in bytes for a project with time range and period aggregation",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "usage",
+                "data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<integer>",
+                  "description": "Start date for filtering results, specified as a Unix timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<integer>",
+                  "description": "End date for filtering results, specified as a Unix timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceUID",
+                  "value": "<string>",
+                  "description": "A Device UID."
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceUID",
+                  "value": "<string>",
+                  "description": "A Device UID."
+                },
+                {
+                  "disabled": false,
+                  "key": "fleetUID",
+                  "value": "<string>",
+                  "description": "Filter by Fleet UID"
+                },
+                {
+                  "disabled": false,
+                  "key": "fleetUID",
+                  "value": "<string>",
+                  "description": "Filter by Fleet UID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "200000",
+                  "description": "Limit the number of data points returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "(Required) Period type for aggregation"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate",
+                  "value": "device",
+                  "description": "Aggregation level for results"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7d753419-bd6f-4ef8-ac6e-4644ae29f111",
+              "name": "Response body for Data Usage",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "usage",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "1628631763"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "1657894210"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fleetUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fleetUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "200000"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "device"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"type\": \"satellite\",\n      \"data\": [\n        {\n          \"period\": \"2025-07-23T00:00:00Z\",\n          \"total_bytes\": 1048576,\n          \"billable_bytes_total\": 6175,\n          \"downlink_bytes\": 524288,\n          \"downlink_bytes_billable\": 699,\n          \"downlink_packets\": 135,\n          \"uplink_bytes\": 524288,\n          \"uplink_bytes_billable\": 9639,\n          \"uplink_packets\": 4655\n        },\n        {\n          \"period\": \"2025-07-23T00:00:00Z\",\n          \"total_bytes\": 1048576,\n          \"billable_bytes_total\": 8021,\n          \"downlink_bytes\": 524288,\n          \"downlink_bytes_billable\": 7965,\n          \"downlink_packets\": 581,\n          \"uplink_bytes\": 524288,\n          \"uplink_bytes_billable\": 484,\n          \"uplink_packets\": 2859\n        }\n      ],\n      \"device\": \"dev:123456789012345\",\n      \"device_count\": 5778,\n      \"fleet\": \"fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d\",\n      \"iccid\": \"12345678901234567890\",\n      \"psid\": \"skylo:5746354465786\"\n    },\n    {\n      \"type\": \"satellite\",\n      \"data\": [\n        {\n          \"period\": \"2025-07-23T00:00:00Z\",\n          \"total_bytes\": 1048576,\n          \"billable_bytes_total\": 8223,\n          \"downlink_bytes\": 524288,\n          \"downlink_bytes_billable\": 8595,\n          \"downlink_packets\": 249,\n          \"uplink_bytes\": 524288,\n          \"uplink_bytes_billable\": 7702,\n          \"uplink_packets\": 9991\n        },\n        {\n          \"period\": \"2025-07-23T00:00:00Z\",\n          \"total_bytes\": 1048576,\n          \"billable_bytes_total\": 6601,\n          \"downlink_bytes\": 524288,\n          \"downlink_bytes_billable\": 8542,\n          \"downlink_packets\": 9322,\n          \"uplink_bytes\": 524288,\n          \"uplink_bytes_billable\": 6956,\n          \"uplink_packets\": 2625\n        }\n      ],\n      \"device\": \"dev:123456789012345\",\n      \"device_count\": 9173,\n      \"fleet\": \"fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d\",\n      \"iccid\": \"12345678901234567890\",\n      \"psid\": \"skylo:5746354465786\"\n    }\n  ],\n  \"truncated\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "caf8941b-8d9a-47f1-9a2e-7cafe84fc1c9",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "usage",
+                    "data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "1628631763"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "1657894210"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fleetUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fleetUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "200000"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "device"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 526,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9c2d17f-972d-48c9-82d5-47e8f32b3ead",
+          "name": "Get Events Usage",
+          "request": {
+            "name": "Get Events Usage",
+            "description": {
+              "content": "Get events usage for a project with time range and period aggregation, when endDate is 0 or unspecified the current time is implied",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "usage",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<integer>",
+                  "description": "Start date for filtering results, specified as a Unix timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<integer>",
+                  "description": "End date for filtering results, specified as a Unix timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceUID",
+                  "value": "<string>",
+                  "description": "A Device UID."
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceUID",
+                  "value": "<string>",
+                  "description": "A Device UID."
+                },
+                {
+                  "disabled": false,
+                  "key": "fleetUID",
+                  "value": "<string>",
+                  "description": "Filter by Fleet UID"
+                },
+                {
+                  "disabled": false,
+                  "key": "fleetUID",
+                  "value": "<string>",
+                  "description": "Filter by Fleet UID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "200000",
+                  "description": "Limit the number of data points returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "(Required) Period type for aggregation"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate",
+                  "value": "device",
+                  "description": "Aggregation level for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "notefile",
+                  "value": "<string>",
+                  "description": "Filter to specific notefiles"
+                },
+                {
+                  "disabled": false,
+                  "key": "notefile",
+                  "value": "<string>",
+                  "description": "Filter to specific notefiles"
+                },
+                {
+                  "disabled": false,
+                  "key": "skipRecentData",
+                  "value": "false",
+                  "description": "When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeNotefiles",
+                  "value": "false",
+                  "description": "Include per-notefile event counts in the response"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "982ec40d-0ad2-4258-8ebe-af9f8bb4e2d1",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "usage",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "1628631763"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "1657894210"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fleetUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fleetUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "200000"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "device"
+                    },
+                    {
+                      "key": "notefile",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notefile",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skipRecentData",
+                      "value": "false"
+                    },
+                    {
+                      "key": "includeNotefiles",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"period\": \"2025-07-23T00:00:00Z\",\n      \"total_events\": 42,\n      \"platform_events\": 15,\n      \"watchdog_events\": 10,\n      \"total_devices\": 3116,\n      \"billable_events\": 10,\n      \"device\": \"dev:123456789012345\",\n      \"fleet\": \"fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d\",\n      \"notefiles\": {\n        \"_log.qo\": 20,\n        \"customer1.qo\": 1,\n        \"session.qo\": 50\n      },\n      \"total_days_in_period\": 4069,\n      \"total_fw_updates\": 1,\n      \"total_reboots\": 2\n    },\n    {\n      \"period\": \"2025-07-23T00:00:00Z\",\n      \"total_events\": 42,\n      \"platform_events\": 15,\n      \"watchdog_events\": 10,\n      \"total_devices\": 6783,\n      \"billable_events\": 10,\n      \"device\": \"dev:123456789012345\",\n      \"fleet\": \"fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d\",\n      \"notefiles\": {\n        \"_log.qo\": 20,\n        \"customer1.qo\": 1,\n        \"session.qo\": 50\n      },\n      \"total_days_in_period\": 8445,\n      \"total_fw_updates\": 1,\n      \"total_reboots\": 2\n    }\n  ],\n  \"truncated\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f78b5029-53e0-403b-aa02-c03a755164ec",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "usage",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "1628631763"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "1657894210"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fleetUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fleetUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "200000"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "device"
+                    },
+                    {
+                      "key": "notefile",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notefile",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skipRecentData",
+                      "value": "false"
+                    },
+                    {
+                      "key": "includeNotefiles",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 526,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86c09709-9bf9-4136-9dd4-4f59424b5cfd",
+          "name": "Get Route Logs Usage",
+          "request": {
+            "name": "Get Route Logs Usage",
+            "description": {
+              "content": "Get route logs usage for a project with time range and period aggregation, when endDate is 0 or unspecified the current time is implied",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "usage",
+                "route-logs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<integer>",
+                  "description": "Start date for filtering results, specified as a Unix timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<integer>",
+                  "description": "End date for filtering results, specified as a Unix timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "routeUID",
+                  "value": "<string>",
+                  "description": "A Route UID."
+                },
+                {
+                  "disabled": false,
+                  "key": "routeUID",
+                  "value": "<string>",
+                  "description": "A Route UID."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "200000",
+                  "description": "Limit the number of data points returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "(Required) Period type for aggregation"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate",
+                  "value": "route",
+                  "description": "Aggregation level for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "skipRecentData",
+                  "value": "false",
+                  "description": "When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ffe2ea7f-8c75-4598-8178-39c09c405067",
+              "name": "Response body for Route Log Usage",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "usage",
+                    "route-logs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "1628631763"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "1657894210"
+                    },
+                    {
+                      "key": "routeUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "routeUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "200000"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "route"
+                    },
+                    {
+                      "key": "skipRecentData",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"route_logs\": [\n    {\n      \"period\": \"2025-07-23T00:00:00Z\",\n      \"successful_routes\": 38,\n      \"failed_routes\": 4,\n      \"total_routes\": 42,\n      \"avg_latency_ms\": 342.5,\n      \"route\": \"route:cbd20093cba58392c9f9bbdd0cdeb1a0\"\n    },\n    {\n      \"period\": \"2025-07-23T00:00:00Z\",\n      \"successful_routes\": 38,\n      \"failed_routes\": 4,\n      \"total_routes\": 42,\n      \"avg_latency_ms\": 342.5,\n      \"route\": \"route:cbd20093cba58392c9f9bbdd0cdeb1a0\"\n    }\n  ],\n  \"truncated\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dcdeb812-704b-47e0-9157-2f5a0fffef4b",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "usage",
+                    "route-logs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "1628631763"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "1657894210"
+                    },
+                    {
+                      "key": "routeUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "routeUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "200000"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "route"
+                    },
+                    {
+                      "key": "skipRecentData",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 526,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e2e4191-7890-4360-8087-19fe37daa10c",
+          "name": "Get Sessions Usage",
+          "request": {
+            "name": "Get Sessions Usage",
+            "description": {
+              "content": "Get sessions usage for a project with time range and period aggregation, when endDate is 0 or unspecified the current time is implied",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "usage",
+                "sessions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<integer>",
+                  "description": "Start date for filtering results, specified as a Unix timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<integer>",
+                  "description": "End date for filtering results, specified as a Unix timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceUID",
+                  "value": "<string>",
+                  "description": "A Device UID."
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceUID",
+                  "value": "<string>",
+                  "description": "A Device UID."
+                },
+                {
+                  "disabled": false,
+                  "key": "fleetUID",
+                  "value": "<string>",
+                  "description": "Filter by Fleet UID"
+                },
+                {
+                  "disabled": false,
+                  "key": "fleetUID",
+                  "value": "<string>",
+                  "description": "Filter by Fleet UID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "200000",
+                  "description": "Limit the number of data points returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "(Required) Period type for aggregation"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggregate",
+                  "value": "device",
+                  "description": "Aggregation level for results"
+                },
+                {
+                  "disabled": false,
+                  "key": "skipRecentData",
+                  "value": "false",
+                  "description": "When true, skips fetching recent data from raw event tables and only returns data from summary tables. Use this for better performance on large projects."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "65d836f6-e29d-4539-9cdf-ae8ca473bf07",
+              "name": "Response body for Session Usage",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "usage",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "1628631763"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "1657894210"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fleetUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fleetUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "200000"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "device"
+                    },
+                    {
+                      "key": "skipRecentData",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sessions\": [\n    {\n      \"period\": \"2025-07-23T00:00:00Z\",\n      \"sessions\": 12,\n      \"first_sync_sessions\": 2,\n      \"total_bytes\": 1048576,\n      \"total_devices\": 1,\n      \"device\": \"dev:123456789012345\",\n      \"fleet\": \"fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d\",\n      \"sessions_by_transport\": {\n        \"cell\": 8,\n        \"ntn\": 1,\n        \"wifi\": 3\n      },\n      \"tls_sessions\": 3\n    },\n    {\n      \"period\": \"2025-07-23T00:00:00Z\",\n      \"sessions\": 12,\n      \"first_sync_sessions\": 2,\n      \"total_bytes\": 1048576,\n      \"total_devices\": 1,\n      \"device\": \"dev:123456789012345\",\n      \"fleet\": \"fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d\",\n      \"sessions_by_transport\": {\n        \"cell\": 8,\n        \"ntn\": 1,\n        \"wifi\": 3\n      },\n      \"tls_sessions\": 3\n    }\n  ],\n  \"truncated\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "513881c5-9483-4d3a-847c-e943b7322783",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "usage",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "1628631763"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "1657894210"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fleetUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fleetUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "200000"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "aggregate",
+                      "value": "device"
+                    },
+                    {
+                      "key": "skipRecentData",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 526,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.notefile.net",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e1069baa-c743-4e92-8a87-a459d747b8f0",
+    "name": "Notehub alert usage API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenAPI definition for the Notehub.io API.\n\n\nContact Support:\n Name: Blues Engineering\n Email: engineering@blues.io",
+      "type": "text/plain"
+    }
+  }
+}

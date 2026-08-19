@@ -1,0 +1,151 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Notehub alert monitor API",
+    "version": "1.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "monitor",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetMonitors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/monitors",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get list of defined Monitors"
+        },
+        {
+          "info": {
+            "name": "CreateMonitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/monitors",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new Monitor"
+        },
+        {
+          "info": {
+            "name": "GetMonitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/monitors/:monitorUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "monitorUID",
+                "value": "monitor:8bAdf00d-000f-51c-af-01d5eaf00dbad",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Monitor"
+        },
+        {
+          "info": {
+            "name": "UpdateMonitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/monitors/:monitorUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "monitorUID",
+                "value": "monitor:8bAdf00d-000f-51c-af-01d5eaf00dbad",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update Monitor"
+        },
+        {
+          "info": {
+            "name": "DeleteMonitor",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/monitors/:monitorUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "monitorUID",
+                "value": "monitor:8bAdf00d-000f-51c-af-01d5eaf00dbad",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete Monitor"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,292 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Notehub alert jobs API",
+    "version": "1.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetJobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/jobs",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List all batch jobs for a project"
+        },
+        {
+          "info": {
+            "name": "CreateJob",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/jobs",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name for the job"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new batch job with an optional name"
+        },
+        {
+          "info": {
+            "name": "GetJob",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/jobs/:jobUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "jobUID",
+                "value": "my-reconciliation-job",
+                "type": "path",
+                "description": "Unique identifier for a batch job"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a specific batch job definition"
+        },
+        {
+          "info": {
+            "name": "DeleteJob",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/jobs/:jobUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "jobUID",
+                "value": "my-reconciliation-job",
+                "type": "path",
+                "description": "Unique identifier for a batch job"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete a batch job"
+        },
+        {
+          "info": {
+            "name": "RunJob",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/jobs/:jobUID/run",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "jobUID",
+                "value": "my-reconciliation-job",
+                "type": "path",
+                "description": "Unique identifier for a batch job"
+              },
+              {
+                "name": "dry_run",
+                "value": "",
+                "type": "query",
+                "description": "Run job in dry-run mode without making actual changes"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Execute a batch job"
+        },
+        {
+          "info": {
+            "name": "GetJobRuns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/jobs/:jobUID/runs",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "jobUID",
+                "value": "my-reconciliation-job",
+                "type": "path",
+                "description": "Unique identifier for a batch job"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter runs by status"
+              },
+              {
+                "name": "dry_run",
+                "value": "",
+                "type": "query",
+                "description": "Filter runs by dry run flag"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List all runs for a specific job"
+        },
+        {
+          "info": {
+            "name": "GetJobRun",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/jobs/runs/:reportUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "reportUID",
+                "value": "my-reconciliation-job-1707654321000",
+                "type": "path",
+                "description": "Unique identifier for a job run report"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Controls the level of detail returned: 'summary' returns metadata only, 'detail' returns the full result payload"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get the result of a job execution"
+        },
+        {
+          "info": {
+            "name": "DeleteJobRun",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/jobs/runs/:reportUID",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "reportUID",
+                "value": "my-reconciliation-job-1707654321000",
+                "type": "path",
+                "description": "Unique identifier for a job run report"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Delete the results of a job run"
+        },
+        {
+          "info": {
+            "name": "CancelJobRun",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.notefile.net/v1/projects/:projectOrProductUID/jobs/runs/:reportUID/cancel",
+            "params": [
+              {
+                "name": "projectOrProductUID",
+                "value": "app:2606f411-dea6-44a0-9743-1130f57d77d8",
+                "type": "path"
+              },
+              {
+                "name": "reportUID",
+                "value": "my-reconciliation-job-1707654321000",
+                "type": "path",
+                "description": "Unique identifier for a job run report"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Cancel a running job execution"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

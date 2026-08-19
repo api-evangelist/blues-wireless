@@ -1,0 +1,680 @@
+{
+  "item": [
+    {
+      "id": "382fd99b-eb8c-4f84-a8c1-f8dee53540da",
+      "name": "external devices",
+      "description": {
+        "content": "APIs for events and sessions for external devices",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5bd277d1-acc4-42f0-9291-46da70db2353",
+          "name": "Create Event Ext Device",
+          "request": {
+            "name": "Create Event Ext Device",
+            "description": {
+              "content": "Creates an event using specified webhook",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "products",
+                ":productUID",
+                "ext-devices",
+                ":deviceUID",
+                "event"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "productUID",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deviceUID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"app\": \"<string>\",\n  \"bars\": \"<number>\",\n  \"best_country\": \"<string>\",\n  \"best_id\": \"<string>\",\n  \"best_lat\": \"<double>\",\n  \"best_location\": \"<string>\",\n  \"best_location_type\": \"<string>\",\n  \"best_location_when\": \"<number>\",\n  \"best_lon\": \"<double>\",\n  \"best_timezone\": \"<string>\",\n  \"body\": \"<object>\",\n  \"bssid\": \"<string>\",\n  \"device\": \"<string>\",\n  \"environment\": \"<object>\",\n  \"event\": \"<string>\",\n  \"file\": \"<string>\",\n  \"moved\": \"<number>\",\n  \"note\": \"<string>\",\n  \"ordering_code\": \"<string>\",\n  \"orientation\": \"<string>\",\n  \"payload\": \"<string>\",\n  \"product\": \"<string>\",\n  \"rat\": \"<string>\",\n  \"received\": \"<double>\",\n  \"req\": \"<string>\",\n  \"rsrp\": \"<number>\",\n  \"rsrq\": \"<number>\",\n  \"rssi\": \"<number>\",\n  \"session\": \"<string>\",\n  \"sinr\": \"<number>\",\n  \"sku\": \"<string>\",\n  \"sn\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"temp\": \"<double>\",\n  \"tls\": \"<boolean>\",\n  \"tower_country\": \"<string>\",\n  \"tower_id\": \"<string>\",\n  \"tower_lat\": \"<double>\",\n  \"tower_location\": \"<string>\",\n  \"tower_lon\": \"<double>\",\n  \"tower_timezone\": \"<string>\",\n  \"tower_when\": \"<number>\",\n  \"transport\": \"<string>\",\n  \"tri_country\": \"<string>\",\n  \"tri_lat\": \"<double>\",\n  \"tri_location\": \"<string>\",\n  \"tri_lon\": \"<double>\",\n  \"tri_points\": \"<number>\",\n  \"tri_timezone\": \"<string>\",\n  \"tri_when\": \"<number>\",\n  \"updates\": \"<number>\",\n  \"voltage\": \"<double>\",\n  \"when\": \"<number>\",\n  \"where_country\": \"<string>\",\n  \"where_lat\": \"<double>\",\n  \"where_location\": \"<string>\",\n  \"where_lon\": \"<double>\",\n  \"where_olc\": \"<string>\",\n  \"where_timezone\": \"<string>\",\n  \"where_when\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f725e395-8ef9-4582-a30e-1526d6de310f",
+              "name": "Event Created Successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products",
+                    ":productUID",
+                    "ext-devices",
+                    ":deviceUID",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "productUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"app\": \"<string>\",\n  \"bars\": \"<number>\",\n  \"best_country\": \"<string>\",\n  \"best_id\": \"<string>\",\n  \"best_lat\": \"<double>\",\n  \"best_location\": \"<string>\",\n  \"best_location_type\": \"<string>\",\n  \"best_location_when\": \"<number>\",\n  \"best_lon\": \"<double>\",\n  \"best_timezone\": \"<string>\",\n  \"body\": \"<object>\",\n  \"bssid\": \"<string>\",\n  \"device\": \"<string>\",\n  \"environment\": \"<object>\",\n  \"event\": \"<string>\",\n  \"file\": \"<string>\",\n  \"moved\": \"<number>\",\n  \"note\": \"<string>\",\n  \"ordering_code\": \"<string>\",\n  \"orientation\": \"<string>\",\n  \"payload\": \"<string>\",\n  \"product\": \"<string>\",\n  \"rat\": \"<string>\",\n  \"received\": \"<double>\",\n  \"req\": \"<string>\",\n  \"rsrp\": \"<number>\",\n  \"rsrq\": \"<number>\",\n  \"rssi\": \"<number>\",\n  \"session\": \"<string>\",\n  \"sinr\": \"<number>\",\n  \"sku\": \"<string>\",\n  \"sn\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"temp\": \"<double>\",\n  \"tls\": \"<boolean>\",\n  \"tower_country\": \"<string>\",\n  \"tower_id\": \"<string>\",\n  \"tower_lat\": \"<double>\",\n  \"tower_location\": \"<string>\",\n  \"tower_lon\": \"<double>\",\n  \"tower_timezone\": \"<string>\",\n  \"tower_when\": \"<number>\",\n  \"transport\": \"<string>\",\n  \"tri_country\": \"<string>\",\n  \"tri_lat\": \"<double>\",\n  \"tri_location\": \"<string>\",\n  \"tri_lon\": \"<double>\",\n  \"tri_points\": \"<number>\",\n  \"tri_timezone\": \"<string>\",\n  \"tri_when\": \"<number>\",\n  \"updates\": \"<number>\",\n  \"voltage\": \"<double>\",\n  \"when\": \"<number>\",\n  \"where_country\": \"<string>\",\n  \"where_lat\": \"<double>\",\n  \"where_location\": \"<string>\",\n  \"where_lon\": \"<double>\",\n  \"where_olc\": \"<string>\",\n  \"where_timezone\": \"<string>\",\n  \"where_when\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e25f116e-ea16-4244-8ae6-d702f2c0890f",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products",
+                    ":productUID",
+                    "ext-devices",
+                    ":deviceUID",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "productUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"app\": \"<string>\",\n  \"bars\": \"<number>\",\n  \"best_country\": \"<string>\",\n  \"best_id\": \"<string>\",\n  \"best_lat\": \"<double>\",\n  \"best_location\": \"<string>\",\n  \"best_location_type\": \"<string>\",\n  \"best_location_when\": \"<number>\",\n  \"best_lon\": \"<double>\",\n  \"best_timezone\": \"<string>\",\n  \"body\": \"<object>\",\n  \"bssid\": \"<string>\",\n  \"device\": \"<string>\",\n  \"environment\": \"<object>\",\n  \"event\": \"<string>\",\n  \"file\": \"<string>\",\n  \"moved\": \"<number>\",\n  \"note\": \"<string>\",\n  \"ordering_code\": \"<string>\",\n  \"orientation\": \"<string>\",\n  \"payload\": \"<string>\",\n  \"product\": \"<string>\",\n  \"rat\": \"<string>\",\n  \"received\": \"<double>\",\n  \"req\": \"<string>\",\n  \"rsrp\": \"<number>\",\n  \"rsrq\": \"<number>\",\n  \"rssi\": \"<number>\",\n  \"session\": \"<string>\",\n  \"sinr\": \"<number>\",\n  \"sku\": \"<string>\",\n  \"sn\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"temp\": \"<double>\",\n  \"tls\": \"<boolean>\",\n  \"tower_country\": \"<string>\",\n  \"tower_id\": \"<string>\",\n  \"tower_lat\": \"<double>\",\n  \"tower_location\": \"<string>\",\n  \"tower_lon\": \"<double>\",\n  \"tower_timezone\": \"<string>\",\n  \"tower_when\": \"<number>\",\n  \"transport\": \"<string>\",\n  \"tri_country\": \"<string>\",\n  \"tri_lat\": \"<double>\",\n  \"tri_location\": \"<string>\",\n  \"tri_lon\": \"<double>\",\n  \"tri_points\": \"<number>\",\n  \"tri_timezone\": \"<string>\",\n  \"tri_when\": \"<number>\",\n  \"updates\": \"<number>\",\n  \"voltage\": \"<double>\",\n  \"when\": \"<number>\",\n  \"where_country\": \"<string>\",\n  \"where_lat\": \"<double>\",\n  \"where_location\": \"<string>\",\n  \"where_lon\": \"<double>\",\n  \"where_olc\": \"<string>\",\n  \"where_timezone\": \"<string>\",\n  \"where_when\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 510,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2da22cf6-65dd-4c62-ad73-ffe8db17a4bf",
+          "name": "Ext Device Session Close",
+          "request": {
+            "name": "Ext Device Session Close",
+            "description": {
+              "content": "Closes the session for the specified device if open",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "products",
+                ":productUID",
+                "ext-devices",
+                ":deviceUID",
+                "session",
+                "close"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "productUID",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deviceUID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apn\": \"<string>\",\n  \"bars\": \"<int>\",\n  \"bearer\": \"<string>\",\n  \"bssid\": \"<string>\",\n  \"cell\": \"<string>\",\n  \"continuous\": \"<boolean>\",\n  \"device\": \"<string>\",\n  \"events\": \"<long>\",\n  \"failed_connects\": \"<long>\",\n  \"fleets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hp_cycles_data\": \"<long>\",\n  \"hp_cycles_gps\": \"<long>\",\n  \"hp_cycles_total\": \"<long>\",\n  \"hp_secs_data\": \"<long>\",\n  \"hp_secs_gps\": \"<long>\",\n  \"hp_secs_total\": \"<long>\",\n  \"iccid\": \"<string>\",\n  \"ip\": \"<string>\",\n  \"moved\": \"<long>\",\n  \"orientation\": \"<string>\",\n  \"penalty_secs\": \"<long>\",\n  \"period\": {\n    \"bytes_rcvd\": \"<long>\",\n    \"bytes_rcvd_secondary\": \"<long>\",\n    \"bytes_sent\": \"<long>\",\n    \"bytes_sent_secondary\": \"<long>\",\n    \"duration\": \"<long>\",\n    \"notes_rcvd\": \"<long>\",\n    \"notes_sent\": \"<long>\",\n    \"sessions_tcp\": \"<long>\",\n    \"sessions_tls\": \"<long>\",\n    \"since\": \"<long>\"\n  },\n  \"power_charging\": \"<boolean>\",\n  \"power_mah\": \"<double>\",\n  \"power_primary\": \"<boolean>\",\n  \"power_usb\": \"<boolean>\",\n  \"product\": \"<string>\",\n  \"rat\": \"<string>\",\n  \"rsrp\": \"<int>\",\n  \"rsrq\": \"<int>\",\n  \"rssi\": \"<int>\",\n  \"scan\": \"<byte>\",\n  \"session\": \"<string>\",\n  \"session_began\": \"<long>\",\n  \"session_ended\": \"<long>\",\n  \"sinr\": \"<int>\",\n  \"sn\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"temp\": \"<double>\",\n  \"tls\": \"<boolean>\",\n  \"tower\": {\n    \"c\": \"<string>\",\n    \"cid\": \"<integer>\",\n    \"l\": \"<string>\",\n    \"lac\": \"<integer>\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"mcc\": \"<integer>\",\n    \"mnc\": \"<integer>\",\n    \"n\": \"<string>\",\n    \"source\": \"<string>\",\n    \"time\": \"<long>\",\n    \"towers\": \"<integer>\",\n    \"z\": \"<integer>\",\n    \"zone\": \"<string>\"\n  },\n  \"transport\": \"<string>\",\n  \"tri\": {\n    \"c\": \"<string>\",\n    \"cid\": \"<integer>\",\n    \"l\": \"<string>\",\n    \"lac\": \"<integer>\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"mcc\": \"<integer>\",\n    \"mnc\": \"<integer>\",\n    \"n\": \"<string>\",\n    \"source\": \"<string>\",\n    \"time\": \"<long>\",\n    \"towers\": \"<integer>\",\n    \"z\": \"<integer>\",\n    \"zone\": \"<string>\"\n  },\n  \"triangulate\": \"<object>\",\n  \"usage_actual\": \"<boolean>\",\n  \"voltage\": \"<double>\",\n  \"when\": \"<long>\",\n  \"where\": \"<string>\",\n  \"where_country\": \"<string>\",\n  \"where_lat\": \"<double>\",\n  \"where_location\": \"<string>\",\n  \"where_lon\": \"<double>\",\n  \"where_timezone\": \"<string>\",\n  \"where_when\": \"<long>\",\n  \"why_session_closed\": \"<string>\",\n  \"why_session_opened\": \"<string>\",\n  \"work\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "73b8e654-e0fc-4142-8de2-148de522cc61",
+              "name": "Session closed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products",
+                    ":productUID",
+                    "ext-devices",
+                    ":deviceUID",
+                    "session",
+                    "close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "productUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apn\": \"<string>\",\n  \"bars\": \"<int>\",\n  \"bearer\": \"<string>\",\n  \"bssid\": \"<string>\",\n  \"cell\": \"<string>\",\n  \"continuous\": \"<boolean>\",\n  \"device\": \"<string>\",\n  \"events\": \"<long>\",\n  \"failed_connects\": \"<long>\",\n  \"fleets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hp_cycles_data\": \"<long>\",\n  \"hp_cycles_gps\": \"<long>\",\n  \"hp_cycles_total\": \"<long>\",\n  \"hp_secs_data\": \"<long>\",\n  \"hp_secs_gps\": \"<long>\",\n  \"hp_secs_total\": \"<long>\",\n  \"iccid\": \"<string>\",\n  \"ip\": \"<string>\",\n  \"moved\": \"<long>\",\n  \"orientation\": \"<string>\",\n  \"penalty_secs\": \"<long>\",\n  \"period\": {\n    \"bytes_rcvd\": \"<long>\",\n    \"bytes_rcvd_secondary\": \"<long>\",\n    \"bytes_sent\": \"<long>\",\n    \"bytes_sent_secondary\": \"<long>\",\n    \"duration\": \"<long>\",\n    \"notes_rcvd\": \"<long>\",\n    \"notes_sent\": \"<long>\",\n    \"sessions_tcp\": \"<long>\",\n    \"sessions_tls\": \"<long>\",\n    \"since\": \"<long>\"\n  },\n  \"power_charging\": \"<boolean>\",\n  \"power_mah\": \"<double>\",\n  \"power_primary\": \"<boolean>\",\n  \"power_usb\": \"<boolean>\",\n  \"product\": \"<string>\",\n  \"rat\": \"<string>\",\n  \"rsrp\": \"<int>\",\n  \"rsrq\": \"<int>\",\n  \"rssi\": \"<int>\",\n  \"scan\": \"<byte>\",\n  \"session\": \"<string>\",\n  \"session_began\": \"<long>\",\n  \"session_ended\": \"<long>\",\n  \"sinr\": \"<int>\",\n  \"sn\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"temp\": \"<double>\",\n  \"tls\": \"<boolean>\",\n  \"tower\": {\n    \"c\": \"<string>\",\n    \"cid\": \"<integer>\",\n    \"l\": \"<string>\",\n    \"lac\": \"<integer>\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"mcc\": \"<integer>\",\n    \"mnc\": \"<integer>\",\n    \"n\": \"<string>\",\n    \"source\": \"<string>\",\n    \"time\": \"<long>\",\n    \"towers\": \"<integer>\",\n    \"z\": \"<integer>\",\n    \"zone\": \"<string>\"\n  },\n  \"transport\": \"<string>\",\n  \"tri\": {\n    \"c\": \"<string>\",\n    \"cid\": \"<integer>\",\n    \"l\": \"<string>\",\n    \"lac\": \"<integer>\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"mcc\": \"<integer>\",\n    \"mnc\": \"<integer>\",\n    \"n\": \"<string>\",\n    \"source\": \"<string>\",\n    \"time\": \"<long>\",\n    \"towers\": \"<integer>\",\n    \"z\": \"<integer>\",\n    \"zone\": \"<string>\"\n  },\n  \"triangulate\": \"<object>\",\n  \"usage_actual\": \"<boolean>\",\n  \"voltage\": \"<double>\",\n  \"when\": \"<long>\",\n  \"where\": \"<string>\",\n  \"where_country\": \"<string>\",\n  \"where_lat\": \"<double>\",\n  \"where_location\": \"<string>\",\n  \"where_lon\": \"<double>\",\n  \"where_timezone\": \"<string>\",\n  \"where_when\": \"<long>\",\n  \"why_session_closed\": \"<string>\",\n  \"why_session_opened\": \"<string>\",\n  \"work\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "11c4ab94-95f9-4d8f-b23a-61e14855ed63",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products",
+                    ":productUID",
+                    "ext-devices",
+                    ":deviceUID",
+                    "session",
+                    "close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "productUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apn\": \"<string>\",\n  \"bars\": \"<int>\",\n  \"bearer\": \"<string>\",\n  \"bssid\": \"<string>\",\n  \"cell\": \"<string>\",\n  \"continuous\": \"<boolean>\",\n  \"device\": \"<string>\",\n  \"events\": \"<long>\",\n  \"failed_connects\": \"<long>\",\n  \"fleets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hp_cycles_data\": \"<long>\",\n  \"hp_cycles_gps\": \"<long>\",\n  \"hp_cycles_total\": \"<long>\",\n  \"hp_secs_data\": \"<long>\",\n  \"hp_secs_gps\": \"<long>\",\n  \"hp_secs_total\": \"<long>\",\n  \"iccid\": \"<string>\",\n  \"ip\": \"<string>\",\n  \"moved\": \"<long>\",\n  \"orientation\": \"<string>\",\n  \"penalty_secs\": \"<long>\",\n  \"period\": {\n    \"bytes_rcvd\": \"<long>\",\n    \"bytes_rcvd_secondary\": \"<long>\",\n    \"bytes_sent\": \"<long>\",\n    \"bytes_sent_secondary\": \"<long>\",\n    \"duration\": \"<long>\",\n    \"notes_rcvd\": \"<long>\",\n    \"notes_sent\": \"<long>\",\n    \"sessions_tcp\": \"<long>\",\n    \"sessions_tls\": \"<long>\",\n    \"since\": \"<long>\"\n  },\n  \"power_charging\": \"<boolean>\",\n  \"power_mah\": \"<double>\",\n  \"power_primary\": \"<boolean>\",\n  \"power_usb\": \"<boolean>\",\n  \"product\": \"<string>\",\n  \"rat\": \"<string>\",\n  \"rsrp\": \"<int>\",\n  \"rsrq\": \"<int>\",\n  \"rssi\": \"<int>\",\n  \"scan\": \"<byte>\",\n  \"session\": \"<string>\",\n  \"session_began\": \"<long>\",\n  \"session_ended\": \"<long>\",\n  \"sinr\": \"<int>\",\n  \"sn\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"temp\": \"<double>\",\n  \"tls\": \"<boolean>\",\n  \"tower\": {\n    \"c\": \"<string>\",\n    \"cid\": \"<integer>\",\n    \"l\": \"<string>\",\n    \"lac\": \"<integer>\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"mcc\": \"<integer>\",\n    \"mnc\": \"<integer>\",\n    \"n\": \"<string>\",\n    \"source\": \"<string>\",\n    \"time\": \"<long>\",\n    \"towers\": \"<integer>\",\n    \"z\": \"<integer>\",\n    \"zone\": \"<string>\"\n  },\n  \"transport\": \"<string>\",\n  \"tri\": {\n    \"c\": \"<string>\",\n    \"cid\": \"<integer>\",\n    \"l\": \"<string>\",\n    \"lac\": \"<integer>\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"mcc\": \"<integer>\",\n    \"mnc\": \"<integer>\",\n    \"n\": \"<string>\",\n    \"source\": \"<string>\",\n    \"time\": \"<long>\",\n    \"towers\": \"<integer>\",\n    \"z\": \"<integer>\",\n    \"zone\": \"<string>\"\n  },\n  \"triangulate\": \"<object>\",\n  \"usage_actual\": \"<boolean>\",\n  \"voltage\": \"<double>\",\n  \"when\": \"<long>\",\n  \"where\": \"<string>\",\n  \"where_country\": \"<string>\",\n  \"where_lat\": \"<double>\",\n  \"where_location\": \"<string>\",\n  \"where_lon\": \"<double>\",\n  \"where_timezone\": \"<string>\",\n  \"where_when\": \"<long>\",\n  \"why_session_closed\": \"<string>\",\n  \"why_session_opened\": \"<string>\",\n  \"work\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 510,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10cbfdf4-a5c5-478e-9932-56a93505e39f",
+          "name": "Ext Device Session Open",
+          "request": {
+            "name": "Ext Device Session Open",
+            "description": {
+              "content": "Create a Session for the specified device.  | If a session is currently open it will be closed and a new one opened.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "products",
+                ":productUID",
+                "ext-devices",
+                ":deviceUID",
+                "session",
+                "open"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "productUID",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "deviceUID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"apn\": \"<string>\",\n  \"bars\": \"<int>\",\n  \"bearer\": \"<string>\",\n  \"bssid\": \"<string>\",\n  \"cell\": \"<string>\",\n  \"continuous\": \"<boolean>\",\n  \"device\": \"<string>\",\n  \"events\": \"<long>\",\n  \"failed_connects\": \"<long>\",\n  \"fleets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hp_cycles_data\": \"<long>\",\n  \"hp_cycles_gps\": \"<long>\",\n  \"hp_cycles_total\": \"<long>\",\n  \"hp_secs_data\": \"<long>\",\n  \"hp_secs_gps\": \"<long>\",\n  \"hp_secs_total\": \"<long>\",\n  \"iccid\": \"<string>\",\n  \"ip\": \"<string>\",\n  \"moved\": \"<long>\",\n  \"orientation\": \"<string>\",\n  \"penalty_secs\": \"<long>\",\n  \"period\": {\n    \"bytes_rcvd\": \"<long>\",\n    \"bytes_rcvd_secondary\": \"<long>\",\n    \"bytes_sent\": \"<long>\",\n    \"bytes_sent_secondary\": \"<long>\",\n    \"duration\": \"<long>\",\n    \"notes_rcvd\": \"<long>\",\n    \"notes_sent\": \"<long>\",\n    \"sessions_tcp\": \"<long>\",\n    \"sessions_tls\": \"<long>\",\n    \"since\": \"<long>\"\n  },\n  \"power_charging\": \"<boolean>\",\n  \"power_mah\": \"<double>\",\n  \"power_primary\": \"<boolean>\",\n  \"power_usb\": \"<boolean>\",\n  \"product\": \"<string>\",\n  \"rat\": \"<string>\",\n  \"rsrp\": \"<int>\",\n  \"rsrq\": \"<int>\",\n  \"rssi\": \"<int>\",\n  \"scan\": \"<byte>\",\n  \"session\": \"<string>\",\n  \"session_began\": \"<long>\",\n  \"session_ended\": \"<long>\",\n  \"sinr\": \"<int>\",\n  \"sn\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"temp\": \"<double>\",\n  \"tls\": \"<boolean>\",\n  \"tower\": {\n    \"c\": \"<string>\",\n    \"cid\": \"<integer>\",\n    \"l\": \"<string>\",\n    \"lac\": \"<integer>\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"mcc\": \"<integer>\",\n    \"mnc\": \"<integer>\",\n    \"n\": \"<string>\",\n    \"source\": \"<string>\",\n    \"time\": \"<long>\",\n    \"towers\": \"<integer>\",\n    \"z\": \"<integer>\",\n    \"zone\": \"<string>\"\n  },\n  \"transport\": \"<string>\",\n  \"tri\": {\n    \"c\": \"<string>\",\n    \"cid\": \"<integer>\",\n    \"l\": \"<string>\",\n    \"lac\": \"<integer>\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"mcc\": \"<integer>\",\n    \"mnc\": \"<integer>\",\n    \"n\": \"<string>\",\n    \"source\": \"<string>\",\n    \"time\": \"<long>\",\n    \"towers\": \"<integer>\",\n    \"z\": \"<integer>\",\n    \"zone\": \"<string>\"\n  },\n  \"triangulate\": \"<object>\",\n  \"usage_actual\": \"<boolean>\",\n  \"voltage\": \"<double>\",\n  \"when\": \"<long>\",\n  \"where\": \"<string>\",\n  \"where_country\": \"<string>\",\n  \"where_lat\": \"<double>\",\n  \"where_location\": \"<string>\",\n  \"where_lon\": \"<double>\",\n  \"where_timezone\": \"<string>\",\n  \"where_when\": \"<long>\",\n  \"why_session_closed\": \"<string>\",\n  \"why_session_opened\": \"<string>\",\n  \"work\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0be5c7a5-e2f2-4971-b9af-65c531233be4",
+              "name": "Session Created Successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products",
+                    ":productUID",
+                    "ext-devices",
+                    ":deviceUID",
+                    "session",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "productUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apn\": \"<string>\",\n  \"bars\": \"<int>\",\n  \"bearer\": \"<string>\",\n  \"bssid\": \"<string>\",\n  \"cell\": \"<string>\",\n  \"continuous\": \"<boolean>\",\n  \"device\": \"<string>\",\n  \"events\": \"<long>\",\n  \"failed_connects\": \"<long>\",\n  \"fleets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hp_cycles_data\": \"<long>\",\n  \"hp_cycles_gps\": \"<long>\",\n  \"hp_cycles_total\": \"<long>\",\n  \"hp_secs_data\": \"<long>\",\n  \"hp_secs_gps\": \"<long>\",\n  \"hp_secs_total\": \"<long>\",\n  \"iccid\": \"<string>\",\n  \"ip\": \"<string>\",\n  \"moved\": \"<long>\",\n  \"orientation\": \"<string>\",\n  \"penalty_secs\": \"<long>\",\n  \"period\": {\n    \"bytes_rcvd\": \"<long>\",\n    \"bytes_rcvd_secondary\": \"<long>\",\n    \"bytes_sent\": \"<long>\",\n    \"bytes_sent_secondary\": \"<long>\",\n    \"duration\": \"<long>\",\n    \"notes_rcvd\": \"<long>\",\n    \"notes_sent\": \"<long>\",\n    \"sessions_tcp\": \"<long>\",\n    \"sessions_tls\": \"<long>\",\n    \"since\": \"<long>\"\n  },\n  \"power_charging\": \"<boolean>\",\n  \"power_mah\": \"<double>\",\n  \"power_primary\": \"<boolean>\",\n  \"power_usb\": \"<boolean>\",\n  \"product\": \"<string>\",\n  \"rat\": \"<string>\",\n  \"rsrp\": \"<int>\",\n  \"rsrq\": \"<int>\",\n  \"rssi\": \"<int>\",\n  \"scan\": \"<byte>\",\n  \"session\": \"<string>\",\n  \"session_began\": \"<long>\",\n  \"session_ended\": \"<long>\",\n  \"sinr\": \"<int>\",\n  \"sn\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"temp\": \"<double>\",\n  \"tls\": \"<boolean>\",\n  \"tower\": {\n    \"c\": \"<string>\",\n    \"cid\": \"<integer>\",\n    \"l\": \"<string>\",\n    \"lac\": \"<integer>\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"mcc\": \"<integer>\",\n    \"mnc\": \"<integer>\",\n    \"n\": \"<string>\",\n    \"source\": \"<string>\",\n    \"time\": \"<long>\",\n    \"towers\": \"<integer>\",\n    \"z\": \"<integer>\",\n    \"zone\": \"<string>\"\n  },\n  \"transport\": \"<string>\",\n  \"tri\": {\n    \"c\": \"<string>\",\n    \"cid\": \"<integer>\",\n    \"l\": \"<string>\",\n    \"lac\": \"<integer>\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"mcc\": \"<integer>\",\n    \"mnc\": \"<integer>\",\n    \"n\": \"<string>\",\n    \"source\": \"<string>\",\n    \"time\": \"<long>\",\n    \"towers\": \"<integer>\",\n    \"z\": \"<integer>\",\n    \"zone\": \"<string>\"\n  },\n  \"triangulate\": \"<object>\",\n  \"usage_actual\": \"<boolean>\",\n  \"voltage\": \"<double>\",\n  \"when\": \"<long>\",\n  \"where\": \"<string>\",\n  \"where_country\": \"<string>\",\n  \"where_lat\": \"<double>\",\n  \"where_location\": \"<string>\",\n  \"where_lon\": \"<double>\",\n  \"where_timezone\": \"<string>\",\n  \"where_when\": \"<long>\",\n  \"why_session_closed\": \"<string>\",\n  \"why_session_opened\": \"<string>\",\n  \"work\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0ef6024a-0c78-47fa-a362-91611d989c7d",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "products",
+                    ":productUID",
+                    "ext-devices",
+                    ":deviceUID",
+                    "session",
+                    "open"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "productUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "deviceUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"apn\": \"<string>\",\n  \"bars\": \"<int>\",\n  \"bearer\": \"<string>\",\n  \"bssid\": \"<string>\",\n  \"cell\": \"<string>\",\n  \"continuous\": \"<boolean>\",\n  \"device\": \"<string>\",\n  \"events\": \"<long>\",\n  \"failed_connects\": \"<long>\",\n  \"fleets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hp_cycles_data\": \"<long>\",\n  \"hp_cycles_gps\": \"<long>\",\n  \"hp_cycles_total\": \"<long>\",\n  \"hp_secs_data\": \"<long>\",\n  \"hp_secs_gps\": \"<long>\",\n  \"hp_secs_total\": \"<long>\",\n  \"iccid\": \"<string>\",\n  \"ip\": \"<string>\",\n  \"moved\": \"<long>\",\n  \"orientation\": \"<string>\",\n  \"penalty_secs\": \"<long>\",\n  \"period\": {\n    \"bytes_rcvd\": \"<long>\",\n    \"bytes_rcvd_secondary\": \"<long>\",\n    \"bytes_sent\": \"<long>\",\n    \"bytes_sent_secondary\": \"<long>\",\n    \"duration\": \"<long>\",\n    \"notes_rcvd\": \"<long>\",\n    \"notes_sent\": \"<long>\",\n    \"sessions_tcp\": \"<long>\",\n    \"sessions_tls\": \"<long>\",\n    \"since\": \"<long>\"\n  },\n  \"power_charging\": \"<boolean>\",\n  \"power_mah\": \"<double>\",\n  \"power_primary\": \"<boolean>\",\n  \"power_usb\": \"<boolean>\",\n  \"product\": \"<string>\",\n  \"rat\": \"<string>\",\n  \"rsrp\": \"<int>\",\n  \"rsrq\": \"<int>\",\n  \"rssi\": \"<int>\",\n  \"scan\": \"<byte>\",\n  \"session\": \"<string>\",\n  \"session_began\": \"<long>\",\n  \"session_ended\": \"<long>\",\n  \"sinr\": \"<int>\",\n  \"sn\": \"<string>\",\n  \"ssid\": \"<string>\",\n  \"temp\": \"<double>\",\n  \"tls\": \"<boolean>\",\n  \"tower\": {\n    \"c\": \"<string>\",\n    \"cid\": \"<integer>\",\n    \"l\": \"<string>\",\n    \"lac\": \"<integer>\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"mcc\": \"<integer>\",\n    \"mnc\": \"<integer>\",\n    \"n\": \"<string>\",\n    \"source\": \"<string>\",\n    \"time\": \"<long>\",\n    \"towers\": \"<integer>\",\n    \"z\": \"<integer>\",\n    \"zone\": \"<string>\"\n  },\n  \"transport\": \"<string>\",\n  \"tri\": {\n    \"c\": \"<string>\",\n    \"cid\": \"<integer>\",\n    \"l\": \"<string>\",\n    \"lac\": \"<integer>\",\n    \"lat\": \"<double>\",\n    \"lon\": \"<double>\",\n    \"mcc\": \"<integer>\",\n    \"mnc\": \"<integer>\",\n    \"n\": \"<string>\",\n    \"source\": \"<string>\",\n    \"time\": \"<long>\",\n    \"towers\": \"<integer>\",\n    \"z\": \"<integer>\",\n    \"zone\": \"<string>\"\n  },\n  \"triangulate\": \"<object>\",\n  \"usage_actual\": \"<boolean>\",\n  \"voltage\": \"<double>\",\n  \"when\": \"<long>\",\n  \"where\": \"<string>\",\n  \"where_country\": \"<string>\",\n  \"where_lat\": \"<double>\",\n  \"where_location\": \"<string>\",\n  \"where_lon\": \"<double>\",\n  \"where_timezone\": \"<string>\",\n  \"where_when\": \"<long>\",\n  \"why_session_closed\": \"<string>\",\n  \"why_session_opened\": \"<string>\",\n  \"work\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 510,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.notefile.net",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7e370d06-f2ac-4853-a7d6-6f084a64f732",
+    "name": "Notehub alert external devices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenAPI definition for the Notehub.io API.\n\n\nContact Support:\n Name: Blues Engineering\n Email: engineering@blues.io",
+      "type": "text/plain"
+    }
+  }
+}

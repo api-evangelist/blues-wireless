@@ -1,0 +1,2277 @@
+{
+  "item": [
+    {
+      "id": "b9e11a66-5857-4a4e-8884-5c662f6d5701",
+      "name": "jobs",
+      "description": {
+        "content": "Batch job operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4f05a373-af39-43c1-93e5-b8aba14d2d90",
+          "name": "Get Jobs",
+          "request": {
+            "name": "Get Jobs",
+            "description": {
+              "content": "List all batch jobs for a project",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "90382bd1-3620-4c19-bbb1-f0a86a7b723b",
+              "name": "List of batch jobs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"jobs\": [\n    {\n      \"job_uid\": \"string\",\n      \"name\": \"string\",\n      \"created\": 8758,\n      \"created_by\": \"string\",\n      \"last_run_completed\": 1775252922,\n      \"last_run_status\": \"dry run completed successfully\",\n      \"last_run_submitted\": 1775252900\n    },\n    {\n      \"job_uid\": \"string\",\n      \"name\": \"string\",\n      \"created\": 8722,\n      \"created_by\": \"string\",\n      \"last_run_completed\": 1775252922,\n      \"last_run_status\": \"dry run completed successfully\",\n      \"last_run_submitted\": 1775252900\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8355705f-d01e-48d0-a38c-63f0e354e093",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 566,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bff8c33a-5d43-4327-8c79-65ff4f66e54e",
+          "name": "Create Job",
+          "request": {
+            "name": "Create Job",
+            "description": {
+              "content": "Create a new batch job with an optional name",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) Name for the job"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"comment\": \"<string>\",\n  \"default_requests\": {\n    \"comment\": \"<string>\",\n    \"connectivity_assurance_disable\": \"<boolean>\",\n    \"connectivity_assurance_enable\": \"<boolean>\",\n    \"disable\": \"<boolean>\",\n    \"enable\": \"<boolean>\",\n    \"fleets_to_default\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_join\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_leave\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"provision_product\": \"<string>\",\n    \"sn_to_default\": \"<string>\",\n    \"sn_to_set\": \"<string>\",\n    \"vars_to_default\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"vars_to_set\": {\n      \"key_0\": \"<string>\"\n    }\n  },\n  \"device_requests\": {\n    \"key_0\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    }\n  },\n  \"report_options\": {\n    \"app_fleets\": \"<boolean>\",\n    \"app_info\": \"<boolean>\",\n    \"app_vars\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"device_activity\": \"<boolean>\",\n    \"device_health\": \"<boolean>\",\n    \"device_info\": \"<boolean>\",\n    \"device_vars\": \"<boolean>\"\n  },\n  \"select\": {\n    \"all_devices\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"devices\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_by_sn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_in_fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "898f3a14-43e8-46b2-bbf9-de7e8a4c71c3",
+              "name": "Job created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": \"<string>\",\n  \"default_requests\": {\n    \"comment\": \"<string>\",\n    \"connectivity_assurance_disable\": \"<boolean>\",\n    \"connectivity_assurance_enable\": \"<boolean>\",\n    \"disable\": \"<boolean>\",\n    \"enable\": \"<boolean>\",\n    \"fleets_to_default\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_join\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_leave\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"provision_product\": \"<string>\",\n    \"sn_to_default\": \"<string>\",\n    \"sn_to_set\": \"<string>\",\n    \"vars_to_default\": {\n      \"key_0\": \"<string>\"\n    },\n    \"vars_to_set\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    }\n  },\n  \"device_requests\": {\n    \"key_0\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"key_0\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      }\n    },\n    \"key_1\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    }\n  },\n  \"report_options\": {\n    \"app_fleets\": \"<boolean>\",\n    \"app_info\": \"<boolean>\",\n    \"app_vars\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"device_activity\": \"<boolean>\",\n    \"device_health\": \"<boolean>\",\n    \"device_info\": \"<boolean>\",\n    \"device_vars\": \"<boolean>\"\n  },\n  \"select\": {\n    \"all_devices\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"devices\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_by_sn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_in_fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"job_uid\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b758942-5868-4c59-928a-16ba874a6431",
+              "name": "Missing required name parameter or invalid job definition",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": \"<string>\",\n  \"default_requests\": {\n    \"comment\": \"<string>\",\n    \"connectivity_assurance_disable\": \"<boolean>\",\n    \"connectivity_assurance_enable\": \"<boolean>\",\n    \"disable\": \"<boolean>\",\n    \"enable\": \"<boolean>\",\n    \"fleets_to_default\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_join\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_leave\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"provision_product\": \"<string>\",\n    \"sn_to_default\": \"<string>\",\n    \"sn_to_set\": \"<string>\",\n    \"vars_to_default\": {\n      \"key_0\": \"<string>\"\n    },\n    \"vars_to_set\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    }\n  },\n  \"device_requests\": {\n    \"key_0\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"key_0\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      }\n    },\n    \"key_1\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    }\n  },\n  \"report_options\": {\n    \"app_fleets\": \"<boolean>\",\n    \"app_info\": \"<boolean>\",\n    \"app_vars\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"device_activity\": \"<boolean>\",\n    \"device_health\": \"<boolean>\",\n    \"device_info\": \"<boolean>\",\n    \"device_vars\": \"<boolean>\"\n  },\n  \"select\": {\n    \"all_devices\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"devices\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_by_sn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_in_fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4809b506-2e6b-4a82-b281-f875e45fcde6",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"comment\": \"<string>\",\n  \"default_requests\": {\n    \"comment\": \"<string>\",\n    \"connectivity_assurance_disable\": \"<boolean>\",\n    \"connectivity_assurance_enable\": \"<boolean>\",\n    \"disable\": \"<boolean>\",\n    \"enable\": \"<boolean>\",\n    \"fleets_to_default\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_join\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"fleets_to_leave\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"provision_product\": \"<string>\",\n    \"sn_to_default\": \"<string>\",\n    \"sn_to_set\": \"<string>\",\n    \"vars_to_default\": {\n      \"key_0\": \"<string>\"\n    },\n    \"vars_to_set\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    }\n  },\n  \"device_requests\": {\n    \"key_0\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"key_0\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      }\n    },\n    \"key_1\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    }\n  },\n  \"report_options\": {\n    \"app_fleets\": \"<boolean>\",\n    \"app_info\": \"<boolean>\",\n    \"app_vars\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"device_activity\": \"<boolean>\",\n    \"device_health\": \"<boolean>\",\n    \"device_info\": \"<boolean>\",\n    \"device_vars\": \"<boolean>\"\n  },\n  \"select\": {\n    \"all_devices\": \"<boolean>\",\n    \"comment\": \"<string>\",\n    \"devices\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_by_sn\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"devices_in_fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 566,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f9cc8fa-7eb2-4eee-bac3-7d3f5fdaabd1",
+          "name": "Delete Job",
+          "request": {
+            "name": "Delete Job",
+            "description": {
+              "content": "Delete a batch job",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "jobs",
+                ":jobUID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobUID",
+                  "description": "(Required) Unique identifier for a batch job"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "50b19f79-0966-4f5e-ae17-43ca6c4a98a5",
+              "name": "Job deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    ":jobUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobUID",
+                      "description": "(Required) Unique identifier for a batch job"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3146ebb7-a44a-46aa-b098-c14e955d0356",
+              "name": "Job not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    ":jobUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobUID",
+                      "description": "(Required) Unique identifier for a batch job"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4f2f7728-1410-4b74-8430-b20869ecd083",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    ":jobUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobUID",
+                      "description": "(Required) Unique identifier for a batch job"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 566,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cdc56f40-0fa6-4575-b617-2de5221f2485",
+          "name": "Get Job",
+          "request": {
+            "name": "Get Job",
+            "description": {
+              "content": "Get a specific batch job definition",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "jobs",
+                ":jobUID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobUID",
+                  "description": "(Required) Unique identifier for a batch job"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a33fc409-49a6-4f76-896c-0d70f0eaf36c",
+              "name": "Batch job details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    ":jobUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobUID",
+                      "description": "(Required) Unique identifier for a batch job"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"job_uid\": \"string\",\n  \"name\": \"string\",\n  \"created\": 5773,\n  \"created_by\": \"string\",\n  \"last_run_completed\": 1775252922,\n  \"last_run_status\": \"dry run completed successfully\",\n  \"last_run_submitted\": 1775252900,\n  \"definition\": {\n    \"comment\": \"<string>\",\n    \"default_requests\": {\n      \"comment\": \"<string>\",\n      \"connectivity_assurance_disable\": \"<boolean>\",\n      \"connectivity_assurance_enable\": \"<boolean>\",\n      \"disable\": \"<boolean>\",\n      \"enable\": \"<boolean>\",\n      \"fleets_to_default\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_join\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fleets_to_leave\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"provision_product\": \"<string>\",\n      \"sn_to_default\": \"<string>\",\n      \"sn_to_set\": \"<string>\",\n      \"vars_to_default\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"vars_to_set\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      }\n    },\n    \"device_requests\": {\n      \"key_0\": {\n        \"comment\": \"<string>\",\n        \"connectivity_assurance_disable\": \"<boolean>\",\n        \"connectivity_assurance_enable\": \"<boolean>\",\n        \"disable\": \"<boolean>\",\n        \"enable\": \"<boolean>\",\n        \"fleets_to_default\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"fleets_to_join\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"fleets_to_leave\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"provision_product\": \"<string>\",\n        \"sn_to_default\": \"<string>\",\n        \"sn_to_set\": \"<string>\",\n        \"vars_to_default\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\",\n          \"key_3\": \"<string>\"\n        },\n        \"vars_to_set\": {\n          \"key_0\": \"<string>\"\n        }\n      }\n    },\n    \"report_options\": {\n      \"app_fleets\": \"<boolean>\",\n      \"app_info\": \"<boolean>\",\n      \"app_vars\": \"<boolean>\",\n      \"comment\": \"<string>\",\n      \"device_activity\": \"<boolean>\",\n      \"device_health\": \"<boolean>\",\n      \"device_info\": \"<boolean>\",\n      \"device_vars\": \"<boolean>\"\n    },\n    \"select\": {\n      \"all_devices\": \"<boolean>\",\n      \"comment\": \"<string>\",\n      \"devices\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"devices_by_sn\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"devices_in_fleets\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "218ef25f-02d4-4a54-b39f-ba177412eed6",
+              "name": "Job not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    ":jobUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobUID",
+                      "description": "(Required) Unique identifier for a batch job"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5e77ff38-2c46-4691-82ed-25205c5876af",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    ":jobUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobUID",
+                      "description": "(Required) Unique identifier for a batch job"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 566,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4317d99f-cf7d-4ae3-835a-785255ff64f0",
+          "name": "Run Job",
+          "request": {
+            "name": "Run Job",
+            "description": {
+              "content": "Execute a batch job",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "jobs",
+                ":jobUID",
+                "run"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "dry_run",
+                  "value": "false",
+                  "description": "Run job in dry-run mode without making actual changes"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobUID",
+                  "description": "(Required) Unique identifier for a batch job"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "95dda571-43c4-436c-b072-68f625a8e4e6",
+              "name": "Job execution started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    ":jobUID",
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dry_run",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobUID",
+                      "description": "(Required) Unique identifier for a batch job"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"report_uid\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f8795cb-ca0e-4ff8-9d6d-516af989d680",
+              "name": "Job not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    ":jobUID",
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dry_run",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobUID",
+                      "description": "(Required) Unique identifier for a batch job"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "57bca4a6-68b2-43f7-b78d-a8b22fa81725",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    ":jobUID",
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dry_run",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobUID",
+                      "description": "(Required) Unique identifier for a batch job"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 566,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ff11c0f-6dba-4c75-9ba4-e89d3dc01192",
+          "name": "Get Job Runs",
+          "request": {
+            "name": "Get Job Runs",
+            "description": {
+              "content": "List all runs for a specific job",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "jobs",
+                ":jobUID",
+                "runs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter runs by status"
+                },
+                {
+                  "disabled": false,
+                  "key": "dry_run",
+                  "value": "<boolean>",
+                  "description": "Filter runs by dry run flag"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobUID",
+                  "description": "(Required) Unique identifier for a batch job"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8f83302c-a1e5-487c-a0f9-718d36f330b5",
+              "name": "List of job runs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    ":jobUID",
+                    "runs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dry_run",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobUID",
+                      "description": "(Required) Unique identifier for a batch job"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"runs\": [\n    {\n      \"report_uid\": \"6862064d-9c7a-4d5d-88e6-2dfa8b4ef6c5-1776780688472\",\n      \"job_uid\": \"6862064d-9c7a-4d5d-88e6-2dfa8b4ef6c5\",\n      \"job_name\": \"My Fleet Update\",\n      \"status\": \"completed successfully\",\n      \"dry_run\": false,\n      \"submitted_by\": \"user@example.com\",\n      \"submitted\": 1775252900,\n      \"updated\": 1775252922,\n      \"cancel\": false,\n      \"completed\": 1775252922,\n      \"results\": {\n        \"devices\": {\n          \"dev:000000000000001\": {\n            \"status\": \"completed\",\n            \"vars_set\": {\n              \"firmware_channel\": \"production\",\n              \"log_level\": \"1\"\n            }\n          },\n          \"dev:000000000000002\": {\n            \"status\": \"completed\",\n            \"vars_set\": {\n              \"firmware_channel\": \"production\",\n              \"log_level\": \"1\"\n            }\n          }\n        },\n        \"job\": {\n          \"dry_run\": false,\n          \"job_name\": \"My Fleet Update\",\n          \"job_uid\": \"6862064d-9c7a-4d5d-88e6-2dfa8b4ef6c5\",\n          \"status\": \"completed successfully\",\n          \"when_completed\": 1775252922,\n          \"when_started\": 1775252900,\n          \"when_submitted\": 1775252900,\n          \"when_updated\": 1775252922,\n          \"who_submitted\": \"user@example.com\"\n        }\n      },\n      \"started\": 1775252900\n    },\n    {\n      \"report_uid\": \"6862064d-9c7a-4d5d-88e6-2dfa8b4ef6c5-1776780688472\",\n      \"job_uid\": \"6862064d-9c7a-4d5d-88e6-2dfa8b4ef6c5\",\n      \"job_name\": \"My Fleet Update\",\n      \"status\": \"completed successfully\",\n      \"dry_run\": false,\n      \"submitted_by\": \"user@example.com\",\n      \"submitted\": 1775252900,\n      \"updated\": 1775252922,\n      \"cancel\": false,\n      \"completed\": 1775252922,\n      \"results\": {\n        \"devices\": {\n          \"dev:000000000000001\": {\n            \"status\": \"completed\",\n            \"vars_set\": {\n              \"firmware_channel\": \"production\",\n              \"log_level\": \"1\"\n            }\n          },\n          \"dev:000000000000002\": {\n            \"status\": \"completed\",\n            \"vars_set\": {\n              \"firmware_channel\": \"production\",\n              \"log_level\": \"1\"\n            }\n          }\n        },\n        \"job\": {\n          \"dry_run\": false,\n          \"job_name\": \"My Fleet Update\",\n          \"job_uid\": \"6862064d-9c7a-4d5d-88e6-2dfa8b4ef6c5\",\n          \"status\": \"completed successfully\",\n          \"when_completed\": 1775252922,\n          \"when_started\": 1775252900,\n          \"when_submitted\": 1775252900,\n          \"when_updated\": 1775252922,\n          \"who_submitted\": \"user@example.com\"\n        }\n      },\n      \"started\": 1775252900\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9fdfc7c-df0a-40e3-97f2-d5f2529d01a1",
+              "name": "Job not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    ":jobUID",
+                    "runs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dry_run",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobUID",
+                      "description": "(Required) Unique identifier for a batch job"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd131322-8a96-48cb-b56d-24aeb8760539",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    ":jobUID",
+                    "runs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dry_run",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobUID",
+                      "description": "(Required) Unique identifier for a batch job"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 566,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0cd2354-7ef7-4cff-a4f3-6ee9506e6d3b",
+          "name": "Delete Job Run",
+          "request": {
+            "name": "Delete Job Run",
+            "description": {
+              "content": "Delete the results of a job run",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "jobs",
+                "runs",
+                ":reportUID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reportUID",
+                  "description": "(Required) Unique identifier for a job run report"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "03f45411-71cd-4005-86bc-d8c60a8b4121",
+              "name": "Job run deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    "runs",
+                    ":reportUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportUID",
+                      "description": "(Required) Unique identifier for a job run report"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb08f1d8-d9a7-4322-9a7e-03278369ad40",
+              "name": "Run not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    "runs",
+                    ":reportUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportUID",
+                      "description": "(Required) Unique identifier for a job run report"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ec8d414a-45e9-4b5e-aa1f-57ea42694629",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    "runs",
+                    ":reportUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportUID",
+                      "description": "(Required) Unique identifier for a job run report"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 566,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10419091-6582-4d4d-b57e-672c33e8259f",
+          "name": "Get Job Run",
+          "request": {
+            "name": "Get Job Run",
+            "description": {
+              "content": "Get the result of a job execution",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "jobs",
+                "runs",
+                ":reportUID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "summary",
+                  "description": "Controls the level of detail returned: 'summary' returns metadata only, 'detail' returns the full result payload"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reportUID",
+                  "description": "(Required) Unique identifier for a job run report"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f365eab4-1904-464d-8f7e-5c9724554f98",
+              "name": "Job run details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    "runs",
+                    ":reportUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "summary"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportUID",
+                      "description": "(Required) Unique identifier for a job run report"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"report_uid\": \"6862064d-9c7a-4d5d-88e6-2dfa8b4ef6c5-1776780688472\",\n  \"job_uid\": \"6862064d-9c7a-4d5d-88e6-2dfa8b4ef6c5\",\n  \"job_name\": \"My Fleet Update\",\n  \"status\": \"completed successfully\",\n  \"dry_run\": false,\n  \"submitted_by\": \"user@example.com\",\n  \"submitted\": 1775252900,\n  \"updated\": 1775252922,\n  \"cancel\": false,\n  \"completed\": 1775252922,\n  \"results\": {\n    \"devices\": {\n      \"dev:000000000000001\": {\n        \"status\": \"completed\",\n        \"vars_set\": {\n          \"firmware_channel\": \"production\",\n          \"log_level\": \"1\"\n        }\n      },\n      \"dev:000000000000002\": {\n        \"status\": \"completed\",\n        \"vars_set\": {\n          \"firmware_channel\": \"production\",\n          \"log_level\": \"1\"\n        }\n      }\n    },\n    \"job\": {\n      \"dry_run\": false,\n      \"job_name\": \"My Fleet Update\",\n      \"job_uid\": \"6862064d-9c7a-4d5d-88e6-2dfa8b4ef6c5\",\n      \"status\": \"completed successfully\",\n      \"when_completed\": 1775252922,\n      \"when_started\": 1775252900,\n      \"when_submitted\": 1775252900,\n      \"when_updated\": 1775252922,\n      \"who_submitted\": \"user@example.com\"\n    }\n  },\n  \"started\": 1775252900\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1cf85a6-63fb-4ad0-b0e5-e80b14e03f6a",
+              "name": "Run not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    "runs",
+                    ":reportUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "summary"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportUID",
+                      "description": "(Required) Unique identifier for a job run report"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "360aef07-35d8-4bfd-9b4a-f9aa9fa562a4",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    "runs",
+                    ":reportUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "summary"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportUID",
+                      "description": "(Required) Unique identifier for a job run report"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 566,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56af6b8e-39a2-4c0f-897d-768d8f27f33a",
+          "name": "Cancel Job Run",
+          "request": {
+            "name": "Cancel Job Run",
+            "description": {
+              "content": "Cancel a running job execution",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "jobs",
+                "runs",
+                ":reportUID",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reportUID",
+                  "description": "(Required) Unique identifier for a job run report"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "025a0852-9706-48d1-8a61-9d11cae0a067",
+              "name": "Cancel operation completed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    "runs",
+                    ":reportUID",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportUID",
+                      "description": "(Required) Unique identifier for a job run report"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"successful\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81b70a3f-d543-423e-83d7-8c6f4f5ecd2a",
+              "name": "Run not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    "runs",
+                    ":reportUID",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportUID",
+                      "description": "(Required) Unique identifier for a job run report"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b2ed4c2-f361-425c-aef4-6965d5e5a7f7",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "jobs",
+                    "runs",
+                    ":reportUID",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reportUID",
+                      "description": "(Required) Unique identifier for a job run report"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 566,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.notefile.net",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "afc46702-b135-407f-bb69-7bc4735211ba",
+    "name": "Notehub alert jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenAPI definition for the Notehub.io API.\n\n\nContact Support:\n Name: Blues Engineering\n Email: engineering@blues.io",
+      "type": "text/plain"
+    }
+  }
+}

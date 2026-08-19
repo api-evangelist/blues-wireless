@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Notehub alert organization API",
+    "version": "1.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "organization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetOrganizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/organizations",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Organizations accessible by the api_key"
+        },
+        {
+          "info": {
+            "name": "GetOrganization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/organizations/:organizationUID",
+            "params": [
+              {
+                "name": "organizationUID",
+                "value": "00000000-0000-0000-000000000001",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Organization Information"
+        },
+        {
+          "info": {
+            "name": "GetOrganizationBalanceHistory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.notefile.net/v1/organizations/:organizationUID/balance-history",
+            "params": [
+              {
+                "name": "organizationUID",
+                "value": "00000000-0000-0000-000000000001",
+                "type": "path"
+              },
+              {
+                "name": "startDate",
+                "value": "1628631763",
+                "type": "query",
+                "description": "Start date for filtering results, specified as a Unix timestamp"
+              },
+              {
+                "name": "endDate",
+                "value": "1657894210",
+                "type": "query",
+                "description": "End date for filtering results, specified as a Unix timestamp"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get Organization Balance history"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

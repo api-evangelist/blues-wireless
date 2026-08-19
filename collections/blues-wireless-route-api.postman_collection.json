@@ -1,0 +1,1359 @@
+{
+  "item": [
+    {
+      "id": "baee1ca4-6dca-4592-9ce3-c60006cdee96",
+      "name": "route",
+      "description": {
+        "content": "Route operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "699bc98a-c028-4cc9-a015-242bc312c896",
+          "name": "Get Routes",
+          "request": {
+            "name": "Get Routes",
+            "description": {
+              "content": "Get all Routes within a Project",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "routes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ccfa5ca9-09a6-421d-823d-8269c2e994ef",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"disabled\": false,\n    \"label\": \"success route\",\n    \"modified\": \"2020-03-09T17:58:37Z\",\n    \"type\": \"http\",\n    \"uid\": \"route:8d65a087d5d290ce5bdf03aeff2becc0\"\n  },\n  {\n    \"disabled\": false,\n    \"label\": \"failing route\",\n    \"modified\": \"2020-03-09T17:59:15Z\",\n    \"type\": \"http\",\n    \"uid\": \"route:a9eaad31d5cee8d01a42762f71fb777a\"\n  },\n  {\n    \"disabled\": true,\n    \"label\": \"disabled route\",\n    \"modified\": \"2020-03-09T17:59:44Z\",\n    \"type\": \"http\",\n    \"uid\": \"route:02ddc0e6e236c2a7e482da62047229ad\"\n  },\n  {\n    \"disabled\": false,\n    \"label\": \"Proxy Route\",\n    \"modified\": \"2020-03-09T17:58:36Z\",\n    \"type\": \"proxy\",\n    \"uid\": \"route:0ac565deb7b478a250bb82348b9cfdd4\"\n  },\n  {\n    \"disabled\": false,\n    \"label\": \"Myjsonlive Webtest\",\n    \"modified\": \"2020-03-09T17:58:35Z\",\n    \"type\": \"proxy\",\n    \"uid\": \"route:fb1b9e0aba1bf030311ba2c3c1e3efd7\"\n  },\n  {\n    \"disabled\": false,\n    \"label\": \"Myjsonlive Echo\",\n    \"modified\": \"2020-03-09T17:58:34Z\",\n    \"type\": \"proxy\",\n    \"uid\": \"route:7804818f84a3be6193e14d804fe7fca7\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f64a9413-1f6f-4c64-8aef-de92919d1402",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 339,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a52afb3-a3b1-4f53-b026-a8bb0fb91377",
+          "name": "Create Route",
+          "request": {
+            "name": "Create Route",
+            "description": {
+              "content": "Create Route within a Project",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "routes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aws\": {\n    \"access_key_id\": \"<string>\",\n    \"access_key_secret\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\",\n      \"key_3\": \"<string>\"\n    },\n    \"message_deduplication_id\": \"<string>\",\n    \"message_group_id\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role_arn\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"azure\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"functions_key_secret\": \"<string>\",\n    \"sas_policy_key\": \"<string>\",\n    \"sas_policy_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"blynk\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"region\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    }\n  },\n  \"datacake\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"disabled\": false,\n  \"google\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"token\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"http\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"key_0\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"label\": \"<string>\",\n  \"mqtt\": {\n    \"broker\": \"<string>\",\n    \"certificate\": \"<string>\",\n    \"certificate_name\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key\": \"<string>\",\n    \"password\": \"<password>\",\n    \"port\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"topic\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"username\": \"<string>\"\n  },\n  \"notes\": \"<string>\",\n  \"proxy\": {\n    \"alias\": \"<string>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"qubitro\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"project_id\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_signing_key\": \"<string>\"\n  },\n  \"radnote\": {\n    \"client_id\": \"<string>\",\n    \"client_secret\": \"<password>\",\n    \"data_feed_key\": \"<string>\",\n    \"event_id\": \"<integer>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"test_api\": \"<boolean>\",\n    \"throttle_ms\": \"<integer>\"\n  },\n  \"s3archive\": {\n    \"archive_count_exceeds\": \"<integer>\",\n    \"archive_every_mins\": \"<integer>\",\n    \"archive_id\": \"<string>\",\n    \"bucket_endpoint\": \"<string>\",\n    \"bucket_name\": \"<string>\",\n    \"bucket_region\": \"<string>\",\n    \"file_access\": \"<string>\",\n    \"file_folder\": \"<string>\",\n    \"file_format\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_id\": \"<string>\",\n    \"key_secret\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"slack\": {\n    \"bearer\": \"<string>\",\n    \"blocks\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_url\": \"<uri>\"\n  },\n  \"snowflake\": {\n    \"account_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"snowpipe_streaming\": {\n    \"account_name\": \"<string>\",\n    \"database_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"pipe_name\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"schema_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"thingworx\": {\n    \"app_key\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"twilio\": {\n    \"account_sid\": \"<string>\",\n    \"auth_token\": \"<password>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"from\": \"<string>\",\n    \"message\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"to\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0d639ad6-cab6-4664-80a0-55f1426a2d8e",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"http\": {\n    \"disable_http_headers\": false,\n    \"filter\": {},\n    \"fleets\": [\n      \"fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d\"\n    ],\n    \"http_headers\": {\n      \"X-My-Header\": \"value\"\n    },\n    \"throttle_ms\": 100,\n    \"timeout\": 5000,\n    \"transform\": {},\n    \"url\": \"https://example.com/ingest\"\n  },\n  \"label\": \"Route Label\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"disabled\": \"false\",\n  \"http\": {\n    \"disable_http_headers\": false,\n    \"filter\": {\n      \"system_notefiles\": false,\n      \"type\": \"\"\n    },\n    \"fleets\": [\n      \"fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d\"\n    ],\n    \"http_headers\": null,\n    \"throttle_ms\": 100,\n    \"timeout\": 0,\n    \"transform\": {},\n    \"url\": \"http://route.url\"\n  },\n  \"label\": \"Route Label\",\n  \"modified\": \"2020-03-09T17:59:44Z\",\n  \"type\": \"http\",\n  \"uid\": \"route:8d65a087d5d290ce5bdf03aeff2becc0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ba64194-8694-4133-b148-1ecf333f737b",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"http\": {\n    \"disable_http_headers\": false,\n    \"filter\": {},\n    \"fleets\": [\n      \"fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d\"\n    ],\n    \"http_headers\": {\n      \"X-My-Header\": \"value\"\n    },\n    \"throttle_ms\": 100,\n    \"timeout\": 5000,\n    \"transform\": {},\n    \"url\": \"https://example.com/ingest\"\n  },\n  \"label\": \"Route Label\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 339,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4025a30-eb9a-4593-9b3d-38629d4cbac4",
+          "name": "Delete Route",
+          "request": {
+            "name": "Delete Route",
+            "description": {
+              "content": "Delete single route within a project",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "routes",
+                ":routeUID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "routeUID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9e1b80eb-7b6b-44ab-8fcd-1a6238a9ba5f",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "routes",
+                    ":routeUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "routeUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fbc56507-5a55-4894-8603-c504bb596d58",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "routes",
+                    ":routeUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "routeUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 339,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0915d8d8-89b1-4d20-a7e0-2a8e0f36723b",
+          "name": "Get Route",
+          "request": {
+            "name": "Get Route",
+            "description": {
+              "content": "Get single route within a project",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "routes",
+                ":routeUID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "routeUID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fee57c4e-a345-4ec9-9ada-ae36efba81af",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "routes",
+                    ":routeUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "routeUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"disabled\": \"false\",\n  \"http\": {\n    \"disable_http_headers\": false,\n    \"filter\": {\n      \"system_notefiles\": false,\n      \"type\": \"\"\n    },\n    \"fleets\": [\n      \"fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d\"\n    ],\n    \"http_headers\": null,\n    \"throttle_ms\": 100,\n    \"timeout\": 0,\n    \"transform\": {},\n    \"url\": \"http://route.url\"\n  },\n  \"label\": \"Route Label\",\n  \"modified\": \"2020-03-09T17:59:44Z\",\n  \"type\": \"http\",\n  \"uid\": \"route:8d65a087d5d290ce5bdf03aeff2becc0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18b585c3-6109-4ec2-b1fb-d156efbf25aa",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "routes",
+                    ":routeUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "routeUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 339,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80ce24ad-c683-4407-ac5d-a9e2057e080f",
+          "name": "Update Route",
+          "request": {
+            "name": "Update Route",
+            "description": {
+              "content": "Update route by UID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "routes",
+                ":routeUID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "routeUID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aws\": {\n    \"access_key_id\": \"<string>\",\n    \"access_key_secret\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"key_0\": \"<string>\"\n    },\n    \"message_deduplication_id\": \"<string>\",\n    \"message_group_id\": \"<string>\",\n    \"region\": \"<string>\",\n    \"role_arn\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"azure\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"functions_key_secret\": \"<string>\",\n    \"sas_policy_key\": \"<string>\",\n    \"sas_policy_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"blynk\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"region\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    }\n  },\n  \"datacake\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"disabled\": false,\n  \"google\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"token\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"http\": {\n    \"disable_http_headers\": \"<boolean>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"label\": \"<string>\",\n  \"mqtt\": {\n    \"broker\": \"<string>\",\n    \"certificate\": \"<string>\",\n    \"certificate_name\": \"<string>\",\n    \"client_id\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key\": \"<string>\",\n    \"password\": \"<password>\",\n    \"port\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"topic\": \"<string>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"username\": \"<string>\"\n  },\n  \"notes\": \"<string>\",\n  \"proxy\": {\n    \"alias\": \"<string>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"http_headers\": {\n      \"key_0\": \"<string>\"\n    },\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"qubitro\": {\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"project_id\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_signing_key\": \"<string>\"\n  },\n  \"radnote\": {\n    \"client_id\": \"<string>\",\n    \"client_secret\": \"<password>\",\n    \"data_feed_key\": \"<string>\",\n    \"event_id\": \"<integer>\",\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"test_api\": \"<boolean>\",\n    \"throttle_ms\": \"<integer>\"\n  },\n  \"s3archive\": {\n    \"archive_count_exceeds\": \"<integer>\",\n    \"archive_every_mins\": \"<integer>\",\n    \"archive_id\": \"<string>\",\n    \"bucket_endpoint\": \"<string>\",\n    \"bucket_name\": \"<string>\",\n    \"bucket_region\": \"<string>\",\n    \"file_access\": \"<string>\",\n    \"file_folder\": \"<string>\",\n    \"file_format\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_id\": \"<string>\",\n    \"key_secret\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"slack\": {\n    \"bearer\": \"<string>\",\n    \"blocks\": \"<string>\",\n    \"channel\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"text\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"webhook_url\": \"<uri>\"\n  },\n  \"snowflake\": {\n    \"account_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"snowpipe_streaming\": {\n    \"account_name\": \"<string>\",\n    \"database_name\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"organization_name\": \"<string>\",\n    \"pem\": \"<string>\",\n    \"pipe_name\": \"<string>\",\n    \"private_key_name\": \"<string>\",\n    \"schema_name\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"user_name\": \"<string>\"\n  },\n  \"thingworx\": {\n    \"app_key\": \"<string>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"transform\": {\n      \"format\": \"<string>\",\n      \"jsonata\": \"<string>\",\n      \"jsonata_in\": \"<string>\"\n    },\n    \"url\": \"<uri>\"\n  },\n  \"twilio\": {\n    \"account_sid\": \"<string>\",\n    \"auth_token\": \"<password>\",\n    \"filter\": {\n      \"files\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"system_notefiles\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    \"fleets\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"from\": \"<string>\",\n    \"message\": \"<string>\",\n    \"throttle_ms\": \"<integer>\",\n    \"timeout\": \"<integer>\",\n    \"to\": \"<string>\"\n  },\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d25a0986-1955-406a-90eb-66f892e9d8e4",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "routes",
+                    ":routeUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "routeUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"http\" {\n    \"filter\": {\n      \"type\": \"include\",\n      \"system_notefiles\": true,\n      \"files\": [\"somefile.qo\"],\n    },\n    \"throttle_ms\": 50,\n    \"url\": \"http://new-route.url\",\n  },\n}\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"uid\\\": \\\"route:8d65a087d5d290ce5bdf03aeff2becc0\\\",\\n  \\\"label\\\": \\\"Route Label\\\",\\n  \\\"type\\\": \\\"http\\\",\\n  \\\"modified\\\": \\\"2020-03-09T17:59:44Z\\\",\\n  \\\"disabled\\\": \\\"false\\\",\\n  \\\"http\\\":\\n    {\\n    \\\"fleets\\\": [\\\"fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d\\\"],\\n    \\\"filter\\\": {\\n      \\\"type\\\": \\\"include\\\",\\n      \\\"system_notefiles\\\": true,\\n      \\\"files\\\": [\\\"somefile.qo\\\"],\\n    },\\n  \\\"transform\\\": {},\\n  \\\"throttle_ms\\\": 50,\\n  \\\"url\\\": \\\"http://new-route.url\\\",\\n  \\\"http_headers\\\": null,\\n  \\\"disable_http_headers\\\": false,\\n  \\\"timeout\\\": 0\\n}\\n\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "984c288d-034b-4cc2-a70b-fc0c82042c32",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "routes",
+                    ":routeUID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "routeUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"http\" {\n    \"filter\": {\n      \"type\": \"include\",\n      \"system_notefiles\": true,\n      \"files\": [\"somefile.qo\"],\n    },\n    \"throttle_ms\": 50,\n    \"url\": \"http://new-route.url\",\n  },\n}\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 339,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8976b26-b649-46ec-9ca7-9d14923fc70a",
+          "name": "Get Route Logs By Route",
+          "request": {
+            "name": "Get Route Logs By Route",
+            "description": {
+              "content": "Get Route Logs by Route UID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":projectOrProductUID",
+                "routes",
+                ":routeUID",
+                "route-logs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNum",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceUID",
+                  "value": "<string>",
+                  "description": "A Device UID."
+                },
+                {
+                  "disabled": false,
+                  "key": "deviceUID",
+                  "value": "<string>",
+                  "description": "A Device UID."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "date"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<integer>",
+                  "description": "Start date for filtering results, specified as a Unix timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<integer>",
+                  "description": "End date for filtering results, specified as a Unix timestamp"
+                },
+                {
+                  "disabled": false,
+                  "key": "systemFilesOnly",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mostRecentOnly",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "files",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "routingStatus",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "routingStatus",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "responseStatus",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "responseStatus",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectOrProductUID",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "routeUID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6cf34abf-52a1-48de-be47-1b7e435a7dae",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "routes",
+                    ":routeUID",
+                    "route-logs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "pageNum",
+                      "value": "1"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "date"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "1628631763"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "1657894210"
+                    },
+                    {
+                      "key": "systemFilesOnly",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "mostRecentOnly",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "files",
+                      "value": "_health.qo, data.qo"
+                    },
+                    {
+                      "key": "routingStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "routingStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "responseStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "responseStatus",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "routeUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"attn\": false,\n    \"date\": \"string\",\n    \"duration\": 8095,\n    \"event_uid\": \"string\",\n    \"route_uid\": \"string\",\n    \"status\": \"string\",\n    \"text\": \"string\",\n    \"url\": \"string\"\n  },\n  {\n    \"attn\": false,\n    \"date\": \"string\",\n    \"duration\": 7732,\n    \"event_uid\": \"string\",\n    \"route_uid\": \"string\",\n    \"status\": \"string\",\n    \"text\": \"string\",\n    \"url\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bcd57bf9-a45f-44ff-bad5-ad3b08bb2ffd",
+              "name": "The response body in case of an API error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":projectOrProductUID",
+                    "routes",
+                    ":routeUID",
+                    "route-logs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "pageNum",
+                      "value": "1"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "deviceUID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "date"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "1628631763"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "1657894210"
+                    },
+                    {
+                      "key": "systemFilesOnly",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "mostRecentOnly",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "files",
+                      "value": "_health.qo, data.qo"
+                    },
+                    {
+                      "key": "routingStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "routingStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "responseStatus",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "responseStatus",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectOrProductUID",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "routeUID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"err\": \"string\",\n  \"code\": 339,\n  \"status\": \"string\",\n  \"debug\": \"string\",\n  \"details\": {},\n  \"request\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.notefile.net",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a31e3a27-b5d7-4e6e-8b49-de5667d09772",
+    "name": "Notehub alert route API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The OpenAPI definition for the Notehub.io API.\n\n\nContact Support:\n Name: Blues Engineering\n Email: engineering@blues.io",
+      "type": "text/plain"
+    }
+  }
+}
