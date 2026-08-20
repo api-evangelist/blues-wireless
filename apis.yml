@@ -33,6 +33,17 @@ tags:
   - Device Management
   - Fleet Management
   - Satellite
+  - LoRA
+  - Wi-Fi
+  - Notecard
+  - Notehub
+tags_raw:
+  - IoT
+  - Cellular
+  - Connectivity
+  - Device Management
+  - Fleet Management
+  - Satellite
   - LoRa
   - WiFi
   - Notecard
@@ -64,6 +75,8 @@ apis:
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
   tags:
+  - Alert
+  tags_raw:
   - alert
   properties:
   - type: OpenAPI
@@ -114,6 +127,8 @@ apis:
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
   tags:
+  - Authorization
+  tags_raw:
   - authorization
   properties:
   - type: OpenAPI
@@ -164,6 +179,8 @@ apis:
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
   tags:
+  - Billing Account
+  tags_raw:
   - billing_account
   properties:
   - type: OpenAPI
@@ -214,6 +231,8 @@ apis:
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
   tags:
+  - Device
+  tags_raw:
   - device
   properties:
   - type: OpenAPI
@@ -264,6 +283,8 @@ apis:
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
   tags:
+  - Event
+  tags_raw:
   - event
   properties:
   - type: OpenAPI
@@ -364,6 +385,8 @@ apis:
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
   tags:
+  - Job
+  tags_raw:
   - jobs
   properties:
   - type: OpenAPI
@@ -414,6 +437,8 @@ apis:
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
   tags:
+  - Monitors
+  tags_raw:
   - monitor
   properties:
   - type: OpenAPI
@@ -464,6 +489,8 @@ apis:
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
   tags:
+  - Organization
+  tags_raw:
   - organization
   properties:
   - type: OpenAPI
@@ -514,6 +541,8 @@ apis:
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
   tags:
+  - Project
+  tags_raw:
   - project
   properties:
   - type: OpenAPI
@@ -564,6 +593,8 @@ apis:
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
   tags:
+  - Route
+  tags_raw:
   - route
   properties:
   - type: OpenAPI
@@ -614,6 +645,8 @@ apis:
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
   tags:
+  - Usage
+  tags_raw:
   - usage
   properties:
   - type: OpenAPI
@@ -664,6 +697,8 @@ apis:
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
   tags:
+  - Webhook
+  tags_raw:
   - webhook
   properties:
   - type: OpenAPI
