@@ -45,8 +45,8 @@ tags:
   - Device Management
   - Fleet Management
   - Satellite
-  - LoRA
-  - Wi-Fi
+  - LoRa
+  - WiFi
   - Notecard
   - Notehub
 tags_raw:
@@ -190,8 +190,7 @@ apis:
   description: Billing Account operations
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
-  tags:
-  - Billing Account
+  tags: []
   tags_raw:
   - billing_account
   properties:
@@ -243,7 +242,7 @@ apis:
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
   tags:
-  - Device
+  - device
   tags_raw:
   - device
   properties:
@@ -605,7 +604,7 @@ apis:
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
   tags:
-  - Route
+  - route
   tags_raw:
   - route
   properties:
