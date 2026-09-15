@@ -1,16 +1,12 @@
 aid: blues-wireless
 name: Blues
-description: >-
-  Blues (formerly Blues Wireless) is an IoT connectivity platform that provides
-  hardware modules called Notecards and a cloud service called Notehub for
-  routing device data from edge devices to cloud applications. The Notehub REST
-  API enables developers to manage fleets of cellular, satellite, LoRa, and
-  Wi-Fi connected devices across 130+ countries. Developers can use the API to
-  retrieve device events, manage projects and fleets, configure routes to
-  downstream cloud services, and monitor device health. Blues follows a
-  consumption-based pricing model with no subscription fees, charging per
-  ingressed event beyond a free monthly allowance bundled with each Notecard
-  hardware purchase.
+description: Blues (formerly Blues Wireless) is an IoT connectivity platform that provides hardware modules
+  called Notecards and a cloud service called Notehub for routing device data from edge devices to cloud
+  applications. The Notehub REST API enables developers to manage fleets of cellular, satellite, LoRa,
+  and Wi-Fi connected devices across 130+ countries. Developers can use the API to retrieve device events,
+  manage projects and fleets, configure routes to downstream cloud services, and monitor device health.
+  Blues follows a consumption-based pricing model with no subscription fees, charging per ingressed event
+  beyond a free monthly allowance bundled with each Notecard hardware purchase.
 type: Index
 deliveryModel:
   model: saas
@@ -40,38 +36,37 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/blues-wireless.png
 tags:
-  - IoT
-  - Cellular
-  - Connectivity
-  - Device Management
-  - Fleet Management
-  - Satellite
-  - LoRA
-  - Wi-Fi
-  - Notecard
-  - Notehub
+- IoT
+- Cellular
+- Connectivity
+- Device Management
+- Fleet Management
+- Satellite
+- LoRA
+- Wi-Fi
+- Notecard
+- Notehub
 tags_raw:
-  - IoT
-  - Cellular
-  - Connectivity
-  - Device Management
-  - Fleet Management
-  - Satellite
-  - LoRa
-  - WiFi
-  - Notecard
-  - Notehub
+- IoT
+- Cellular
+- Connectivity
+- Device Management
+- Fleet Management
+- Satellite
+- LoRa
+- WiFi
+- Notecard
+- Notehub
 url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/apis.yml
 created: '2026-06-12'
 modified: '2026-06-12'
 specificationVersion: '0.23'
 apis:
-- aid: blues-wireless-notecard-api
+- aid: blues-wireless:blues-wireless-notecard-api
   name: Notecard API
-  description: >-
-    The Notecard API is the firmware-level JSON API for interacting with Blues Notecard hardware modules
-    directly over serial or I2C. It supports card, dfu, env, file, hub, note, ntn, var, and web request
-    categories for configuring and communicating with Notecard devices from host microcontrollers.
+  description: The Notecard API is the firmware-level JSON API for interacting with Blues Notecard hardware
+    modules directly over serial or I2C. It supports card, dfu, env, file, hub, note, ntn, var, and web
+    request categories for configuring and communicating with Notecard devices from host microcontrollers.
   humanURL: https://dev.blues.io/api-reference/notecard-api/introduction/
   baseURL: https://api.notefile.net
   tags:
@@ -97,41 +92,29 @@ apis:
   - type: Documentation
     url: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-authorization-api
@@ -149,41 +132,29 @@ apis:
   - type: Documentation
     url: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-billing-account-api
@@ -201,41 +172,29 @@ apis:
   - type: Documentation
     url: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-device-api
@@ -253,41 +212,29 @@ apis:
   - type: Documentation
     url: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-event-api
@@ -305,41 +252,29 @@ apis:
   - type: Documentation
     url: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-external-devices-api
@@ -355,41 +290,29 @@ apis:
   - type: Documentation
     url: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-jobs-api
@@ -407,41 +330,29 @@ apis:
   - type: Documentation
     url: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-monitor-api
@@ -459,41 +370,29 @@ apis:
   - type: Documentation
     url: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-organization-api
@@ -511,41 +410,29 @@ apis:
   - type: Documentation
     url: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-project-api
@@ -563,41 +450,29 @@ apis:
   - type: Documentation
     url: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-route-api
@@ -615,41 +490,29 @@ apis:
   - type: Documentation
     url: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-usage-api
@@ -667,41 +530,29 @@ apis:
   - type: Documentation
     url: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-webhook-api
@@ -719,84 +570,72 @@ apis:
   - type: Documentation
     url: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-device.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-event.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-fleet.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-project.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-route.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-monitor.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-job.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-firmware.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-note.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-notefile.json
   - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-schema/blues-wireless-billing-account.json
   - type: Examples
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
+    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/examples/blues-wireless-notehub-api-examples.json
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 common:
-  - type: PostmanWorkspace
-    url: https://www.postman.com/kinlaneapi/blues/overview
-  - type: AgenticAccess
-    url: agentic-access/blues-wireless-agentic-access.yml
-  - type: DomainSecurity
-    url: security/blues-wireless-domain-security.yml
-  - type: Authentication
-    url: authentication/blues-wireless-authentication.yml
-  - type: Website
-    url: https://blues.com
-  - type: DeveloperPortal
-    url: https://dev.blues.io
-  - type: Documentation
-    url: https://dev.blues.io/api-reference/
-  - type: GitHubOrganization
-    url: https://github.com/blues
-  - type: Blog
-    url: https://dev.blues.io/blog/
-  - type: ChangeLog
-    url: https://dev.blues.io/blog/whats-new-in-notehub/
-  - type: Pricing
-    url: https://blues.com/pricing/
-  - type: StatusPage
-    url: https://status.notehub.io
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/buildwithblues
-  - type: X
-    url: https://twitter.com/buildwithblues
-  - type: SDKs
-    url: https://blues.github.io/opensource/
-  - type: Plans
-    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/plans/blues-wireless-plans-pricing.yml
-  - type: RateLimits
-    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/rate-limits/blues-wireless-rate-limits.yml
-  - type: FinOps
-    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/finops/blues-wireless-finops.yml
-  - type: Vocabulary
-    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/vocabulary/blues-wireless-vocabulary.yml
-  - type: JSONLDContext
-    url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-ld/blues-wireless-context.jsonld
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/blues/overview
+- type: AgenticAccess
+  url: agentic-access/blues-wireless-agentic-access.yml
+- type: DomainSecurity
+  url: security/blues-wireless-domain-security.yml
+- type: Authentication
+  url: authentication/blues-wireless-authentication.yml
+- type: Website
+  url: https://blues.com
+- type: DeveloperPortal
+  url: https://dev.blues.io
+- type: Documentation
+  url: https://dev.blues.io/api-reference/
+- type: GitHubOrganization
+  url: https://github.com/blues
+- type: Blog
+  url: https://dev.blues.io/blog/
+- type: ChangeLog
+  url: https://dev.blues.io/blog/whats-new-in-notehub/
+- type: Pricing
+  url: https://blues.com/pricing/
+- type: StatusPage
+  url: https://status.notehub.io
+- type: LinkedIn
+  url: https://www.linkedin.com/company/buildwithblues
+- type: X
+  url: https://twitter.com/buildwithblues
+- type: SDKs
+  url: https://blues.github.io/opensource/
+- type: Plans
+  url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/plans/blues-wireless-plans-pricing.yml
+- type: RateLimits
+  url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/rate-limits/blues-wireless-rate-limits.yml
+- type: FinOps
+  url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/finops/blues-wireless-finops.yml
+- type: Vocabulary
+  url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/vocabulary/blues-wireless-vocabulary.yml
+- type: JSONLDContext
+  url: https://raw.githubusercontent.com/api-evangelist/blues-wireless/refs/heads/main/json-ld/blues-wireless-context.jsonld
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
