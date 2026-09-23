@@ -1,20 +1,18 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   contact:
     email: engineering@blues.io
     name: Blues Engineering
     url: https://dev.blues.io/support/
-  description: 'The OpenAPI definition for the Notehub.io API.
-
-    '
-  title: Notehub alert authorization API
+  description: The OpenAPI definition for the Notehub.io API.
+  title: Notehub Authorization API
   version: 1.2.0
 servers:
 - description: Production server
   url: https://api.notefile.net
 tags:
 - description: Authorization operations
-  name: authorization
+  name: Authorization
 paths:
   /auth/login:
     post:
@@ -49,16 +47,16 @@ paths:
         '500':
           description: Internal Server Error
       tags:
-      - authorization
+      - Authorization
       x-custom-attributes:
         permission: create
+      summary: Login
+      x-summary-source: derived
   /oauth2/token:
     post:
       operationId: OAuth2ClientCredentials
       summary: Issue an OAuth 2.0 access token (Client Credentials)
-      description: 'Exchanges client credentials for an access token. Parameters must be sent as application/x-www-form-urlencoded.
-
-        '
+      description: Exchanges client credentials for an access token. Parameters must be sent as application/x-www-form-urlencoded.
       requestBody:
         required: true
         content:
@@ -127,7 +125,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/OAuth2Error'
       tags:
-      - authorization
+      - Authorization
 components:
   schemas:
     OAuth2Error:

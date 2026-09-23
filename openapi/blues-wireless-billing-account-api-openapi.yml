@@ -1,20 +1,18 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   contact:
     email: engineering@blues.io
     name: Blues Engineering
     url: https://dev.blues.io/support/
-  description: 'The OpenAPI definition for the Notehub.io API.
-
-    '
-  title: Notehub alert billing_account API
+  description: The OpenAPI definition for the Notehub.io API.
+  title: Notehub Billing Account API
   version: 1.2.0
 servers:
 - description: Production server
   url: https://api.notefile.net
 tags:
 - description: Billing Account operations
-  name: billing_account
+  name: Billing Account
 paths:
   /v1/billing-accounts:
     get:
@@ -38,9 +36,11 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - billing_account
+      - Billing Account
       x-custom-attributes:
         permission: read
+      summary: Get billing accounts
+      x-summary-source: derived
   /v1/billing-accounts/{billingAccountUID}:
     get:
       operationId: GetBillingAccount
@@ -93,9 +93,11 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - billing_account
+      - Billing Account
       x-custom-attributes:
         permission: read
+      summary: Get billing account
+      x-summary-source: derived
   /v1/billing-accounts/{billingAccountUID}/balance-history:
     get:
       operationId: GetBillingAccountBalanceHistory
@@ -136,11 +138,20 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - billing_account
+      - Billing Account
       x-custom-attributes:
         permission: read
+      summary: Get billing account balance history
+      x-summary-source: derived
 components:
   parameters:
+    billingAccountUIDParam:
+      example: 00000000-0000-0000-000000000001
+      in: path
+      name: billingAccountUID
+      required: true
+      schema:
+        type: string
     endDateParam:
       description: End date for filtering results, specified as a Unix timestamp
       example: 1657894210
@@ -150,13 +161,6 @@ components:
       schema:
         type: integer
         minimum: 0
-    billingAccountUIDParam:
-      example: 00000000-0000-0000-000000000001
-      in: path
-      name: billingAccountUID
-      required: true
-      schema:
-        type: string
     startDateParam:
       description: Start date for filtering results, specified as a Unix timestamp
       example: 1628631763
@@ -166,15 +170,6 @@ components:
       schema:
         type: integer
         minimum: 0
-  responses:
-    ErrorResponse:
-      description: The response body in case of an API error.
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/Error'
   schemas:
     BillingAccountRole:
       type: string
@@ -221,6 +216,15 @@ components:
       - err
       - code
       - status
+  responses:
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     personalAccessToken:
       description: 'Use a personal access token from notehub.io/api-access

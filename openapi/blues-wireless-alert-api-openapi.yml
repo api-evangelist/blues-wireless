@@ -1,19 +1,17 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   contact:
     email: engineering@blues.io
     name: Blues Engineering
     url: https://dev.blues.io/support/
-  description: 'The OpenAPI definition for the Notehub.io API.
-
-    '
-  title: Notehub alert API
+  description: The OpenAPI definition for the Notehub.io API.
+  title: Notehub Alert API
   version: 1.2.0
 servers:
 - description: Production server
   url: https://api.notefile.net
 tags:
-- name: alert
+- name: Alert
 paths:
   /v1/projects/{projectOrProductUID}/alerts:
     get:
@@ -32,12 +30,21 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - alert
+      - Alert
       x-custom-attributes:
         permission: read
         resource: blues:resources:app:APPSERIAL:devices
+      summary: Get alerts
+      x-summary-source: derived
 components:
   parameters:
+    projectOrProductUIDParam:
+      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
+      in: path
+      name: projectOrProductUID
+      required: true
+      schema:
+        type: string
     pageSizeParam:
       in: query
       name: pageSize
@@ -47,14 +54,6 @@ components:
         default: 50
         maximum: 10000
         minimum: 1
-    pageNumParam:
-      in: query
-      name: pageNum
-      required: false
-      schema:
-        type: integer
-        default: 1
-        minimum: 1
     monitorUIDQueryParam:
       explode: true
       in: query
@@ -63,22 +62,15 @@ components:
       schema:
         type: string
       style: form
-    projectOrProductUIDParam:
-      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
-      in: path
-      name: projectOrProductUID
-      required: true
+    pageNumParam:
+      in: query
+      name: pageNum
+      required: false
       schema:
-        type: string
+        type: integer
+        default: 1
+        minimum: 1
   responses:
-    ErrorResponse:
-      description: The response body in case of an API error.
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/Error'
     AlertsResponse:
       description: The response body from GET /alerts
       content:
@@ -97,6 +89,14 @@ components:
             required:
             - alerts
             - has_more
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
   schemas:
     Alert:
       type: object

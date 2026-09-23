@@ -1,20 +1,18 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   contact:
     email: engineering@blues.io
     name: Blues Engineering
     url: https://dev.blues.io/support/
-  description: 'The OpenAPI definition for the Notehub.io API.
-
-    '
-  title: Notehub alert event API
+  description: The OpenAPI definition for the Notehub.io API.
+  title: Notehub Event API
   version: 1.2.0
 servers:
 - description: Production server
   url: https://api.notefile.net
 tags:
 - description: Event retrieval operations
-  name: event
+  name: Event
 paths:
   /v1/projects/{projectOrProductUID}/events:
     get:
@@ -62,10 +60,12 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - event
+      - Event
       x-custom-attributes:
         permission: read
         resource: blues:resources:app:APPSERIAL:events
+      summary: Get events
+      x-summary-source: derived
   /v1/projects/{projectOrProductUID}/events-cursor:
     get:
       operationId: GetEventsByCursor
@@ -87,10 +87,12 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - event
+      - Event
       x-custom-attributes:
         permission: read
         resource: blues:resources:app:APPSERIAL:events
+      summary: Get events by cursor
+      x-summary-source: derived
   /v1/projects/{projectOrProductUID}/events/{eventUID}/route-logs:
     get:
       operationId: GetRouteLogsByEvent
@@ -112,10 +114,12 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - event
+      - Event
       x-custom-attributes:
         permission: read
         resource: blues:resources:app:APPSERIAL:events
+      summary: Get route logs by event
+      x-summary-source: derived
   /v1/projects/{projectOrProductUID}/fleets/{fleetUID}/events:
     get:
       operationId: GetFleetEvents
@@ -162,10 +166,12 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - event
+      - Event
       x-custom-attributes:
         permission: read
         resource: blues:resources:app:APPSERIAL:events
+      summary: Get fleet events
+      x-summary-source: derived
   /v1/projects/{projectOrProductUID}/fleets/{fleetUID}/events-cursor:
     get:
       operationId: GetFleetEventsByCursor
@@ -189,17 +195,59 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - event
+      - Event
       x-custom-attributes:
         permission: read
         resource: blues:resources:app:APPSERIAL:events
+      summary: Get fleet events by cursor
+      x-summary-source: derived
 components:
   parameters:
-    serialNumberFilterParam:
-      description: Filter by Serial Number
+    cursorParam:
+      description: 'A cursor, which can be obtained from the `next_cursor` value from a previous call to this endpoint. The results set returned will include this event as its first result if the given identifier is actually the UID of an event. If this event UID is not found, the parameter is ignored and the results set is the same as if the parameter was not included.
+
+        '
+      in: query
+      name: cursor
+      required: false
+      schema:
+        type: string
+    eventUIDParam:
+      example: 4506f411-dea6-44a0-9743-1130f57d7747
+      in: path
+      name: eventUID
+      required: true
+      schema:
+        type: string
+    endDateParam:
+      description: End date for filtering results, specified as a Unix timestamp
+      example: 1657894210
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    startDateParam:
+      description: Start date for filtering results, specified as a Unix timestamp
+      example: 1628631763
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    systemFilesOnlyParam:
+      in: query
+      name: systemFilesOnly
+      required: false
+      schema:
+        type: boolean
+    deviceUIDParamQuery:
+      description: A Device UID.
       explode: true
       in: query
-      name: serialNumber
+      name: deviceUID
       required: false
       schema:
         type: array
@@ -213,119 +261,30 @@ components:
       required: false
       schema:
         type: string
-    fleetUIDQueryParam:
-      in: query
-      name: fleetUID
-      required: false
-      schema:
-        type: string
-    sessionUIDFilterParam:
-      description: Filter by Session UID
+    serialNumberFilterParam:
+      description: Filter by Serial Number
       explode: true
       in: query
-      name: sessionUID
+      name: serialNumber
       required: false
       schema:
         type: array
         items:
           type: string
       style: form
-    startDateParam:
-      description: Start date for filtering results, specified as a Unix timestamp
-      example: 1628631763
+    pageSizeParam:
       in: query
-      name: startDate
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-    eventUIDParam:
-      example: 4506f411-dea6-44a0-9743-1130f57d7747
-      in: path
-      name: eventUID
-      required: true
-      schema:
-        type: string
-    dateTypeParam:
-      description: Which date to filter on, either 'captured' or 'uploaded'.  This will apply to the startDate and endDate parameters
-      example: uploaded
-      in: query
-      name: dateType
-      required: false
-      schema:
-        type: string
-        default: captured
-        enum:
-        - captured
-        - uploaded
-    sortOrderParam:
-      in: query
-      name: sortOrder
-      required: false
-      schema:
-        type: string
-        default: asc
-        enum:
-        - asc
-        - desc
-    limitParam:
-      in: query
-      name: limit
+      name: pageSize
       required: false
       schema:
         type: integer
         default: 50
+        maximum: 10000
         minimum: 1
-    fleetUIDFilterQueryParam:
-      description: Filter by Fleet UID
-      explode: true
+    fleetUIDQueryParam:
       in: query
       name: fleetUID
       required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-    pageNumParam:
-      in: query
-      name: pageNum
-      required: false
-      schema:
-        type: integer
-        default: 1
-        minimum: 1
-    eventUIDFilterQueryParam:
-      description: Filter by Event UID
-      explode: true
-      in: query
-      name: eventUID
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-    filesQueryParam:
-      example: _health.qo, data.qo
-      in: query
-      name: files
-      required: false
-      schema:
-        type: string
-    cursorParam:
-      description: 'A cursor, which can be obtained from the `next_cursor` value from a previous call to this endpoint. The results set returned will include this event as its first result if the given identifier is actually the UID of an event. If this event UID is not found, the parameter is ignored and the results set is the same as if the parameter was not included.
-
-        '
-      in: query
-      name: cursor
-      required: false
-      schema:
-        type: string
-    fleetUIDParam:
-      in: path
-      name: fleetUID
-      required: true
       schema:
         type: string
     formatParam:
@@ -339,41 +298,22 @@ components:
         enum:
         - json
         - csv
-    deviceUIDParamQuery:
-      description: A Device UID.
-      explode: true
+    limitParam:
       in: query
-      name: deviceUID
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-    endDateParam:
-      description: End date for filtering results, specified as a Unix timestamp
-      example: 1657894210
-      in: query
-      name: endDate
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-    pageSizeParam:
-      in: query
-      name: pageSize
+      name: limit
       required: false
       schema:
         type: integer
         default: 50
-        maximum: 10000
         minimum: 1
-    systemFilesOnlyParam:
+    pageNumParam:
       in: query
-      name: systemFilesOnly
+      name: pageNum
       required: false
       schema:
-        type: boolean
+        type: integer
+        default: 1
+        minimum: 1
     projectOrProductUIDParam:
       example: app:2606f411-dea6-44a0-9743-1130f57d77d8
       in: path
@@ -398,6 +338,74 @@ components:
         - tower_location
         - triangulated_location
         - best_location
+    filesQueryParam:
+      example: _health.qo, data.qo
+      in: query
+      name: files
+      required: false
+      schema:
+        type: string
+    sortOrderParam:
+      in: query
+      name: sortOrder
+      required: false
+      schema:
+        type: string
+        default: asc
+        enum:
+        - asc
+        - desc
+    eventUIDFilterQueryParam:
+      description: Filter by Event UID
+      explode: true
+      in: query
+      name: eventUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    fleetUIDFilterQueryParam:
+      description: Filter by Fleet UID
+      explode: true
+      in: query
+      name: fleetUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    fleetUIDParam:
+      in: path
+      name: fleetUID
+      required: true
+      schema:
+        type: string
+    dateTypeParam:
+      description: Which date to filter on, either 'captured' or 'uploaded'.  This will apply to the startDate and endDate parameters
+      example: uploaded
+      in: query
+      name: dateType
+      required: false
+      schema:
+        type: string
+        default: captured
+        enum:
+        - captured
+        - uploaded
+    sessionUIDFilterParam:
+      description: Filter by Session UID
+      explode: true
+      in: query
+      name: sessionUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
   responses:
     EventsByCursorResponse:
       description: The response body from a GET events by cursor request.
@@ -541,30 +549,6 @@ components:
             properties: {}
             $ref: '#/components/schemas/Error'
   schemas:
-    Error:
-      type: object
-      properties:
-        code:
-          description: The HTTP error code associated with the error.
-          type: integer
-          maximum: 599
-          minimum: 300
-        debug:
-          type: string
-        details:
-          type: object
-        err:
-          description: Human readable error message.
-          type: string
-        request:
-          type: string
-        status:
-          description: Machine readable representation of the HTTP error code.
-          type: string
-      required:
-      - err
-      - code
-      - status
     Event:
       type: object
       properties:
@@ -785,6 +769,30 @@ components:
         url:
           description: The URL of the route.
           type: string
+    Error:
+      type: object
+      properties:
+        code:
+          description: The HTTP error code associated with the error.
+          type: integer
+          maximum: 599
+          minimum: 300
+        debug:
+          type: string
+        details:
+          type: object
+        err:
+          description: Human readable error message.
+          type: string
+        request:
+          type: string
+        status:
+          description: Machine readable representation of the HTTP error code.
+          type: string
+      required:
+      - err
+      - code
+      - status
   securitySchemes:
     personalAccessToken:
       description: 'Use a personal access token from notehub.io/api-access

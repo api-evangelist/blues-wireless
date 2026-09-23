@@ -1,20 +1,18 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   contact:
     email: engineering@blues.io
     name: Blues Engineering
     url: https://dev.blues.io/support/
-  description: 'The OpenAPI definition for the Notehub.io API.
-
-    '
-  title: Notehub alert jobs API
+  description: The OpenAPI definition for the Notehub.io API.
+  title: Notehub Jobs API
   version: 1.2.0
 servers:
 - description: Production server
   url: https://api.notefile.net
 tags:
 - description: Batch job operations
-  name: jobs
+  name: Jobs
 paths:
   /v1/projects/{projectOrProductUID}/jobs:
     get:
@@ -30,10 +28,12 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - jobs
+      - Jobs
       x-custom-attributes:
         permission: read
         resource: blues:resources:app:APPSERIAL:settings
+      summary: Get jobs
+      x-summary-source: derived
     post:
       operationId: CreateJob
       description: Create a new batch job with an optional name
@@ -62,10 +62,12 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - jobs
+      - Jobs
       x-custom-attributes:
         permission: create
         resource: blues:resources:app:APPSERIAL:settings
+      summary: Create job
+      x-summary-source: derived
   /v1/projects/{projectOrProductUID}/jobs/{jobUID}:
     delete:
       operationId: DeleteJob
@@ -83,10 +85,12 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - jobs
+      - Jobs
       x-custom-attributes:
         permission: delete
         resource: blues:resources:app:APPSERIAL:settings
+      summary: Delete job
+      x-summary-source: derived
     get:
       operationId: GetJob
       description: Get a specific batch job definition
@@ -103,10 +107,12 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - jobs
+      - Jobs
       x-custom-attributes:
         permission: read
         resource: blues:resources:app:APPSERIAL:settings
+      summary: Get job
+      x-summary-source: derived
   /v1/projects/{projectOrProductUID}/jobs/{jobUID}/run:
     post:
       operationId: RunJob
@@ -131,10 +137,12 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - jobs
+      - Jobs
       x-custom-attributes:
         permission: create
         resource: blues:resources:app:APPSERIAL:settings
+      summary: Run job
+      x-summary-source: derived
   /v1/projects/{projectOrProductUID}/jobs/{jobUID}/runs:
     get:
       operationId: GetJobRuns
@@ -153,8 +161,9 @@ paths:
         description: Filter runs by dry run flag
         required: false
         schema:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
       responses:
         '200':
           $ref: '#/components/responses/GetJobRunsResponse'
@@ -165,10 +174,12 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - jobs
+      - Jobs
       x-custom-attributes:
         permission: read
         resource: blues:resources:app:APPSERIAL:settings
+      summary: Get job runs
+      x-summary-source: derived
   /v1/projects/{projectOrProductUID}/jobs/runs/{reportUID}:
     delete:
       operationId: DeleteJobRun
@@ -186,7 +197,9 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - jobs
+      - Jobs
+      summary: Delete job run
+      x-summary-source: derived
     get:
       operationId: GetJobRun
       description: Get the result of a job execution
@@ -213,10 +226,12 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - jobs
+      - Jobs
       x-custom-attributes:
         permission: read
         resource: blues:resources:app:APPSERIAL:settings
+      summary: Get job run
+      x-summary-source: derived
   /v1/projects/{projectOrProductUID}/jobs/runs/{reportUID}/cancel:
     post:
       operationId: CancelJobRun
@@ -234,10 +249,12 @@ paths:
       security:
       - personalAccessToken: []
       tags:
-      - jobs
+      - Jobs
       x-custom-attributes:
         permission: delete
         resource: blues:resources:app:APPSERIAL:settings
+      summary: Cancel job run
+      x-summary-source: derived
 components:
   parameters:
     reportUIDParam:
@@ -245,6 +262,13 @@ components:
       example: my-reconciliation-job-1707654321000
       in: path
       name: reportUID
+      required: true
+      schema:
+        type: string
+    projectOrProductUIDParam:
+      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
+      in: path
+      name: projectOrProductUID
       required: true
       schema:
         type: string
@@ -256,256 +280,7 @@ components:
       required: true
       schema:
         type: string
-    projectOrProductUIDParam:
-      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
-      in: path
-      name: projectOrProductUID
-      required: true
-      schema:
-        type: string
-  responses:
-    CancelJobRunResponse:
-      description: Cancel operation completed
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              successful:
-                description: True if cancellation was successful
-                type: boolean
-            required:
-            - successful
-    GetJobsResponse:
-      description: List of batch jobs
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              jobs:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Job'
-            required:
-            - jobs
-    GetJobResponse:
-      description: Batch job details
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/JobDetail'
-    RunJobResponse:
-      description: Job execution started
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              report_uid:
-                description: Unique identifier for this job run
-                type: string
-            required:
-            - report_uid
-    DeleteJobResponse:
-      description: Job deleted successfully
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              success:
-                description: True if deletion was successful
-                type: boolean
-            required:
-            - success
-    CreateJobResponse:
-      description: Job created successfully
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              job_uid:
-                description: The unique identifier for the created job
-                type: string
-            required:
-            - job_uid
-    GetJobRunsResponse:
-      description: List of job runs
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              runs:
-                type: array
-                items:
-                  $ref: '#/components/schemas/JobRun'
-            required:
-            - runs
-    ErrorResponse:
-      description: The response body in case of an API error.
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/Error'
-    GetJobRunResponse:
-      description: Job run details
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/JobRun'
   schemas:
-    Job:
-      type: object
-      properties:
-        created:
-          description: Unix timestamp when job was created
-          type: integer
-          format: int64
-        created_by:
-          description: User who created the job
-          type: string
-        job_uid:
-          description: Unique identifier for the job
-          type: string
-        last_run_completed:
-          description: Unix timestamp when the most recent run completed (0 if still in progress)
-          type: integer
-          format: int64
-          example: 1775252922
-        last_run_status:
-          description: 'Status of the most recent job run. Terminal values are: "submitted", "completed successfully", "dry run completed successfully", "completed with errors", "cancelled". While a job is running, intermediate per-device progress updates may appear (e.g. "dev:000000000000000 completed", "dev:000000000000000 updated: ...").'
-          type: string
-          example: dry run completed successfully
-        last_run_submitted:
-          description: Unix timestamp when the most recent run was submitted
-          type: integer
-          format: int64
-          example: 1775252900
-        name:
-          description: Human-readable job name
-          type: string
-      required:
-      - job_uid
-      - name
-      - created
-      - created_by
-    JobDefinition:
-      description: Batch job definition
-      type: object
-      properties:
-        comment:
-          description: Human-readable description of the job
-          type: string
-        default_requests:
-          $ref: '#/components/schemas/BatchJobRequests'
-        device_requests:
-          description: Device-specific request overrides, keyed by device UID
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/BatchJobRequests'
-        report_options:
-          description: Controls what data is included in the job report
-          type: object
-          properties:
-            app_fleets:
-              description: Include project fleets in the report
-              type: boolean
-            app_info:
-              description: Include project info in the report
-              type: boolean
-            app_vars:
-              description: Include project environment variables in the report
-              type: boolean
-            comment:
-              type: string
-            device_activity:
-              description: Include device activity data in the report
-              type: boolean
-            device_health:
-              description: Include device health data in the report
-              type: boolean
-            device_info:
-              description: Include device info in the report
-              type: boolean
-            device_vars:
-              description: Include device environment variables in the report
-              type: boolean
-        select:
-          description: Device selection criteria
-          type: object
-          properties:
-            all_devices:
-              description: Select all devices in the project
-              type: boolean
-            comment:
-              type: string
-            devices:
-              description: Specific device UIDs to include
-              type: array
-              items:
-                type: string
-            devices_by_sn:
-              description: Serial number patterns to match (supports glob wildcards *, ?, [...])
-              type: array
-              items:
-                type: string
-            devices_in_fleets:
-              description: Fleet UIDs whose devices should be included
-              type: array
-              items:
-                type: string
-      example:
-        comment: Set environment variables on all devices in a fleet
-        default_requests:
-          vars_to_set:
-            firmware_channel: production
-            log_level: '1'
-        select:
-          devices_in_fleets:
-          - fleet:00000000-0000-0000-0000-000000000000
-    JobDetail:
-      description: Batch job with full definition
-      type: ''
-      properties: {}
-      allOf:
-      - $ref: '#/components/schemas/Job'
-      - properties:
-          definition:
-            $ref: '#/components/schemas/JobDefinition'
-        type: object
-    Error:
-      type: object
-      properties:
-        code:
-          description: The HTTP error code associated with the error.
-          type: integer
-          maximum: 599
-          minimum: 300
-        debug:
-          type: string
-        details:
-          type: object
-        err:
-          description: Human readable error message.
-          type: string
-        request:
-          type: string
-        status:
-          description: Machine readable representation of the HTTP error code.
-          type: string
-      required:
-      - err
-      - code
-      - status
     BatchJobRequests:
       description: Operations to apply to a device
       type: object
@@ -644,6 +419,248 @@ components:
       - submitted_by
       - submitted
       - updated
+    Job:
+      type: object
+      properties:
+        created:
+          description: Unix timestamp when job was created
+          type: integer
+          format: int64
+        created_by:
+          description: User who created the job
+          type: string
+        job_uid:
+          description: Unique identifier for the job
+          type: string
+        last_run_completed:
+          description: Unix timestamp when the most recent run completed (0 if still in progress)
+          type: integer
+          format: int64
+          example: 1775252922
+        last_run_status:
+          description: 'Status of the most recent job run. Terminal values are: "submitted", "completed successfully", "dry run completed successfully", "completed with errors", "cancelled". While a job is running, intermediate per-device progress updates may appear (e.g. "dev:000000000000000 completed", "dev:000000000000000 updated: ...").'
+          type: string
+          example: dry run completed successfully
+        last_run_submitted:
+          description: Unix timestamp when the most recent run was submitted
+          type: integer
+          format: int64
+          example: 1775252900
+        name:
+          description: Human-readable job name
+          type: string
+      required:
+      - job_uid
+      - name
+      - created
+      - created_by
+    JobDetail:
+      description: Batch job with full definition
+      type: ''
+      properties: {}
+      allOf:
+      - $ref: '#/components/schemas/Job'
+      - properties:
+          definition:
+            $ref: '#/components/schemas/JobDefinition'
+        type: object
+    Error:
+      type: object
+      properties:
+        code:
+          description: The HTTP error code associated with the error.
+          type: integer
+          maximum: 599
+          minimum: 300
+        debug:
+          type: string
+        details:
+          type: object
+        err:
+          description: Human readable error message.
+          type: string
+        request:
+          type: string
+        status:
+          description: Machine readable representation of the HTTP error code.
+          type: string
+      required:
+      - err
+      - code
+      - status
+    JobDefinition:
+      description: Batch job definition
+      type: object
+      properties:
+        comment:
+          description: Human-readable description of the job
+          type: string
+        default_requests:
+          $ref: '#/components/schemas/BatchJobRequests'
+        device_requests:
+          description: Device-specific request overrides, keyed by device UID
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/BatchJobRequests'
+        report_options:
+          description: Controls what data is included in the job report
+          type: object
+          properties:
+            app_fleets:
+              description: Include project fleets in the report
+              type: boolean
+            app_info:
+              description: Include project info in the report
+              type: boolean
+            app_vars:
+              description: Include project environment variables in the report
+              type: boolean
+            comment:
+              type: string
+            device_activity:
+              description: Include device activity data in the report
+              type: boolean
+            device_health:
+              description: Include device health data in the report
+              type: boolean
+            device_info:
+              description: Include device info in the report
+              type: boolean
+            device_vars:
+              description: Include device environment variables in the report
+              type: boolean
+        select:
+          description: Device selection criteria
+          type: object
+          properties:
+            all_devices:
+              description: Select all devices in the project
+              type: boolean
+            comment:
+              type: string
+            devices:
+              description: Specific device UIDs to include
+              type: array
+              items:
+                type: string
+            devices_by_sn:
+              description: Serial number patterns to match (supports glob wildcards *, ?, [...])
+              type: array
+              items:
+                type: string
+            devices_in_fleets:
+              description: Fleet UIDs whose devices should be included
+              type: array
+              items:
+                type: string
+      example:
+        comment: Set environment variables on all devices in a fleet
+        default_requests:
+          vars_to_set:
+            firmware_channel: production
+            log_level: '1'
+        select:
+          devices_in_fleets:
+          - fleet:00000000-0000-0000-0000-000000000000
+  responses:
+    GetJobsResponse:
+      description: List of batch jobs
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              jobs:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Job'
+            required:
+            - jobs
+    CancelJobRunResponse:
+      description: Cancel operation completed
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              successful:
+                description: True if cancellation was successful
+                type: boolean
+            required:
+            - successful
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
+    DeleteJobResponse:
+      description: Job deleted successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                description: True if deletion was successful
+                type: boolean
+            required:
+            - success
+    CreateJobResponse:
+      description: Job created successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              job_uid:
+                description: The unique identifier for the created job
+                type: string
+            required:
+            - job_uid
+    GetJobResponse:
+      description: Batch job details
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/JobDetail'
+    RunJobResponse:
+      description: Job execution started
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              report_uid:
+                description: Unique identifier for this job run
+                type: string
+            required:
+            - report_uid
+    GetJobRunsResponse:
+      description: List of job runs
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              runs:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobRun'
+            required:
+            - runs
+    GetJobRunResponse:
+      description: Job run details
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/JobRun'
   securitySchemes:
     personalAccessToken:
       description: 'Use a personal access token from notehub.io/api-access

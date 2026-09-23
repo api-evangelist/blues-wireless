@@ -1,13 +1,11 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   contact:
     email: engineering@blues.io
     name: Blues Engineering
     url: https://dev.blues.io/support/
-  description: 'The OpenAPI definition for the Notehub.io API.
-
-    '
-  title: Notehub alert external devices API
+  description: The OpenAPI definition for the Notehub.io API.
+  title: Notehub external devices API
   version: 1.2.0
 servers:
 - description: Production server
@@ -42,6 +40,8 @@ paths:
       x-custom-attributes:
         permission: create
         resource: blues:resources:app:APPSERIAL:notes
+      summary: Create event ext device
+      x-summary-source: derived
   /v1/products/{productUID}/ext-devices/{deviceUID}/session/close:
     post:
       operationId: ExtDeviceSessionClose
@@ -68,10 +68,12 @@ paths:
       x-custom-attributes:
         permission: create
         resource: blues:resources:app:APPSERIAL:notes
+      summary: Ext device session close
+      x-summary-source: derived
   /v1/products/{productUID}/ext-devices/{deviceUID}/session/open:
     post:
       operationId: ExtDeviceSessionOpen
-      description: Create a Session for the specified device.  | If a session is currently open it will be closed and a new one opened.
+      description: Create a Session for the specified device. | If a session is currently open it will be closed and a new one opened.
       parameters:
       - $ref: '#/components/parameters/productUIDParam'
       - $ref: '#/components/parameters/deviceUIDParam'
@@ -94,7 +96,24 @@ paths:
       x-custom-attributes:
         permission: create
         resource: blues:resources:app:APPSERIAL:notes
+      summary: Ext device session open
+      x-summary-source: derived
 components:
+  parameters:
+    deviceUIDParam:
+      example: dev:000000000000000
+      in: path
+      name: deviceUID
+      required: true
+      schema:
+        type: string
+    productUIDParam:
+      example: com.blues.bridge:sensors
+      in: path
+      name: productUID
+      required: true
+      schema:
+        type: string
   schemas:
     TowerLocation:
       type: object
@@ -144,6 +163,231 @@ components:
         zone:
           description: Timezone name
           type: string
+    DeviceUsage:
+      type: object
+      properties:
+        bytes_rcvd:
+          type: integer
+          format: int64
+        bytes_rcvd_secondary:
+          type: integer
+          format: int64
+        bytes_sent:
+          type: integer
+          format: int64
+        bytes_sent_secondary:
+          type: integer
+          format: int64
+        duration:
+          description: Duration in seconds
+          type: integer
+          format: int64
+        notes_rcvd:
+          type: integer
+          format: int64
+        notes_sent:
+          type: integer
+          format: int64
+        sessions_tcp:
+          type: integer
+          format: int64
+        sessions_tls:
+          type: integer
+          format: int64
+        since:
+          description: Unix timestamp
+          type: integer
+          format: int64
+    DeviceSession:
+      type: object
+      properties:
+        apn:
+          type: string
+        bars:
+          type: integer
+          format: int
+        bearer:
+          type: string
+        bssid:
+          type: string
+        cell:
+          description: Cell ID where the session originated and quality ("mcc,mnc,lac,cellid")
+          type: string
+        continuous:
+          description: Was this a continuous connection?
+          type: boolean
+        device:
+          description: Device UID
+          type: string
+        events:
+          description: Number of events routed
+          type: integer
+          format: int64
+        failed_connects:
+          description: Number of failed connection attempts in the prior session
+          type: integer
+          format: int64
+        fleets:
+          description: Array of Fleet UIDs
+          type: array
+          items:
+            type: string
+        hp_cycles_data:
+          type: integer
+          format: int64
+        hp_cycles_gps:
+          type: integer
+          format: int64
+        hp_cycles_total:
+          type: integer
+          format: int64
+        hp_secs_data:
+          type: integer
+          format: int64
+        hp_secs_gps:
+          type: integer
+          format: int64
+        hp_secs_total:
+          description: Total number of seconds in high power mode
+          type: integer
+          format: int64
+        iccid:
+          type: string
+        ip:
+          type: string
+        moved:
+          type: integer
+          format: int64
+        orientation:
+          type: string
+        penalty_secs:
+          description: Number of seconds in penalty in the prior session
+          type: integer
+          format: int64
+        period:
+          $ref: '#/components/schemas/DeviceUsage'
+        power_charging:
+          type: boolean
+        power_mah:
+          type: number
+          format: double
+        power_primary:
+          type: boolean
+        power_usb:
+          type: boolean
+        product:
+          description: Product UID
+          type: string
+        rat:
+          type: string
+        rsrp:
+          type: integer
+          format: int
+        rsrq:
+          type: integer
+          format: int
+        rssi:
+          type: integer
+          format: int
+        scan:
+          type: string
+          format: byte
+        session:
+          description: Session UID
+          type: string
+        session_began:
+          description: UNIX timestamp of session start
+          type: integer
+          format: int64
+        session_ended:
+          description: UNIX timestamp of session end
+          type: integer
+          format: int64
+        sinr:
+          type: integer
+          format: int
+        sn:
+          description: Device Serial Number
+          type: string
+        ssid:
+          type: string
+        temp:
+          type: number
+          format: double
+        tls:
+          description: Was TLS used?
+          type: boolean
+        tower:
+          $ref: '#/components/schemas/TowerLocation'
+        transport:
+          description: Type of network transport
+          type: string
+        tri:
+          $ref: '#/components/schemas/TowerLocation'
+        triangulate:
+          type: object
+        usage_actual:
+          type: boolean
+        voltage:
+          type: number
+          format: double
+        when:
+          description: Last known capture time of a note routed through this session in Unix timestamp
+          type: integer
+          format: int64
+        where:
+          description: Open Location Code from last GPS location
+          type: string
+        where_country:
+          type: string
+        where_lat:
+          type: number
+          format: double
+        where_location:
+          type: string
+        where_lon:
+          type: number
+          format: double
+        where_timezone:
+          type: string
+        where_when:
+          description: Unix timestamp of last GPS location
+          type: integer
+          format: int64
+        why_session_closed:
+          description: Reason for session closing
+          type: string
+        why_session_opened:
+          description: Reason for session opening
+          type: string
+        work:
+          description: Unix timestamp of the last time work was done for this session
+          type: integer
+          format: int64
+    Error:
+      type: object
+      properties:
+        code:
+          description: The HTTP error code associated with the error.
+          type: integer
+          maximum: 599
+          minimum: 300
+        debug:
+          type: string
+        details:
+          type: object
+        err:
+          description: Human readable error message.
+          type: string
+        request:
+          type: string
+        status:
+          description: Machine readable representation of the HTTP error code.
+          type: string
+      required:
+      - err
+      - code
+      - status
     Event:
       type: object
       properties:
@@ -337,231 +581,6 @@ components:
         where_when:
           description: Unix timestamp
           type: number
-    DeviceSession:
-      type: object
-      properties:
-        apn:
-          type: string
-        bars:
-          type: integer
-          format: int
-        bearer:
-          type: string
-        bssid:
-          type: string
-        cell:
-          description: Cell ID where the session originated and quality ("mcc,mnc,lac,cellid")
-          type: string
-        continuous:
-          description: Was this a continuous connection?
-          type: boolean
-        device:
-          description: Device UID
-          type: string
-        events:
-          description: Number of events routed
-          type: integer
-          format: int64
-        failed_connects:
-          description: Number of failed connection attempts in the prior session
-          type: integer
-          format: int64
-        fleets:
-          description: Array of Fleet UIDs
-          type: array
-          items:
-            type: string
-        hp_cycles_data:
-          type: integer
-          format: int64
-        hp_cycles_gps:
-          type: integer
-          format: int64
-        hp_cycles_total:
-          type: integer
-          format: int64
-        hp_secs_data:
-          type: integer
-          format: int64
-        hp_secs_gps:
-          type: integer
-          format: int64
-        hp_secs_total:
-          description: Total number of seconds in high power mode
-          type: integer
-          format: int64
-        iccid:
-          type: string
-        ip:
-          type: string
-        moved:
-          type: integer
-          format: int64
-        orientation:
-          type: string
-        penalty_secs:
-          description: Number of seconds in penalty in the prior session
-          type: integer
-          format: int64
-        period:
-          $ref: '#/components/schemas/DeviceUsage'
-        power_charging:
-          type: boolean
-        power_mah:
-          type: number
-          format: double
-        power_primary:
-          type: boolean
-        power_usb:
-          type: boolean
-        product:
-          description: Product UID
-          type: string
-        rat:
-          type: string
-        rsrp:
-          type: integer
-          format: int
-        rsrq:
-          type: integer
-          format: int
-        rssi:
-          type: integer
-          format: int
-        scan:
-          type: string
-          format: byte
-        session:
-          description: Session UID
-          type: string
-        session_began:
-          description: UNIX timestamp of session start
-          type: integer
-          format: int64
-        session_ended:
-          description: UNIX timestamp of session end
-          type: integer
-          format: int64
-        sinr:
-          type: integer
-          format: int
-        sn:
-          description: Device Serial Number
-          type: string
-        ssid:
-          type: string
-        temp:
-          type: number
-          format: double
-        tls:
-          description: Was TLS used?
-          type: boolean
-        tower:
-          $ref: '#/components/schemas/TowerLocation'
-        transport:
-          description: Type of network transport
-          type: string
-        tri:
-          $ref: '#/components/schemas/TowerLocation'
-        triangulate:
-          type: object
-        usage_actual:
-          type: boolean
-        voltage:
-          type: number
-          format: double
-        when:
-          description: Last known capture time of a note routed through this session in Unix timestamp
-          type: integer
-          format: int64
-        where:
-          description: Open Location Code from last GPS location
-          type: string
-        where_country:
-          type: string
-        where_lat:
-          type: number
-          format: double
-        where_location:
-          type: string
-        where_lon:
-          type: number
-          format: double
-        where_timezone:
-          type: string
-        where_when:
-          description: Unix timestamp of last GPS location
-          type: integer
-          format: int64
-        why_session_closed:
-          description: Reason for session closing
-          type: string
-        why_session_opened:
-          description: Reason for session opening
-          type: string
-        work:
-          description: Unix timestamp of the last time work was done for this session
-          type: integer
-          format: int64
-    DeviceUsage:
-      type: object
-      properties:
-        bytes_rcvd:
-          type: integer
-          format: int64
-        bytes_rcvd_secondary:
-          type: integer
-          format: int64
-        bytes_sent:
-          type: integer
-          format: int64
-        bytes_sent_secondary:
-          type: integer
-          format: int64
-        duration:
-          description: Duration in seconds
-          type: integer
-          format: int64
-        notes_rcvd:
-          type: integer
-          format: int64
-        notes_sent:
-          type: integer
-          format: int64
-        sessions_tcp:
-          type: integer
-          format: int64
-        sessions_tls:
-          type: integer
-          format: int64
-        since:
-          description: Unix timestamp
-          type: integer
-          format: int64
-    Error:
-      type: object
-      properties:
-        code:
-          description: The HTTP error code associated with the error.
-          type: integer
-          maximum: 599
-          minimum: 300
-        debug:
-          type: string
-        details:
-          type: object
-        err:
-          description: Human readable error message.
-          type: string
-        request:
-          type: string
-        status:
-          description: Machine readable representation of the HTTP error code.
-          type: string
-      required:
-      - err
-      - code
-      - status
   responses:
     ErrorResponse:
       description: The response body in case of an API error.
@@ -571,21 +590,6 @@ components:
             type: ''
             properties: {}
             $ref: '#/components/schemas/Error'
-  parameters:
-    productUIDParam:
-      example: com.blues.bridge:sensors
-      in: path
-      name: productUID
-      required: true
-      schema:
-        type: string
-    deviceUIDParam:
-      example: dev:000000000000000
-      in: path
-      name: deviceUID
-      required: true
-      schema:
-        type: string
   securitySchemes:
     personalAccessToken:
       description: 'Use a personal access token from notehub.io/api-access
