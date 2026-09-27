@@ -239,215 +239,7 @@ paths:
       summary: Get sessions usage
       x-summary-source: derived
 components:
-  parameters:
-    projectOrProductUIDParam:
-      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
-      in: path
-      name: projectOrProductUID
-      required: true
-      schema:
-        type: string
-    routeUIDParamQuery:
-      description: A Route UID.
-      explode: true
-      in: query
-      name: routeUID
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-    fleetUIDFilterQueryParam:
-      description: Filter by Fleet UID
-      explode: true
-      in: query
-      name: fleetUID
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-    endDateParam:
-      description: End date for filtering results, specified as a Unix timestamp
-      example: 1657894210
-      in: query
-      name: endDate
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-    usageLimitQueryParam:
-      description: Limit the number of data points returned
-      in: query
-      name: limit
-      required: false
-      schema:
-        type: integer
-        default: 200000
-        maximum: 400000
-        minimum: 1
-    startDateParam:
-      description: Start date for filtering results, specified as a Unix timestamp
-      example: 1628631763
-      in: query
-      name: startDate
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-    deviceUIDParamQuery:
-      description: A Device UID.
-      explode: true
-      in: query
-      name: deviceUID
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-  responses:
-    UsageSessionsResponse:
-      description: Response body for Session Usage
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              sessions:
-                type: array
-                items:
-                  $ref: '#/components/schemas/UsageSessionsData'
-              truncated:
-                $ref: '#/components/schemas/UsageTruncatedField'
-            required:
-            - sessions
-            - truncated
-    UsageRouteLogsResponse:
-      description: Response body for Route Log Usage
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              route_logs:
-                type: array
-                items:
-                  $ref: '#/components/schemas/UsageRouteLogsData'
-              truncated:
-                $ref: '#/components/schemas/UsageTruncatedField'
-            required:
-            - route_logs
-    ErrorResponse:
-      description: The response body in case of an API error.
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/Error'
-    UsageDataResponse:
-      description: Response body for Data Usage
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              data:
-                type: array
-                items:
-                  properties:
-                    data:
-                      type: array
-                      items:
-                        $ref: '#/components/schemas/UsageData'
-                    device:
-                      description: The device UID this usage data belongs to (only present when aggregate is 'device')
-                      type: string
-                      example: dev:123456789012345
-                    device_count:
-                      description: the number of devices represented by this data point
-                      type: integer
-                    fleet:
-                      description: The fleet UID this usage data belongs to (only present when aggregate is 'fleet')
-                      type: string
-                      example: fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d
-                    iccid:
-                      description: The ICCID of the cellular SIM card (only present when type is 'cellular')
-                      type: string
-                      example: '12345678901234567890'
-                    psid:
-                      description: The PSID (Packet Service ID) of the satellite (or other packet-based device)
-                      type: string
-                      example: skylo:5746354465786
-                    type:
-                      description: The type of connectivity
-                      type: string
-                      enum:
-                      - cellular
-                      - satellite
-                  required:
-                  - type
-                  - data
-                  type: object
-              truncated:
-                $ref: '#/components/schemas/UsageTruncatedField'
   schemas:
-    UsageSessionsData:
-      type: object
-      properties:
-        device:
-          type: string
-          example: dev:123456789012345
-        first_sync_sessions:
-          description: Number of first sync sessions in this period
-          type: integer
-          format: int64
-          example: 2
-        fleet:
-          type: string
-          example: fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d
-        period:
-          type: string
-          format: date-time
-          example: '2025-07-23T00:00:00Z'
-        sessions:
-          type: integer
-          format: int64
-          example: 12
-        sessions_by_transport:
-          description: Count of sessions grouped by transport type prefix (e.g. cell, wifi, ntn, lorawan)
-          type: object
-          example:
-            cell: 8
-            ntn: 1
-            wifi: 3
-          additionalProperties:
-            format: int64
-            type: integer
-        tls_sessions:
-          description: Number of TLS sessions in this period
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 3
-        total_bytes:
-          type: integer
-          format: int64
-          example: 1048576
-        total_devices:
-          type: integer
-          format: int64
-          example: 1
-      required:
-      - period
-      - sessions
-      - first_sync_sessions
-      - total_bytes
-      - total_devices
     Error:
       type: object
       properties:
@@ -518,6 +310,59 @@ components:
       description: If the data is truncated that means that the parameters selected resulted in a response of over | the requested limit of data points, in order to ensure
       type: boolean
       properties: {}
+    UsageSessionsData:
+      type: object
+      properties:
+        device:
+          type: string
+          example: dev:123456789012345
+        first_sync_sessions:
+          description: Number of first sync sessions in this period
+          type: integer
+          format: int64
+          example: 2
+        fleet:
+          type: string
+          example: fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d
+        period:
+          type: string
+          format: date-time
+          example: '2025-07-23T00:00:00Z'
+        sessions:
+          type: integer
+          format: int64
+          example: 12
+        sessions_by_transport:
+          description: Count of sessions grouped by transport type prefix (e.g. cell, wifi, ntn, lorawan)
+          type: object
+          example:
+            cell: 8
+            ntn: 1
+            wifi: 3
+          additionalProperties:
+            format: int64
+            type: integer
+        tls_sessions:
+          description: Number of TLS sessions in this period
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 3
+        total_bytes:
+          type: integer
+          format: int64
+          example: 1048576
+        total_devices:
+          type: integer
+          format: int64
+          example: 1
+      required:
+      - period
+      - sessions
+      - first_sync_sessions
+      - total_bytes
+      - total_devices
     UsageEventsResponse:
       type: object
       properties:
@@ -635,6 +480,161 @@ components:
       - successful_routes
       - failed_routes
       - total_routes
+  responses:
+    UsageSessionsResponse:
+      description: Response body for Session Usage
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              sessions:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UsageSessionsData'
+              truncated:
+                $ref: '#/components/schemas/UsageTruncatedField'
+            required:
+            - sessions
+            - truncated
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
+    UsageDataResponse:
+      description: Response body for Data Usage
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  properties:
+                    data:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/UsageData'
+                    device:
+                      description: The device UID this usage data belongs to (only present when aggregate is 'device')
+                      type: string
+                      example: dev:123456789012345
+                    device_count:
+                      description: the number of devices represented by this data point
+                      type: integer
+                    fleet:
+                      description: The fleet UID this usage data belongs to (only present when aggregate is 'fleet')
+                      type: string
+                      example: fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d
+                    iccid:
+                      description: The ICCID of the cellular SIM card (only present when type is 'cellular')
+                      type: string
+                      example: '12345678901234567890'
+                    psid:
+                      description: The PSID (Packet Service ID) of the satellite (or other packet-based device)
+                      type: string
+                      example: skylo:5746354465786
+                    type:
+                      description: The type of connectivity
+                      type: string
+                      enum:
+                      - cellular
+                      - satellite
+                  required:
+                  - type
+                  - data
+                  type: object
+              truncated:
+                $ref: '#/components/schemas/UsageTruncatedField'
+    UsageRouteLogsResponse:
+      description: Response body for Route Log Usage
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              route_logs:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UsageRouteLogsData'
+              truncated:
+                $ref: '#/components/schemas/UsageTruncatedField'
+            required:
+            - route_logs
+  parameters:
+    routeUIDParamQuery:
+      description: A Route UID.
+      explode: true
+      in: query
+      name: routeUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    deviceUIDParamQuery:
+      description: A Device UID.
+      explode: true
+      in: query
+      name: deviceUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    projectOrProductUIDParam:
+      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
+      in: path
+      name: projectOrProductUID
+      required: true
+      schema:
+        type: string
+    endDateParam:
+      description: End date for filtering results, specified as a Unix timestamp
+      example: 1657894210
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    usageLimitQueryParam:
+      description: Limit the number of data points returned
+      in: query
+      name: limit
+      required: false
+      schema:
+        type: integer
+        default: 200000
+        maximum: 400000
+        minimum: 1
+    startDateParam:
+      description: Start date for filtering results, specified as a Unix timestamp
+      example: 1628631763
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    fleetUIDFilterQueryParam:
+      description: Filter by Fleet UID
+      explode: true
+      in: query
+      name: fleetUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
   securitySchemes:
     personalAccessToken:
       description: 'Use a personal access token from notehub.io/api-access

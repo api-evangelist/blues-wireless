@@ -1330,38 +1330,58 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Fleet:
+    Error:
       type: object
       properties:
-        connectivity_assurance:
-          $ref: '#/components/schemas/FleetConnectivityAssurance'
-        created:
-          description: RFC3339 timestamp in UTC
+        code:
+          description: The HTTP error code associated with the error.
+          type: integer
+          maximum: 599
+          minimum: 300
+        debug:
           type: string
-          format: date-time
+        details:
+          type: object
+        err:
+          description: Human readable error message.
+          type: string
+        request:
+          type: string
+        status:
+          description: Machine readable representation of the HTTP error code.
+          type: string
+      required:
+      - err
+      - code
+      - status
+    Role:
+      type:
+      - string
+      - 'null'
+      properties: {}
+      enum:
+      - owner
+      - developer
+      - viewer
+      - support
+      - null
+    UpdateProjectSecretRequest:
+      type: object
+      properties:
+        value:
+          description: The new secret value (encrypted at rest, never returned).
+          type: string
+      required:
+      - value
+    EnvironmentVariables:
+      type: object
+      properties:
         environment_variables:
-          description: The environment variables for this device that have been set using the Notehub API or UI.
           type: object
           additionalProperties:
             type: string
-        label:
-          description: Fleet label
-          type: string
-        smart_rule:
-          $ref: '#/components/schemas/FleetRule'
-        smart_rule_enabled:
-          type: boolean
-        uid:
-          description: Fleet UID
-          type: string
-        watchdog_mins:
-          description: A watchdog timer is used to generate an event every N minutes of inactivity. 0 means no watchdog
-          type: integer
-          format: int64
       required:
-      - uid
-      - label
-      - created
+      - environment_variables
     Project:
       type: object
       properties:
@@ -1382,67 +1402,52 @@ components:
       - uid
       - label
       - created
-    DeviceDfuStateMachine:
-      description: Represents a single request to update the host or Notecard firmware
+    UpdateHostFirmwareRequest:
+      description: 'Request body for updating host firmware metadata. All fields are optional; only provided fields will be updated.
+
+        '
       type: object
       properties:
-        current_version:
-          description: Version of the firmware that was installed prior to this request
+        info:
+          description: Arbitrary JSON metadata associated with this firmware entry.
+          type: object
+          additionalProperties: true
+        notes:
+          description: Notes describing this firmware version.
           type: string
-        initiated:
-          description: RFC3339 datetime of when this update was requested
+        version:
+          description: The firmware version string.
           type: string
-        requested_version:
-          description: Version of the firmware that was requested to be installed
-          type: string
-        updates:
+    SchemaProperty:
+      type: object
+      properties:
+        items:
+          description: Used if type is array
           type: array
           items:
-            $ref: '#/components/schemas/DeviceDfuStateMachineNode'
-    ProjectMember:
-      type: object
-      properties:
-        email:
-          description: 'The email address of the project member.
-
-            This property will only be populated if the viewer is an owner of the project.
-
-            '
-          type: string
+            $ref: '#/components/schemas/SchemaProperty'
         name:
+          description: Name of the field (optional for array/object children)
           type: string
-        role:
-          $ref: '#/components/schemas/Role'
-      required:
-      - name
-      - email
-      - role
-    DeviceDfuHistoryPage:
-      type: object
-      properties:
-        devices:
+        properties:
+          description: Used if type is object
           type: array
           items:
-            $ref: '#/components/schemas/DeviceDfuHistory'
-        has_more:
-          type: boolean
-          default: false
-    DeviceDfuStateMachineNode:
-      description: Represents a single request to update the host or Notecard firmware
-      type: object
-      properties:
-        datetime:
-          description: RFC3339 compatible datetime of when this status update happened
+            $ref: '#/components/schemas/SchemaProperty'
+        type:
           type: string
-        description:
-          description: Additional information
+          enum:
+          - string
+          - number
+          - boolean
+          - array
+          - object
+        updated_at:
           type: string
-        phase:
-          description: Phase for this step in the firmware update process
-          type: string
-        status:
-          description: Status for this step in the firmware update process
-          type: string
+          format: date-time
+      required:
+      - type
+      - updatedAt
     EnvTreeJsonNode:
       type: object
       properties:
@@ -1479,87 +1484,19 @@ components:
       - type
       - variables
       - children
-    NotefileSchema:
+    AWSRoleConfig:
+      description: Configuration needed to set up an IAM role trust policy for role-based authentication on AWS routes
       type: object
       properties:
-        notefile:
+        aws_account_id:
+          description: The Blues AWS Account ID to trust in your IAM role's trust policy
           type: string
-        properties:
-          type: array
-          items:
-            $ref: '#/components/schemas/SchemaProperty'
-      required:
-      - notefile
-      - properties
-    CreateProjectSecretRequest:
-      type: object
-      properties:
-        name:
-          description: The secret name (alphanumeric and underscores only).
-          type: string
-        value:
-          description: The secret value (encrypted at rest, never returned after creation).
+        external_id:
+          description: The External ID to use in your IAM role's trust policy condition
           type: string
       required:
-      - name
-      - value
-    DeviceDfuHistory:
-      type: object
-      properties:
-        current:
-          description: Description of the current firmware
-          type: object
-          properties:
-            builder:
-              description: Firmware author
-              type: string
-            built:
-              description: Firmware build date
-              type: string
-            description:
-              description: Firmware description
-              type: string
-            organization:
-              description: Firmware organization
-              type: string
-            product:
-              description: Firmware product
-              type: string
-            version:
-              description: Firmware version
-              type: string
-        device_uid:
-          description: Device UID
-          type: string
-        history:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceDfuStateMachine'
-    Product:
-      type: object
-      properties:
-        auto_provision_fleets:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        disable_devices_by_default:
-          type: boolean
-        label:
-          type: string
-        uid:
-          type: string
-      required:
-      - uid
-      - label
-      - disable_devices_by_default
-    DfuActionRequest:
-      type: object
-      properties:
-        filename:
-          description: The name of the firmware file
-          type: string
+      - aws_account_id
+      - external_id
     DeviceDfuStatus:
       type: object
       properties:
@@ -1593,39 +1530,92 @@ components:
           type: boolean
         status:
           $ref: '#/components/schemas/DeviceDfuStateMachine'
-    GetProjectSecretsResponse:
+    ProjectSecret:
+      description: Metadata for a project secret. The value is never returned.
       type: object
       properties:
-        secrets:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectSecret'
+        created:
+          description: When the secret was first created.
+          type: string
+          format: date-time
+        created_by:
+          description: The actor who created the secret.
+          type: string
+        modified:
+          description: When the secret was last updated.
+          type: string
+          format: date-time
+        modified_by:
+          description: The actor who last updated the secret.
+          type: string
+        name:
+          description: The secret name (alphanumeric and underscores only).
+          type: string
       required:
-      - secrets
-    UpdateHostFirmwareRequest:
-      description: 'Request body for updating host firmware metadata. All fields are optional; only provided fields will be updated.
-
-        '
+      - name
+      - created
+      - created_by
+    EnvVar:
       type: object
       properties:
-        info:
-          description: Arbitrary JSON metadata associated with this firmware entry.
-          type: object
-          additionalProperties: true
-        notes:
-          description: Notes describing this firmware version.
+        key:
           type: string
-        version:
-          description: The firmware version string.
-          type: string
-    UpdateProjectSecretRequest:
-      type: object
-      properties:
+        precedence:
+          type: integer
+        used:
+          type: boolean
         value:
-          description: The new secret value (encrypted at rest, never returned).
           type: string
+    Fleet:
+      type: object
+      properties:
+        connectivity_assurance:
+          $ref: '#/components/schemas/FleetConnectivityAssurance'
+        created:
+          description: RFC3339 timestamp in UTC
+          type: string
+          format: date-time
+        environment_variables:
+          description: The environment variables for this device that have been set using the Notehub API or UI.
+          type: object
+          additionalProperties:
+            type: string
+        label:
+          description: Fleet label
+          type: string
+        smart_rule:
+          $ref: '#/components/schemas/FleetRule'
+        smart_rule_enabled:
+          type: boolean
+        uid:
+          description: Fleet UID
+          type: string
+        watchdog_mins:
+          description: A watchdog timer is used to generate an event every N minutes of inactivity. 0 means no watchdog
+          type: integer
+          format: int64
       required:
-      - value
+      - uid
+      - label
+      - created
+    FleetConnectivityAssurance:
+      type:
+      - object
+      - 'null'
+      properties:
+        enabled:
+          description: Whether Connectivity Assurance is enabled for this fleet
+          type:
+          - boolean
+          - 'null'
+      example:
+        enabled: true
+    DfuActionRequest:
+      type: object
+      properties:
+        filename:
+          description: The name of the firmware file
+          type: string
     FirmwareInfo:
       type: object
       properties:
@@ -1671,63 +1661,76 @@ components:
         version:
           description: The version of the firmware.
           type: string
-    FleetRule:
-      description: JSONata expression that will be evaluated to determine device membership into this fleet, if the expression evaluates to a 1, the device will be included, if it evaluates to -1 it will be removed, and if it evaluates to 0 or errors it will be left unchanged.
-      type: string
-      properties: {}
-    SchemaProperty:
+    NotefileSchema:
       type: object
       properties:
-        items:
-          description: Used if type is array
-          type: array
-          items:
-            $ref: '#/components/schemas/SchemaProperty'
-        name:
-          description: Name of the field (optional for array/object children)
+        notefile:
           type: string
         properties:
-          description: Used if type is object
           type: array
           items:
             $ref: '#/components/schemas/SchemaProperty'
-        type:
-          type: string
-          enum:
-          - string
-          - number
-          - boolean
-          - array
-          - object
-        updated_at:
-          type: string
-          format: date-time
       required:
-      - type
-      - updatedAt
-    FleetConnectivityAssurance:
-      type:
-      - object
-      - 'null'
-      properties:
-        enabled:
-          description: Whether Connectivity Assurance is enabled for this fleet
-          type:
-          - boolean
-          - 'null'
-      example:
-        enabled: true
-    EnvVar:
+      - notefile
+      - properties
+    DeviceDfuHistory:
       type: object
       properties:
-        key:
+        current:
+          description: Description of the current firmware
+          type: object
+          properties:
+            builder:
+              description: Firmware author
+              type: string
+            built:
+              description: Firmware build date
+              type: string
+            description:
+              description: Firmware description
+              type: string
+            organization:
+              description: Firmware organization
+              type: string
+            product:
+              description: Firmware product
+              type: string
+            version:
+              description: Firmware version
+              type: string
+        device_uid:
+          description: Device UID
           type: string
-        precedence:
-          type: integer
-        used:
-          type: boolean
-        value:
+        history:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceDfuStateMachine'
+    DeviceDfuStateMachine:
+      description: Represents a single request to update the host or Notecard firmware
+      type: object
+      properties:
+        current_version:
+          description: Version of the firmware that was installed prior to this request
           type: string
+        initiated:
+          description: RFC3339 datetime of when this update was requested
+          type: string
+        requested_version:
+          description: Version of the firmware that was requested to be installed
+          type: string
+        updates:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceDfuStateMachineNode'
+    GetProjectSecretsResponse:
+      type: object
+      properties:
+        secrets:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectSecret'
+      required:
+      - secrets
     DeviceDfuStatusPage:
       type: object
       properties:
@@ -1738,19 +1741,44 @@ components:
         has_more:
           type: boolean
           default: false
-    AWSRoleConfig:
-      description: Configuration needed to set up an IAM role trust policy for role-based authentication on AWS routes
+    ProjectMember:
       type: object
       properties:
-        aws_account_id:
-          description: The Blues AWS Account ID to trust in your IAM role's trust policy
+        email:
+          description: 'The email address of the project member.
+
+            This property will only be populated if the viewer is an owner of the project.
+
+            '
           type: string
-        external_id:
-          description: The External ID to use in your IAM role's trust policy condition
+        name:
           type: string
+        role:
+          $ref: '#/components/schemas/Role'
       required:
-      - aws_account_id
-      - external_id
+      - name
+      - email
+      - role
+    FleetRule:
+      description: JSONata expression that will be evaluated to determine device membership into this fleet, if the expression evaluates to a 1, the device will be included, if it evaluates to -1 it will be removed, and if it evaluates to 0 or errors it will be left unchanged.
+      type: string
+      properties: {}
+    DeviceDfuStateMachineNode:
+      description: Represents a single request to update the host or Notecard firmware
+      type: object
+      properties:
+        datetime:
+          description: RFC3339 compatible datetime of when this status update happened
+          type: string
+        description:
+          description: Additional information
+          type: string
+        phase:
+          description: Phase for this step in the firmware update process
+          type: string
+        status:
+          description: Status for this step in the firmware update process
+          type: string
     Contact:
       type:
       - object
@@ -1764,75 +1792,47 @@ components:
           type: string
         role:
           type: string
-    Error:
+    CreateProjectSecretRequest:
       type: object
       properties:
-        code:
-          description: The HTTP error code associated with the error.
-          type: integer
-          maximum: 599
-          minimum: 300
-        debug:
-          type: string
-        details:
-          type: object
-        err:
-          description: Human readable error message.
-          type: string
-        request:
-          type: string
-        status:
-          description: Machine readable representation of the HTTP error code.
-          type: string
-      required:
-      - err
-      - code
-      - status
-    Role:
-      type:
-      - string
-      - 'null'
-      properties: {}
-      enum:
-      - owner
-      - developer
-      - viewer
-      - support
-      - null
-    ProjectSecret:
-      description: Metadata for a project secret. The value is never returned.
-      type: object
-      properties:
-        created:
-          description: When the secret was first created.
-          type: string
-          format: date-time
-        created_by:
-          description: The actor who created the secret.
-          type: string
-        modified:
-          description: When the secret was last updated.
-          type: string
-          format: date-time
-        modified_by:
-          description: The actor who last updated the secret.
-          type: string
         name:
           description: The secret name (alphanumeric and underscores only).
           type: string
+        value:
+          description: The secret value (encrypted at rest, never returned after creation).
+          type: string
       required:
       - name
-      - created
-      - created_by
-    EnvironmentVariables:
+      - value
+    Product:
       type: object
       properties:
-        environment_variables:
-          type: object
-          additionalProperties:
+        auto_provision_fleets:
+          type:
+          - array
+          - 'null'
+          items:
             type: string
+        disable_devices_by_default:
+          type: boolean
+        label:
+          type: string
+        uid:
+          type: string
       required:
-      - environment_variables
+      - uid
+      - label
+      - disable_devices_by_default
+    DeviceDfuHistoryPage:
+      type: object
+      properties:
+        devices:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceDfuHistory'
+        has_more:
+          type: boolean
+          default: false
   parameters:
     productUIDParam:
       example: com.blues.bridge:sensors
@@ -1841,17 +1841,6 @@ components:
       required: true
       schema:
         type: string
-    notecardFirmwareParam:
-      description: Firmware version filter
-      explode: true
-      in: query
-      name: notecardFirmware
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
     deviceUIDParamQuery:
       description: A Device UID.
       explode: true
@@ -1863,41 +1852,12 @@ components:
         items:
           type: string
       style: form
-    dfuActionParam:
-      in: path
-      name: action
-      required: true
-      schema:
-        type: string
-        enum:
-        - update
-        - cancel
-    tagParam:
-      description: Tag filter
-      explode: true
+    unpublishedQueryParam:
       in: query
-      name: tag
+      name: unpublished
       required: false
       schema:
-        type: array
-        items:
-          type: string
-      style: form
-    pageSizeParam:
-      in: query
-      name: pageSize
-      required: false
-      schema:
-        type: integer
-        default: 50
-        maximum: 10000
-        minimum: 1
-    fleetUIDQueryParam:
-      in: query
-      name: fleetUID
-      required: false
-      schema:
-        type: string
+        type: boolean
     firmwareSortByParam:
       description: Field to sort by
       in: query
@@ -1911,75 +1871,40 @@ components:
         - name
         - version
         - length
-    firmwareTypeQueryParam:
-      in: query
-      name: firmwareType
-      required: false
-      schema:
-        type: string
     targetQueryParam:
       in: query
       name: target
       required: false
       schema:
         type: string
-    productUIDQueryParam:
-      explode: true
+    firmwareTypeQueryParam:
       in: query
-      name: productUID
+      name: firmwareType
       required: false
       schema:
-        type: array
-        items:
-          type: string
-      style: form
+        type: string
+    pageSizeParam:
+      in: query
+      name: pageSize
+      required: false
+      schema:
+        type: integer
+        default: 50
+        maximum: 10000
+        minimum: 1
     productQueryParam:
       in: query
       name: product
       required: false
       schema:
         type: string
-    pageNumParam:
+    filenameQueryParam:
+      example: notecard-7.2.2.16518$20240410043100.bin
       in: query
-      name: pageNum
-      required: false
-      schema:
-        type: integer
-        default: 1
-        minimum: 1
-    projectOrProductUIDParam:
-      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
-      in: path
-      name: projectOrProductUID
-      required: true
-      schema:
-        type: string
-    sortByParam:
-      in: query
-      name: sortBy
+      name: filename
       required: false
       schema:
         type: string
-        default: captured
-        enum:
-        - best_id
-        - device_serial
-        - device_uid
-        - captured
-        - modified
-        - device_location
-        - tower_location
-        - triangulated_location
-        - best_location
-    firmwareTypeParam:
-      in: path
-      name: firmwareType
-      required: true
-      schema:
-        type: string
-        enum:
-        - host
-        - notecard
     sortOrderParam:
       in: query
       name: sortOrder
@@ -2001,37 +1926,6 @@ components:
         enum:
         - asc
         - desc
-    deviceUIDParam:
-      example: dev:000000000000000
-      in: path
-      name: deviceUID
-      required: true
-      schema:
-        type: string
-    locationParam:
-      description: Location filter
-      explode: true
-      in: query
-      name: location
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-    filenameQueryParam:
-      example: notecard-7.2.2.16518$20240410043100.bin
-      in: query
-      name: filename
-      required: false
-      schema:
-        type: string
-    fleetUIDParam:
-      in: path
-      name: fleetUID
-      required: true
-      schema:
-        type: string
     hostFirmwareParam:
       description: Host firmware filter
       explode: true
@@ -2043,29 +1937,65 @@ components:
         items:
           type: string
       style: form
-    versionQueryParam:
-      in: query
-      name: version
-      required: false
-      schema:
-        type: string
-    serialNumberParam:
-      description: Serial number filter
+    tagParam:
+      description: Tag filter
       explode: true
       in: query
-      name: serialNumber
+      name: tag
       required: false
       schema:
         type: array
         items:
           type: string
       style: form
-    unpublishedQueryParam:
+    sortByParam:
       in: query
-      name: unpublished
+      name: sortBy
       required: false
       schema:
-        type: boolean
+        type: string
+        default: captured
+        enum:
+        - best_id
+        - device_serial
+        - device_uid
+        - captured
+        - modified
+        - device_location
+        - tower_location
+        - triangulated_location
+        - best_location
+    versionQueryParam:
+      in: query
+      name: version
+      required: false
+      schema:
+        type: string
+    firmwareTypeParam:
+      in: path
+      name: firmwareType
+      required: true
+      schema:
+        type: string
+        enum:
+        - host
+        - notecard
+    productUIDQueryParam:
+      explode: true
+      in: query
+      name: productUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    fleetUIDParam:
+      in: path
+      name: fleetUID
+      required: true
+      schema:
+        type: string
     md5QueryParam:
       in: query
       name: md5
@@ -2083,23 +2013,77 @@ components:
         items:
           type: string
       style: form
+    pageNumParam:
+      in: query
+      name: pageNum
+      required: false
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
+    deviceUIDParam:
+      example: dev:000000000000000
+      in: path
+      name: deviceUID
+      required: true
+      schema:
+        type: string
+    fleetUIDQueryParam:
+      in: query
+      name: fleetUID
+      required: false
+      schema:
+        type: string
+    projectOrProductUIDParam:
+      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
+      in: path
+      name: projectOrProductUID
+      required: true
+      schema:
+        type: string
+    dfuActionParam:
+      in: path
+      name: action
+      required: true
+      schema:
+        type: string
+        enum:
+        - update
+        - cancel
+    locationParam:
+      description: Location filter
+      explode: true
+      in: query
+      name: location
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    notecardFirmwareParam:
+      description: Firmware version filter
+      explode: true
+      in: query
+      name: notecardFirmware
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    serialNumberParam:
+      description: Serial number filter
+      explode: true
+      in: query
+      name: serialNumber
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
   responses:
-    GetProjectSecretsResponse:
-      description: The response body from a get project secrets request.
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/GetProjectSecretsResponse'
-    ErrorResponse:
-      description: The response body in case of an API error.
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/Error'
     EnvironmentVariablesResponse:
       description: The response body from an environment variables request.
       content:
@@ -2108,6 +2092,14 @@ components:
             type: ''
             properties: {}
             $ref: '#/components/schemas/EnvironmentVariables'
+    GetProjectSecretsResponse:
+      description: The response body from a get project secrets request.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/GetProjectSecretsResponse'
     FleetsResponse:
       description: The response body from a fleets endpoint.
       content:
@@ -2121,6 +2113,14 @@ components:
                   $ref: '#/components/schemas/Fleet'
             required:
             - fleets
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     personalAccessToken:
       description: 'Use a personal access token from notehub.io/api-access

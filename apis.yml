@@ -78,7 +78,7 @@ apis:
   - type: Documentation
     url: https://dev.blues.io/api-reference/notecard-api/introduction/
 - aid: blues-wireless:blues-wireless-alert-api
-  name: Blues alert API
+  name: Blues Alert API
   description: The alert API from Blues — 1 operation(s) for alert.
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
@@ -118,7 +118,7 @@ apis:
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-authorization-api
-  name: Blues authorization API
+  name: Blues Authorization API
   description: Authorization operations
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
@@ -158,7 +158,7 @@ apis:
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-billing-account-api
-  name: Blues billing_account API
+  name: Blues Billing Account API
   description: Billing Account operations
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
@@ -198,7 +198,7 @@ apis:
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-device-api
-  name: Blues device API
+  name: Blues Device API
   description: Device operations
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
@@ -238,7 +238,7 @@ apis:
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-event-api
-  name: Blues event API
+  name: Blues Event API
   description: Event retrieval operations
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
@@ -316,7 +316,7 @@ apis:
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-jobs-api
-  name: Blues jobs API
+  name: Blues Jobs API
   description: Batch job operations
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
@@ -356,7 +356,7 @@ apis:
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-monitor-api
-  name: Blues monitor API
+  name: Blues Monitor API
   description: The monitor API from Blues — 2 operation(s) for monitor.
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
@@ -396,7 +396,7 @@ apis:
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-organization-api
-  name: Blues organization API
+  name: Blues Organization API
   description: Organization operations
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
@@ -436,7 +436,7 @@ apis:
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-project-api
-  name: Blues project API
+  name: Blues Project API
   description: Project operations
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
@@ -476,7 +476,7 @@ apis:
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-route-api
-  name: Blues route API
+  name: Blues Route API
   description: Route operations
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
@@ -516,7 +516,7 @@ apis:
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-usage-api
-  name: Blues usage API
+  name: Blues Usage API
   description: Project Usage information related to events, route logs, sessions, and data usage
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net
@@ -556,7 +556,7 @@ apis:
   - type: PostmanCollection
     url: https://www.postman.com/blues-wireless
 - aid: blues-wireless:blues-wireless-webhook-api
-  name: Blues webhook API
+  name: Blues Webhook API
   description: Webhook APIs for non-notecard event ingestion
   humanURL: https://dev.blues.io/api-reference/notehub-api/api-introduction/
   baseURL: https://api.notefile.net

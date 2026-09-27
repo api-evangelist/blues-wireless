@@ -325,45 +325,6 @@ paths:
       summary: Update webhook
       x-summary-source: derived
 components:
-  parameters:
-    projectOrProductUIDParam:
-      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
-      in: path
-      name: projectOrProductUID
-      required: true
-      schema:
-        type: string
-    deviceUIDParam:
-      example: dev:000000000000000
-      in: path
-      name: deviceUID
-      required: true
-      schema:
-        type: string
-    productUIDParam:
-      example: com.blues.bridge:sensors
-      in: path
-      name: productUID
-      required: true
-      schema:
-        type: string
-    webhookUIDParam:
-      description: Webhook UID
-      in: path
-      name: webhookUID
-      required: true
-      schema:
-        type: string
-        example: Abc_123-2646f411-dc56-44a0-9743-4130f47a74h8
-  responses:
-    ErrorResponse:
-      description: The response body in case of an API error.
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/Error'
   schemas:
     Error:
       type: object
@@ -401,6 +362,45 @@ components:
         transform:
           description: Transformation to be applied to the event
           type: string
+  parameters:
+    productUIDParam:
+      example: com.blues.bridge:sensors
+      in: path
+      name: productUID
+      required: true
+      schema:
+        type: string
+    projectOrProductUIDParam:
+      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
+      in: path
+      name: projectOrProductUID
+      required: true
+      schema:
+        type: string
+    webhookUIDParam:
+      description: Webhook UID
+      in: path
+      name: webhookUID
+      required: true
+      schema:
+        type: string
+        example: Abc_123-2646f411-dc56-44a0-9743-4130f47a74h8
+    deviceUIDParam:
+      example: dev:000000000000000
+      in: path
+      name: deviceUID
+      required: true
+      schema:
+        type: string
+  responses:
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     personalAccessToken:
       description: 'Use a personal access token from notehub.io/api-access
