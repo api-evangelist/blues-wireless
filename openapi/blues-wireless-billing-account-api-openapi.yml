@@ -144,7 +144,46 @@ paths:
       summary: Get billing account balance history
       x-summary-source: derived
 components:
+  parameters:
+    startDateParam:
+      description: Start date for filtering results, specified as a Unix timestamp
+      example: 1628631763
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    endDateParam:
+      description: End date for filtering results, specified as a Unix timestamp
+      example: 1657894210
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    billingAccountUIDParam:
+      example: 00000000-0000-0000-000000000001
+      in: path
+      name: billingAccountUID
+      required: true
+      schema:
+        type: string
   schemas:
+    BillingAccount:
+      type: object
+      properties:
+        name:
+          type: string
+        role:
+          $ref: '#/components/schemas/BillingAccountRole'
+        uid:
+          type: string
+      required:
+      - uid
+      - name
+      - role
     Error:
       type: object
       properties:
@@ -169,19 +208,6 @@ components:
       - err
       - code
       - status
-    BillingAccount:
-      type: object
-      properties:
-        name:
-          type: string
-        role:
-          $ref: '#/components/schemas/BillingAccountRole'
-        uid:
-          type: string
-      required:
-      - uid
-      - name
-      - role
     BillingAccountRole:
       type: string
       properties: {}
@@ -199,32 +225,6 @@ components:
             type: ''
             properties: {}
             $ref: '#/components/schemas/Error'
-  parameters:
-    endDateParam:
-      description: End date for filtering results, specified as a Unix timestamp
-      example: 1657894210
-      in: query
-      name: endDate
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-    billingAccountUIDParam:
-      example: 00000000-0000-0000-000000000001
-      in: path
-      name: billingAccountUID
-      required: true
-      schema:
-        type: string
-    startDateParam:
-      description: Start date for filtering results, specified as a Unix timestamp
-      example: 1628631763
-      in: query
-      name: startDate
-      required: false
-      schema:
-        type: integer
-        minimum: 0
   securitySchemes:
     personalAccessToken:
       description: 'Use a personal access token from notehub.io/api-access

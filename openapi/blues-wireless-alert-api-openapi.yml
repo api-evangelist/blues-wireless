@@ -38,30 +38,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        code:
-          description: The HTTP error code associated with the error.
-          type: integer
-          maximum: 599
-          minimum: 300
-        debug:
-          type: string
-        details:
-          type: object
-        err:
-          description: Human readable error message.
-          type: string
-        request:
-          type: string
-        status:
-          description: Machine readable representation of the HTTP error code.
-          type: string
-      required:
-      - err
-      - code
-      - status
     Alert:
       type: object
       properties:
@@ -153,7 +129,38 @@ components:
         version:
           description: The version of the alert
           type: integer
+    Error:
+      type: object
+      properties:
+        code:
+          description: The HTTP error code associated with the error.
+          type: integer
+          maximum: 599
+          minimum: 300
+        debug:
+          type: string
+        details:
+          type: object
+        err:
+          description: Human readable error message.
+          type: string
+        request:
+          type: string
+        status:
+          description: Machine readable representation of the HTTP error code.
+          type: string
+      required:
+      - err
+      - code
+      - status
   parameters:
+    projectOrProductUIDParam:
+      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
+      in: path
+      name: projectOrProductUID
+      required: true
+      schema:
+        type: string
     monitorUIDQueryParam:
       explode: true
       in: query
@@ -162,13 +169,14 @@ components:
       schema:
         type: string
       style: form
-    projectOrProductUIDParam:
-      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
-      in: path
-      name: projectOrProductUID
-      required: true
+    pageNumParam:
+      in: query
+      name: pageNum
+      required: false
       schema:
-        type: string
+        type: integer
+        default: 1
+        minimum: 1
     pageSizeParam:
       in: query
       name: pageSize
@@ -177,14 +185,6 @@ components:
         type: integer
         default: 50
         maximum: 10000
-        minimum: 1
-    pageNumParam:
-      in: query
-      name: pageNum
-      required: false
-      schema:
-        type: integer
-        default: 1
         minimum: 1
   responses:
     ErrorResponse:

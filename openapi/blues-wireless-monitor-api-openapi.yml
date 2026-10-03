@@ -145,81 +145,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        code:
-          description: The HTTP error code associated with the error.
-          type: integer
-          maximum: 599
-          minimum: 300
-        debug:
-          type: string
-        details:
-          type: object
-        err:
-          description: Human readable error message.
-          type: string
-        request:
-          type: string
-        status:
-          description: Machine readable representation of the HTTP error code.
-          type: string
-      required:
-      - err
-      - code
-      - status
-    CreateMonitor:
-      type: ''
-      properties: {}
-      allOf:
-      - $ref: '#/components/schemas/Monitor'
-      - required:
-        - name
-        - description
-        - alert_routes
-        - source_type
-        - threshold
-    SlackWebHookNotification:
-      type: object
-      properties:
-        message_type:
-          description: text or blocks
-          type: string
-          enum:
-          - text
-          - blocks
-        text:
-          description: The text of the message, or the blocks definition
-          type: string
-        url:
-          description: The URL of the Slack webhook.
-          type: string
-    EmailNotification:
-      type: object
-      properties:
-        email:
-          description: Email Address
-          type: string
-          example: example@blues.com
-    SlackBearerNotification:
-      type: object
-      properties:
-        channel:
-          description: The channel to send the message to.
-          type: string
-        message_type:
-          description: text or blocks
-          type: string
-          enum:
-          - text
-          - blocks
-        text:
-          description: The text of the message, or the blocks definition
-          type: string
-        token:
-          description: The bearer token for the Slack app.
-          type: string
     Monitor:
       type: object
       properties:
@@ -312,26 +237,81 @@ components:
           description: 'For usage monitors: the rolling time window in days to sum usage over (e.g. 30 for 30 days).'
           type: integer
           format: int32
-  responses:
-    MonitorsResponse:
-      description: The response body from GET /monitors
-      content:
-        application/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Monitor'
-            properties: {}
-            required:
-            - monitors
-    ErrorResponse:
-      description: The response body in case of an API error.
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/Error'
+    Error:
+      type: object
+      properties:
+        code:
+          description: The HTTP error code associated with the error.
+          type: integer
+          maximum: 599
+          minimum: 300
+        debug:
+          type: string
+        details:
+          type: object
+        err:
+          description: Human readable error message.
+          type: string
+        request:
+          type: string
+        status:
+          description: Machine readable representation of the HTTP error code.
+          type: string
+      required:
+      - err
+      - code
+      - status
+    SlackWebHookNotification:
+      type: object
+      properties:
+        message_type:
+          description: text or blocks
+          type: string
+          enum:
+          - text
+          - blocks
+        text:
+          description: The text of the message, or the blocks definition
+          type: string
+        url:
+          description: The URL of the Slack webhook.
+          type: string
+    CreateMonitor:
+      type: ''
+      properties: {}
+      allOf:
+      - $ref: '#/components/schemas/Monitor'
+      - required:
+        - name
+        - description
+        - alert_routes
+        - source_type
+        - threshold
+    SlackBearerNotification:
+      type: object
+      properties:
+        channel:
+          description: The channel to send the message to.
+          type: string
+        message_type:
+          description: text or blocks
+          type: string
+          enum:
+          - text
+          - blocks
+        text:
+          description: The text of the message, or the blocks definition
+          type: string
+        token:
+          description: The bearer token for the Slack app.
+          type: string
+    EmailNotification:
+      type: object
+      properties:
+        email:
+          description: Email Address
+          type: string
+          example: example@blues.com
   parameters:
     projectOrProductUIDParam:
       example: app:2606f411-dea6-44a0-9743-1130f57d77d8
@@ -347,6 +327,26 @@ components:
       required: true
       schema:
         type: string
+  responses:
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
+    MonitorsResponse:
+      description: The response body from GET /monitors
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Monitor'
+            properties: {}
+            required:
+            - monitors
   securitySchemes:
     personalAccessToken:
       description: 'Use a personal access token from notehub.io/api-access

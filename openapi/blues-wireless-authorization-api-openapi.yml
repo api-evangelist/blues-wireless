@@ -128,24 +128,6 @@ paths:
       - Authorization
 components:
   schemas:
-    OAuth2Error:
-      type: object
-      properties:
-        error:
-          description: RFC 6749 error code.
-          type: string
-          enum:
-          - invalid_request
-          - invalid_client
-          - invalid_grant
-          - unauthorized_client
-          - unsupported_grant_type
-          - invalid_scope
-        error_description:
-          description: Human-readable explanation of the error.
-          type: string
-      required:
-      - error
     OAuth2TokenResponse:
       type: object
       properties:
@@ -168,6 +150,24 @@ components:
       - access_token
       - token_type
       - expires_in
+    OAuth2Error:
+      type: object
+      properties:
+        error:
+          description: RFC 6749 error code.
+          type: string
+          enum:
+          - invalid_request
+          - invalid_client
+          - invalid_grant
+          - unauthorized_client
+          - unsupported_grant_type
+          - invalid_scope
+        error_description:
+          description: Human-readable explanation of the error.
+          type: string
+      required:
+      - error
   securitySchemes:
     personalAccessToken:
       description: 'Use a personal access token from notehub.io/api-access

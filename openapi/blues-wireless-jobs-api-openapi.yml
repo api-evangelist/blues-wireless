@@ -256,31 +256,106 @@ paths:
       summary: Cancel job run
       x-summary-source: derived
 components:
+  responses:
+    GetJobRunsResponse:
+      description: List of job runs
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              runs:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobRun'
+            required:
+            - runs
+    CreateJobResponse:
+      description: Job created successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              job_uid:
+                description: The unique identifier for the created job
+                type: string
+            required:
+            - job_uid
+    CancelJobRunResponse:
+      description: Cancel operation completed
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              successful:
+                description: True if cancellation was successful
+                type: boolean
+            required:
+            - successful
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
+    RunJobResponse:
+      description: Job execution started
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              report_uid:
+                description: Unique identifier for this job run
+                type: string
+            required:
+            - report_uid
+    DeleteJobResponse:
+      description: Job deleted successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                description: True if deletion was successful
+                type: boolean
+            required:
+            - success
+    GetJobResponse:
+      description: Batch job details
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/JobDetail'
+    GetJobRunResponse:
+      description: Job run details
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/JobRun'
+    GetJobsResponse:
+      description: List of batch jobs
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              jobs:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Job'
+            required:
+            - jobs
   schemas:
-    Error:
-      type: object
-      properties:
-        code:
-          description: The HTTP error code associated with the error.
-          type: integer
-          maximum: 599
-          minimum: 300
-        debug:
-          type: string
-        details:
-          type: object
-        err:
-          description: Human readable error message.
-          type: string
-        request:
-          type: string
-        status:
-          description: Machine readable representation of the HTTP error code.
-          type: string
-      required:
-      - err
-      - code
-      - status
     JobDetail:
       description: Batch job with full definition
       type: ''
@@ -291,58 +366,80 @@ components:
           definition:
             $ref: '#/components/schemas/JobDefinition'
         type: object
-    BatchJobRequests:
-      description: Operations to apply to a device
+    JobDefinition:
+      description: Batch job definition
       type: object
       properties:
         comment:
+          description: Human-readable description of the job
           type: string
-        connectivity_assurance_disable:
-          description: Disable connectivity assurance for the device
-          type: boolean
-        connectivity_assurance_enable:
-          description: Enable connectivity assurance for the device
-          type: boolean
-        disable:
-          description: Disable the device
-          type: boolean
-        enable:
-          description: Enable the device
-          type: boolean
-        fleets_to_default:
-          description: Fleet UIDs to assign to the device if it has no fleets
-          type: array
-          items:
-            type: string
-        fleets_to_join:
-          description: Fleet UIDs to add the device to
-          type: array
-          items:
-            type: string
-        fleets_to_leave:
-          description: Fleet UIDs to remove the device from
-          type: array
-          items:
-            type: string
-        provision_product:
-          description: Product UID to provision the device with if not already provisioned
-          type: string
-        sn_to_default:
-          description: Set the device serial number only if not already set
-          type: string
-        sn_to_set:
-          description: Set the device serial number ("-" to clear)
-          type: string
-        vars_to_default:
-          description: Environment variables to set only if not already set
+        default_requests:
+          $ref: '#/components/schemas/BatchJobRequests'
+        device_requests:
+          description: Device-specific request overrides, keyed by device UID
           type: object
           additionalProperties:
-            type: string
-        vars_to_set:
-          description: Environment variables to set (use "-" as value to clear)
+            $ref: '#/components/schemas/BatchJobRequests'
+        report_options:
+          description: Controls what data is included in the job report
           type: object
-          additionalProperties:
-            type: string
+          properties:
+            app_fleets:
+              description: Include project fleets in the report
+              type: boolean
+            app_info:
+              description: Include project info in the report
+              type: boolean
+            app_vars:
+              description: Include project environment variables in the report
+              type: boolean
+            comment:
+              type: string
+            device_activity:
+              description: Include device activity data in the report
+              type: boolean
+            device_health:
+              description: Include device health data in the report
+              type: boolean
+            device_info:
+              description: Include device info in the report
+              type: boolean
+            device_vars:
+              description: Include device environment variables in the report
+              type: boolean
+        select:
+          description: Device selection criteria
+          type: object
+          properties:
+            all_devices:
+              description: Select all devices in the project
+              type: boolean
+            comment:
+              type: string
+            devices:
+              description: Specific device UIDs to include
+              type: array
+              items:
+                type: string
+            devices_by_sn:
+              description: Serial number patterns to match (supports glob wildcards *, ?, [...])
+              type: array
+              items:
+                type: string
+            devices_in_fleets:
+              description: Fleet UIDs whose devices should be included
+              type: array
+              items:
+                type: string
+      example:
+        comment: Set environment variables on all devices in a fleet
+        default_requests:
+          vars_to_set:
+            firmware_channel: production
+            log_level: '1'
+        select:
+          devices_in_fleets:
+          - fleet:00000000-0000-0000-0000-000000000000
     JobRun:
       type: object
       properties:
@@ -429,6 +526,82 @@ components:
       - submitted_by
       - submitted
       - updated
+    Error:
+      type: object
+      properties:
+        code:
+          description: The HTTP error code associated with the error.
+          type: integer
+          maximum: 599
+          minimum: 300
+        debug:
+          type: string
+        details:
+          type: object
+        err:
+          description: Human readable error message.
+          type: string
+        request:
+          type: string
+        status:
+          description: Machine readable representation of the HTTP error code.
+          type: string
+      required:
+      - err
+      - code
+      - status
+    BatchJobRequests:
+      description: Operations to apply to a device
+      type: object
+      properties:
+        comment:
+          type: string
+        connectivity_assurance_disable:
+          description: Disable connectivity assurance for the device
+          type: boolean
+        connectivity_assurance_enable:
+          description: Enable connectivity assurance for the device
+          type: boolean
+        disable:
+          description: Disable the device
+          type: boolean
+        enable:
+          description: Enable the device
+          type: boolean
+        fleets_to_default:
+          description: Fleet UIDs to assign to the device if it has no fleets
+          type: array
+          items:
+            type: string
+        fleets_to_join:
+          description: Fleet UIDs to add the device to
+          type: array
+          items:
+            type: string
+        fleets_to_leave:
+          description: Fleet UIDs to remove the device from
+          type: array
+          items:
+            type: string
+        provision_product:
+          description: Product UID to provision the device with if not already provisioned
+          type: string
+        sn_to_default:
+          description: Set the device serial number only if not already set
+          type: string
+        sn_to_set:
+          description: Set the device serial number ("-" to clear)
+          type: string
+        vars_to_default:
+          description: Environment variables to set only if not already set
+          type: object
+          additionalProperties:
+            type: string
+        vars_to_set:
+          description: Environment variables to set (use "-" as value to clear)
+          type: object
+          additionalProperties:
+            type: string
     Job:
       type: object
       properties:
@@ -464,185 +637,11 @@ components:
       - name
       - created
       - created_by
-    JobDefinition:
-      description: Batch job definition
-      type: object
-      properties:
-        comment:
-          description: Human-readable description of the job
-          type: string
-        default_requests:
-          $ref: '#/components/schemas/BatchJobRequests'
-        device_requests:
-          description: Device-specific request overrides, keyed by device UID
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/BatchJobRequests'
-        report_options:
-          description: Controls what data is included in the job report
-          type: object
-          properties:
-            app_fleets:
-              description: Include project fleets in the report
-              type: boolean
-            app_info:
-              description: Include project info in the report
-              type: boolean
-            app_vars:
-              description: Include project environment variables in the report
-              type: boolean
-            comment:
-              type: string
-            device_activity:
-              description: Include device activity data in the report
-              type: boolean
-            device_health:
-              description: Include device health data in the report
-              type: boolean
-            device_info:
-              description: Include device info in the report
-              type: boolean
-            device_vars:
-              description: Include device environment variables in the report
-              type: boolean
-        select:
-          description: Device selection criteria
-          type: object
-          properties:
-            all_devices:
-              description: Select all devices in the project
-              type: boolean
-            comment:
-              type: string
-            devices:
-              description: Specific device UIDs to include
-              type: array
-              items:
-                type: string
-            devices_by_sn:
-              description: Serial number patterns to match (supports glob wildcards *, ?, [...])
-              type: array
-              items:
-                type: string
-            devices_in_fleets:
-              description: Fleet UIDs whose devices should be included
-              type: array
-              items:
-                type: string
-      example:
-        comment: Set environment variables on all devices in a fleet
-        default_requests:
-          vars_to_set:
-            firmware_channel: production
-            log_level: '1'
-        select:
-          devices_in_fleets:
-          - fleet:00000000-0000-0000-0000-000000000000
-  responses:
-    GetJobResponse:
-      description: Batch job details
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/JobDetail'
-    ErrorResponse:
-      description: The response body in case of an API error.
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/Error'
-    CancelJobRunResponse:
-      description: Cancel operation completed
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              successful:
-                description: True if cancellation was successful
-                type: boolean
-            required:
-            - successful
-    GetJobRunsResponse:
-      description: List of job runs
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              runs:
-                type: array
-                items:
-                  $ref: '#/components/schemas/JobRun'
-            required:
-            - runs
-    DeleteJobResponse:
-      description: Job deleted successfully
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              success:
-                description: True if deletion was successful
-                type: boolean
-            required:
-            - success
-    GetJobsResponse:
-      description: List of batch jobs
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              jobs:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Job'
-            required:
-            - jobs
-    RunJobResponse:
-      description: Job execution started
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              report_uid:
-                description: Unique identifier for this job run
-                type: string
-            required:
-            - report_uid
-    GetJobRunResponse:
-      description: Job run details
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/JobRun'
-    CreateJobResponse:
-      description: Job created successfully
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              job_uid:
-                description: The unique identifier for the created job
-                type: string
-            required:
-            - job_uid
   parameters:
-    reportUIDParam:
-      description: Unique identifier for a job run report
-      example: my-reconciliation-job-1707654321000
+    projectOrProductUIDParam:
+      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
       in: path
-      name: reportUID
+      name: projectOrProductUID
       required: true
       schema:
         type: string
@@ -654,10 +653,11 @@ components:
       required: true
       schema:
         type: string
-    projectOrProductUIDParam:
-      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
+    reportUIDParam:
+      description: Unique identifier for a job run report
+      example: my-reconciliation-job-1707654321000
       in: path
-      name: projectOrProductUID
+      name: reportUID
       required: true
       schema:
         type: string

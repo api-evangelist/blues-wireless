@@ -239,73 +239,76 @@ paths:
       summary: Get sessions usage
       x-summary-source: derived
 components:
+  parameters:
+    routeUIDParamQuery:
+      description: A Route UID.
+      explode: true
+      in: query
+      name: routeUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    startDateParam:
+      description: Start date for filtering results, specified as a Unix timestamp
+      example: 1628631763
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    projectOrProductUIDParam:
+      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
+      in: path
+      name: projectOrProductUID
+      required: true
+      schema:
+        type: string
+    endDateParam:
+      description: End date for filtering results, specified as a Unix timestamp
+      example: 1657894210
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    deviceUIDParamQuery:
+      description: A Device UID.
+      explode: true
+      in: query
+      name: deviceUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    fleetUIDFilterQueryParam:
+      description: Filter by Fleet UID
+      explode: true
+      in: query
+      name: fleetUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    usageLimitQueryParam:
+      description: Limit the number of data points returned
+      in: query
+      name: limit
+      required: false
+      schema:
+        type: integer
+        default: 200000
+        maximum: 400000
+        minimum: 1
   schemas:
-    Error:
-      type: object
-      properties:
-        code:
-          description: The HTTP error code associated with the error.
-          type: integer
-          maximum: 599
-          minimum: 300
-        debug:
-          type: string
-        details:
-          type: object
-        err:
-          description: Human readable error message.
-          type: string
-        request:
-          type: string
-        status:
-          description: Machine readable representation of the HTTP error code.
-          type: string
-      required:
-      - err
-      - code
-      - status
-    UsageData:
-      type: object
-      properties:
-        billable_bytes_total:
-          description: Total billable bytes (only for packet-based protocols)
-          type: integer
-          format: int64
-        downlink_bytes:
-          type: integer
-          format: int64
-          example: 524288
-        downlink_bytes_billable:
-          description: Billable downlink bytes (only for packet-based protocols)
-          type: integer
-          format: int64
-        downlink_packets:
-          description: Downlink packets (only for packet-based protocols)
-          type: integer
-          format: int64
-        period:
-          type: string
-          format: date-time
-          example: '2025-07-23T00:00:00Z'
-        total_bytes:
-          type: integer
-          format: int64
-          example: 1048576
-        uplink_bytes:
-          type: integer
-          format: int64
-          example: 524288
-        uplink_bytes_billable:
-          description: Billable uplink bytes (only for packet-based protocols)
-          type: integer
-          format: int64
-        uplink_packets:
-          description: Uplink packets (only for packet-based protocols)
-          type: integer
-          format: int64
-      required:
-      - period
-      - total_bytes
     UsageTruncatedField:
       description: If the data is truncated that means that the parameters selected resulted in a response of over | the requested limit of data points, in order to ensure
       type: boolean
@@ -363,17 +366,107 @@ components:
       - first_sync_sessions
       - total_bytes
       - total_devices
-    UsageEventsResponse:
+    UsageData:
       type: object
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/UsageEventsData'
-        truncated:
-          $ref: '#/components/schemas/UsageTruncatedField'
+        billable_bytes_total:
+          description: Total billable bytes (only for packet-based protocols)
+          type: integer
+          format: int64
+        downlink_bytes:
+          type: integer
+          format: int64
+          example: 524288
+        downlink_bytes_billable:
+          description: Billable downlink bytes (only for packet-based protocols)
+          type: integer
+          format: int64
+        downlink_packets:
+          description: Downlink packets (only for packet-based protocols)
+          type: integer
+          format: int64
+        period:
+          type: string
+          format: date-time
+          example: '2025-07-23T00:00:00Z'
+        total_bytes:
+          type: integer
+          format: int64
+          example: 1048576
+        uplink_bytes:
+          type: integer
+          format: int64
+          example: 524288
+        uplink_bytes_billable:
+          description: Billable uplink bytes (only for packet-based protocols)
+          type: integer
+          format: int64
+        uplink_packets:
+          description: Uplink packets (only for packet-based protocols)
+          type: integer
+          format: int64
       required:
-      - data
+      - period
+      - total_bytes
+    Error:
+      type: object
+      properties:
+        code:
+          description: The HTTP error code associated with the error.
+          type: integer
+          maximum: 599
+          minimum: 300
+        debug:
+          type: string
+        details:
+          type: object
+        err:
+          description: Human readable error message.
+          type: string
+        request:
+          type: string
+        status:
+          description: Machine readable representation of the HTTP error code.
+          type: string
+      required:
+      - err
+      - code
+      - status
+    UsageRouteLogsData:
+      type: object
+      properties:
+        avg_latency_ms:
+          description: Average routing latency in milliseconds for route logs with recorded duration
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 342.5
+        failed_routes:
+          type: integer
+          format: int64
+          example: 4
+        period:
+          type: string
+          format: date-time
+          example: '2025-07-23T00:00:00Z'
+        route:
+          description: The route UID (only present when aggregate is 'route')
+          type: string
+          example: route:cbd20093cba58392c9f9bbdd0cdeb1a0
+        successful_routes:
+          type: integer
+          format: int64
+          example: 38
+        total_routes:
+          type: integer
+          format: int64
+          example: 42
+      required:
+      - period
+      - successful_routes
+      - failed_routes
+      - total_routes
     UsageEventsData:
       type: object
       properties:
@@ -445,66 +538,18 @@ components:
       - platform_events
       - watchdog_events
       - total_devices
-    UsageRouteLogsData:
+    UsageEventsResponse:
       type: object
       properties:
-        avg_latency_ms:
-          description: Average routing latency in milliseconds for route logs with recorded duration
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 342.5
-        failed_routes:
-          type: integer
-          format: int64
-          example: 4
-        period:
-          type: string
-          format: date-time
-          example: '2025-07-23T00:00:00Z'
-        route:
-          description: The route UID (only present when aggregate is 'route')
-          type: string
-          example: route:cbd20093cba58392c9f9bbdd0cdeb1a0
-        successful_routes:
-          type: integer
-          format: int64
-          example: 38
-        total_routes:
-          type: integer
-          format: int64
-          example: 42
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UsageEventsData'
+        truncated:
+          $ref: '#/components/schemas/UsageTruncatedField'
       required:
-      - period
-      - successful_routes
-      - failed_routes
-      - total_routes
+      - data
   responses:
-    UsageSessionsResponse:
-      description: Response body for Session Usage
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              sessions:
-                type: array
-                items:
-                  $ref: '#/components/schemas/UsageSessionsData'
-              truncated:
-                $ref: '#/components/schemas/UsageTruncatedField'
-            required:
-            - sessions
-            - truncated
-    ErrorResponse:
-      description: The response body in case of an API error.
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/Error'
     UsageDataResponse:
       description: Response body for Data Usage
       content:
@@ -551,6 +596,22 @@ components:
                   type: object
               truncated:
                 $ref: '#/components/schemas/UsageTruncatedField'
+    UsageSessionsResponse:
+      description: Response body for Session Usage
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              sessions:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UsageSessionsData'
+              truncated:
+                $ref: '#/components/schemas/UsageTruncatedField'
+            required:
+            - sessions
+            - truncated
     UsageRouteLogsResponse:
       description: Response body for Route Log Usage
       content:
@@ -566,75 +627,14 @@ components:
                 $ref: '#/components/schemas/UsageTruncatedField'
             required:
             - route_logs
-  parameters:
-    routeUIDParamQuery:
-      description: A Route UID.
-      explode: true
-      in: query
-      name: routeUID
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-    deviceUIDParamQuery:
-      description: A Device UID.
-      explode: true
-      in: query
-      name: deviceUID
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-    projectOrProductUIDParam:
-      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
-      in: path
-      name: projectOrProductUID
-      required: true
-      schema:
-        type: string
-    endDateParam:
-      description: End date for filtering results, specified as a Unix timestamp
-      example: 1657894210
-      in: query
-      name: endDate
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-    usageLimitQueryParam:
-      description: Limit the number of data points returned
-      in: query
-      name: limit
-      required: false
-      schema:
-        type: integer
-        default: 200000
-        maximum: 400000
-        minimum: 1
-    startDateParam:
-      description: Start date for filtering results, specified as a Unix timestamp
-      example: 1628631763
-      in: query
-      name: startDate
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-    fleetUIDFilterQueryParam:
-      description: Filter by Fleet UID
-      explode: true
-      in: query
-      name: fleetUID
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     personalAccessToken:
       description: 'Use a personal access token from notehub.io/api-access
