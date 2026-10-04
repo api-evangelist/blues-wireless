@@ -141,46 +141,7 @@ paths:
       summary: Get organization balance history
       x-summary-source: derived
 components:
-  parameters:
-    startDateParam:
-      description: Start date for filtering results, specified as a Unix timestamp
-      example: 1628631763
-      in: query
-      name: startDate
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-    endDateParam:
-      description: End date for filtering results, specified as a Unix timestamp
-      example: 1657894210
-      in: query
-      name: endDate
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-    organizationUIDParam:
-      example: 00000000-0000-0000-000000000001
-      in: path
-      name: organizationUID
-      required: true
-      schema:
-        type: string
   schemas:
-    Organization:
-      type: object
-      properties:
-        name:
-          type: string
-        role:
-          $ref: '#/components/schemas/OrganizationRole'
-        uid:
-          type: string
-      required:
-      - uid
-      - name
-      - role
     Error:
       type: object
       properties:
@@ -218,6 +179,45 @@ components:
       - ORG_ROLE_BILLING_MANAGER
       - ORG_ROLE_PROJECT_CREATOR
       - ORG_ROLE_MEMBER
+    Organization:
+      type: object
+      properties:
+        name:
+          type: string
+        role:
+          $ref: '#/components/schemas/OrganizationRole'
+        uid:
+          type: string
+      required:
+      - uid
+      - name
+      - role
+  parameters:
+    startDateParam:
+      description: Start date for filtering results, specified as a Unix timestamp
+      example: 1628631763
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    endDateParam:
+      description: End date for filtering results, specified as a Unix timestamp
+      example: 1657894210
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    organizationUIDParam:
+      example: 00000000-0000-0000-000000000001
+      in: path
+      name: organizationUID
+      required: true
+      schema:
+        type: string
   responses:
     ErrorResponse:
       description: The response body in case of an API error.

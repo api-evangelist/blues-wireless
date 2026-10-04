@@ -256,105 +256,6 @@ paths:
       summary: Cancel job run
       x-summary-source: derived
 components:
-  responses:
-    GetJobRunsResponse:
-      description: List of job runs
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              runs:
-                type: array
-                items:
-                  $ref: '#/components/schemas/JobRun'
-            required:
-            - runs
-    CreateJobResponse:
-      description: Job created successfully
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              job_uid:
-                description: The unique identifier for the created job
-                type: string
-            required:
-            - job_uid
-    CancelJobRunResponse:
-      description: Cancel operation completed
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              successful:
-                description: True if cancellation was successful
-                type: boolean
-            required:
-            - successful
-    ErrorResponse:
-      description: The response body in case of an API error.
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/Error'
-    RunJobResponse:
-      description: Job execution started
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              report_uid:
-                description: Unique identifier for this job run
-                type: string
-            required:
-            - report_uid
-    DeleteJobResponse:
-      description: Job deleted successfully
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              success:
-                description: True if deletion was successful
-                type: boolean
-            required:
-            - success
-    GetJobResponse:
-      description: Batch job details
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/JobDetail'
-    GetJobRunResponse:
-      description: Job run details
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/JobRun'
-    GetJobsResponse:
-      description: List of batch jobs
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              jobs:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Job'
-            required:
-            - jobs
   schemas:
     JobDetail:
       description: Batch job with full definition
@@ -440,6 +341,30 @@ components:
         select:
           devices_in_fleets:
           - fleet:00000000-0000-0000-0000-000000000000
+    Error:
+      type: object
+      properties:
+        code:
+          description: The HTTP error code associated with the error.
+          type: integer
+          maximum: 599
+          minimum: 300
+        debug:
+          type: string
+        details:
+          type: object
+        err:
+          description: Human readable error message.
+          type: string
+        request:
+          type: string
+        status:
+          description: Machine readable representation of the HTTP error code.
+          type: string
+      required:
+      - err
+      - code
+      - status
     JobRun:
       type: object
       properties:
@@ -526,30 +451,6 @@ components:
       - submitted_by
       - submitted
       - updated
-    Error:
-      type: object
-      properties:
-        code:
-          description: The HTTP error code associated with the error.
-          type: integer
-          maximum: 599
-          minimum: 300
-        debug:
-          type: string
-        details:
-          type: object
-        err:
-          description: Human readable error message.
-          type: string
-        request:
-          type: string
-        status:
-          description: Machine readable representation of the HTTP error code.
-          type: string
-      required:
-      - err
-      - code
-      - status
     BatchJobRequests:
       description: Operations to apply to a device
       type: object
@@ -638,18 +539,18 @@ components:
       - created
       - created_by
   parameters:
-    projectOrProductUIDParam:
-      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
-      in: path
-      name: projectOrProductUID
-      required: true
-      schema:
-        type: string
     jobUIDParam:
       description: Unique identifier for a batch job
       example: my-reconciliation-job
       in: path
       name: jobUID
+      required: true
+      schema:
+        type: string
+    projectOrProductUIDParam:
+      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
+      in: path
+      name: projectOrProductUID
       required: true
       schema:
         type: string
@@ -661,6 +562,105 @@ components:
       required: true
       schema:
         type: string
+  responses:
+    GetJobRunsResponse:
+      description: List of job runs
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              runs:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobRun'
+            required:
+            - runs
+    GetJobRunResponse:
+      description: Job run details
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/JobRun'
+    GetJobResponse:
+      description: Batch job details
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/JobDetail'
+    GetJobsResponse:
+      description: List of batch jobs
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              jobs:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Job'
+            required:
+            - jobs
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
+    CreateJobResponse:
+      description: Job created successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              job_uid:
+                description: The unique identifier for the created job
+                type: string
+            required:
+            - job_uid
+    RunJobResponse:
+      description: Job execution started
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              report_uid:
+                description: Unique identifier for this job run
+                type: string
+            required:
+            - report_uid
+    CancelJobRunResponse:
+      description: Cancel operation completed
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              successful:
+                description: True if cancellation was successful
+                type: boolean
+            required:
+            - successful
+    DeleteJobResponse:
+      description: Job deleted successfully
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                description: True if deletion was successful
+                type: boolean
+            required:
+            - success
   securitySchemes:
     personalAccessToken:
       description: 'Use a personal access token from notehub.io/api-access

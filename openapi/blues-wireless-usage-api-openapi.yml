@@ -239,133 +239,7 @@ paths:
       summary: Get sessions usage
       x-summary-source: derived
 components:
-  parameters:
-    routeUIDParamQuery:
-      description: A Route UID.
-      explode: true
-      in: query
-      name: routeUID
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-    startDateParam:
-      description: Start date for filtering results, specified as a Unix timestamp
-      example: 1628631763
-      in: query
-      name: startDate
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-    projectOrProductUIDParam:
-      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
-      in: path
-      name: projectOrProductUID
-      required: true
-      schema:
-        type: string
-    endDateParam:
-      description: End date for filtering results, specified as a Unix timestamp
-      example: 1657894210
-      in: query
-      name: endDate
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-    deviceUIDParamQuery:
-      description: A Device UID.
-      explode: true
-      in: query
-      name: deviceUID
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-    fleetUIDFilterQueryParam:
-      description: Filter by Fleet UID
-      explode: true
-      in: query
-      name: fleetUID
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-    usageLimitQueryParam:
-      description: Limit the number of data points returned
-      in: query
-      name: limit
-      required: false
-      schema:
-        type: integer
-        default: 200000
-        maximum: 400000
-        minimum: 1
   schemas:
-    UsageTruncatedField:
-      description: If the data is truncated that means that the parameters selected resulted in a response of over | the requested limit of data points, in order to ensure
-      type: boolean
-      properties: {}
-    UsageSessionsData:
-      type: object
-      properties:
-        device:
-          type: string
-          example: dev:123456789012345
-        first_sync_sessions:
-          description: Number of first sync sessions in this period
-          type: integer
-          format: int64
-          example: 2
-        fleet:
-          type: string
-          example: fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d
-        period:
-          type: string
-          format: date-time
-          example: '2025-07-23T00:00:00Z'
-        sessions:
-          type: integer
-          format: int64
-          example: 12
-        sessions_by_transport:
-          description: Count of sessions grouped by transport type prefix (e.g. cell, wifi, ntn, lorawan)
-          type: object
-          example:
-            cell: 8
-            ntn: 1
-            wifi: 3
-          additionalProperties:
-            format: int64
-            type: integer
-        tls_sessions:
-          description: Number of TLS sessions in this period
-          type:
-          - integer
-          - 'null'
-          format: int64
-          example: 3
-        total_bytes:
-          type: integer
-          format: int64
-          example: 1048576
-        total_devices:
-          type: integer
-          format: int64
-          example: 1
-      required:
-      - period
-      - sessions
-      - first_sync_sessions
-      - total_bytes
-      - total_devices
     UsageData:
       type: object
       properties:
@@ -432,41 +306,70 @@ components:
       - err
       - code
       - status
-    UsageRouteLogsData:
+    UsageEventsResponse:
       type: object
       properties:
-        avg_latency_ms:
-          description: Average routing latency in milliseconds for route logs with recorded duration
-          type:
-          - number
-          - 'null'
-          format: double
-          example: 342.5
-        failed_routes:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UsageEventsData'
+        truncated:
+          $ref: '#/components/schemas/UsageTruncatedField'
+      required:
+      - data
+    UsageSessionsData:
+      type: object
+      properties:
+        device:
+          type: string
+          example: dev:123456789012345
+        first_sync_sessions:
+          description: Number of first sync sessions in this period
           type: integer
           format: int64
-          example: 4
+          example: 2
+        fleet:
+          type: string
+          example: fleet:1042ddc5-3b2c-4cec-b1fb-d3040538094d
         period:
           type: string
           format: date-time
           example: '2025-07-23T00:00:00Z'
-        route:
-          description: The route UID (only present when aggregate is 'route')
-          type: string
-          example: route:cbd20093cba58392c9f9bbdd0cdeb1a0
-        successful_routes:
+        sessions:
           type: integer
           format: int64
-          example: 38
-        total_routes:
+          example: 12
+        sessions_by_transport:
+          description: Count of sessions grouped by transport type prefix (e.g. cell, wifi, ntn, lorawan)
+          type: object
+          example:
+            cell: 8
+            ntn: 1
+            wifi: 3
+          additionalProperties:
+            format: int64
+            type: integer
+        tls_sessions:
+          description: Number of TLS sessions in this period
+          type:
+          - integer
+          - 'null'
+          format: int64
+          example: 3
+        total_bytes:
           type: integer
           format: int64
-          example: 42
+          example: 1048576
+        total_devices:
+          type: integer
+          format: int64
+          example: 1
       required:
       - period
-      - successful_routes
-      - failed_routes
-      - total_routes
+      - sessions
+      - first_sync_sessions
+      - total_bytes
+      - total_devices
     UsageEventsData:
       type: object
       properties:
@@ -538,17 +441,45 @@ components:
       - platform_events
       - watchdog_events
       - total_devices
-    UsageEventsResponse:
+    UsageRouteLogsData:
       type: object
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/UsageEventsData'
-        truncated:
-          $ref: '#/components/schemas/UsageTruncatedField'
+        avg_latency_ms:
+          description: Average routing latency in milliseconds for route logs with recorded duration
+          type:
+          - number
+          - 'null'
+          format: double
+          example: 342.5
+        failed_routes:
+          type: integer
+          format: int64
+          example: 4
+        period:
+          type: string
+          format: date-time
+          example: '2025-07-23T00:00:00Z'
+        route:
+          description: The route UID (only present when aggregate is 'route')
+          type: string
+          example: route:cbd20093cba58392c9f9bbdd0cdeb1a0
+        successful_routes:
+          type: integer
+          format: int64
+          example: 38
+        total_routes:
+          type: integer
+          format: int64
+          example: 42
       required:
-      - data
+      - period
+      - successful_routes
+      - failed_routes
+      - total_routes
+    UsageTruncatedField:
+      description: If the data is truncated that means that the parameters selected resulted in a response of over | the requested limit of data points, in order to ensure
+      type: boolean
+      properties: {}
   responses:
     UsageDataResponse:
       description: Response body for Data Usage
@@ -612,6 +543,14 @@ components:
             required:
             - sessions
             - truncated
+    ErrorResponse:
+      description: The response body in case of an API error.
+      content:
+        application/json:
+          schema:
+            type: ''
+            properties: {}
+            $ref: '#/components/schemas/Error'
     UsageRouteLogsResponse:
       description: Response body for Route Log Usage
       content:
@@ -627,14 +566,75 @@ components:
                 $ref: '#/components/schemas/UsageTruncatedField'
             required:
             - route_logs
-    ErrorResponse:
-      description: The response body in case of an API error.
-      content:
-        application/json:
-          schema:
-            type: ''
-            properties: {}
-            $ref: '#/components/schemas/Error'
+  parameters:
+    routeUIDParamQuery:
+      description: A Route UID.
+      explode: true
+      in: query
+      name: routeUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    startDateParam:
+      description: Start date for filtering results, specified as a Unix timestamp
+      example: 1628631763
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    projectOrProductUIDParam:
+      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
+      in: path
+      name: projectOrProductUID
+      required: true
+      schema:
+        type: string
+    endDateParam:
+      description: End date for filtering results, specified as a Unix timestamp
+      example: 1657894210
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    deviceUIDParamQuery:
+      description: A Device UID.
+      explode: true
+      in: query
+      name: deviceUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+    usageLimitQueryParam:
+      description: Limit the number of data points returned
+      in: query
+      name: limit
+      required: false
+      schema:
+        type: integer
+        default: 200000
+        maximum: 400000
+        minimum: 1
+    fleetUIDFilterQueryParam:
+      description: Filter by Fleet UID
+      explode: true
+      in: query
+      name: fleetUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
   securitySchemes:
     personalAccessToken:
       description: 'Use a personal access token from notehub.io/api-access

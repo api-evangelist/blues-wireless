@@ -273,6 +273,91 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          description: The HTTP error code associated with the error.
+          type: integer
+          maximum: 599
+          minimum: 300
+        debug:
+          type: string
+        details:
+          type: object
+        err:
+          description: Human readable error message.
+          type: string
+        request:
+          type: string
+        status:
+          description: Machine readable representation of the HTTP error code.
+          type: string
+      required:
+      - err
+      - code
+      - status
+    NotehubRouteSummary:
+      type: object
+      properties:
+        disabled:
+          type: boolean
+          default: false
+        label:
+          type: string
+          default: success route
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        type:
+          type: string
+          default: http
+        uid:
+          type: string
+          default: route:8d65a087d5d290ce5bdf03aeff2becc0
+    RadRoute:
+      type: object
+      properties:
+        client_id:
+          type: string
+        client_secret:
+          type: string
+          format: password
+        data_feed_key:
+          type: string
+        event_id:
+          type: integer
+        fleets:
+          type: array
+          items:
+            type: string
+        test_api:
+          type: boolean
+        throttle_ms:
+          type: integer
+      additionalProperties: false
+    ThingworxRoute:
+      type: object
+      properties:
+        app_key:
+          type: string
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        url:
+          type: string
+          format: uri
+      additionalProperties: false
     Filter:
       description: 'Filter applied to route data. Controls which notefiles are sent through the route.
 
@@ -295,31 +380,6 @@ components:
           description: Type of filter to apply (corresponds to `hublib.NotefileFilterType`).
           type: string
           example: inclusion
-    DatacakeRoute:
-      type: object
-      properties:
-        disable_http_headers:
-          type: boolean
-        filter:
-          $ref: '#/components/schemas/Filter'
-        fleets:
-          type: array
-          items:
-            type: string
-        http_headers:
-          type: object
-          additionalProperties:
-            type: string
-        throttle_ms:
-          type: integer
-        timeout:
-          type: integer
-        transform:
-          $ref: '#/components/schemas/RouteTransformSettings'
-        url:
-          type: string
-          format: uri
-      additionalProperties: false
     S3ArchiveRoute:
       type: object
       properties:
@@ -361,16 +421,20 @@ components:
           type: string
           format: uri
       additionalProperties: false
-    ThingworxRoute:
+    DatacakeRoute:
       type: object
       properties:
-        app_key:
-          type: string
+        disable_http_headers:
+          type: boolean
         filter:
           $ref: '#/components/schemas/Filter'
         fleets:
           type: array
           items:
+            type: string
+        http_headers:
+          type: object
+          additionalProperties:
             type: string
         throttle_ms:
           type: integer
@@ -382,88 +446,26 @@ components:
           type: string
           format: uri
       additionalProperties: false
-    RadRoute:
+    RouteTransformSettings:
+      description: 'Settings for transforming route payloads before delivery. Supports format
+
+        selection and JSONata-based transformations.
+
+        '
       type: object
       properties:
-        client_id:
+        format:
+          description: Output format for transformed data (e.g., "json", "xml", "text").
           type: string
-        client_secret:
+          example: json
+        jsonata:
+          description: JSONata expression used to transform the data payload (outgoing).
           type: string
-          format: password
-        data_feed_key:
+          example: $.body.data
+        jsonata_in:
+          description: JSONata expression used to transform the data payload (incoming).
           type: string
-        event_id:
-          type: integer
-        fleets:
-          type: array
-          items:
-            type: string
-        test_api:
-          type: boolean
-        throttle_ms:
-          type: integer
-      additionalProperties: false
-    SnowflakeRoute:
-      type: object
-      properties:
-        account_name:
-          type: string
-        filter:
-          $ref: '#/components/schemas/Filter'
-        fleets:
-          type: array
-          items:
-            type: string
-        organization_name:
-          type: string
-        pem:
-          type: string
-        private_key_name:
-          type: string
-        timeout:
-          type: integer
-        transform:
-          $ref: '#/components/schemas/RouteTransformSettings'
-        user_name:
-          type: string
-      additionalProperties: false
-    MqttRoute:
-      type: object
-      properties:
-        broker:
-          type: string
-        certificate:
-          type: string
-        certificate_name:
-          type: string
-        client_id:
-          type: string
-        filter:
-          $ref: '#/components/schemas/Filter'
-        fleets:
-          type: array
-          items:
-            type: string
-        key:
-          type: string
-        password:
-          type: string
-          format: password
-        port:
-          type: string
-        private_key_name:
-          type: string
-        throttle_ms:
-          type: integer
-        timeout:
-          type: integer
-        topic:
-          type: string
-        transform:
-          $ref: '#/components/schemas/RouteTransformSettings'
-        username:
-          type: string
-      additionalProperties: false
+          example: $.body.data
     NotehubRoute:
       description: Route resource as stored/returned by the server.
       type: object
@@ -520,6 +522,99 @@ components:
           type: string
           readOnly: true
       additionalProperties: false
+    HttpRoute:
+      type: object
+      properties:
+        disable_http_headers:
+          type: boolean
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          description: If non-empty, applies only to the listed fleets.
+          type: array
+          items:
+            type: string
+        http_headers:
+          type: object
+          additionalProperties:
+            type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        url:
+          type: string
+          format: uri
+      additionalProperties: false
+    BlynkRoute:
+      type: object
+      properties:
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        region:
+          type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+      additionalProperties: false
+    TwilioRoute:
+      type: object
+      properties:
+        account_sid:
+          type: string
+        auth_token:
+          type: string
+          format: password
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        from:
+          type: string
+        message:
+          type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        to:
+          type: string
+      additionalProperties: false
+    SnowflakeRoute:
+      type: object
+      properties:
+        account_name:
+          type: string
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        organization_name:
+          type: string
+        pem:
+          type: string
+        private_key_name:
+          type: string
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        user_name:
+          type: string
+      additionalProperties: false
     RouteLog:
       type: object
       properties:
@@ -547,75 +642,6 @@ components:
         url:
           description: The URL of the route.
           type: string
-    BlynkRoute:
-      type: object
-      properties:
-        filter:
-          $ref: '#/components/schemas/Filter'
-        fleets:
-          type: array
-          items:
-            type: string
-        region:
-          type: string
-        throttle_ms:
-          type: integer
-        timeout:
-          type: integer
-        transform:
-          $ref: '#/components/schemas/RouteTransformSettings'
-      additionalProperties: false
-    SnowpipeStreamingRoute:
-      type: object
-      properties:
-        account_name:
-          type: string
-        database_name:
-          type: string
-        filter:
-          $ref: '#/components/schemas/Filter'
-        fleets:
-          type: array
-          items:
-            type: string
-        organization_name:
-          type: string
-        pem:
-          type: string
-        pipe_name:
-          type: string
-        private_key_name:
-          type: string
-        schema_name:
-          type: string
-        timeout:
-          type: integer
-        transform:
-          $ref: '#/components/schemas/RouteTransformSettings'
-        user_name:
-          type: string
-      additionalProperties: false
-    ProxyRoute:
-      type: object
-      properties:
-        alias:
-          type: string
-        fleets:
-          type: array
-          items:
-            type: string
-        http_headers:
-          type: object
-          additionalProperties:
-            type: string
-        timeout:
-          type: integer
-        transform:
-          $ref: '#/components/schemas/RouteTransformSettings'
-        url:
-          type: string
-          format: uri
-      additionalProperties: false
     QubitroRoute:
       type: object
       properties:
@@ -634,6 +660,43 @@ components:
         transform:
           $ref: '#/components/schemas/RouteTransformSettings'
         webhook_signing_key:
+          type: string
+      additionalProperties: false
+    MqttRoute:
+      type: object
+      properties:
+        broker:
+          type: string
+        certificate:
+          type: string
+        certificate_name:
+          type: string
+        client_id:
+          type: string
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        key:
+          type: string
+        password:
+          type: string
+          format: password
+        port:
+          type: string
+        private_key_name:
+          type: string
+        throttle_ms:
+          type: integer
+        timeout:
+          type: integer
+        topic:
+          type: string
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        username:
           type: string
       additionalProperties: false
     AwsRoute:
@@ -676,26 +739,57 @@ components:
           type: string
           format: uri
       additionalProperties: false
-    RouteTransformSettings:
-      description: 'Settings for transforming route payloads before delivery. Supports format
-
-        selection and JSONata-based transformations.
-
-        '
+    ProxyRoute:
       type: object
       properties:
-        format:
-          description: Output format for transformed data (e.g., "json", "xml", "text").
+        alias:
           type: string
-          example: json
-        jsonata:
-          description: JSONata expression used to transform the data payload (outgoing).
+        fleets:
+          type: array
+          items:
+            type: string
+        http_headers:
+          type: object
+          additionalProperties:
+            type: string
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        url:
           type: string
-          example: $.body.data
-        jsonata_in:
-          description: JSONata expression used to transform the data payload (incoming).
+          format: uri
+      additionalProperties: false
+    SnowpipeStreamingRoute:
+      type: object
+      properties:
+        account_name:
           type: string
-          example: $.body.data
+        database_name:
+          type: string
+        filter:
+          $ref: '#/components/schemas/Filter'
+        fleets:
+          type: array
+          items:
+            type: string
+        organization_name:
+          type: string
+        pem:
+          type: string
+        pipe_name:
+          type: string
+        private_key_name:
+          type: string
+        schema_name:
+          type: string
+        timeout:
+          type: integer
+        transform:
+          $ref: '#/components/schemas/RouteTransformSettings'
+        user_name:
+          type: string
+      additionalProperties: false
     AzureRoute:
       type: object
       properties:
@@ -720,74 +814,6 @@ components:
         url:
           type: string
           format: uri
-      additionalProperties: false
-    Error:
-      type: object
-      properties:
-        code:
-          description: The HTTP error code associated with the error.
-          type: integer
-          maximum: 599
-          minimum: 300
-        debug:
-          type: string
-        details:
-          type: object
-        err:
-          description: Human readable error message.
-          type: string
-        request:
-          type: string
-        status:
-          description: Machine readable representation of the HTTP error code.
-          type: string
-      required:
-      - err
-      - code
-      - status
-    NotehubRouteSummary:
-      type: object
-      properties:
-        disabled:
-          type: boolean
-          default: false
-        label:
-          type: string
-          default: success route
-        modified:
-          type: string
-          format: date-time
-          readOnly: true
-        type:
-          type: string
-          default: http
-        uid:
-          type: string
-          default: route:8d65a087d5d290ce5bdf03aeff2becc0
-    TwilioRoute:
-      type: object
-      properties:
-        account_sid:
-          type: string
-        auth_token:
-          type: string
-          format: password
-        filter:
-          $ref: '#/components/schemas/Filter'
-        fleets:
-          type: array
-          items:
-            type: string
-        from:
-          type: string
-        message:
-          type: string
-        throttle_ms:
-          type: integer
-        timeout:
-          type: integer
-        to:
-          type: string
       additionalProperties: false
     GoogleRoute:
       type: object
@@ -837,33 +863,56 @@ components:
           type: string
           format: uri
       additionalProperties: false
-    HttpRoute:
-      type: object
-      properties:
-        disable_http_headers:
-          type: boolean
-        filter:
-          $ref: '#/components/schemas/Filter'
-        fleets:
-          description: If non-empty, applies only to the listed fleets.
-          type: array
-          items:
-            type: string
-        http_headers:
-          type: object
-          additionalProperties:
-            type: string
-        throttle_ms:
-          type: integer
-        timeout:
-          type: integer
-        transform:
-          $ref: '#/components/schemas/RouteTransformSettings'
-        url:
-          type: string
-          format: uri
-      additionalProperties: false
   parameters:
+    startDateParam:
+      description: Start date for filtering results, specified as a Unix timestamp
+      example: 1628631763
+      in: query
+      name: startDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    systemFilesOnlyParam:
+      in: query
+      name: systemFilesOnly
+      required: false
+      schema:
+        type: boolean
+    responseStatusParam:
+      example: 500
+      in: query
+      name: responseStatus
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+    endDateParam:
+      description: End date for filtering results, specified as a Unix timestamp
+      example: 1657894210
+      in: query
+      name: endDate
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+    filesQueryParam:
+      example: _health.qo, data.qo
+      in: query
+      name: files
+      required: false
+      schema:
+        type: string
+    pageSizeParam:
+      in: query
+      name: pageSize
+      required: false
+      schema:
+        type: integer
+        default: 50
+        maximum: 10000
+        minimum: 1
     pageNumParam:
       in: query
       name: pageNum
@@ -872,26 +921,6 @@ components:
         type: integer
         default: 1
         minimum: 1
-    filesQueryParam:
-      example: _health.qo, data.qo
-      in: query
-      name: files
-      required: false
-      schema:
-        type: string
-    projectOrProductUIDParam:
-      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
-      in: path
-      name: projectOrProductUID
-      required: true
-      schema:
-        type: string
-    mostRecentOnlyParam:
-      in: query
-      name: mostRecentOnly
-      required: false
-      schema:
-        type: boolean
     routeLogsSortOrderParam:
       in: query
       name: sortOrder
@@ -902,69 +931,6 @@ components:
         enum:
         - asc
         - desc
-    startDateParam:
-      description: Start date for filtering results, specified as a Unix timestamp
-      example: 1628631763
-      in: query
-      name: startDate
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-    endDateParam:
-      description: End date for filtering results, specified as a Unix timestamp
-      example: 1657894210
-      in: query
-      name: endDate
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-    deviceUIDParamQuery:
-      description: A Device UID.
-      explode: true
-      in: query
-      name: deviceUID
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-    routeLogsSortByParam:
-      in: query
-      name: sortBy
-      required: false
-      schema:
-        type: string
-        default: date
-        enum:
-        - date
-        - event
-    responseStatusParam:
-      example: 500
-      in: query
-      name: responseStatus
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-    pageSizeParam:
-      in: query
-      name: pageSize
-      required: false
-      schema:
-        type: integer
-        default: 50
-        maximum: 10000
-        minimum: 1
-    systemFilesOnlyParam:
-      in: query
-      name: systemFilesOnly
-      required: false
-      schema:
-        type: boolean
     routingStatusParam:
       example: failure
       in: query
@@ -977,6 +943,40 @@ components:
           - success
           - failure
           type: string
+    mostRecentOnlyParam:
+      in: query
+      name: mostRecentOnly
+      required: false
+      schema:
+        type: boolean
+    routeLogsSortByParam:
+      in: query
+      name: sortBy
+      required: false
+      schema:
+        type: string
+        default: date
+        enum:
+        - date
+        - event
+    projectOrProductUIDParam:
+      example: app:2606f411-dea6-44a0-9743-1130f57d77d8
+      in: path
+      name: projectOrProductUID
+      required: true
+      schema:
+        type: string
+    deviceUIDParamQuery:
+      description: A Device UID.
+      explode: true
+      in: query
+      name: deviceUID
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
     routeUIDParam:
       example: route:cbd20093cba58392c9f9bbdd0cdeb1a0
       in: path
